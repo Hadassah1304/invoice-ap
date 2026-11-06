@@ -1,9 +1,39 @@
 from __future__ import annotations
 
 import contextlib
-import sqlite3
+import datetime
 from pathlib import Path
+import re
+import sqlite3
 from typing import Generator, Optional
+
+
+def _safe_convert_date(val: bytes) -> datetime.date:
+    """Resilient sqlite3 DATE converter that gracefully parses ISO, British, and text-month dates."""
+    s = val.decode("utf-8").strip()
+    try:
+        return datetime.date.fromisoformat(s)
+    except Exception:
+        pass
+    for fmt in ("%d-%b-%Y", "%d/%m/%Y", "%d-%m-%Y", "%Y/%m/%d", "%b %d %Y", "%d %b %Y", "%d %B %Y"):
+        try:
+            return datetime.datetime.strptime(s, fmt).date()
+        except Exception:
+            continue
+    try:
+        parts = [int(p) for p in re.findall(r"\d+", s)]
+        if len(parts) >= 3:
+            if parts[0] > 1900:
+                return datetime.date(parts[0], parts[1], parts[2])
+            elif parts[2] > 1900:
+                return datetime.date(parts[2], parts[1], parts[0])
+    except Exception:
+        pass
+    return datetime.date.today()
+
+
+sqlite3.register_converter("date", _safe_convert_date)
+sqlite3.register_converter("DATE", _safe_convert_date)
 
 
 def get_connection(db_path: str) -> sqlite3.Connection:

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AP Automation — Invoice-to-Decision Console</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3.3">
 </head>
 <body>
   <header class="app-header">
@@ -86,13 +86,18 @@
         <!-- Decision Banner -->
         <div id="decision-banner" class="decision-banner status-review">
           <div class="banner-main">
-            <span id="decision-badge" class="decision-badge">NEEDS_REVIEW</span>
-            <span id="reason-code-badge" class="reason-code-badge">AMBIGUOUS_PO</span>
+            <div class="banner-tag-row">
+              <span id="decision-badge" class="decision-badge">NEEDS_REVIEW</span>
+              <span id="reason-code-badge" class="reason-code-badge">AMBIGUOUS_PO</span>
+            </div>
             <h2 id="decision-summary">Multiple purchase orders match this invoice.</h2>
           </div>
           <div class="confidence-box" title="Deterministic heuristic based on extraction legibility, matching margin, and validation rule penalties.">
-            <span class="confidence-label">Confidence</span>
-            <span id="confidence-val" class="confidence-val">0.78</span>
+            <span class="confidence-label">Extraction & Decision Confidence</span>
+            <div class="confidence-val-row">
+              <span id="confidence-val" class="confidence-val">0.78</span>
+              <span id="confidence-tier-pill" class="confidence-tier-pill tier-amber">Moderate</span>
+            </div>
             <div class="confidence-bar-bg">
               <div id="confidence-bar-fill" class="confidence-bar-fill" style="width: 78%;"></div>
             </div>
@@ -102,8 +107,13 @@
         <!-- Human Review Actions Banner -->
         <div id="review-action-panel" class="review-panel hidden">
           <div class="review-header">
-            <h3>⚠️ Reviewer Action Required</h3>
-            <span class="hint">Resolve ambiguities below to approve or reject</span>
+            <div class="review-title-group">
+              <span class="badge" style="background:#fef3c7; color:#b45309; border:1px solid #fde68a; font-weight:700;">ACTION REQUIRED</span>
+              <div>
+                <h3>Reviewer Action Required</h3>
+                <span class="hint">Resolve ambiguities below to approve or reject</span>
+              </div>
+            </div>
           </div>
           <div id="review-action-controls" class="review-controls"></div>
           <div class="review-footer">
@@ -115,111 +125,374 @@
           </div>
         </div>
 
-        <!-- Reasoning Section -->
-        <div class="card section-card">
-          <h3>Auditable Reasoning</h3>
-          <ul id="reasoning-list" class="reasoning-bullets"></ul>
+        <!-- Invoice Snapshot Strip -->
+        <div id="invoice-snapshot-bar" class="invoice-snapshot-bar">
+          <div class="snapshot-item">
+            <span class="snapshot-label">Invoice #</span>
+            <span id="snap-inv-no" class="snapshot-val">—</span>
+          </div>
+          <div class="snapshot-item snapshot-vendor">
+            <span class="snapshot-label">Vendor</span>
+            <span id="snap-vendor" class="snapshot-val">—</span>
+          </div>
+          <div class="snapshot-item">
+            <span class="snapshot-label">Invoice Date</span>
+            <span id="snap-date" class="snapshot-val">—</span>
+          </div>
+          <div class="snapshot-item">
+            <span class="snapshot-label">Total Invoiced</span>
+            <span id="snap-total" class="snapshot-val highlight-val">—</span>
+          </div>
+          <div class="snapshot-item snapshot-status">
+            <span class="snapshot-label">PO Status</span>
+            <span id="snap-po" class="snapshot-val po-pill">—</span>
+          </div>
         </div>
 
-        <!-- Split Grid: Extracted Fields & PO Match -->
+        <!-- Prominent PO Comparison Switcher Toolbar (For Multiple POs) -->
+        <div id="po-selector-toolbar" class="card section-card po-selector-card hidden">
+          <div class="po-selector-header">
+            <div>
+              <span class="po-selector-label">Comparing Against Purchase Order:</span>
+              <span class="po-selector-hint">Select a candidate PO below to switch comparison and verify line items</span>
+            </div>
+            <span id="candidate-count-badge" class="badge">2 Candidates Available</span>
+          </div>
+          <div id="po-selector-pills" class="po-selector-pills"></div>
+        </div>
+
+        <!-- Side-by-Side Verification Hub: Invoice vs Matched PO -->
+        <div class="card section-card side-by-side-card">
+          <div class="card-header-flex">
+            <div>
+              <h3>Side-by-Side Verification: Invoice vs Purchase Order</h3>
+              <p class="subtitle">Direct comparison highlighting vendor matches, price drifts, and quantity coverage</p>
+            </div>
+            <div id="comparison-po-badge" class="badge-po-target">Active PO: <strong id="active-po-label">None</strong></div>
+          </div>
+
+          <!-- 4-Column Metadata Reconciliation Table -->
+          <div class="table-responsive" style="margin-bottom: 24px;">
+            <table class="data-table reconciliation-table" id="reconciliation-table">
+              <thead>
+                <tr>
+                  <th style="width: 16%;">Attribute</th>
+                  <th style="width: 28%;">Invoice Document</th>
+                  <th style="width: 28%;">Purchase Order (<span id="reconcile-po-id">PO Master</span>)</th>
+                  <th style="width: 28%;">Alignment & Verification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="attr-label">Vendor</span></td>
+                  <td>
+                    <div id="diff-inv-vendor" class="recon-val">—</div>
+                    <div id="diff-inv-gstin" class="recon-sub">GSTIN: —</div>
+                  </td>
+                  <td>
+                    <div id="diff-po-vendor" class="recon-val">—</div>
+                    <div id="diff-po-gstin" class="recon-sub">GSTIN: —</div>
+                  </td>
+                  <td>
+                    <div id="diff-vendor-status" class="diff-status-pill status-neutral">Pending Verification</div>
+                    <div id="diff-vendor-sub" class="recon-status-sub">Checking vendor records</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="attr-label">Document Date</span></td>
+                  <td>
+                    <div id="diff-inv-date" class="recon-val">—</div>
+                  </td>
+                  <td>
+                    <div id="diff-po-date" class="recon-val">—</div>
+                  </td>
+                  <td>
+                    <div id="diff-date-status" class="diff-status-pill status-neutral">Pending Verification</div>
+                    <div id="diff-date-sub" class="recon-status-sub">Checking order timeline</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="attr-label">Order Value & Coverage</span></td>
+                  <td>
+                    <div id="diff-inv-total" class="recon-val recon-highlight">—</div>
+                    <div id="diff-inv-total-sub" class="recon-sub">Current Invoice Claim</div>
+                  </td>
+                  <td>
+                    <div id="diff-po-total" class="recon-val recon-highlight">—</div>
+                    <div id="diff-po-total-sub" class="recon-sub">Total PO Lifetime Commitment</div>
+                  </td>
+                  <td>
+                    <div id="diff-total-status" class="diff-status-pill status-neutral">Pending Verification</div>
+                    <div id="diff-coverage-bar-container" class="recon-progress-wrapper hidden">
+                      <div class="recon-progress-bar">
+                        <div id="diff-coverage-bar-fill" class="recon-progress-fill" style="width: 0%;"></div>
+                      </div>
+                    </div>
+                    <div id="diff-total-sub" class="recon-status-sub">Checking budget consumption</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Line-by-Line Item Verification Widgets (Invoice top, PO directly below) -->
+          <div class="items-section-header">
+            <div>
+              <h4 class="subheading-divider">Line-by-Line Item Verification</h4>
+              <p class="subtitle">For each item, the invoice claim is displayed on top and the matched PO specification directly underneath</p>
+            </div>
+          </div>
+
+          <div id="line-items-widgets-container" class="item-widgets-container">
+            <div class="empty-state">No line items to compare</div>
+          </div>
+
+          <!-- Hidden legacy table stub for backward compatibility -->
+          <table style="display: none !important;" aria-hidden="true">
+            <tbody id="paired-lines-body"></tbody>
+          </table>
+        </div>
+
+        <!-- PO Balance Consumption Card -->
+        <div id="po-balance-card" class="card section-card po-balance-card hidden">
+          <div class="card-header-flex">
+            <div>
+              <h3>Purchase Order Balance & Consumption</h3>
+              <p class="subtitle">Real-time commitment tracking and available headroom</p>
+            </div>
+            <div id="balance-health-pill" class="badge-po-target">Within Allocation</div>
+          </div>
+
+          <!-- KPI Metric Cards Grid -->
+          <div class="balance-kpi-grid">
+            <div class="balance-kpi-card">
+              <span class="kpi-label">PO Total Budget</span>
+              <span id="kpi-po-total" class="kpi-value">—</span>
+              <span class="kpi-sub">Total PO Commitment</span>
+            </div>
+            <div class="balance-kpi-card">
+              <span class="kpi-label">Previously Billed</span>
+              <span id="kpi-po-billed" class="kpi-value">—</span>
+              <span id="kpi-po-billed-pct" class="kpi-sub">— % utilized</span>
+            </div>
+            <div class="balance-kpi-card highlight-this">
+              <span class="kpi-label">This Invoice</span>
+              <span id="kpi-po-this" class="kpi-value">—</span>
+              <span id="kpi-po-this-pct" class="kpi-sub">— % impact</span>
+            </div>
+            <div id="kpi-remaining-card" class="balance-kpi-card highlight-remaining">
+              <span class="kpi-label">Remaining After Approval</span>
+              <span id="kpi-po-rem" class="kpi-value">—</span>
+              <span id="kpi-po-rem-status" class="kpi-sub">Available headroom</span>
+            </div>
+          </div>
+
+          <!-- Visual Multi-Segment Stacked Bar -->
+          <div class="balance-bar-wrapper">
+            <div class="balance-bar-container">
+              <div id="balance-bar-consumed" class="balance-bar-consumed" title="Previously Billed"></div>
+              <div id="balance-bar-this" class="balance-bar-this" title="This Invoice"></div>
+              <div id="balance-bar-remaining" class="balance-bar-remaining" title="Remaining Available"></div>
+              <div id="balance-bar-overage" class="balance-bar-overage hidden" title="Budget Overage"></div>
+            </div>
+          </div>
+
+          <!-- Legend with Colored Chips -->
+          <div class="balance-legend-chips">
+            <span class="legend-chip"><span class="legend-dot dot-consumed"></span> Previously Billed (<span id="leg-billed-val">0.00</span>)</span>
+            <span class="legend-chip"><span class="legend-dot dot-this"></span> This Invoice (<span id="leg-this-val">0.00</span>)</span>
+            <span class="legend-chip"><span class="legend-dot dot-remaining"></span> Remaining Headroom (<span id="leg-rem-val">0.00</span>)</span>
+            <span id="leg-overage-chip" class="legend-chip hidden"><span class="legend-dot dot-overage"></span> Budget Overage (<span id="leg-overage-val">0.00</span>)</span>
+          </div>
+        </div>
+
+        <!-- Candidate PO Ranking & Matching Insights -->
+        <div class="card section-card">
+          <div class="card-header-flex">
+            <div>
+              <h3>Evaluated Candidate Purchase Orders</h3>
+              <p class="subtitle">Ranked by price alignment, line overlap, and open budget headroom</p>
+            </div>
+            <span class="hint">Click any candidate row to preview its comparison</span>
+          </div>
+
+          <details class="matching-math-details">
+            <summary class="math-summary">How is Match Confidence calculated?</summary>
+            <div class="math-body">
+              <p>When an invoice arrives, candidate purchase orders from the same vendor are evaluated across 5 weighted business signals to calculate an overall <strong>Match Fit Percentage (0% to 100%)</strong>:</p>
+
+              <div class="math-signals-grid">
+                <div class="math-signal-card">
+                  <div class="math-signal-header">
+                    <span class="math-signal-name">Unit Price Alignment</span>
+                    <span class="math-signal-weight">35% Weight</span>
+                  </div>
+                  <div class="math-signal-desc">
+                    Checks if invoice unit prices match the negotiated PO contract rates within tolerance.
+                  </div>
+                </div>
+
+                <div class="math-signal-card">
+                  <div class="math-signal-header">
+                    <span class="math-signal-name">Quantity Headroom</span>
+                    <span class="math-signal-weight">30% Weight</span>
+                  </div>
+                  <div class="math-signal-desc">
+                    Ensures billed quantities fit within the unfulfilled, remaining items on the purchase order.
+                  </div>
+                </div>
+
+                <div class="math-signal-card">
+                  <div class="math-signal-header">
+                    <span class="math-signal-name">Budget Draw & Balance</span>
+                    <span class="math-signal-weight">20% Weight</span>
+                  </div>
+                  <div class="math-signal-desc">
+                    Measures how invoice amount fits the PO commitment. Full billings score 100%; partial milestones score by the proportion drawn.
+                  </div>
+                </div>
+
+                <div class="math-signal-card">
+                  <div class="math-signal-header">
+                    <span class="math-signal-name">Line Item Overlap</span>
+                    <span class="math-signal-weight">10% Weight</span>
+                  </div>
+                  <div class="math-signal-desc">
+                    Proportion of billed line items successfully recognized and matched against PO line specifications.
+                  </div>
+                </div>
+
+                <div class="math-signal-card">
+                  <div class="math-signal-header">
+                    <span class="math-signal-name">Chronology & Terms</span>
+                    <span class="math-signal-weight">5% Weight</span>
+                  </div>
+                  <div class="math-signal-desc">
+                    Validates that invoice date post-dates the PO creation date and falls within vendor payment terms.
+                  </div>
+                </div>
+              </div>
+
+              <div class="math-interpret-box">
+                <div class="math-interpret-title">How to Interpret the Match Fit Score:</div>
+                <ul style="margin: 4px 0 0 16px; padding: 0; line-height: 1.45; font-size: 0.74rem; color: #475569;">
+                  <li><strong>80% – 100% (High Fit)</strong>: Strong contract alignment. For partial deliveries with 100% price/qty alignment, scores in the 80s reflect a healthy partial draw against the open PO.</li>
+                  <li><strong>50% – 79% (Moderate Fit)</strong>: Requires reviewer attention; typically indicates minor price variances or partial line matching.</li>
+                  <li><strong>Below 50% (Low Fit / Rejected)</strong>: Significant mismatches, unallocated catalog items, budget overrun, or closed purchase order.</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <div class="table-responsive">
+            <table class="data-table candidates-ranking-table" id="candidates-table">
+              <thead>
+                <tr>
+                  <th style="width: 150px;">Candidate PO</th>
+                  <th style="width: 170px;">Match Fit</th>
+                  <th style="width: 320px;">Signals Breakdown</th>
+                  <th>Triage & Verification Notes</th>
+                </tr>
+              </thead>
+              <tbody id="candidates-body">
+                <tr><td colspan="4" class="empty-state">No candidate POs evaluated</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Split Grid: Extracted Document Details & Auditable Reasoning -->
         <div class="grid-2">
           <!-- Extracted Fields Card -->
           <div class="card">
-            <h3>Extracted Document Data</h3>
+            <div class="card-header-flex">
+              <h3>Extracted Document Fields</h3>
+              <span class="hint">Source legibility & confidence</span>
+            </div>
             <table class="data-table" id="extracted-fields-table">
               <thead>
                 <tr>
                   <th>Field</th>
                   <th>Value</th>
-                  <th>Conf</th>
+                  <th>Confidence</th>
                   <th>Grounded</th>
                 </tr>
               </thead>
               <tbody id="extracted-fields-body"></tbody>
             </table>
-
-            <h4 style="margin-top: 15px;">Line Items</h4>
-            <table class="data-table" id="line-items-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Description</th>
-                  <th>Qty</th>
-                  <th>Unit Price</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody id="line-items-body"></tbody>
-            </table>
           </div>
 
-          <!-- PO Match & Balance Card -->
+          <!-- Auditable Reasoning Card -->
           <div class="card">
-            <h3>Purchase Order Matching</h3>
-            <div id="po-match-info" class="po-match-info"></div>
-
-            <div id="po-balance-card" class="po-balance-card hidden">
-              <h4>PO Balance Consumption</h4>
-              <div class="balance-bar-container">
-                <div id="balance-bar-consumed" class="balance-bar-consumed"></div>
-                <div id="balance-bar-this" class="balance-bar-this"></div>
-              </div>
-              <div id="balance-legend" class="balance-legend"></div>
+            <div class="card-header-flex">
+              <h3>Auditable Reasoning & Factors</h3>
+              <span class="hint">Deterministic decision chain</span>
             </div>
-
-            <h4 style="margin-top: 15px;">Candidate PO Ranking</h4>
-            <table class="data-table" id="candidates-table">
-              <thead>
-                <tr>
-                  <th>PO ID</th>
-                  <th>Score</th>
-                  <th>Signals</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody id="candidates-body"></tbody>
-            </table>
+            <div id="reasoning-container" class="reasoning-container">
+              <ul id="reasoning-list" class="reasoning-bullets-styled"></ul>
+            </div>
           </div>
         </div>
 
-        <!-- Validation Rules Table -->
+        <!-- Validation Rules Table with Filters -->
         <div class="card section-card">
-          <h3>Validation Rule Results</h3>
+          <div class="card-header-flex">
+            <div>
+              <h3>Validation Rule Results</h3>
+              <p class="subtitle">Deterministic financial, duplicate, arithmetic, and tolerance guards</p>
+            </div>
+            <div class="rule-filter-tabs">
+              <button class="rule-filter-btn active" data-filter="all">All (<span id="rule-cnt-all">0</span>)</button>
+              <button class="rule-filter-btn" data-filter="exceptions">Exceptions Only (<span id="rule-cnt-exceptions">0</span>)</button>
+              <button class="rule-filter-btn" data-filter="passed">Passed (<span id="rule-cnt-passed">0</span>)</button>
+            </div>
+          </div>
           <table class="data-table" id="rules-table">
             <thead>
               <tr>
-                <th>Rule</th>
-                <th>Status</th>
-                <th>Severity</th>
-                <th>Message</th>
+                <th style="width: 200px;">Rule</th>
+                <th style="width: 100px;">Status</th>
+                <th style="width: 100px;">Severity</th>
+                <th>Validation Message & Diagnostics</th>
               </tr>
             </thead>
             <tbody id="rules-body"></tbody>
           </table>
         </div>
 
-        <!-- Pipeline Execution Trace Timeline -->
-        <div class="card section-card">
-          <div class="trace-header">
-            <h3>Execution Trace & Latency Breakdown</h3>
+        <!-- Pipeline Execution Trace Timeline (Collapsible Accordion) -->
+        <details class="card section-card trace-accordion">
+          <summary class="trace-summary-header">
+            <div class="trace-header-title">
+              <span class="trace-toggle-icon">▸</span>
+              <h3>Execution Trace & Latency Breakdown</h3>
+            </div>
             <span id="total-latency" class="total-latency">Total: 0ms</span>
+          </summary>
+          <div class="trace-body-container">
+            <table class="data-table" id="trace-table">
+              <thead>
+                <tr>
+                  <th>Stage</th>
+                  <th>Status</th>
+                  <th>Duration</th>
+                  <th>Summary</th>
+                </tr>
+              </thead>
+              <tbody id="trace-body"></tbody>
+            </table>
           </div>
-          <table class="data-table" id="trace-table">
-            <thead>
-              <tr>
-                <th>Stage</th>
-                <th>Status</th>
-                <th>Duration</th>
-                <th>Summary</th>
-              </tr>
-            </thead>
-            <tbody id="trace-body"></tbody>
-          </table>
+        </details>
+        <!-- Hidden Fallback Containers for Legacy/Cached Compatibility -->
+        <div style="display: none !important;" aria-hidden="true">
+          <div id="po-match-info"></div>
+          <div id="balance-legend"></div>
+          <tbody id="line-items-body"></tbody>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3.3"></script>
 </body>
 </html>

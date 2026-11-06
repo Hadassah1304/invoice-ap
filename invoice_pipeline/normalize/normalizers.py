@@ -126,7 +126,21 @@ def parse_date(
         return None, False
 
     clean = str(date_str).strip()
-    formats = priority_formats or ["%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%d %b %Y", "%d %B %Y"]
+    formats = priority_formats or [
+        "%d/%m/%Y",
+        "%d-%m-%Y",
+        "%Y-%m-%d",
+        "%d %b %Y",
+        "%d %B %Y",
+        "%d-%b-%Y",
+        "%d-%B-%Y",
+        "%b %d, %Y",
+        "%B %d, %Y",
+        "%b %d %Y",
+        "%B %d %Y",
+        "%Y/%m/%d",
+        "%m/%d/%Y",
+    ]
 
     # Check for DD/MM vs MM/DD ambiguity (e.g. 03/04/2026)
     m = re.match(r"^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$", clean)

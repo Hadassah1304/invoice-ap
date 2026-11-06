@@ -21,11 +21,18 @@ def list_pos(db=Depends(get_db)):
 def get_po_detail(po_id: str, db=Depends(get_db)):
     po_repo = PORepo(db)
     item_repo = ItemRepo(db)
+    vendor_repo = VendorRepo(db)
     po = po_repo.get_by_id(po_id)
     if not po:
         return {"error": "PO not found"}
     items = item_repo.list_by_po(po_id)
-    return {"po": po, "items": items}
+    clean_items = []
+    for it in items:
+        d = dict(it)
+        d.pop("embedding", None)
+        clean_items.append(d)
+    vendor = vendor_repo.get_by_id(po["vendor_id"]) if po.get("vendor_id") else None
+    return {"po": po, "items": clean_items, "vendor": vendor}
 
 
 @router.get("/api/vendors")
