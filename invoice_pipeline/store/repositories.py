@@ -242,12 +242,14 @@ class InvoiceRepo:
         status: str,
         decision_json: str,
         file_hash: Optional[str] = None,
+        file_name: Optional[str] = None,
+        file_path: Optional[str] = None,
     ) -> int:
         cur = self.conn.execute(
             """INSERT INTO invoices
                (vendor_id, invoice_no_raw, invoice_no_norm, invoice_date, total, currency,
-                po_id, match_method, status, decision_json, file_hash)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                po_id, match_method, status, decision_json, file_hash, file_name, file_path)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 vendor_id,
                 invoice_no_raw,
@@ -260,6 +262,8 @@ class InvoiceRepo:
                 status,
                 decision_json,
                 file_hash,
+                file_name,
+                file_path,
             ),
         )
         return cur.lastrowid
@@ -271,12 +275,15 @@ class InvoiceRepo:
         decision_json: str,
         po_id: Optional[str] = None,
         match_method: Optional[str] = None,
+        file_name: Optional[str] = None,
+        file_path: Optional[str] = None,
     ) -> None:
         self.conn.execute(
             """UPDATE invoices 
-               SET status = ?, decision_json = ?, po_id = COALESCE(?, po_id), match_method = COALESCE(?, match_method)
+               SET status = ?, decision_json = ?, po_id = COALESCE(?, po_id), match_method = COALESCE(?, match_method),
+                   file_name = COALESCE(?, file_name), file_path = COALESCE(?, file_path)
                WHERE invoice_id = ?""",
-            (status, decision_json, po_id, match_method, invoice_id),
+            (status, decision_json, po_id, match_method, file_name, file_path, invoice_id),
         )
 
     def add_line(

@@ -216,6 +216,11 @@ class CostSummary(BaseModel):
 
 
 class DecisionResult(BaseModel):
+    invoice_id: Optional[int] = None
+    vendor_id: Optional[str] = None
+    vendor_name: Optional[str] = None
+    file_name: Optional[str] = None
+    file_path: Optional[str] = None
     request_id: str
     decision: DecisionEnum
     reason_code: ReasonCodeEnum
@@ -231,3 +236,38 @@ class DecisionResult(BaseModel):
     timings_ms: Timings = Field(default_factory=Timings)
     cost: CostSummary = Field(default_factory=CostSummary)
     cached: bool = False
+
+
+class BatchItemResult(BaseModel):
+    file_name: str
+    file_path: Optional[str] = None
+    file_size_bytes: int = 0
+    status: str = "SUCCESS"  # SUCCESS | FAILED
+    invoice_id: Optional[int] = None
+    invoice_no: Optional[str] = None
+    vendor_id: Optional[str] = None
+    vendor_name: Optional[str] = None
+    total: Optional[float] = None
+    currency: Optional[str] = None
+    decision: Optional[DecisionEnum] = None
+    reason_code: Optional[ReasonCodeEnum] = None
+    confidence: float = 0.0
+    summary: str = ""
+    duration_ms: int = 0
+    processed_at: str = ""
+    error_message: Optional[str] = None
+    result: Optional[DecisionResult] = None
+
+
+class BatchProcessResult(BaseModel):
+    batch_id: str
+    total_files: int = 0
+    processed_count: int = 0
+    approved_count: int = 0
+    needs_review_count: int = 0
+    rejected_count: int = 0
+    failed_count: int = 0
+    avg_confidence: float = 0.0
+    total_duration_ms: int = 0
+    items: List[BatchItemResult] = Field(default_factory=list)
+

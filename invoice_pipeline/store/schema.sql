@@ -47,6 +47,8 @@ CREATE TABLE IF NOT EXISTS invoices (
   status TEXT NOT NULL CHECK (status IN ('APPROVED','PENDING_REVIEW','REJECTED')),
   decision_json TEXT,                 -- full output stored for replay in the UI
   file_hash TEXT,
+  file_name TEXT,
+  file_path TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- Partial unique index excluding rejected and null/empty invoice numbers

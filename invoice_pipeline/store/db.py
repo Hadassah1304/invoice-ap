@@ -84,7 +84,7 @@ def transaction(conn: sqlite3.Connection, mode: str = "IMMEDIATE") -> Generator[
 
 
 def init_db(db_path: str, schema_path: Optional[str] = None) -> None:
-    """Initialize database tables using schema.sql."""
+    """Initialize database tables using schema.sql and apply backward-compatible migrations."""
     if schema_path is None:
         schema_path = str(Path(__file__).parent / "schema.sql")
     with open(schema_path, "r", encoding="utf-8") as f:
@@ -93,5 +93,12 @@ def init_db(db_path: str, schema_path: Optional[str] = None) -> None:
     conn = get_connection(db_path)
     try:
         conn.executescript(sql)
+        # Migrate invoices table if columns missing
+        cur = conn.execute("PRAGMA table_info(invoices);")
+        columns = {row["name"] for row in cur.fetchall()}
+        if "file_name" not in columns:
+            conn.execute("ALTER TABLE invoices ADD COLUMN file_name TEXT;")
+        if "file_path" not in columns:
+            conn.execute("ALTER TABLE invoices ADD COLUMN file_path TEXT;")
     finally:
         conn.close()

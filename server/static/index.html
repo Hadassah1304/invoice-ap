@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AP Automation — Invoice-to-Decision Console</title>
-  <link rel="stylesheet" href="style.css?v=3.3">
+  <link rel="stylesheet" href="style.css?v=3.4">
 </head>
 <body>
   <header class="app-header">
@@ -19,6 +19,41 @@
     </div>
   </header>
 
+  <!-- Global Workspace Navigation Tabs -->
+  <nav class="workspace-nav">
+    <div class="workspace-tabs-container">
+      <div class="workspace-tabs">
+        <button class="workspace-tab active" data-workspace="ws-single">
+          <span class="ws-icon">📄</span>
+          <span>Single Document</span>
+        </button>
+        <button class="workspace-tab" data-workspace="ws-batch">
+          <span class="ws-icon">📦</span>
+          <span>Batch Processing</span>
+          <span id="batch-nav-count" class="tab-counter hidden">0</span>
+        </button>
+        <button class="workspace-tab" data-workspace="ws-pos">
+          <span class="ws-icon">📑</span>
+          <span>Purchase Orders Hub</span>
+          <span id="po-nav-count" class="tab-counter">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Inspection Breadcrumb for quick return when inspecting from Batch or POs -->
+  <div id="inspector-breadcrumb" class="breadcrumb-bar hidden">
+    <div class="breadcrumb-container">
+      <button id="btn-back-to-origin" class="btn btn-sm btn-outline">
+        <span class="back-arrow">←</span> Return to <span id="breadcrumb-origin-label">Batch Processing</span>
+      </button>
+      <span class="breadcrumb-separator">•</span>
+      <span class="breadcrumb-text">Inspecting Invoice: <strong id="breadcrumb-inv-no">#</strong></span>
+    </div>
+  </div>
+
+  <!-- Workspace 1: Single Document Mode -->
+  <div id="ws-single" class="workspace-view active">
   <main class="app-layout">
     <!-- Left Column: Ingest & Samples -->
     <aside class="sidebar">
@@ -147,8 +182,38 @@
             <span class="snapshot-label">PO Status</span>
             <span id="snap-po" class="snapshot-val po-pill">—</span>
           </div>
+          <div class="snapshot-item snapshot-doc-action">
+            <span class="snapshot-label">Original Document</span>
+            <button id="btn-snap-view-doc" class="btn btn-sm btn-outline" style="margin-top: 2px;">
+              <span>📄</span> View Invoice
+            </button>
+          </div>
         </div>
 
+        <!-- Rejected Invoice Notice & Suspected Candidates Toggle -->
+        <div id="rejected-po-notice" class="card section-card rejected-po-notice-card hidden">
+          <div class="rejected-notice-content">
+            <div class="rejected-notice-header">
+              <div class="rejected-notice-icon">⚠️</div>
+              <div>
+                <h3 class="rejected-notice-title">Invoice Rejected — No Purchase Order Linked</h3>
+                <p id="rejected-notice-desc" class="rejected-notice-desc">
+                  This invoice was rejected as it does not belong to any purchase order. PO comparisons and balance consumption are hidden by default.
+                </p>
+              </div>
+            </div>
+            <div class="rejected-notice-actions">
+              <button id="btn-toggle-suspected-candidates" type="button" class="btn btn-outline-danger">
+                <span class="btn-icon">🔍</span>
+                <span id="toggle-candidates-btn-text">View Suspected Candidates</span>
+                <span id="suspected-candidates-count-pill" class="pill-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PO Comparison Container (Hidden by default for REJECTED invoices) -->
+        <div id="po-comparison-container" class="po-comparison-container">
         <!-- Prominent PO Comparison Switcher Toolbar (For Multiple POs) -->
         <div id="po-selector-toolbar" class="card section-card po-selector-card hidden">
           <div class="po-selector-header">
@@ -400,6 +465,7 @@
             </table>
           </div>
         </div>
+        </div> <!-- /#po-comparison-container -->
 
         <!-- Split Grid: Extracted Document Details & Auditable Reasoning -->
         <div class="grid-2">
@@ -492,7 +558,412 @@
       </div>
     </section>
   </main>
+  </div>
 
-  <script src="app.js?v=3.3"></script>
+  <!-- Workspace 2: Batch Processing Mode -->
+  <div id="ws-batch" class="workspace-view hidden">
+    <div class="workspace-container">
+      
+      <!-- Top Batch Upload & Staging Card -->
+      <section class="card batch-card">
+        <div class="card-header-flex">
+          <div>
+            <h2>Batch Invoice Processing</h2>
+            <p class="subtitle">Select multiple invoice files (PDF/PNG/JPG) to process sequentially one-by-one</p>
+          </div>
+          <span class="badge" style="background:#eff6ff; color:#2563eb;">Sequential Queue & Fault Isolation</span>
+        </div>
+
+        <div class="batch-upload-layout">
+          <!-- Drop zone -->
+          <div id="batch-drop-zone" class="drop-zone batch-drop-zone">
+            <input type="file" id="batch-file-input" multiple accept=".pdf,.png,.jpg,.jpeg">
+            <div class="drop-zone-prompt">
+              <span class="upload-icon">📦</span>
+              <p>Drag & drop <strong>multiple invoice files</strong> or <strong>browse</strong></p>
+              <span class="hint">PDF, PNG, JPG supported · Multiple files allowed</span>
+            </div>
+          </div>
+
+          <!-- Staged files summary & action column -->
+          <div class="batch-staging-panel">
+            <div class="batch-staging-header">
+              <h3>Staged Files (<span id="batch-staged-count">0</span>)</h3>
+              <button id="btn-batch-clear" class="btn btn-sm btn-outline" style="display:none;">Clear Selection</button>
+            </div>
+            
+            <div id="batch-staged-list" class="batch-staged-list">
+              <div class="empty-state">No files selected yet. Drag files or browse above.</div>
+            </div>
+
+            <div class="batch-controls-row">
+              <div class="form-row">
+                <label for="batch-ocr-select">OCR Engine:</label>
+                <select id="batch-ocr-select">
+                  <option value="">Auto (Config default)</option>
+                  <option value="rapidocr">RapidOCR</option>
+                  <option value="tesseract">Tesseract</option>
+                </select>
+              </div>
+
+              <div class="form-row toggle-row" style="margin-top:24px;">
+                <label for="batch-dryrun-toggle">Dry Run (skip DB ledger):</label>
+                <input type="checkbox" id="batch-dryrun-toggle">
+              </div>
+
+              <button id="btn-batch-process" class="btn btn-primary" style="margin-top: 18px;" disabled>
+                Process Batch (0 files)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Progress Bar -->
+        <div id="batch-progress-container" class="batch-progress-container hidden">
+          <div class="progress-info-row">
+            <span id="batch-progress-status">Processing file 1 of 5...</span>
+            <span id="batch-progress-pct">20%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="batch-progress-bar-fill" class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Batch Processing HUD / KPI Summary Strip -->
+      <section id="batch-hud-section" class="batch-hud-section hidden">
+        <div class="batch-hud-grid">
+          <div class="hud-card hud-total">
+            <span class="hud-label">Total Invoices</span>
+            <div class="hud-value-row">
+              <span id="hud-total-val" class="hud-value">0</span>
+              <span id="hud-duration-val" class="hud-sub">0 ms total</span>
+            </div>
+            <span class="hud-footer">Processed in this batch</span>
+          </div>
+
+          <div class="hud-card hud-review highlight-amber">
+            <div class="hud-header-badge">
+              <span class="hud-label">Action Required</span>
+              <span id="hud-review-pct" class="badge badge-amber">0%</span>
+            </div>
+            <div class="hud-value-row">
+              <span id="hud-review-val" class="hud-value text-amber">0</span>
+              <span class="hud-sub">Needs Review</span>
+            </div>
+            <span class="hud-footer">Prioritized for reviewer inspection</span>
+          </div>
+
+          <div class="hud-card hud-approved highlight-green">
+            <div class="hud-header-badge">
+              <span class="hud-label">Auto-Approved</span>
+              <span id="hud-approved-pct" class="badge badge-green">0%</span>
+            </div>
+            <div class="hud-value-row">
+              <span id="hud-approved-val" class="hud-value text-green">0</span>
+              <span class="hud-sub">Ready to Post</span>
+            </div>
+            <span class="hud-footer">Passed 3-way match & guards</span>
+          </div>
+
+          <div class="hud-card hud-rejected highlight-red">
+            <div class="hud-header-badge">
+              <span class="hud-label">Rejected / Failed</span>
+              <span id="hud-rejected-pct" class="badge badge-red">0%</span>
+            </div>
+            <div class="hud-value-row">
+              <span id="hud-rejected-val" class="hud-value text-red">0</span>
+              <span class="hud-sub">Rejected</span>
+            </div>
+            <span class="hud-footer">Violations or unreadable docs</span>
+          </div>
+
+          <div class="hud-card hud-confidence">
+            <span class="hud-label">Avg Extraction Confidence</span>
+            <div class="hud-value-row">
+              <span id="hud-avg-conf-val" class="hud-value">—</span>
+              <span id="hud-conf-tier-pill" class="confidence-tier-pill tier-amber">Moderate</span>
+            </div>
+            <div class="confidence-bar-bg" style="margin-top: 8px;">
+              <div id="hud-conf-bar-fill" class="confidence-bar-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Batch Priority Ledger & Queue Table -->
+      <section id="batch-ledger-section" class="card batch-ledger-card">
+        <div class="card-header-flex batch-table-toolbar">
+          <div class="toolbar-left">
+            <div>
+              <h3>Batch Invoices Priority Queue</h3>
+              <p class="subtitle">Default sorted by <strong>Highest Review Needed & Lowest Confidence First</strong></p>
+            </div>
+            <div class="batch-filter-pills">
+              <button class="batch-filter-btn active" data-bfilter="all">All (<span id="bfilter-cnt-all">0</span>)</button>
+              <button class="batch-filter-btn" data-bfilter="NEEDS_REVIEW">Needs Review (<span id="bfilter-cnt-review">0</span>)</button>
+              <button class="batch-filter-btn" data-bfilter="APPROVED">Approved (<span id="bfilter-cnt-approved">0</span>)</button>
+              <button class="batch-filter-btn" data-bfilter="REJECTED">Rejected (<span id="bfilter-cnt-rejected">0</span>)</button>
+            </div>
+          </div>
+
+          <div class="toolbar-right">
+            <label for="batch-sort-select" class="sort-label">Sort By:</label>
+            <select id="batch-sort-select" class="sort-select">
+              <option value="priority">⚠️ Priority (Needs Review & Lowest Conf First)</option>
+              <option value="conf_asc">Lowest Confidence First</option>
+              <option value="conf_desc">Highest Confidence First</option>
+              <option value="time_desc">Processing Time (Newest First)</option>
+              <option value="total_desc">Total Amount (High to Low)</option>
+              <option value="name_asc">File Name (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table batch-table" id="batch-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">Priority</th>
+                <th style="width: 180px;">File & Invoice #</th>
+                <th style="width: 160px;">Vendor</th>
+                <th style="width: 120px;">Amount</th>
+                <th style="width: 140px;">Status</th>
+                <th style="width: 180px;">Reason & Diagnostics</th>
+                <th style="width: 140px;">Confidence</th>
+                <th style="width: 160px;">Processing Time</th>
+                <th style="width: 110px;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="batch-table-body">
+              <tr>
+                <td colspan="9" class="empty-state">No batch processed yet. Select files above and click "Process Batch".</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Workspace 3: Purchase Orders Hub -->
+  <div id="ws-pos" class="workspace-view hidden">
+    <div class="workspace-container">
+
+      <!-- PO Summary KPI Strip -->
+      <section class="po-summary-strip">
+        <div class="po-kpi-card">
+          <span class="kpi-label">Total Purchase Orders</span>
+          <span id="po-kpi-total-cnt" class="kpi-value">0</span>
+          <span class="kpi-sub">Across all vendors</span>
+        </div>
+        <div class="po-kpi-card highlight-green">
+          <span class="kpi-label">Open / Partial POs</span>
+          <span id="po-kpi-open-cnt" class="kpi-value text-green">0</span>
+          <span class="kpi-sub">Available for matching</span>
+        </div>
+        <div class="po-kpi-card">
+          <span class="kpi-label">Total Commitment Budget</span>
+          <span id="po-kpi-budget-val" class="kpi-value">₹0.00</span>
+          <span class="kpi-sub">Lifetime PO budget</span>
+        </div>
+        <div class="po-kpi-card">
+          <span class="kpi-label">Total Billed to Date</span>
+          <span id="po-kpi-billed-val" class="kpi-value">₹0.00</span>
+          <span id="po-kpi-util-val" class="kpi-sub">0% utilized</span>
+        </div>
+        <div class="po-kpi-card highlight-remaining">
+          <span class="kpi-label">Remaining Available Headroom</span>
+          <span id="po-kpi-rem-val" class="kpi-value text-primary">₹0.00</span>
+          <span class="kpi-sub">Open unbilled allocation</span>
+        </div>
+      </section>
+
+      <!-- Main PO Layout: Left Master List / Right Detail Drawer -->
+      <div class="pos-main-layout">
+        
+        <!-- Left Column: PO Directory & Filters -->
+        <section class="card po-directory-card">
+          <div class="po-filter-header">
+            <div>
+              <h2>Purchase Orders Directory</h2>
+              <p class="subtitle">Select a PO to inspect budget balance and linked invoices</p>
+            </div>
+            <div class="po-filter-group">
+              <input type="text" id="po-search-input" placeholder="Search PO # or Vendor..." class="search-input">
+              <div class="po-status-chips">
+                <button class="po-chip active" data-postatus="ALL">All (<span id="po-chip-all">0</span>)</button>
+                <button class="po-chip" data-postatus="OPEN">Open (<span id="po-chip-open">0</span>)</button>
+                <button class="po-chip" data-postatus="PARTIAL">Partial (<span id="po-chip-partial">0</span>)</button>
+                <button class="po-chip" data-postatus="CLOSED">Closed (<span id="po-chip-closed">0</span>)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table pos-master-table" id="pos-master-table">
+              <thead>
+                <tr>
+                  <th>PO Number</th>
+                  <th>Vendor</th>
+                  <th>PO Date</th>
+                  <th>Status</th>
+                  <th>Budget Commitment</th>
+                  <th>Balance Consumption</th>
+                  <th>Linked Invoices</th>
+                </tr>
+              </thead>
+              <tbody id="pos-master-tbody">
+                <tr><td colspan="7" class="empty-state">Loading purchase orders...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Right Column / Detail Drawer: Selected PO Deep Dive -->
+        <section id="po-detail-card" class="card po-detail-card">
+          <div id="po-detail-empty" class="empty-state" style="padding: 60px 20px;">
+            <div class="placeholder-icon">📑</div>
+            <h3>No Purchase Order Selected</h3>
+            <p>Select any purchase order on the left to inspect its line-item specifications, open balance headroom, and all linked invoices.</p>
+          </div>
+
+          <div id="po-detail-content" class="hidden">
+            <!-- PO Header Info -->
+            <div class="po-detail-header-flex">
+              <div>
+                <div class="po-header-badges">
+                  <span id="pod-id" class="po-title-badge">PO-2026-001</span>
+                  <span id="pod-status-badge" class="badge">OPEN</span>
+                </div>
+                <h3 id="pod-vendor-name" style="margin-top: 6px;">Vendor Name</h3>
+                <span id="pod-meta-sub" class="hint">Date: — · Payment Terms: —</span>
+              </div>
+              <div class="po-header-actions">
+                <button id="btn-refresh-po-detail" class="btn btn-sm btn-outline">↻ Refresh</button>
+              </div>
+            </div>
+
+            <!-- Balance KPI Mini Cards -->
+            <div class="po-balance-cards-grid">
+              <div class="po-balance-kpi">
+                <span class="kpi-label">PO Budget</span>
+                <span id="pod-total-budget" class="kpi-value">—</span>
+              </div>
+              <div class="po-balance-kpi">
+                <span class="kpi-label">Approved Billed</span>
+                <span id="pod-approved-billed" class="kpi-value text-green">—</span>
+              </div>
+              <div class="po-balance-kpi">
+                <span class="kpi-label">Pending Review</span>
+                <span id="pod-pending-billed" class="kpi-value text-amber">—</span>
+              </div>
+              <div class="po-balance-kpi highlight-remaining">
+                <span class="kpi-label">Remaining Headroom</span>
+                <span id="pod-remaining-headroom" class="kpi-value text-primary">—</span>
+              </div>
+            </div>
+
+            <!-- Balance Bar -->
+            <div class="pod-bar-wrapper">
+              <div class="pod-bar-label-row">
+                <span class="hint">Budget Utilization: <strong id="pod-util-pct">0%</strong></span>
+                <span id="pod-overage-warning" class="badge badge-red hidden">⚠️ Exceeds Budget</span>
+              </div>
+              <div class="balance-bar-container">
+                <div id="pod-bar-approved" class="balance-bar-consumed" title="Approved Billed"></div>
+                <div id="pod-bar-pending" class="balance-bar-this" title="Pending Billed"></div>
+                <div id="pod-bar-remaining" class="balance-bar-remaining" title="Remaining Available"></div>
+              </div>
+            </div>
+
+            <!-- Line Items Specification -->
+            <div class="po-sub-section">
+              <h4>Line Item Allocations</h4>
+              <div class="table-responsive">
+                <table class="data-table" id="pod-items-table">
+                  <thead>
+                    <tr>
+                      <th>Item Description</th>
+                      <th>Ordered</th>
+                      <th>Remaining</th>
+                      <th>Unit Price</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pod-items-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Linked Invoices Ledger -->
+            <div class="po-sub-section">
+              <div class="card-header-flex">
+                <div>
+                  <h4>Linked Invoices Ledger (<span id="pod-linked-count">0</span>)</h4>
+                  <p class="subtitle">All invoices matched or allocated against this purchase order</p>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table" id="pod-invoices-table">
+                  <thead>
+                    <tr>
+                      <th>Invoice #</th>
+                      <th>Invoice Date</th>
+                      <th>Billed Amount</th>
+                      <th>Status</th>
+                      <th>Processing Time</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pod-invoices-tbody">
+                    <tr><td colspan="6" class="empty-state">No invoices linked yet</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Invoice Document Viewer Popup Modal -->
+  <div id="doc-viewer-modal" class="modal-backdrop hidden" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-row">
+            <span class="modal-icon">📄</span>
+            <h3 id="modal-doc-title">Document Preview</h3>
+            <span id="modal-doc-badge" class="badge">PDF</span>
+          </div>
+          <span id="modal-doc-meta" class="hint">Vendor · File</span>
+        </div>
+        <div class="modal-actions">
+          <a id="btn-modal-open-tab" href="#" target="_blank" class="btn btn-sm btn-outline" title="Open in new window / tab">
+            <span>⤢</span> Open Tab
+          </a>
+          <a id="btn-modal-download" href="#" download class="btn btn-sm btn-outline" title="Download original file">
+            <span>⬇</span> Download
+          </a>
+          <button id="btn-modal-close" class="btn btn-sm btn-outline btn-modal-close" title="Close (Esc)">✕</button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Preview Canvas) -->
+      <div id="modal-doc-body" class="modal-body">
+        <div class="doc-viewer-loading">
+          <div class="spinner"></div>
+          <span>Loading document preview...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=3.4"></script>
 </body>
 </html>
