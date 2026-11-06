@@ -91,6 +91,38 @@ class LLMClient:
 
         raise RuntimeError(f"Failed to extract structured data from LLM after retries: {last_err}")
 
+    def generate_json(self, system_prompt: str, user_prompt: str) -> Tuple[Dict[str, Any], int, int]:
+        """Generates structured JSON response from custom system and user prompts."""
+        client = self._get_client()
+        retries = 0
+        last_err = None
+
+        while retries <= self.config.max_retries:
+            try:
+                response = client.chat.completions.create(
+                    model=self.config.model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt},
+                    ],
+                    response_format={"type": "json_object"},
+                    temperature=self.config.temperature,
+                )
+                choice = response.choices[0]
+                raw_text = choice.message.content or ""
+                if not raw_text:
+                    raise ValueError("Empty or blocked response from LLM model")
+                data = self._parse_json(raw_text)
+                in_tok = getattr(response.usage, "prompt_tokens", 0) or 0
+                out_tok = getattr(response.usage, "completion_tokens", 0) or 0
+                return data, in_tok, out_tok
+            except Exception as e:
+                last_err = e
+                retries += 1
+                time.sleep(0.5 * (2 ** retries))
+
+        raise RuntimeError(f"Failed to generate JSON from LLM after retries: {last_err}")
+
     def extract_from_images(self, images: List[Any]) -> Tuple[Dict[str, Any], int, int]:
         client = self._get_client()
         system_content = self._get_system_prompt()

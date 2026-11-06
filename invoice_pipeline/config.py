@@ -62,7 +62,7 @@ class ExtractionConfig(BaseModel):
 
 
 class ExplanationConfig(BaseModel):
-    use_llm_polish: bool = False
+    use_llm_polish: bool = True
 
 
 class LLMConfig(BaseModel):

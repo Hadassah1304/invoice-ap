@@ -39,7 +39,7 @@ llm:
     input_mode: text              # text | image | auto (auto = text unless OCR is weak)
     require_source_snippets: false
   explanation:
-    use_llm_polish: false         # templates by default; LLM only rephrases, never decides
+    use_llm_polish: true          # LLM generates plain-language, non-technical business reasoning
 
 grounding:
   enabled: true

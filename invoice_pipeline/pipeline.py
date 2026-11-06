@@ -19,6 +19,8 @@ from invoice_pipeline.matching.duplicates import check_duplicates
 from invoice_pipeline.matching.router import MatchingRouter
 from invoice_pipeline.matching.vendor_resolver import VendorResolver
 from invoice_pipeline.models import (
+    BatchItemResult,
+    BatchProcessResult,
     CostSummary,
     DecisionEnum,
     DecisionResult,
@@ -92,6 +94,14 @@ def process_invoice(
             try:
                 data = json.loads(cached_row["decision_json"])
                 data["cached"] = True
+                if cached_row.get("invoice_id"):
+                    data["invoice_id"] = cached_row["invoice_id"]
+                if cached_row.get("vendor_id"):
+                    data["vendor_id"] = cached_row["vendor_id"]
+                if cached_row.get("file_name"):
+                    data["file_name"] = cached_row["file_name"]
+                if cached_row.get("file_path"):
+                    data["file_path"] = cached_row["file_path"]
                 conn.close()
                 return DecisionResult(**data)
             except Exception:
@@ -512,7 +522,7 @@ def process_invoice(
     # 14. Explanation
     recorder.start_stage("explanation")
     v_display_name = resolved_vendor.get("name") if resolved_vendor else (extracted.vendor.name or None)
-    summary_text, reasoning_list = build_explanation(
+    summary_text, reasoning_list, exp_in, exp_out = build_explanation(
         decision=decision,
         reason_code=reason_code,
         match_result=match_res,
@@ -521,8 +531,15 @@ def process_invoice(
         vendor_name=v_display_name,
         early_messages=early_messages,
         confidence_formula=conf_formula,
+        extracted_invoice=extracted,
+        po_dict=po_data,
+        po_items=po_items,
+        llm_client=extractor.llm_client if extractor else None,
+        use_llm_polish=cfg.llm.explanation.use_llm_polish,
     )
-    recorder.end_stage("explanation", status="ok", summary="Explanation generated")
+    in_tokens += exp_in
+    out_tokens += exp_out
+    recorder.end_stage("explanation", status="ok", summary=f"Explanation generated ({'LLM' if exp_in > 0 else 'template'})")
 
     total_duration_ms = int((time.perf_counter_ns() - start_total_ns) / 1_000_000)
     timings = Timings(
@@ -538,7 +555,15 @@ def process_invoice(
     safe_extracted = copy.deepcopy(extracted)
     safe_extracted.raw_text = None
 
+    f_path_str = str(path.resolve()) if path.exists() and path.is_file() else str(path)
+    f_name_str = path.name
+
     decision_result = DecisionResult(
+        invoice_id=target_invoice_id,
+        vendor_id=resolved_vendor.get("vendor_id") if resolved_vendor else None,
+        vendor_name=resolved_vendor.get("name") if resolved_vendor else (safe_extracted.vendor.name if safe_extracted and safe_extracted.vendor else None),
+        file_name=f_name_str,
+        file_path=f_path_str,
         request_id=request_id,
         decision=decision,
         reason_code=reason_code,
@@ -648,6 +673,8 @@ def process_invoice(
                         status=db_status,
                         decision_json=decision_result.model_dump_json(),
                         file_hash=f_hash if f_hash else None,
+                        file_name=f_name_str,
+                        file_path=f_path_str,
                     )
 
                 for l in extracted.line_items:
@@ -689,6 +716,7 @@ def process_invoice(
                         duration_ms=entry.duration_ms,
                     )
 
+                decision_result.invoice_id = inv_id
             recorder.end_stage("persistence", status="ok", summary=f"Persisted to ledger (ID: {inv_id})")
         except Exception as e:
             recorder.end_stage("persistence", status="error", summary=f"Persistence error: {e}")
@@ -741,6 +769,7 @@ def resolve_invoice(
 
             prev_dec["decision"] = "REJECTED"
             prev_dec["reasoning"].append(f"[REVIEWER ACTION] Rejected with note: {note or 'Manual rejection'}")
+            prev_dec["invoice_id"] = invoice_id
             new_json = json.dumps(prev_dec)
             inv_repo.update_invoice(invoice_id, status="REJECTED", decision_json=new_json)
         conn.close()
@@ -756,3 +785,116 @@ def resolve_invoice(
         pre_extracted_json=pre_ext,
         target_invoice_id=invoice_id,
     )
+
+
+def process_invoice_batch(
+    file_paths: list[str | Path],
+    config: Optional[PipelineConfig] = None,
+    dry_run: bool = False,
+    force_ocr_engine: Optional[str] = None,
+    as_of_date: Optional[datetime.date] = None,
+) -> BatchProcessResult:
+    """
+    Processes a list of invoice files sequentially one-by-one.
+    Catches per-file errors to guarantee fault-isolation across the batch.
+    Aggregates batch stats (approved, review required, rejected, failed, average confidence).
+    """
+    cfg = config or load_config()
+    batch_id = str(uuid.uuid4())
+    start_total_ns = time.perf_counter_ns()
+
+    items: list[BatchItemResult] = []
+    approved_count = 0
+    needs_review_count = 0
+    rejected_count = 0
+    failed_count = 0
+    confidence_sum = 0.0
+
+    for fp in file_paths:
+        path = Path(fp)
+        file_name = path.name
+        file_size = path.stat().st_size if path.exists() and path.is_file() else 0
+        item_start_ns = time.perf_counter_ns()
+        processed_ts = datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+        try:
+            res = process_invoice(
+                file_path=path,
+                config=cfg,
+                dry_run=dry_run,
+                force_ocr_engine=force_ocr_engine,
+                as_of_date=as_of_date,
+            )
+            item_duration_ms = (time.perf_counter_ns() - item_start_ns) // 1_000_000
+
+            inv_no = res.extracted.invoice_number.value if res.extracted and res.extracted.invoice_number else None
+            vendor_id = res.vendor_id or (res.extracted.vendor.gstin if res.extracted and res.extracted.vendor else None)
+            vendor_name = (
+                res.vendor_name
+                or (res.extracted.vendor.name if res.extracted and res.extracted.vendor else None)
+                or (res.vendor_id if res.vendor_id else "Unknown")
+            )
+            total_val = res.extracted.grand_total.value if res.extracted and res.extracted.grand_total else None
+            curr_val = res.extracted.currency.value if res.extracted and res.extracted.currency else None
+
+            if res.decision == DecisionEnum.APPROVED:
+                approved_count += 1
+            elif res.decision == DecisionEnum.NEEDS_REVIEW:
+                needs_review_count += 1
+            elif res.decision == DecisionEnum.REJECTED:
+                rejected_count += 1
+
+            confidence_sum += float(res.confidence)
+
+            item_result = BatchItemResult(
+                file_name=file_name,
+                file_path=str(path.resolve()) if path.exists() else str(path),
+                file_size_bytes=file_size,
+                status="SUCCESS",
+                invoice_id=res.invoice_id,
+                invoice_no=inv_no,
+                vendor_id=vendor_id,
+                vendor_name=vendor_name,
+                total=total_val,
+                currency=curr_val,
+                decision=res.decision,
+                reason_code=res.reason_code,
+                confidence=round(float(res.confidence), 4),
+                summary=res.summary,
+                duration_ms=item_duration_ms,
+                processed_at=processed_ts,
+                result=res,
+            )
+            items.append(item_result)
+
+        except Exception as e:
+            item_duration_ms = (time.perf_counter_ns() - item_start_ns) // 1_000_000
+            failed_count += 1
+            item_result = BatchItemResult(
+                file_name=file_name,
+                file_path=str(path.resolve()) if path.exists() else str(path),
+                file_size_bytes=file_size,
+                status="FAILED",
+                error_message=str(e),
+                duration_ms=item_duration_ms,
+                processed_at=processed_ts,
+            )
+            items.append(item_result)
+
+    total_duration_ms = (time.perf_counter_ns() - start_total_ns) // 1_000_000
+    valid_decisions_count = approved_count + needs_review_count + rejected_count
+    avg_conf = round(confidence_sum / valid_decisions_count, 4) if valid_decisions_count > 0 else 0.0
+
+    return BatchProcessResult(
+        batch_id=batch_id,
+        total_files=len(file_paths),
+        processed_count=len(items),
+        approved_count=approved_count,
+        needs_review_count=needs_review_count,
+        rejected_count=rejected_count,
+        failed_count=failed_count,
+        avg_confidence=avg_conf,
+        total_duration_ms=total_duration_ms,
+        items=items,
+    )
+
