@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from invoice_pipeline.config import load_config
-from invoice_pipeline.store.db import init_db
+from invoice_pipeline.store.db import checkpoint_db, init_db
 from server.routes import common, invoices, review
 
 
@@ -18,7 +18,11 @@ async def lifespan(app: FastAPI):
     init_db(cfg.app.db_path)
     static_dir = Path(__file__).parent / "static"
     static_dir.mkdir(parents=True, exist_ok=True)
-    yield
+    try:
+        yield
+    finally:
+        # Graceful shutdown: flush WAL and optimize database safely
+        checkpoint_db(cfg.app.db_path)
 
 
 app = FastAPI(title="Invoice-to-Decision AP Automation API", lifespan=lifespan)

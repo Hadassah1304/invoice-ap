@@ -20,7 +20,25 @@ def get_connection(db_path: str) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON;")
     conn.execute("PRAGMA journal_mode = WAL;")
+    conn.execute("PRAGMA synchronous = NORMAL;")
+    conn.execute("PRAGMA busy_timeout = 30000;")
     return conn
+
+
+def checkpoint_db(db_path: str) -> None:
+    """Safely flush WAL journal to the main database file."""
+    path = Path(db_path)
+    if not path.exists():
+        return
+    try:
+        conn = sqlite3.connect(db_path, timeout=10.0)
+        try:
+            conn.execute("PRAGMA wal_checkpoint(TRUNCATE);")
+            conn.execute("PRAGMA optimize;")
+        finally:
+            conn.close()
+    except Exception:
+        pass
 
 
 @contextlib.contextmanager
