@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Zenith IT Peripherals Pvt Ltd",
+    "gstin": "27AAAC1434M1Z9",
+    "bank_account": "ICIC0008038374"
+  },
+  "invoice_number": {
+    "value": "INV-2026-H010",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-26",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-HAPPY-10",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 3500.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 630.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 4130.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 350.0,
+      "line_total": 3500.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Zenith IT Peripherals Pvt Ltd\nGSTIN: 27AAAC1434M1Z9\nInvoice No: INV-2026-H010\nDate: 2026-10-26\nPO Reference: PO-2026-HAPPY-10\n1 USB-C Cable 1m 10.0 350.00 3500.00\nSubtotal: 3500.00\nTax Total: 630.00\nGrand Total: \u20b9 4,130.00"
+}

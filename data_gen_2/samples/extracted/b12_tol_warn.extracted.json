@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "b12_tol_warn.pdf",
+    "file_hash": "fb80a13997a0ef9cc16a1a1f024bea83b5e54a76bd8d7f6db7230c63114faa75",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Vardhaman Bulk Commodities Pvt Ltd",
+    "gstin": "27AABCV3344J1Z7",
+    "email": "billing@vardhamanbulk.com",
+    "phone": "+91 22 5550 8808",
+    "address": "Gala 101, Cotton Green Warehousing Zone, Mumbai 400033",
+    "bank_account": "UTIB00033445566",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "VB-26-1184",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-09",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-B-BULK-TOL-WARN",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+      "quantity": 50.0,
+      "uom": "roll",
+      "unit_price": 640.0,
+      "line_total": 32000.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 32000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 32000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

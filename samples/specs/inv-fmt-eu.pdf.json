@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-fmt-eu.pdf",
+  "vendor_name": "Zenith IT Peripherals Pvt Ltd",
+  "vendor_gstin": "27AAAC1434M1Z9",
+  "invoice_number": "INV-FMT-EU",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-12",
+  "currency": "INR",
+  "subtotal": 6750.0,
+  "tax_total": 1215.0,
+  "grand_total": 7965.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "HDMI to VGA Display Adapter",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 450.0,
+      "line_total": 6750.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-MISC-12",
+    "tag": "number_formats",
+    "notes": "European numbering format 1.000,00 parsed correctly"
+  }
+}

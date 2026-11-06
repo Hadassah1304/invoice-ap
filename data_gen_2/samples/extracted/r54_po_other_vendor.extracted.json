@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "r54_po_other_vendor.pdf",
+    "file_hash": "02a53807b977c8f927e9b0151a52ae8b5732cace5b7395d77704b2ef0ee32f2c",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Navrang General Merchants Pvt Ltd",
+    "gstin": "36AABCN9900P1Z6",
+    "email": "billing@navrangmerchants.co.in",
+    "phone": "+91 40 5550 5505",
+    "address": "4-1-890, Osmangunj Commercial Complex, Hyderabad 500095",
+    "bank_account": "BARB00022334455",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "NVG/26/4920",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-R-OTHERV-2",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Spiral Executive Notebook A5 160 Pages",
+      "quantity": 60.0,
+      "uom": "pcs",
+      "unit_price": 145.0,
+      "line_total": 8700.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Ballpoint Pen Blue 0.7mm Box of 20",
+      "quantity": 35.0,
+      "uom": "box",
+      "unit_price": 160.0,
+      "line_total": 5600.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 14300.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1716.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 16016.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

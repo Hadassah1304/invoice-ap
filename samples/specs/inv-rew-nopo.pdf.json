@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-rew-nopo.pdf",
+  "vendor_name": "Apex Stationary Solutions",
+  "vendor_gstin": "29YYYYY7777Y1Z4",
+  "invoice_number": "INV-REW-NOPO",
+  "invoice_date": "2026-10-22",
+  "po_reference": null,
+  "currency": "INR",
+  "subtotal": 2100.0,
+  "tax_total": 105.0,
+  "grand_total": 2205.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Chilled Cold Coffee Brew 500ml",
+      "quantity": 15.0,
+      "uom": "cup",
+      "unit_price": 140.0,
+      "line_total": 2100.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "INFERRED_MATCH",
+    "po_id": "PO-2026-MISC-02",
+    "tag": "reworded_items",
+    "notes": "Reworded descriptions match PO via Tier 2/3 inference"
+  }
+}

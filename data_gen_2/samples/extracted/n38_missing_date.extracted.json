@@ -1,0 +1,85 @@
+{
+  "source": {
+    "file_name": "n38_missing_date.pdf",
+    "file_hash": "03285f28e35914e87765b3b556aa84b339c899bbc14641f8fa08c650e136ae88",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Apex Stationery & Print Solutions",
+    "gstin": "29XYZAB5678C1Z2",
+    "email": "billing@apexstationery.com",
+    "phone": "+91 80 5550 1212",
+    "address": "108, Brigade Road, Shanthala Nagar, Bengaluru 560025",
+    "bank_account": "SBIN00098765432",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "APX/26/6218",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": null,
+    "confidence": 0.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-MISS-DAT",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Ballpoint Pen Blue 0.7mm Box of 20",
+      "quantity": 60.0,
+      "uom": "box",
+      "unit_price": 160.0,
+      "line_total": 9600.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Heavy Duty Desk Stapler 24/6",
+      "quantity": 20.0,
+      "uom": "pcs",
+      "unit_price": 280.0,
+      "line_total": 5600.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 15200.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 2160.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 17360.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [
+    "invoice_date"
+  ],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h007.pdf",
+  "vendor_name": "QuickBite Refreshments Pvt Ltd",
+  "vendor_gstin": "33AAAC2824J1Z1",
+  "invoice_number": "INV-2026-H007",
+  "invoice_date": "2026-10-31",
+  "po_reference": "PO-2026-HAPPY-07",
+  "currency": "INR",
+  "subtotal": 450.0,
+  "tax_total": 54.0,
+  "grand_total": 504.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Sticky Notes 3x3 Yellow",
+      "quantity": 10.0,
+      "uom": "pad",
+      "unit_price": 45.0,
+      "line_total": 450.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-07",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout tax_embedded"
+  }
+}

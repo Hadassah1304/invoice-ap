@@ -1,0 +1,93 @@
+{
+  "source": {
+    "file_name": "n36_happy_explicit.pdf",
+    "file_hash": "5948c5f76f37d1266a5ca638ff77c5d44c22f0000660d0d896605ddc7e0a531b",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Royal Hospitality & Beverages Pvt Ltd",
+    "gstin": "29AABCR9012K1Z1",
+    "email": "billing@royalhospitality.in",
+    "phone": "+91 80 5550 4545",
+    "address": "33/1, Residency Road, Bengaluru 560025",
+    "bank_account": "SYN00056781234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "ROY/26/1845",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-17",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-HAPPY-07",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Veg Burger 150g",
+      "quantity": 50.0,
+      "uom": "pcs",
+      "unit_price": 120.0,
+      "line_total": 6000.0,
+      "tax_rate": 5.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cheese Burger 150g",
+      "quantity": 40.0,
+      "uom": "pcs",
+      "unit_price": 130.0,
+      "line_total": 5200.0,
+      "tax_rate": 5.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 3,
+      "description": "French Fries 200g",
+      "quantity": 60.0,
+      "uom": "pack",
+      "unit_price": 80.0,
+      "line_total": 4800.0,
+      "tax_rate": 5.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 16000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 800.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 16800.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "i20_bank_changed.pdf",
+    "file_hash": "9ecb1bec351b57b17351856f917ca49eee34086166957f24cd5f07f79bad0656",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Metro Facility Cleaners Pvt Ltd",
+    "gstin": "07AABCM8899T1Z2",
+    "email": "billing@metrofacility.co.in",
+    "phone": "+91 11 5550 0004",
+    "address": "Floor 2, Vikas Commercial Hub, Connaught Place, New Delhi 110001",
+    "bank_account": "HDFC00099999999",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "MET/26/8419",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-15",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-I-BANKCHG-1",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Disinfectant Surface Floor Cleaner Floral 5L",
+      "quantity": 10.0,
+      "uom": "can",
+      "unit_price": 380.0,
+      "line_total": 3800.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 3800.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 684.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 4484.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

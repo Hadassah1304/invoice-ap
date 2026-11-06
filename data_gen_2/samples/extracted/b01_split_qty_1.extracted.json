@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "b01_split_qty_1.pdf",
+    "file_hash": "5055414480d2e3226f4f2b7c86086d91d0015197ddb2bf32c0c19287609e178d",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Zenith Micro Systems",
+    "gstin": "27AAACZ1122K1Z3",
+    "email": "billing@zenithmicro.in",
+    "phone": "+91 22 5550 7707",
+    "address": "B-12, Electronic Zone, MIDC Mahape, Navi Mumbai 400710",
+    "bank_account": "HDFC00099887766",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "ZNT-9041",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-09-27",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-B-QTY",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 80.0,
+      "uom": "pcs",
+      "unit_price": 100.0,
+      "line_total": 8000.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 8000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 8000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

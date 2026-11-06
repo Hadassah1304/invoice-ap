@@ -1,0 +1,57 @@
+{
+  "vendor": {
+    "name": "CleanPro Hygiene Systems",
+    "gstin": "36AAAC7924O1Z6",
+    "bank_account": "SBIN0003608513"
+  },
+  "invoice_number": {
+    "value": "INV-FREIGHT-01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-13",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 27900.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 5022.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 32922.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB Stereo Headset with Mic",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 1850.0,
+      "line_total": 27750.0,
+      "tax_rate": 18.0
+    },
+    {
+      "line_no": 2,
+      "description": "Standard Surface Freight & Handling",
+      "quantity": 1.0,
+      "uom": "trip",
+      "unit_price": 150.0,
+      "line_total": 150.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: CleanPro Hygiene Systems\nGSTIN: 36AAAC7924O1Z6\nInvoice No: INV-FREIGHT-01\nDate: 2026-10-22\nPO Reference: PO-2026-MISC-13\n1 USB Stereo Headset with Mic 15.0 1850.00 27750.00\n2 Standard Surface Freight & Handling 1.0 150.00 150.00\nSubtotal: 27900.00\nTax Total: 5022.00\nGrand Total: Rs. 32922.00"
+}

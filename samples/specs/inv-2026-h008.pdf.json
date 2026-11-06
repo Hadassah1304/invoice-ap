@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h008.pdf",
+  "vendor_name": "GreenClean Facility Care LLP",
+  "vendor_gstin": "07AAAC3286K1Z2",
+  "invoice_number": "INV-2026-H008",
+  "invoice_date": "2026-10-30",
+  "po_reference": "PO-2026-HAPPY-08",
+  "currency": "INR",
+  "subtotal": 2400.0,
+  "tax_total": 432.0,
+  "grand_total": 2832.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Heavy Duty Desktop Stapler",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 240.0,
+      "line_total": 2400.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-08",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout multi_page"
+  }
+}

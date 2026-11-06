@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Shree Krishna Dairy & Foods",
+    "gstin": "29AAAC8359N1Z5",
+    "bank_account": "HDFC0003678638"
+  },
+  "invoice_number": {
+    "value": "INV-2026-H011",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-28",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-HAPPY-11",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 14500.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 2610.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 17110.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Bluetooth Multi-Device Mouse",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 1450.0,
+      "line_total": 14500.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Shree Krishna Dairy & Foods\nGSTIN: 29AAAC8359N1Z5\nInvoice No: INV-2026-H011\nDate: 2026-10-28\nPO Reference: PO-2026-HAPPY-11\n1 Bluetooth Multi-Device Mouse 10.0 1450.00 14500.00\nSubtotal: 14500.00\nTax Total: 2610.00\nGrand Total: Rs. 17110.00"
+}

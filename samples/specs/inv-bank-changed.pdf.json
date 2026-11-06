@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-bank-changed.pdf",
+  "vendor_name": "Acrne Foods Pvt Ltd",
+  "vendor_gstin": "36ZZZZZ8888Z1Z9",
+  "invoice_number": "INV-BANK-CHANGED",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-09",
+  "currency": "INR",
+  "subtotal": 975.0,
+  "tax_total": 175.5,
+  "grand_total": 1150.5,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Clear Packaging Tape 2-inch 50m",
+      "quantity": 15.0,
+      "uom": "roll",
+      "unit_price": 65.0,
+      "line_total": 975.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "VENDOR_UNCLEAR",
+    "po_id": "PO-2026-MISC-09",
+    "tag": "bank_changed",
+    "notes": "Bank account differs from master (soft fraud signal)"
+  }
+}

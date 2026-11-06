@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "b02_split_qty_2.pdf",
+    "file_hash": "47577c428b4730138d486a3563da0d2ca4560647d239449e8d555e4f90a1208b",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Zenith Micro Systems",
+    "gstin": "27AAACZ1122K1Z3",
+    "email": "billing@zenithmicro.in",
+    "phone": "+91 22 5550 7707",
+    "address": "B-12, Electronic Zone, MIDC Mahape, Navi Mumbai 400710",
+    "bank_account": "HDFC00099887766",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "ZNT-4188",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-12",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-B-QTY",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 30.0,
+      "uom": "pcs",
+      "unit_price": 100.0,
+      "line_total": 3000.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "USB-C Multiport Adapter 6-in-1",
+      "quantity": 9.0,
+      "uom": "pcs",
+      "unit_price": 1000.0,
+      "line_total": 9000.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 12000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 12000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

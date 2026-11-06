@@ -1,0 +1,31 @@
+{
+  "file_name": "inv_dup_p01.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-DUP-P01",
+  "invoice_date": "2026-10-26",
+  "po_reference": "PO-2026-DUP-POSS",
+  "currency": "INR",
+  "subtotal": 4800.0,
+  "tax_total": 576.0,
+  "grand_total": 5376.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Permanent Marker Set (Pack of 4)",
+      "quantity": 30.0,
+      "uom": "pack",
+      "unit_price": 160.0,
+      "line_total": 4800.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-DUP-POSS",
+    "tag": "dup_possible",
+    "notes": "Base invoice for near-duplicate amount test"
+  }
+}

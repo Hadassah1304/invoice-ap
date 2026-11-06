@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Delta Supplies & Logistics",
+    "gstin": "24AAACD9988E1Z7",
+    "bank_account": "KKBK00044556677"
+  },
+  "invoice_number": {
+    "value": "INV-2026-H006",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-27",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-HAPPY-06",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 1000.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 120.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 1120.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Ballpoint Pen Blue (Pack of 10)",
+      "quantity": 10.0,
+      "uom": "pack",
+      "unit_price": 100.0,
+      "line_total": 1000.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Delta Supplies & Logistics\nGSTIN: 24AAACD9988E1Z7\nInvoice No: INV-2026-H006\nDate: 2026-10-27\nPO Reference: PO-2026-HAPPY-06\n1 Ballpoint Pen Blue (Pack of 10) 10.0 100.00 1000.00\nSubtotal: 1000.00\nTax Total: 120.00\nGrand Total: Rs. 1120.00"
+}

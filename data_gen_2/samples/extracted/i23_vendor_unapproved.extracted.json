@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "i23_vendor_unapproved.pdf",
+    "file_hash": "384a32a8722277f40496264ac885aab9347a2e956c3f84c64c18edd81ac808a0",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Unapproved Rogue Traders",
+    "gstin": "07QQQQQ9999Q1Z1",
+    "email": "billing@roguetraders.org",
+    "phone": "+91 11 5550 0001",
+    "address": "Kh-402, Gali No 3, Old Industrial Estate, Delhi 110020",
+    "bank_account": "UNAP00011122233",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "ROG/26/3142",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-17",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-I-UNAPP-1",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB 3.0 Flash Drive 64GB",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 450.0,
+      "line_total": 4500.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 4500.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 810.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 5310.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

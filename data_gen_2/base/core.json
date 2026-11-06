@@ -1,0 +1,1316 @@
+{
+  "schema_version": 1,
+  "vendors": [
+    {
+      "vendor_id": "V-BALA",
+      "name": "Sri Balaji Foods Pvt Ltd",
+      "aliases": [
+        "Balaji Foods",
+        "Sri Balaji Foods"
+      ],
+      "gstin": "36ABCDE1234F1Z5",
+      "email_domain": "balajifoods.in",
+      "phone": "+91 40 5550 1101",
+      "address": "Plot 14, Industrial Area, Hyderabad 500032",
+      "approved": true,
+      "bank_account": "HDFC00012345678",
+      "owner_family": "R"
+    },
+    {
+      "vendor_id": "V-TIE",
+      "name": "Annapurna Catering Services",
+      "aliases": [
+        "Annapurna Caterers",
+        "Annapurna Foods"
+      ],
+      "gstin": "36AABCA1122B1Z4",
+      "email_domain": "annapurnacatering.in",
+      "phone": "+91 40 5550 2202",
+      "address": "Shop 5, Food Street, Jubilee Hills, Hyderabad 500033",
+      "approved": true,
+      "bank_account": "ICIC00011223344",
+      "owner_family": "R"
+    },
+    {
+      "vendor_id": "V-FRESH",
+      "name": "Kaveri Fresh Farm Produce LLP",
+      "aliases": [
+        "Kaveri Fresh",
+        "Kaveri Farm Produce"
+      ],
+      "gstin": "36AAACK5566L1Z2",
+      "email_domain": "kaverifresh.com",
+      "phone": "+91 40 5550 3303",
+      "address": "Shed 12, Wholesale Agricultural Market, Bowenpally, Secunderabad 500011",
+      "approved": true,
+      "bank_account": "SBIN00044556677",
+      "owner_family": "R"
+    },
+    {
+      "vendor_id": "V-PACK",
+      "name": "SafePack Containers & Boxes",
+      "aliases": [
+        "SafePack Boxes",
+        "SafePack India"
+      ],
+      "gstin": "36AAECS7788M1Z9",
+      "email_domain": "safepackindia.com",
+      "phone": "+91 40 5550 4404",
+      "address": "Plot 88, Phase 2, IDA Cherlapally, Hyderabad 500051",
+      "approved": true,
+      "bank_account": "KKBK00088990011",
+      "owner_family": "R"
+    },
+    {
+      "vendor_id": "V-ROUTE",
+      "name": "Navrang General Merchants Pvt Ltd",
+      "aliases": [
+        "Navrang Merchants",
+        "Navrang Traders"
+      ],
+      "gstin": "36AABCN9900P1Z6",
+      "email_domain": "navrangmerchants.co.in",
+      "phone": "+91 40 5550 5505",
+      "address": "4-1-890, Osmangunj Commercial Complex, Hyderabad 500095",
+      "approved": true,
+      "bank_account": "BARB00022334455",
+      "owner_family": "R"
+    },
+    {
+      "vendor_id": "V-TECH",
+      "name": "CyberTech Hardware Systems LLP",
+      "aliases": [
+        "CyberTech LLP",
+        "CyberTech Systems"
+      ],
+      "gstin": "27AABBC3344D1Z8",
+      "email_domain": "cybertech.io",
+      "phone": "+91 22 5550 6606",
+      "address": "Unit 304, Mindspace IT Park, Malad West, Mumbai 400064",
+      "approved": true,
+      "bank_account": "ICIC00055443322",
+      "owner_family": "B"
+    },
+    {
+      "vendor_id": "V-SPLITQ",
+      "name": "Zenith Micro Systems",
+      "aliases": [
+        "Zenith Systems",
+        "Zenith Electronics"
+      ],
+      "gstin": "27AAACZ1122K1Z3",
+      "email_domain": "zenithmicro.in",
+      "phone": "+91 22 5550 7707",
+      "address": "B-12, Electronic Zone, MIDC Mahape, Navi Mumbai 400710",
+      "approved": true,
+      "bank_account": "HDFC00099887766",
+      "owner_family": "B"
+    },
+    {
+      "vendor_id": "V-BULK",
+      "name": "Vardhaman Bulk Commodities Pvt Ltd",
+      "aliases": [
+        "Vardhaman Commodities",
+        "Vardhaman Bulk"
+      ],
+      "gstin": "27AABCV3344J1Z7",
+      "email_domain": "vardhamanbulk.com",
+      "phone": "+91 22 5550 8808",
+      "address": "Gala 101, Cotton Green Warehousing Zone, Mumbai 400033",
+      "approved": true,
+      "bank_account": "UTIB00033445566",
+      "owner_family": "B"
+    },
+    {
+      "vendor_id": "V-OFFIX",
+      "name": "WorkSpace Essentials Depot",
+      "aliases": [
+        "WorkSpace Depot",
+        "Essentials Depot"
+      ],
+      "gstin": "27AAACW5566N1Z1",
+      "email_domain": "workspaceessentials.in",
+      "phone": "+91 22 5550 9909",
+      "address": "45, Commercial Chambers, Fort, Mumbai 400001",
+      "approved": true,
+      "bank_account": "PUNB00077889900",
+      "owner_family": "B"
+    },
+    {
+      "vendor_id": "V-UNAPP",
+      "name": "Unapproved Rogue Traders",
+      "aliases": [
+        "Rogue Traders",
+        "Unapproved Rogue"
+      ],
+      "gstin": "07QQQQQ9999Q1Z1",
+      "email_domain": "roguetraders.org",
+      "phone": "+91 11 5550 0001",
+      "address": "Kh-402, Gali No 3, Old Industrial Estate, Delhi 110020",
+      "approved": false,
+      "bank_account": "UNAP00011122233",
+      "owner_family": "I"
+    },
+    {
+      "vendor_id": "V-INTEG",
+      "name": "Titan Industrial Tools LLP",
+      "aliases": [
+        "Titan Tools",
+        "Titan Industrial"
+      ],
+      "gstin": "07AAACT4455R1Z8",
+      "email_domain": "titanindustrial.in",
+      "phone": "+91 11 5550 0002",
+      "address": "Plot 22, Okhla Industrial Area Phase 1, New Delhi 110020",
+      "approved": true,
+      "bank_account": "IDIB00066778899",
+      "owner_family": "I"
+    },
+    {
+      "vendor_id": "V-CTRL",
+      "name": "Falcon Precision Components",
+      "aliases": [
+        "Falcon Precision",
+        "Falcon Components"
+      ],
+      "gstin": "07AAACF6677S1Z5",
+      "email_domain": "falconprecision.com",
+      "phone": "+91 11 5550 0003",
+      "address": "B-48, Naraina Industrial Area Phase 2, New Delhi 110028",
+      "approved": true,
+      "bank_account": "CNRB00055667788",
+      "owner_family": "I"
+    },
+    {
+      "vendor_id": "V-BANKCHG",
+      "name": "Metro Facility Cleaners Pvt Ltd",
+      "aliases": [
+        "Metro Cleaners",
+        "Metro Facility"
+      ],
+      "gstin": "07AABCM8899T1Z2",
+      "email_domain": "metrofacility.co.in",
+      "phone": "+91 11 5550 0004",
+      "address": "Floor 2, Vikas Commercial Hub, Connaught Place, New Delhi 110001",
+      "approved": true,
+      "bank_account": "YESB00044556677",
+      "owner_family": "I"
+    },
+    {
+      "vendor_id": "V-STAT",
+      "name": "Apex Stationery & Print Solutions",
+      "aliases": [
+        "Apex Stationery Ltd",
+        "Apex Print"
+      ],
+      "gstin": "29XYZAB5678C1Z2",
+      "email_domain": "apexstationery.com",
+      "phone": "+91 80 5550 1212",
+      "address": "108, Brigade Road, Shanthala Nagar, Bengaluru 560025",
+      "approved": true,
+      "bank_account": "SBIN00098765432",
+      "owner_family": "N"
+    },
+    {
+      "vendor_id": "V-NUM1",
+      "name": "BlueDart Logistics & Courier LLP",
+      "aliases": [
+        "BlueDart Courier",
+        "BlueDart Logistics"
+      ],
+      "gstin": "29AAACB1234D1Z6",
+      "email_domain": "bluedartlog.com",
+      "phone": "+91 80 5550 2323",
+      "address": "Warehouse 4, Electronic City Phase 1, Bengaluru 560100",
+      "approved": true,
+      "bank_account": "UBIN00012344321",
+      "owner_family": "N"
+    },
+    {
+      "vendor_id": "V-NUM2",
+      "name": "Garuda Electrical & Engineering",
+      "aliases": [
+        "Garuda Electricals",
+        "Garuda Engg"
+      ],
+      "gstin": "29AAACG5678H1Z4",
+      "email_domain": "garudaengineering.in",
+      "phone": "+91 80 5550 3434",
+      "address": "Plot 51, Peenya Industrial Area 3rd Phase, Bengaluru 560058",
+      "approved": true,
+      "bank_account": "IOBA00098761234",
+      "owner_family": "N"
+    },
+    {
+      "vendor_id": "V-NUM3",
+      "name": "Royal Hospitality & Beverages Pvt Ltd",
+      "aliases": [
+        "Royal Beverages",
+        "Royal Hospitality"
+      ],
+      "gstin": "29AABCR9012K1Z1",
+      "email_domain": "royalhospitality.in",
+      "phone": "+91 80 5550 4545",
+      "address": "33/1, Residency Road, Bengaluru 560025",
+      "approved": true,
+      "bank_account": "SYN00056781234",
+      "owner_family": "N"
+    }
+  ],
+  "catalog": [
+    {
+      "sku": "SKU-001",
+      "name": "Veg Burger 150g",
+      "description": "Crispy vegetable patty burger with fresh lettuce and mayo",
+      "uom": "pcs",
+      "unit_price": 120.0,
+      "tax_rate": 5,
+      "category": "food",
+      "twin_group": "burger",
+      "distinguisher": "veg",
+      "reworded": [
+        "Vegetable Burger 150 gm",
+        "Veg Burger (150g)",
+        "Veggie Patty Burger 150g"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-002",
+      "name": "Cheese Burger 150g",
+      "description": "Grilled vegetable patty topped with cheddar cheese slice",
+      "uom": "pcs",
+      "unit_price": 130.0,
+      "tax_rate": 5,
+      "category": "food",
+      "twin_group": "burger",
+      "distinguisher": "cheese",
+      "reworded": [
+        "Cheddar Cheese Burger 150 gm",
+        "Cheese Burger (150g)",
+        "Veg Cheese Burger 150g"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-003",
+      "name": "Chicken Burger 150g",
+      "description": "Tender spiced chicken patty in toasted sesame seed bun",
+      "uom": "pcs",
+      "unit_price": 135.0,
+      "tax_rate": 5,
+      "category": "food",
+      "twin_group": "burger",
+      "distinguisher": "chicken",
+      "reworded": [
+        "Spiced Chicken Burger 150 gm",
+        "Chicken Burger (150g)",
+        "Grilled Chicken Burger 150g"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-004",
+      "name": "Mineral Water 500ml",
+      "description": "Packaged natural mineral drinking water 500ml bottle",
+      "uom": "bottle",
+      "unit_price": 15.0,
+      "tax_rate": 18,
+      "category": "food",
+      "twin_group": "water",
+      "distinguisher": "500ml",
+      "reworded": [
+        "Packaged Mineral Water 500 ml",
+        "Mineral Water (500ml)",
+        "Bottled Mineral Water 500ml"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-005",
+      "name": "Mineral Water 1L",
+      "description": "Packaged natural mineral drinking water 1 litre bottle",
+      "uom": "bottle",
+      "unit_price": 25.0,
+      "tax_rate": 18,
+      "category": "food",
+      "twin_group": "water",
+      "distinguisher": "1L",
+      "reworded": [
+        "Packaged Mineral Water 1 Litre",
+        "Mineral Water 1000ml",
+        "Bottled Mineral Water 1L"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-006",
+      "name": "Cold Coffee 300ml",
+      "description": "Chilled sweetened brewed coffee beverage 300ml",
+      "uom": "bottle",
+      "unit_price": 95.0,
+      "tax_rate": 12,
+      "category": "food",
+      "twin_group": "coffee",
+      "distinguisher": "300ml",
+      "reworded": [
+        "Chilled Cold Coffee 300 ml",
+        "Cold Coffee (300ml)",
+        "Brewed Cold Coffee 300ml"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-007",
+      "name": "Cold Coffee 500ml",
+      "description": "Chilled sweetened brewed coffee beverage 500ml bottle",
+      "uom": "bottle",
+      "unit_price": 140.0,
+      "tax_rate": 12,
+      "category": "food",
+      "twin_group": "coffee",
+      "distinguisher": "500ml",
+      "reworded": [
+        "Chilled Cold Coffee 500 ml",
+        "Cold Coffee (500ml)",
+        "Brewed Cold Coffee 500ml"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-008",
+      "name": "French Fries 200g",
+      "description": "Golden salted crispy potato french fries 200g portion",
+      "uom": "pack",
+      "unit_price": 80.0,
+      "tax_rate": 5,
+      "category": "food",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Crispy French Fries 200 gm",
+        "Salted French Fries (200g)",
+        "Potato French Fries 200g"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-009",
+      "name": "Masala Chai 150ml",
+      "description": "Freshly brewed hot Indian spiced tea 150ml cup",
+      "uom": "cup",
+      "unit_price": 20.0,
+      "tax_rate": 5,
+      "category": "food",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Hot Masala Chai 150 ml",
+        "Spiced Masala Tea 150ml",
+        "Indian Masala Chai (150ml)"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-010",
+      "name": "Veg Club Sandwich 250g",
+      "description": "Triple layer toasted sandwich with cucumber tomato and mint chutney",
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "tax_rate": 5,
+      "category": "food",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Vegetable Club Sandwich 250 gm",
+        "Veg Club Sandwich (250g)",
+        "Toasted Veg Sandwich 250g"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-011",
+      "name": "Salted Cashew Nuts 500g",
+      "description": "Premium roasted and salted whole cashew nuts 500g pack",
+      "uom": "pack",
+      "unit_price": 480.0,
+      "tax_rate": 12,
+      "category": "food",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Roasted Salted Cashews 500 gm",
+        "Salted Cashew Nuts (500g)",
+        "Premium Salted Cashews 500g"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-012",
+      "name": "Artisanal Single-Origin Coffee Beans 1kg",
+      "description": "Estate-grown Arabica medium roast whole coffee beans 1kg pouch",
+      "uom": "pack",
+      "unit_price": 1450.0,
+      "tax_rate": 5,
+      "category": "food",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Single-Origin Coffee Beans 1 kg",
+        "Artisanal Coffee Beans 1kg",
+        "Estate Arabica Coffee Beans 1kg"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-013",
+      "name": "A4 Copier Paper 80gsm",
+      "description": "Premium bright white high speed multipurpose copier paper 500 sheets",
+      "uom": "ream",
+      "unit_price": 320.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": "paper",
+      "distinguisher": "80gsm",
+      "reworded": [
+        "A4 Copier Paper 80 gsm 500 Sheets",
+        "A4 Copy Paper (80gsm)",
+        "Multipurpose A4 Paper 80gsm"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-014",
+      "name": "A4 Copier Paper 70gsm",
+      "description": "Standard economy grade multipurpose copier paper 500 sheets",
+      "uom": "ream",
+      "unit_price": 270.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": "paper",
+      "distinguisher": "70gsm",
+      "reworded": [
+        "A4 Copier Paper 70 gsm 500 Sheets",
+        "A4 Copy Paper (70gsm)",
+        "Economy A4 Paper 70gsm"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-015",
+      "name": "Spiral Executive Notebook A5 160 Pages",
+      "description": "Hardbound spiral ruled executive diary notebook A5 size 160 pages",
+      "uom": "pcs",
+      "unit_price": 145.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": "notebook",
+      "distinguisher": "A5",
+      "reworded": [
+        "A5 Spiral Notebook 160 Pages",
+        "Executive Ruled Notebook A5 (160p)",
+        "Spiral Executive Notebook A5 160p"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-016",
+      "name": "Spiral Executive Notebook B5 160 Pages",
+      "description": "Hardbound spiral ruled executive diary notebook B5 size 160 pages",
+      "uom": "pcs",
+      "unit_price": 185.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": "notebook",
+      "distinguisher": "B5",
+      "reworded": [
+        "B5 Spiral Notebook 160 Pages",
+        "Executive Ruled Notebook B5 (160p)",
+        "Spiral Executive Notebook B5 160p"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-017",
+      "name": "Dry Erase Whiteboard Marker Black Pack of 10",
+      "description": "Low odor non-toxic bullet tip dry erase marker black color pack of 10",
+      "uom": "box",
+      "unit_price": 220.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": "marker",
+      "distinguisher": "black",
+      "reworded": [
+        "Whiteboard Marker Black (Pack of 10)",
+        "Dry Erase Marker 10 Pack Black",
+        "Bullet Tip Whiteboard Marker Black 10pk"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-018",
+      "name": "Dry Erase Whiteboard Marker Blue Pack of 10",
+      "description": "Low odor non-toxic bullet tip dry erase marker blue color pack of 10",
+      "uom": "box",
+      "unit_price": 220.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": "marker",
+      "distinguisher": "blue",
+      "reworded": [
+        "Whiteboard Marker Blue (Pack of 10)",
+        "Dry Erase Marker 10 Pack Blue",
+        "Bullet Tip Whiteboard Marker Blue 10pk"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-019",
+      "name": "Ballpoint Pen Blue 0.7mm Box of 20",
+      "description": "Smooth ink flow medium point blue ballpoint pens box of 20",
+      "uom": "box",
+      "unit_price": 160.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Blue Ballpoint Pen 0.7mm (Box of 20)",
+        "Ball Pen 0.7mm Blue 20 Pack",
+        "Medium Point Ballpoint Pens 0.7mm Blue 20s"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-020",
+      "name": "Sticky Notes Yellow 3x3 Inch Pack of 5",
+      "description": "Self-adhesive repositionable memo notes 100 sheets per pad 5 pads",
+      "uom": "pack",
+      "unit_price": 125.0,
+      "tax_rate": 12,
+      "category": "stationery",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Yellow Sticky Notes 3x3 Inch (Pack of 5)",
+        "3x3 Sticky Memo Pads Yellow 5pk",
+        "Adhesive Notes 3x3in Yellow 5-Pack"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-021",
+      "name": "Heavy Duty Desk Stapler 24/6",
+      "description": "All metal durable desktop stapler 25 sheet capacity uses 24/6 staples",
+      "uom": "pcs",
+      "unit_price": 280.0,
+      "tax_rate": 18,
+      "category": "stationery",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Desk Stapler Heavy Duty 24/6",
+        "Metal Desktop Stapler 24/6 Pins",
+        "Heavy Duty Office Stapler (24/6)"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-022",
+      "name": "Plastic Document Folder A4 Pack of 12",
+      "description": "Transparent polypropylene snap button file folder A4 size 12 pieces",
+      "uom": "pack",
+      "unit_price": 150.0,
+      "tax_rate": 18,
+      "category": "stationery",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "A4 Plastic Document Folders (Pack of 12)",
+        "Polypropylene A4 File Folders 12pk",
+        "Snap Button Document Folder A4 12pcs"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-023",
+      "name": "Heavy Duty 2-Hole Punch 40 Sheets",
+      "description": "Precision desktop 2-hole puncher with centering guide 40 sheets capacity",
+      "uom": "pcs",
+      "unit_price": 490.0,
+      "tax_rate": 18,
+      "category": "stationery",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "2-Hole Paper Punch 40 Sheets",
+        "Desktop 2-Hole Punch (40 Sheets)",
+        "Heavy Duty 2 Hole Puncher 40 Sheet"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-024",
+      "name": "USB-C Cable 1m",
+      "description": "Braided nylon USB Type-C fast charging cable 60W 1 metre",
+      "uom": "pcs",
+      "unit_price": 250.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": "cable",
+      "distinguisher": "1m",
+      "reworded": [
+        "Type-C USB Cable 1m Braided",
+        "USB-C Fast Charging Cable (1m)",
+        "Braided USB-C Cable 1 Metre"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-025",
+      "name": "USB-C Cable 2m",
+      "description": "Braided nylon USB Type-C fast charging cable 60W 2 metre",
+      "uom": "pcs",
+      "unit_price": 380.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": "cable",
+      "distinguisher": "2m",
+      "reworded": [
+        "Type-C USB Cable 2m Braided",
+        "USB-C Fast Charging Cable (2m)",
+        "Braided USB-C Cable 2 Metre"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-026",
+      "name": "Ergonomic Gel Mouse Pad Standard 210x240mm",
+      "description": "Non-slip rubber base mouse pad with wrist support 210x240mm",
+      "uom": "pcs",
+      "unit_price": 320.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": "mousepad",
+      "distinguisher": "standard",
+      "reworded": [
+        "Gel Mouse Pad with Wrist Rest 210x240mm",
+        "Standard Gel Mouse Pad (210x240mm)",
+        "Ergonomic Mouse Pad 210x240mm Gel"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-027",
+      "name": "Ergonomic Gel Mouse Pad XL 300x350mm",
+      "description": "Large non-slip rubber base mouse pad with extended wrist support 300x350mm",
+      "uom": "pcs",
+      "unit_price": 520.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": "mousepad",
+      "distinguisher": "xl",
+      "reworded": [
+        "Gel Mouse Pad XL Wrist Rest 300x350mm",
+        "XL Gel Mouse Pad (300x350mm)",
+        "Extra Large Ergonomic Mouse Pad 300x350mm"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-028",
+      "name": "Wireless Optical Mouse",
+      "description": "2.4GHz USB ergonomic wireless optical mouse with nano receiver",
+      "uom": "pcs",
+      "unit_price": 1000.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "2.4GHz Wireless Optical Mouse",
+        "Optical Wireless Mouse USB",
+        "Wireless Ergonomic Mouse 2.4GHz"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-029",
+      "name": "Wired USB Keyboard",
+      "description": "Full-size 104 keys spill-resistant USB membrane keyboard",
+      "uom": "pcs",
+      "unit_price": 650.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "USB Wired Keyboard 104 Keys",
+        "Full-Size Wired USB Keyboard",
+        "Spill-Resistant USB Keyboard 104-Key"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-030",
+      "name": "HDMI Cable 4K 1.8m",
+      "description": "High-speed HDMI 2.0 cable supporting 4K 60Hz 1.8 metre length",
+      "uom": "pcs",
+      "unit_price": 310.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "High-Speed HDMI 2.0 Cable 1.8m 4K",
+        "4K HDMI Cable (1.8m)",
+        "HDMI Cable 1.8m 4K 60Hz"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-031",
+      "name": "Cat6 Ethernet Patch Cable 3m",
+      "description": "RJ45 molded snagless Cat6 gigabit network patch cord 3 metre",
+      "uom": "pcs",
+      "unit_price": 180.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Cat6 RJ45 Network Cable 3m",
+        "Cat6 Gigabit Ethernet Patch Cord 3m",
+        "Cat6 LAN Cable (3m)"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-032",
+      "name": "USB 3.0 Flash Drive 64GB",
+      "description": "High-speed compact metal casing USB 3.0 pen drive 64GB",
+      "uom": "pcs",
+      "unit_price": 450.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "64GB USB 3.0 Flash Drive",
+        "USB 3.0 Pen Drive 64 GB",
+        "Metal USB 3.0 Flash Drive 64GB"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-033",
+      "name": "USB-C Multiport Adapter 6-in-1",
+      "description": "Type-C hub with 4K HDMI 100W PD 3x USB 3.0 SD card slot",
+      "uom": "pcs",
+      "unit_price": 1850.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "6-in-1 USB-C Multiport Hub",
+        "Type-C Adapter Hub 6-in-1",
+        "USB-C Multiport Dock 6 in 1"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-034",
+      "name": "Smart Card Contactless Reader NFC USB",
+      "description": "ISO 14443 Type A/B contact & contactless RFID smart card reader USB",
+      "uom": "pcs",
+      "unit_price": 2850.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "NFC Smart Card Reader USB",
+        "Contactless Smart Card Reader USB NFC",
+        "USB Smart Card RFID Reader ISO14443"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-035",
+      "name": "KVM Switch Dual Monitor 4-Port DisplayPort",
+      "description": "4-port 4K 60Hz dual DisplayPort USB 3.0 desktop KVM switch",
+      "uom": "pcs",
+      "unit_price": 8900.0,
+      "tax_rate": 18,
+      "category": "it_accessories",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "4-Port Dual Monitor KVM Switch DisplayPort",
+        "KVM Switch 4-Port Dual DP",
+        "DisplayPort KVM Switch 4 Port Dual Monitor"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-036",
+      "name": "Liquid Hand Wash Fresh Lemon 5L",
+      "description": "Antibacterial commercial liquid soap lemon fragrance 5 litre can",
+      "uom": "can",
+      "unit_price": 420.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": "handwash",
+      "distinguisher": "lemon",
+      "reworded": [
+        "Lemon Liquid Hand Wash 5 Litre",
+        "Liquid Soap Fresh Lemon (5L)",
+        "Antibacterial Hand Wash Lemon 5L"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-037",
+      "name": "Liquid Hand Wash Pure Rose 5L",
+      "description": "Moisturizing commercial liquid soap rose fragrance 5 litre can",
+      "uom": "can",
+      "unit_price": 440.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": "handwash",
+      "distinguisher": "rose",
+      "reworded": [
+        "Rose Liquid Hand Wash 5 Litre",
+        "Liquid Soap Pure Rose (5L)",
+        "Moisturizing Hand Wash Rose 5L"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-038",
+      "name": "Heavy Duty Garbage Bags Black 30x37 Inch Pack of 30",
+      "description": "Thick tear-resistant black waste bin liners 30x37 inches roll of 30",
+      "uom": "roll",
+      "unit_price": 210.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": "trashbag",
+      "distinguisher": "black",
+      "reworded": [
+        "Black Garbage Bags 30x37 Inch (Pack of 30)",
+        "30x37 Heavy Duty Trash Bags Black 30pk",
+        "Black Bin Liners 30x37in 30 Count"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-039",
+      "name": "Heavy Duty Garbage Bags Blue 30x37 Inch Pack of 30",
+      "description": "Thick tear-resistant blue recyclable waste bin liners 30x37 inches roll of 30",
+      "uom": "roll",
+      "unit_price": 220.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": "trashbag",
+      "distinguisher": "blue",
+      "reworded": [
+        "Blue Garbage Bags 30x37 Inch (Pack of 30)",
+        "30x37 Heavy Duty Trash Bags Blue 30pk",
+        "Blue Bin Liners 30x37in 30 Count"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-040",
+      "name": "Disinfectant Surface Floor Cleaner Floral 5L",
+      "description": "Hospital grade germ protection floor cleaner concentrate floral 5 litre",
+      "uom": "can",
+      "unit_price": 380.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Floral Floor Cleaner 5 Litre",
+        "Disinfectant Surface Cleaner Floral (5L)",
+        "Germ Protection Floor Cleaner 5L Floral"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-041",
+      "name": "Microfiber Cleaning Cloths 40x40cm Pack of 6",
+      "description": "Lint-free non-scratch multipurpose microfiber wiping towels 40x40cm 6 pack",
+      "uom": "pack",
+      "unit_price": 260.0,
+      "tax_rate": 12,
+      "category": "cleaning_facilities",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Microfiber Cloths 40x40cm (Pack of 6)",
+        "Microfiber Towels 40x40 cm 6pk",
+        "Multipurpose Microfiber Wipes 40x40cm 6s"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-042",
+      "name": "Glass Cleaner Spray Bottle 500ml",
+      "description": "Streak-free shine glass and mirror cleaning spray 500ml",
+      "uom": "bottle",
+      "unit_price": 95.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Streak-Free Glass Cleaner 500 ml",
+        "Glass Cleaner Spray (500ml)",
+        "Mirror & Glass Spray Cleaner 500ml"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-043",
+      "name": "Paper Hand Towels C-Fold 150 Sheets Pack of 4",
+      "description": "Absorbent 2-ply virgin paper hand drying towels c-fold 600 sheets total",
+      "uom": "pack",
+      "unit_price": 290.0,
+      "tax_rate": 12,
+      "category": "cleaning_facilities",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "C-Fold Paper Towels 150 Sheets (Pack of 4)",
+        "Paper Hand Towels 150 Sheets 4-Pack C-Fold",
+        "2-Ply Hand Paper Towels 150 Sheets Pack of 4"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-044",
+      "name": "Industrial Automatic Shoe Cover Dispenser Machine",
+      "description": "Hands-free mechanical hygienic shoe cover dispenser with 100 T-clip shoe covers",
+      "uom": "pcs",
+      "unit_price": 3200.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Automatic Shoe Cover Dispenser Machine",
+        "Hands-Free Shoe Cover Dispenser",
+        "Hygienic Shoe Cover Dispenser Machine"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-045",
+      "name": "Commercial Heavy Duty Wet-and-Dry Vacuum 30L",
+      "description": "1400W stainless steel drum industrial wet dry vacuum cleaner 30 litre",
+      "uom": "pcs",
+      "unit_price": 7800.0,
+      "tax_rate": 18,
+      "category": "cleaning_facilities",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "30L Wet and Dry Industrial Vacuum",
+        "Wet & Dry Vacuum Cleaner 30 Litre",
+        "Heavy Duty Wet/Dry Vacuum 30L"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-046",
+      "name": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+      "description": "Cast stretch film roll for pallet wrapping 500mm width 23 micron 3kg roll",
+      "uom": "roll",
+      "unit_price": 640.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": "stretchfilm",
+      "distinguisher": "23micron",
+      "reworded": [
+        "Stretch Film 500mm 23 Micron 3 kg",
+        "Pallet Stretch Wrap 500mm x 23 Micron 3kg",
+        "Packaging Stretch Film 500mm 23 Micron 3kg"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-047",
+      "name": "Stretch Wrap Packaging Film 500mm x 29 Micron 3kg",
+      "description": "Heavy duty cast stretch film roll for machinery wrapping 500mm 29 micron 3kg",
+      "uom": "roll",
+      "unit_price": 720.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": "stretchfilm",
+      "distinguisher": "29micron",
+      "reworded": [
+        "Stretch Film 500mm 29 Micron 3 kg",
+        "Pallet Stretch Wrap 500mm x 29 Micron 3kg",
+        "Heavy Duty Stretch Film 500mm 29 Micron 3kg"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-048",
+      "name": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+      "description": "Self-adhesive brown sealing tape 48mm width 65 metre length pack of 6 rolls",
+      "uom": "pack",
+      "unit_price": 280.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": "bopptape",
+      "distinguisher": "brown",
+      "reworded": [
+        "Brown BOPP Tape 48mm x 65m (Pack of 6)",
+        "BOPP Sealing Tape Brown 48mmx65m 6pk",
+        "Brown Packaging Tape 48mm 65 Metre 6-Pack"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-049",
+      "name": "BOPP Packaging Tape Clear 48mm x 65m Pack of 6",
+      "description": "Self-adhesive transparent sealing tape 48mm width 65 metre length pack of 6 rolls",
+      "uom": "pack",
+      "unit_price": 280.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": "bopptape",
+      "distinguisher": "clear",
+      "reworded": [
+        "Clear BOPP Tape 48mm x 65m (Pack of 6)",
+        "BOPP Sealing Tape Clear 48mmx65m 6pk",
+        "Transparent Packaging Tape 48mm 65 Metre 6-Pack"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-050",
+      "name": "Corrugated Shipping Box 3-Ply 12x10x8 Inch Bundle of 25",
+      "description": "Single wall corrugated cardboard mailing carton 12x10x8 bundle of 25",
+      "uom": "bundle",
+      "unit_price": 625.0,
+      "tax_rate": 12,
+      "category": "packaging",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "3-Ply Corrugated Box 12x10x8 Inch (Bundle of 25)",
+        "Shipping Box 12x10x8in 3-Ply 25pk",
+        "Corrugated Cartons 3-Ply 12x10x8 Inch 25-Bundle"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-051",
+      "name": "Bubble Wrap Roll 500mm x 50m Double Layer",
+      "description": "Protective air cushion packaging bubble roll 500mm width 50 metre length",
+      "uom": "roll",
+      "unit_price": 450.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Air Bubble Wrap Roll 500mm x 50m",
+        "Double Layer Bubble Wrap 500mmx50m",
+        "Protective Bubble Roll 500mm 50 Metre"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-052",
+      "name": "Thermal Label Roll 110x80mm 500 Labels",
+      "description": "Direct thermal barcode barcode shipping label roll 110x80mm 500 labels per roll",
+      "uom": "roll",
+      "unit_price": 310.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Direct Thermal Labels 110x80mm (500 Labels)",
+        "Thermal Label Roll 110x80 mm 500s",
+        "Barcode Thermal Roll 110x80mm 500 Labels"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-053",
+      "name": "Poly Strapping Tensioner and Sealer Tool Kit",
+      "description": "Manual strapping tool set for 12-19mm PP and PET packaging straps",
+      "uom": "set",
+      "unit_price": 2400.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Manual Poly Strapping Tensioner Sealer Kit",
+        "Strapping Tool Set 12-19mm Poly",
+        "Tensioner & Sealer Kit for Poly Strapping"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-054",
+      "name": "Biodegradable Air Pillow Void Fill Cushion Film 200mm x 300m",
+      "description": "Compostable cornstarch based pre-perforated air pillow void fill film roll",
+      "uom": "roll",
+      "unit_price": 3450.0,
+      "tax_rate": 18,
+      "category": "packaging",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Biodegradable Air Pillow Film 200mm x 300m",
+        "Compostable Void Fill Cushion Roll 200mmx300m",
+        "Air Pillow Film Biodegradable 200mm 300m"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-055",
+      "name": "Nitrile Chemical Resistant Safety Gloves Size M Pack of 12 Pairs",
+      "description": "Green flock-lined nitrile protective work gloves size medium 12 pairs",
+      "uom": "pack",
+      "unit_price": 780.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": "gloves",
+      "distinguisher": "medium",
+      "reworded": [
+        "Nitrile Safety Gloves Size M (Pack of 12 Pairs)",
+        "Chemical Resistant Nitrile Gloves Medium 12pk",
+        "Nitrile Work Gloves Size M 12 Pairs"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-056",
+      "name": "Nitrile Chemical Resistant Safety Gloves Size L Pack of 12 Pairs",
+      "description": "Green flock-lined nitrile protective work gloves size large 12 pairs",
+      "uom": "pack",
+      "unit_price": 780.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": "gloves",
+      "distinguisher": "large",
+      "reworded": [
+        "Nitrile Safety Gloves Size L (Pack of 12 Pairs)",
+        "Chemical Resistant Nitrile Gloves Large 12pk",
+        "Nitrile Work Gloves Size L 12 Pairs"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-057",
+      "name": "Corded Foam Ear Plugs NRR 32dB Box of 50 Pairs",
+      "description": "Soft polyurethane expandable corded hearing protection earplugs 32dB 50 pairs",
+      "uom": "box",
+      "unit_price": 450.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Corded Foam Earplugs 32dB (Box of 50 Pairs)",
+        "Hearing Protection Ear Plugs Corded 32dB 50pk",
+        "Polyurethane Corded Ear Plugs 32dB 50 Pairs"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-058",
+      "name": "Clear Polycarbonate Safety Goggles Anti-Fog",
+      "description": "Impact resistant wraparound eye protection glasses with anti-fog coating",
+      "uom": "pcs",
+      "unit_price": 140.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Anti-Fog Polycarbonate Safety Goggles",
+        "Clear Safety Glasses Anti-Fog",
+        "Impact Safety Goggles Polycarbonate Clear"
+      ],
+      "unique_item": false
+    },
+    {
+      "sku": "SKU-059",
+      "name": "Industrial Cable Tie 300mm Pack of 100",
+      "description": "Self-locking UV resistant heavy duty nylon zip ties 300mm x 4.8mm pack of 100",
+      "uom": "pack",
+      "unit_price": 190.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Heavy Duty Cable Ties 300mm (Pack of 100)",
+        "Nylon Zip Ties 300mm 100pk",
+        "Industrial Cable Tie 300mm 100 Pack"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-060",
+      "name": "High Voltage Electrical Insulating Rubber Mat Class B 1m x 2m",
+      "description": "IS 15652 approved safety electrical matting 11kV tested 1m x 2m sheet",
+      "uom": "pcs",
+      "unit_price": 3800.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Electrical Insulating Rubber Mat 11kV 1m x 2m",
+        "High Voltage Rubber Mat Class B 1x2m",
+        "IS 15652 Insulating Rubber Mat 1m x 2m"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-061",
+      "name": "Digital Torque Wrench 1/2 Inch Drive 20-200 Nm",
+      "description": "High precision electronic torque wrench with buzzer LED indicator 20-200Nm",
+      "uom": "pcs",
+      "unit_price": 11500.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Electronic Digital Torque Wrench 1/2in 20-200Nm",
+        "Digital Torque Wrench 1/2 Inch (20-200 Nm)",
+        "1/2 Drive Electronic Torque Wrench 20-200Nm"
+      ],
+      "unique_item": true
+    },
+    {
+      "sku": "SKU-062",
+      "name": "Calibration Test Pressure Gauge 0-400 Bar 0.25% Accuracy",
+      "description": "Master test stainless steel Bourdon tube pressure gauge 150mm dial 0-400 bar",
+      "uom": "pcs",
+      "unit_price": 14200.0,
+      "tax_rate": 18,
+      "category": "industrial",
+      "twin_group": null,
+      "distinguisher": null,
+      "reworded": [
+        "Master Test Pressure Gauge 0-400 Bar 0.25%",
+        "Calibration Test Gauge 0-400 Bar (0.25% Acc)",
+        "Pressure Gauge Master Calibration 0-400bar 0.25%"
+      ],
+      "unique_item": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-arith-err.pdf",
+  "vendor_name": "QuickBite Refreshments Pvt Ltd",
+  "vendor_gstin": "33AAAC2824J1Z1",
+  "invoice_number": "INV-ARITH-ERR",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-03",
+  "currency": "INR",
+  "subtotal": 550.0,
+  "tax_total": 27.5,
+  "grand_total": 602.5,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Grilled Cheese Sandwich",
+      "quantity": 5.0,
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "line_total": 550.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "ARITHMETIC_MISMATCH",
+    "po_id": "PO-2026-MISC-03",
+    "tag": "arith_mismatch",
+    "notes": "Printed grand total is higher than subtotal + tax"
+  }
+}

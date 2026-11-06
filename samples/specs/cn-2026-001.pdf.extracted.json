@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Delta Supplies & Logistics",
+    "gstin": "24AAACD9988E1Z7",
+    "bank_account": "KKBK00044556677"
+  },
+  "invoice_number": {
+    "value": "CN-2026-001",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-10",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": -5250.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 945.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": -6195.0,
+    "confidence": 1.0
+  },
+  "document_type": "credit_note",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 350.0,
+      "line_total": 5250.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Delta Supplies & Logistics\nGSTIN: 24AAACD9988E1Z7\nInvoice No: CN-2026-001\nDate: 2026-10-22\nPO Reference: PO-2026-MISC-10\n1 USB-C Cable 1m 15.0 350.00 5250.00\nSubtotal: -5250.00\nTax Total: 945.00\nGrand Total: Rs. -6195.00"
+}

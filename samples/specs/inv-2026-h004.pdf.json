@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h004.pdf",
+  "vendor_name": "Acrne Foods Pvt Ltd",
+  "vendor_gstin": "36ZZZZZ8888Z1Z9",
+  "invoice_number": "INV-2026-H004",
+  "invoice_date": "2026-10-27",
+  "po_reference": "PO-2026-HAPPY-04",
+  "currency": "INR",
+  "subtotal": 850.0,
+  "tax_total": 102.0,
+  "grand_total": 952.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Fresh Orange Juice 250ml",
+      "quantity": 10.0,
+      "uom": "bottle",
+      "unit_price": 85.0,
+      "line_total": 850.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-04",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout multi_page"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "file_name": "inv_miss_num.pdf",
+  "vendor_name": "Sri Balaji Foods Pvt Ltd",
+  "vendor_gstin": "36ABCDE1234F1Z5",
+  "invoice_number": "",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-15",
+  "currency": "INR",
+  "subtotal": 2400.0,
+  "tax_total": 288.0,
+  "grand_total": 2688.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Microfiber Cleaning Cloths (Pack of 4)",
+      "quantity": 15.0,
+      "uom": "pack",
+      "unit_price": 160.0,
+      "line_total": 2400.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "MISSING_FIELDS",
+    "po_id": "PO-2026-MISC-15",
+    "tag": "missing_invno",
+    "notes": "Missing invoice number"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "vendor": {
+    "name": "Sri Balaji Foods Pvt Ltd",
+    "gstin": "36ABCDE1234F1Z5",
+    "bank_account": "HDFC00012345678"
+  },
+  "invoice_number": {
+    "value": "INV-BURGER-WINNER",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 2500.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 125.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 2625.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Veg Burger 150g",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 120.0,
+      "line_total": 1200.0,
+      "tax_rate": 5.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cheese Burger 150g",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 130.0,
+      "line_total": 1300.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Sri Balaji Foods Pvt Ltd\nGSTIN: 36ABCDE1234F1Z5\nInvoice No: INV-BURGER-WINNER\nDate: 2026-10-22\n1 Veg Burger 150g 10.0 120.00 1200.00\n2 Cheese Burger 150g 10.0 130.00 1300.00\nSubtotal: 2500.00\nTax Total: 125.00\nGrand Total: Rs. 2625.00"
+}

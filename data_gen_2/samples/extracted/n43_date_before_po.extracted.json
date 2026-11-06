@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "n43_date_before_po.pdf",
+    "file_hash": "50f85929ce4a967521f6062f7c24616f50afb49aa5ba2220e330cbc290af3753",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Royal Hospitality & Beverages Pvt Ltd",
+    "gstin": "29AABCR9012K1Z1",
+    "email": "billing@royalhospitality.in",
+    "phone": "+91 80 5550 4545",
+    "address": "33/1, Residency Road, Bengaluru 560025",
+    "bank_account": "SYN00056781234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "ROY/26/9541",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-02",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-PREDATE-01",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Salted Cashew Nuts 500g",
+      "quantity": 30.0,
+      "uom": "pack",
+      "unit_price": 480.0,
+      "line_total": 14400.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 14400.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1728.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 16128.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

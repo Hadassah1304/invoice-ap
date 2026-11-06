@@ -1,0 +1,66 @@
+Family N: Numbers, documents and messiness
+Author: Agent N
+
+1. Vendors Owned:
+   - V-STAT: Apex Stationery & Print Solutions (Stationery & printing)
+   - V-NUM1: BlueDart Logistics & Courier LLP (Packaging & courier logistics)
+   - V-NUM2: Garuda Electrical & Engineering (Electrical components, IT accessories, safety gear)
+   - V-NUM3: Royal Hospitality & Beverages Pvt Ltd (Food, beverages & catering)
+
+2. Scenario Count and Breakdown (Exactly 23 scenarios):
+   - happy_explicit (8 scenarios):
+     * SC-N-HAPPY-01: V-STAT, 2 lines, tax 0%, itemised layout, degrade: none. APPROVED / OK, firm.
+     * SC-N-HAPPY-02: V-STAT, 3 lines, tax 12%, bundled layout, degrade: light. APPROVED / OK, firm.
+     * SC-N-HAPPY-03: V-NUM1, 1 line, tax 18%, tax_embedded layout, degrade: none. APPROVED / OK, firm.
+     * SC-N-HAPPY-04: V-NUM1, 4 lines, tax 12% & 18%, itemised layout, degrade: light. APPROVED / OK, firm.
+     * SC-N-HAPPY-05: V-NUM2, 12 lines, tax 18%, multi_page layout, degrade: none. APPROVED / OK, firm.
+     * SC-N-HAPPY-06: V-NUM2, 2 lines, tax 18%, itemised layout, degrade: none. APPROVED / OK, firm.
+     * SC-N-HAPPY-07: V-NUM3, 3 lines, tax 5%, bundled layout, degrade: none. APPROVED / OK, firm.
+     * SC-N-HAPPY-08: V-NUM3, 2 lines, tax 12%, tax_embedded layout, degrade: none. APPROVED / OK, firm.
+     Layout hints across all 4 layouts: itemised (3), bundled (2), tax_embedded (2), multi_page (1).
+     Exactly one PO >= 12 lines (SC-N-HAPPY-05).
+     Exactly two scenarios with degrade: light (SC-N-HAPPY-02, SC-N-HAPPY-04).
+     Tax rates {0, 5, 12, 18} covered across the 4 vendors.
+   - price_drift (2 scenarios):
+     * SC-N-DRIFT-01: V-STAT, 2 lines, tax 12% uniform, bills full PO, degrade: none. Mutation price_drift (min_drift_pct: 5). NEEDS_REVIEW / PRICE_DRIFT, firm.
+     * SC-N-DRIFT-02: V-NUM1, 2 lines, tax 18% uniform, bills full PO, degrade: heavy. Mutation price_drift (min_drift_pct: 5). NEEDS_REVIEW / PRICE_DRIFT, soft.
+   - arith_mismatch (1 scenario):
+     * SC-N-ARITH-01: V-NUM2, partial billing, mutation arith_break (delta: 12.00). NEEDS_REVIEW / ARITHMETIC_MISMATCH, firm.
+   - missing_invno (1 scenario):
+     * SC-N-MISS-INV: V-NUM3, mutation missing_field {"field":"invoice_number","omit_label":true}. NEEDS_REVIEW / MISSING_FIELDS, firm.
+   - missing_date (1 scenario):
+     * SC-N-MISS-DAT: V-STAT, mutation missing_field {"field":"invoice_date","omit_label":false}. NEEDS_REVIEW / MISSING_FIELDS, firm.
+   - missing_total (1 scenario):
+     * SC-N-MISS-TOT: V-NUM1, mutation missing_field {"field":"grand_total","omit_label":false}. NEEDS_REVIEW / MISSING_FIELDS, firm.
+   - scan_blur_stamp (2 scenarios):
+     * SC-N-SCAN-01: V-NUM2, clean happy invoice, degrade: heavy, mutation none. APPROVED (accepted: ["APPROVED","NEEDS_REVIEW"], codes: ["OK"]), soft.
+     * SC-N-SCAN-02: V-NUM3, clean happy invoice, degrade: heavy, mutation none. APPROVED (accepted: ["APPROVED","NEEDS_REVIEW"], codes: ["OK"]), soft.
+   - credit_note (1 scenario):
+     * SC-N-CRNOTE-01: V-STAT, mutation make_credit_note. NEEDS_REVIEW / UNSUPPORTED_DOCUMENT_TYPE, firm.
+   - future_dated (1 scenario):
+     * SC-N-FUTURE-01: V-NUM1, mutation shift_date {"offset_days": 12}. NEEDS_REVIEW / DATE_INVALID, firm.
+   - stale (1 scenario):
+     * SC-N-STALE-01: V-NUM2, PO date offset -160, mutation shift_date {"offset_days": -140}. NEEDS_REVIEW / DATE_INVALID, firm.
+   - date_before_po (1 scenario):
+     * SC-N-PREDATE-01: V-NUM3, PO date offset -20, mutation shift_date {"offset_days": -35}. NEEDS_REVIEW / DATE_INVALID, firm.
+   - number_formats_indian (1 scenario):
+     * SC-N-NUM-IND: V-STAT, invoice total 143,360.00 (>= 100,000), date offset -50 (day of month: 17 > 12). Mutation reformat {"number_format":"indian","currency_style":"Rs.","date_style":"dmy_slash"}. APPROVED / OK, firm.
+   - number_formats_eu_ambiguous (1 scenario):
+     * SC-N-NUM-EU: V-NUM1, date offset -60 (day of month: 7 <= 12). Mutation reformat {"number_format":"eu","currency_style":"INR","date_style":"dmy_slash"}. NEEDS_REVIEW (accepted: ["NEEDS_REVIEW","APPROVED"], codes: []), soft, config_dependency: ["normalization.ambiguous_date_policy"].
+   - tax_embedded (1 scenario):
+     * SC-N-EMBED-01: V-NUM2, PO lines with 12% tax, mutation embed_tax. NEEDS_REVIEW (accepted: ["NEEDS_REVIEW","APPROVED"], codes: []), soft.
+
+3. Noise POs (5 POs added):
+   - PO-N-NOISE-01: V-STAT, OPEN, SKU-022 (Plastic Document Folder A4), tax 18%.
+   - PO-N-NOISE-02: V-NUM1, CANCELLED, SKU-051 (Bubble Wrap Roll), tax 18%.
+   - PO-N-NOISE-03: V-NUM2, CLOSED, SKU-036 (Liquid Hand Wash Lemon 5L), tax 18%. Fully consumed by preload LP-N-NOISE-03-1.
+   - PO-N-NOISE-04: V-NUM3, PARTIAL, SKU-003 (Chicken Burger 150g), tax 5%. Partially consumed by preload LP-N-NOISE-04-1 (40/100 billed).
+   - PO-N-NOISE-05: V-STAT, OPEN, SKU-014 (A4 Copier Paper 70gsm), tax 12%.
+
+4. Collision Rules Compliance:
+   - C1 (Own POs): All scenarios reference only Family N POs.
+   - C2/C2b (Distinct items within vendor): Distinct items used across open POs for each vendor.
+   - C3 (Unique catalog items): Zero unique_item: true SKUs used in Family N, preserving them strictly for Family R vendor-less matching scenarios.
+   - C4 (Near-duplicate trap): All invoice pairs per vendor have dates > 10 days apart or grand totals differing by > 0.5%. Verified by test script.
+   - C5 (Invoice number similarity): Rapidfuzz similarity ratio < 0.85 across all invoice numbers for every vendor.
+   - C6-C9: Complied with. No derived fields present (total, subtotal, tax_total, grand_total, line_total, qty_remaining, invoice_no_norm).

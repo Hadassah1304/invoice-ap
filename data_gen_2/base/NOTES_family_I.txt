@@ -1,0 +1,58 @@
+NOTES - Agent I (Integrity Data Author)
+=========================================
+
+1. Family Ownership & Scope
+---------------------------
+- Family ID: I
+- Owned Vendors:
+  * V-UNAPP: Unapproved Rogue Traders (approved: false)
+  * V-INTEG: Titan Industrial Tools LLP (approved: true, hosts duplicate series)
+  * V-CTRL: Falcon Precision Components (approved: true, control vendor)
+  * V-BANKCHG: Metro Facility Cleaners Pvt Ltd (approved: true, bank change scenario)
+- Catalog SKUs used:
+  * SKU-024: USB-C Cable 1m (PO-I-DUP)
+  * SKU-058: Clear Polycarbonate Safety Goggles Anti-Fog (PO-I-CTRL-1)
+  * SKU-029: Wired USB Keyboard (PO-I-CTRL-2)
+  * SKU-030: HDMI Cable 4K 1.8m (PO-I-CTRL-3)
+  * SKU-032: USB 3.0 Flash Drive 64GB (PO-I-UNAPP-1)
+  * SKU-040: Disinfectant Surface Floor Cleaner Floral 5L (PO-I-BANKCHG-1)
+- All catalog items used have unique_item: false, avoiding interference with Family R's vendor-less PO matching scenarios.
+
+2. Scenario Suite (Exactly 11 Scenarios)
+----------------------------------------
+- Series I-DUP (Positions 1 to 7):
+  * Pos 1: SC-I-DUP-01 (tag: dup_orig)
+    Original invoice: INT/26/7741 on PO-I-DUP (V-INTEG), bills 20 @ 250 = 5000 (tax 0). Date offset -40. Intent: APPROVED / OK, firm.
+  * Pos 2: SC-I-DUP-02 (tag: dup_resend_identical)
+    Identical re-send: derive_from SC-I-DUP-01, mutation: resend_identical. Tests cache gate by file hash. Intent: APPROVED / OK, expect_cached: true, firm.
+  * Pos 3: SC-I-DUP-03 (tag: dup_exact)
+    Exact duplicate re-rendered: derive_from SC-I-DUP-01, mutation: rerender with layout bundled. Different file hash, same vendor & invoice number. Intent: REJECTED / DUPLICATE_EXACT, firm.
+  * Pos 4: SC-I-DUP-04 (tag: dup_near_format)
+    Format duplicate: derive_from SC-I-DUP-01, mutation: renumber_format (new_invoice_no: INT267741, date_delta_days: 1). Normalizes to INT267741. Intent: REJECTED / DUPLICATE_EXACT, firm.
+  * Pos 5: SC-I-DUP-05 (tag: dup_rescan)
+    Degraded duplicate: derive_from SC-I-DUP-01, mutation: rerender with degrade: medium. Intent: REJECTED / DUPLICATE_EXACT, firm.
+  * Pos 6: SC-I-CTRL-01 (tag: same_invno_other_vendor)
+    Control scenario: uses identical raw number INT/26/7741 on PO-I-CTRL-1 under vendor V-CTRL. Separate items (Clear Polycarbonate Safety Goggles 30 @ 140 = 4200 + tax 18% = 4956), date offset -25. relation: {"type": "control_of", "scenario_id": "SC-I-DUP-01"}. Intent: APPROVED / OK, firm (duplicates are scoped per vendor).
+  * Pos 7: SC-I-DUP-06 (tag: dup_possible)
+    Near-duplicate: derive_from SC-I-DUP-01, mutation: new_number_same_amount (new_invoice_no: INT/26/9052, date_delta_days: 3). Identical amount within near_dup_window_days (3 <= 7). MUST BE LAST in series because it enters pending state and reserves balance. Intent: NEEDS_REVIEW / DUPLICATE_POSSIBLE, firm.
+
+- Standalone Scenarios (Scenarios 8-11):
+  * SC-I-LOOK-01 (tag: vendor_lookalike): V-CTRL, PO-I-CTRL-2. Mutation lookalike_vendor. Intent: NEEDS_REVIEW / VENDOR_UNCLEAR, firm.
+  * SC-I-UNAPP-01 (tag: vendor_unapproved): V-UNAPP, PO-I-UNAPP-1. Explicit reference, normal lines, mutation none. Intent: REJECTED / VENDOR_NOT_APPROVED, firm.
+  * SC-I-BANK-01 (tag: bank_changed): V-BANKCHG, PO-I-BANKCHG-1. Mutation change_bank. Intent: NEEDS_REVIEW, accepted codes [], confidence soft.
+  * SC-I-CURR-01 (tag: currency_mismatch): V-CTRL, PO-I-CTRL-3 (PO currency INR). Mutation change_currency with currency: USD. Intent: REJECTED / CURRENCY_MISMATCH, firm.
+
+3. Collision Rules Verification
+-------------------------------
+- C1 (Own your POs): All POs belong to Family I vendors and are referenced only by Family I scenarios.
+- C4 (Near-duplicate trap):
+  * All non-duplicate invoices for the same vendor have distinct totals and/or dates spaced >= 12 days apart.
+  * Intended duplicates/controls explicitly declared via relation.type (duplicate_of, control_of).
+- C5 (Invoice number similarity):
+  * V-INTEG: INT/26/7741 vs INT/26/9052 (rapidfuzz normalized similarity = 0.5556 < 0.85).
+  * V-CTRL: INT/26/7741 (control_of), FAL/26/1834, FAL/26/5291 (pairwise similarities < 0.56, well below 0.85).
+  * V-UNAPP: ROG/26/3142.
+  * V-BANKCHG: MET/26/8419.
+- C6 (Same invoice number across vendors): Only used in SC-I-CTRL-01 with relation.type = "control_of".
+- C8 (Date bounds): PO dates precede invoice dates, all invoice offsets between -40 and -20 (well within -85..0 bounds).
+- C9 (Honest intent): Confidence marked soft only for bank_changed (pipeline soft check).

@@ -1,0 +1,94 @@
+# Notes for Family R (Routing and Ambiguity)
+
+Author: Agent R
+Date: 2026-11-06
+Schema Version: 1
+
+## Vendors Owned
+Family R owns exactly 5 vendors:
+- V-BALA: Sri Balaji Foods Pvt Ltd (Burger group host)
+- V-TIE: Annapurna Catering Services (Tie group host)
+- V-FRESH: Kaveri Fresh Farm Produce LLP (Inferred match vendor pool)
+- V-PACK: SafePack Containers & Boxes (Inferred match vendor pool)
+- V-ROUTE: Navrang General Merchants Pvt Ltd (General trader: typo, closed, cancelled, reworded, dropped vendor block)
+
+---
+
+## Vendor Open PO Pools & Scenario Design (Rule C2 & C2b)
+
+### 1. V-BALA (Burger Group)
+- Pool composition:
+  * `PO-R-BURGER-A`: PARTIAL, date -30d. Lines: Veg Burger 20 @ 120, Cheese Burger 20 @ 130, Chicken Burger 15 @ 135, Cold Coffee 300ml 20 @ 95, French Fries 25 @ 80 (Tax 0%). Total = 10,925.00 INR. Preload LP-R-BURGER-A-1 consumes 14 Veg Burger @ 120 (1,680.00 INR), leaving only 6 Veg Burger remaining.
+  * `PO-R-BURGER-B`: OPEN, date -25d. Lines: Veg Burger 10 @ 120, Cheese Burger 10 @ 130 (Tax 0%). Total = 2,500.00 INR.
+  * `PO-R-BURGER-C`: OPEN, date -22d. Lines: Veg Burger 10 @ 110, Cheese Burger 10 @ 130, French Fries 15 @ 80 (Tax 0%). Total = 3,600.00 INR.
+- Scenarios:
+  * R-1 (`SC-R-BURGER-CLEAR-01`, `burger_clear_winner`): Invoice bills Veg Burger 10 @ 120, Cheese Burger 10 @ 130 (Total 2,500.00 INR), no PO reference (mutation `drop_po_ref`). PO-R-BURGER-C fails price variance on Veg Burger (110 vs 120, >2% and >5%). PO-R-BURGER-A fails remaining quantity on Veg Burger (6 remaining vs 10 billed). PO-R-BURGER-B matches lines, prices, quantities, and remaining balance exactly. Winner is PO-R-BURGER-B.
+
+### 2. V-TIE (Tie Group)
+- Pool composition:
+  * `PO-R-TIE-A`: OPEN, date -35d. Lines: Cheese Burger 10 @ 130, Cold Coffee 300ml 10 @ 95 (Tax 0%). Total = 2,250.00 INR.
+  * `PO-R-TIE-B`: OPEN, date -35d. Lines: Cheese Burger 10 @ 130, Cold Coffee 300ml 10 @ 95 (Tax 0%). Total = 2,250.00 INR.
+  Both POs are identical in every authored respect except po_id.
+- Scenarios:
+  * R-2 (`SC-R-TIE-01`, `burger_tie`): Invoice bills Cheese Burger 10 @ 130, Cold Coffee 300ml 10 @ 95 (Total 2,250.00 INR) with no PO reference. The pipeline cannot distinguish between PO-R-TIE-A and PO-R-TIE-B, resulting in AMBIGUOUS_PO (po_id: null).
+
+### 3. V-FRESH (Produce / Dairy)
+- Pool composition (All open POs contain strictly distinct catalog items per C2b):
+  * `PO-R-FRESH-1`: OPEN, date -40d. Lines: Mineral Water 500ml (SKU-004) 100 @ 15.00 (Tax 18%), Salted Cashew Nuts 500g (SKU-011) 20 @ 480.00 (Tax 12%). Total = 12,522.00 INR.
+  * `PO-R-FRESH-2`: OPEN, date -30d. Lines: Mineral Water 1L (SKU-005) 80 @ 25.00 (Tax 18%), Cold Coffee 500ml (SKU-007) 40 @ 140.00 (Tax 12%). Total = 9,208.00 INR.
+  * `PO-R-FRESH-3`: OPEN, date -20d. Lines: Masala Chai 150ml (SKU-009) 150 @ 20.00 (Tax 5%), Veg Club Sandwich 250g (SKU-010) 50 @ 110.00 (Tax 5%). Total = 8,925.00 INR.
+  * `PO-R-OTHERV-2`: OPEN, date -42d. Line: Chicken Burger 150g (SKU-003) 50 @ 135.00 (Tax 5%). Target PO for swap_po_ref in R-8.
+- Scenarios:
+  * R-3 (`SC-R-NOPO-FRESH-01`, `no_po_vendor_known`): Invoice bills Mineral Water 500ml 100 @ 15.00 and Salted Cashew Nuts 500g 20 @ 480.00 (Total 12,522.00 INR), no PO reference. Perfectly matches PO-R-FRESH-1.
+
+### 4. V-PACK (Packaging)
+- Pool composition (All open POs contain strictly distinct catalog items per C2b):
+  * `PO-R-PACK-1`: OPEN, date -45d. Lines: Stretch Wrap 23 Micron (SKU-046) 30 @ 640.00 (Tax 18%), BOPP Brown Tape (SKU-048) 50 @ 280.00 (Tax 18%). Total = 39,176.00 INR.
+  * `PO-R-PACK-2`: OPEN, date -32d. Lines: Stretch Wrap 29 Micron (SKU-047) 25 @ 720.00 (Tax 18%), BOPP Clear Tape (SKU-049) 40 @ 280.00 (Tax 18%). Total = 34,456.00 INR.
+  * `PO-R-PACK-3`: OPEN, date -18d. Lines: Corrugated Box 12x10x8 (SKU-050) 40 @ 625.00 (Tax 12%), Bubble Wrap 50m (SKU-051) 15 @ 450.00 (Tax 18%). Total = 35,965.00 INR.
+- Scenarios:
+  * R-4 (`SC-R-NOPO-PACK-01`, `no_po_vendor_known`): Invoice bills Stretch Wrap 23 Micron 30 @ 640.00 and BOPP Brown Tape 50 @ 280.00 (Total 39,176.00 INR), no PO reference. Perfectly matches PO-R-PACK-1.
+
+### 5. V-ROUTE (General Merchants)
+- Pool composition (All open POs contain strictly distinct catalog items per C2b):
+  * `PO-R-NOVEND-1`: OPEN, date -35d. Line: Thermal Label Roll (SKU-052, unique_item: true) 30 @ 310.00 (Tax 18%). Total = 10,974.00 INR.
+  * `PO-R-NOVEND-2`: OPEN, date -28d. Line: Industrial Cable Tie 300mm (SKU-059, unique_item: true) 50 @ 190.00 (Tax 18%). Total = 11,210.00 INR.
+  * `PO-R-TYPO-1`: OPEN, date -25d. Lines: A4 Copier Paper 80gsm (SKU-013) 50 @ 320.00 (Tax 12%), Heavy Duty Stapler (SKU-021) 10 @ 280.00 (Tax 18%). Total = 21,224.00 INR.
+  * `PO-R-OTHERV-1`: OPEN, date -40d. Lines: Spiral Notebook A5 (SKU-015) 60 @ 145.00 (Tax 12%), Ballpoint Pen Blue (SKU-019) 35 @ 160.00 (Tax 12%). Total = 16,016.00 INR.
+  * `PO-R-REWORD-1`: OPEN, date -30d. Lines: Whiteboard Marker Black (SKU-017) 20 @ 220.00 (Tax 12%), Sticky Notes Yellow (SKU-020) 40 @ 125.00 (Tax 12%). Total = 10,528.00 INR.
+  * `PO-R-REWORD-2`: OPEN, date -22d. Lines: Gel Mouse Pad Standard (SKU-026) 25 @ 320.00 (Tax 18%), Cat6 Patch Cable 3m (SKU-031) 30 @ 180.00 (Tax 18%). Total = 15,812.00 INR.
+  * Non-open POs:
+    - `PO-R-CLOSED-1`: CLOSED, date -70d. Fully consumed by LP-R-CLOSED-1 preload.
+    - `PO-R-CANCEL-1`: CANCELLED, date -50d. No preload.
+- Scenarios:
+  * R-5 (`SC-R-NOVEND-01`, `no_po_no_vendor`): SKU-052, vendor block and PO ref dropped. Soft due to completeness gate.
+  * R-6 (`SC-R-NOVEND-02`, `no_po_no_vendor`): SKU-059, vendor block and PO ref dropped. Soft due to completeness gate.
+  * R-7 (`SC-R-TYPO-01`, `po_typo`): Mutation `po_typo`. INVALID_PO_REF, firm.
+  * R-8 (`SC-R-OTHERV-01`, `po_other_vendor`): Mutation `swap_po_ref` with target `PO-R-OTHERV-2` (V-FRESH). VENDOR_MISMATCH, firm.
+  * R-9 (`SC-R-CLOSED-01`, `po_closed`): References CLOSED PO PO-R-CLOSED-1. PO_CLOSED, firm.
+  * R-10 (`SC-R-CANCEL-01`, `po_cancelled`): References CANCELLED PO PO-R-CANCEL-1. PO_CLOSED, firm.
+  * R-11 (`SC-R-REWORD-01`, `reworded_items`): Retains PO reference, reworded item descriptions. APPROVED / OK, soft.
+  * R-12 (`SC-R-REWORD-02`, `reworded_items`): Drops PO reference, reworded item descriptions. Inferred match against PO-R-REWORD-2. NEEDS_REVIEW / INFERRED_MATCH, soft.
+
+---
+
+## Noise POs (Background POs)
+Added 7 background POs across vendors:
+1. `PO-R-NOISE-BALA-1`: V-BALA, CLOSED (fully consumed by LP-R-NOISE-BALA-1).
+2. `PO-R-NOISE-TIE-1`: V-TIE, CANCELLED.
+3. `PO-R-NOISE-FRESH-1`: V-FRESH, PARTIAL (partially consumed by LP-R-NOISE-FRESH-1).
+4. `PO-R-NOISE-PACK-1`: V-PACK, CANCELLED.
+5. `PO-R-NOISE-PACK-2`: V-PACK, CLOSED (fully consumed by LP-R-NOISE-PACK-2).
+6. `PO-R-NOISE-ROUTE-1`: V-ROUTE, PARTIAL (partially consumed by LP-R-NOISE-ROUTE-1).
+7. `PO-R-NOISE-ROUTE-2`: V-ROUTE, CLOSED (fully consumed by LP-R-NOISE-ROUTE-2).
+
+---
+
+## Collision Rules & Schema Verification
+- **C1**: All scenarios reference only Family R POs. All preloads only touch Family R POs.
+- **C2 & C2b**: All open PO pools have distinct item SKUs within each vendor, except burger and tie groups as specified.
+- **C3**: Global unique items SKU-052 and SKU-059 appear in exactly one PO each base-wide.
+- **C4**: No near duplicates (date diff <= 10 days and amount diff <= 0.5%) exist across invoices or preloads of any vendor.
+- **C5**: All invoice numbers for each vendor have normalized rapidfuzz ratio < 0.85.
+- **C8**: All date offsets are within [-85, 0] and after their respective PO creation dates.
+- **Hygiene**: No derived fields (`total`, `subtotal`, `grand_total`, `tax_total`, `line_total`, `qty_remaining`, `norm`, `hash`) exist in `family_R.json`.

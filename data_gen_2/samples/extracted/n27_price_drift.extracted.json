@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "n27_price_drift.jpg",
+    "file_hash": "6b3530a7d0219105510ce65fc31729177a21ecfa4e0fe84b627fbd653bd3639c",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "BlueDart Logistics & Courier LLP",
+    "gstin": "29AAACB1234D1Z6",
+    "email": "billing@bluedartlog.com",
+    "phone": "+91 80 5550 2323",
+    "address": "Warehouse 4, Electronic City Phase 1, Bengaluru 560100",
+    "bank_account": "UBIN00012344321",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "BDL/26/2957",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-13",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-DRIFT-02",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+      "quantity": 25.0,
+      "uom": "roll",
+      "unit_price": 674.56,
+      "line_total": 16864.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Stretch Wrap Packaging Film 500mm x 29 Micron 3kg",
+      "quantity": 5.0,
+      "uom": "roll",
+      "unit_price": 4067.2,
+      "line_total": 20336.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 37200.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 6696.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 43896.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

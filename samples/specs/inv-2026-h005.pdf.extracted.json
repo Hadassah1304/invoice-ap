@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Apex Stationary Solutions",
+    "gstin": "29YYYYY7777Y1Z4",
+    "bank_account": "SBIN00077665544"
+  },
+  "invoice_number": {
+    "value": "INV-2026-H005",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-29",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-HAPPY-05",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 3200.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 384.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 3584.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 10.0,
+      "uom": "ream",
+      "unit_price": 320.0,
+      "line_total": 3200.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Apex Stationary Solutions\nGSTIN: 29YYYYY7777Y1Z4\nInvoice No: INV-2026-H005\nDate: 2026-10-29\nPO Reference: PO-2026-HAPPY-05\n1 A4 Copier Paper 80gsm 10.0 320.00 3200.00\nSubtotal: 3200.00\nTax Total: 384.00\nGrand Total: Rs. 3584.00"
+}

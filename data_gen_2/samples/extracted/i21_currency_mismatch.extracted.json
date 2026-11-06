@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "i21_currency_mismatch.pdf",
+    "file_hash": "f94babcd833162de401a7aa78a30f25bd950d5ece6643b64aa961e5fb9904578",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Falcon Precision Components",
+    "gstin": "07AAACF6677S1Z5",
+    "email": "billing@falconprecision.com",
+    "phone": "+91 11 5550 0003",
+    "address": "B-48, Naraina Industrial Area Phase 2, New Delhi 110028",
+    "bank_account": "CNRB00055667788",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "FAL/26/5291",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-09",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-I-CTRL-3",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "USD",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "HDMI Cable 4K 1.8m",
+      "quantity": 20.0,
+      "uom": "pcs",
+      "unit_price": 310.0,
+      "line_total": 6200.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 6200.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1116.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 7316.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

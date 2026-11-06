@@ -1,0 +1,79 @@
+{
+  "source": {
+    "file_name": "r50_no_po_vendor_known.pdf",
+    "file_hash": "fd1682f7b2348e2574829c9c5cb753b73df92a36086a9adcbfb20b246bae6e09",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Kaveri Fresh Farm Produce LLP",
+    "gstin": "36AAACK5566L1Z2",
+    "email": "billing@kaverifresh.com",
+    "phone": "+91 40 5550 3303",
+    "address": "Shed 12, Wholesale Agricultural Market, Bowenpally, Secunderabad 500011",
+    "bank_account": "SBIN00044556677",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "KAV/26/4201",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-25",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Mineral Water 500ml",
+      "quantity": 100.0,
+      "uom": "pcs",
+      "unit_price": 15.0,
+      "line_total": 1500.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Salted Cashew Nuts 500g",
+      "quantity": 20.0,
+      "uom": "pcs",
+      "unit_price": 480.0,
+      "line_total": 9600.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 11100.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1422.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 12522.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

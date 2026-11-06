@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-nopo-v02.pdf",
+  "vendor_name": "GreenClean Facility Care LLP",
+  "vendor_gstin": "07AAAC3286K1Z2",
+  "invoice_number": "INV-NOPO-V02",
+  "invoice_date": "2026-10-27",
+  "po_reference": null,
+  "currency": "INR",
+  "subtotal": 1400.0,
+  "tax_total": 70.0,
+  "grand_total": 1470.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Paneer Tikka Sandwich",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 140.0,
+      "line_total": 1400.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "INFERRED_MATCH",
+    "po_id": "PO-2026-NOPO-VEND-02",
+    "tag": "no_po_vendor_known",
+    "notes": "PO omitted but vendor known and unique PO candidate"
+  }
+}

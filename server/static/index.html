@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AP Automation — Invoice-to-Decision Console</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-brand">
+      <span class="logo-icon">⚡</span>
+      <h1>Invoice-to-Decision Console</h1>
+      <span class="badge">AP Automation 2.0</span>
+    </div>
+    <div class="header-actions">
+      <button id="btn-seed-demo" class="btn btn-secondary">⚡ Load Demo Data</button>
+      <div id="health-pill" class="pill pill-green">System Ready</div>
+    </div>
+  </header>
+
+  <main class="app-layout">
+    <!-- Left Column: Ingest & Samples -->
+    <aside class="sidebar">
+      <section class="card upload-card">
+        <h2>Process Invoice</h2>
+        <div id="drop-zone" class="drop-zone">
+          <input type="file" id="file-input" accept=".pdf,.png,.jpg,.jpeg">
+          <div class="drop-zone-prompt">
+            <span class="upload-icon">📄</span>
+            <p>Drag & drop invoice PDF / scan or <strong>browse</strong></p>
+            <span class="hint">PDF, PNG, JPG up to 15MB</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="ocr-select">OCR Engine:</label>
+          <select id="ocr-select">
+            <option value="">Auto (Config default)</option>
+            <option value="rapidocr">RapidOCR</option>
+            <option value="tesseract">Tesseract</option>
+          </select>
+        </div>
+
+        <div class="form-row toggle-row">
+          <label for="dryrun-toggle">Dry Run (skip DB ledger):</label>
+          <input type="checkbox" id="dryrun-toggle">
+        </div>
+
+        <button id="btn-process" class="btn btn-primary" disabled>Process Invoice</button>
+
+        <div id="processing-spinner" class="spinner-container hidden">
+          <div class="spinner"></div>
+          <span id="spinner-text">Ingesting document...</span>
+        </div>
+      </section>
+
+      <!-- History & Samples tabs -->
+      <section class="card nav-card">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="tab-history">Ledger History</button>
+          <button class="tab-btn" data-tab="tab-pos">Active POs</button>
+        </div>
+        <div id="tab-history" class="tab-content active">
+          <ul id="history-list" class="history-list">
+            <li class="empty-state">No processed invoices yet</li>
+          </ul>
+        </div>
+        <div id="tab-pos" class="tab-content">
+          <ul id="po-list" class="po-list">
+            <li class="empty-state">Loading POs...</li>
+          </ul>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Main Column: Decision & Inspection Dashboard -->
+    <section class="main-content">
+      <div id="empty-dashboard" class="empty-dashboard-placeholder">
+        <div class="placeholder-icon">📋</div>
+        <h3>No invoice selected</h3>
+        <p>Upload a file or select a past invoice from the ledger to inspect the decision trace.</p>
+      </div>
+
+      <div id="result-dashboard" class="dashboard hidden">
+        <!-- Decision Banner -->
+        <div id="decision-banner" class="decision-banner status-review">
+          <div class="banner-main">
+            <span id="decision-badge" class="decision-badge">NEEDS_REVIEW</span>
+            <span id="reason-code-badge" class="reason-code-badge">AMBIGUOUS_PO</span>
+            <h2 id="decision-summary">Multiple purchase orders match this invoice.</h2>
+          </div>
+          <div class="confidence-box" title="Deterministic heuristic based on extraction legibility, matching margin, and validation rule penalties.">
+            <span class="confidence-label">Confidence</span>
+            <span id="confidence-val" class="confidence-val">0.78</span>
+            <div class="confidence-bar-bg">
+              <div id="confidence-bar-fill" class="confidence-bar-fill" style="width: 78%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Human Review Actions Banner -->
+        <div id="review-action-panel" class="review-panel hidden">
+          <div class="review-header">
+            <h3>⚠️ Reviewer Action Required</h3>
+            <span class="hint">Resolve ambiguities below to approve or reject</span>
+          </div>
+          <div id="review-action-controls" class="review-controls"></div>
+          <div class="review-footer">
+            <input type="text" id="review-note" placeholder="Add an optional reviewer note...">
+            <div class="button-group">
+              <button id="btn-review-approve" class="btn btn-success">Force Approve</button>
+              <button id="btn-review-reject" class="btn btn-danger">Reject Invoice</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reasoning Section -->
+        <div class="card section-card">
+          <h3>Auditable Reasoning</h3>
+          <ul id="reasoning-list" class="reasoning-bullets"></ul>
+        </div>
+
+        <!-- Split Grid: Extracted Fields & PO Match -->
+        <div class="grid-2">
+          <!-- Extracted Fields Card -->
+          <div class="card">
+            <h3>Extracted Document Data</h3>
+            <table class="data-table" id="extracted-fields-table">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                  <th>Conf</th>
+                  <th>Grounded</th>
+                </tr>
+              </thead>
+              <tbody id="extracted-fields-body"></tbody>
+            </table>
+
+            <h4 style="margin-top: 15px;">Line Items</h4>
+            <table class="data-table" id="line-items-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Description</th>
+                  <th>Qty</th>
+                  <th>Unit Price</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="line-items-body"></tbody>
+            </table>
+          </div>
+
+          <!-- PO Match & Balance Card -->
+          <div class="card">
+            <h3>Purchase Order Matching</h3>
+            <div id="po-match-info" class="po-match-info"></div>
+
+            <div id="po-balance-card" class="po-balance-card hidden">
+              <h4>PO Balance Consumption</h4>
+              <div class="balance-bar-container">
+                <div id="balance-bar-consumed" class="balance-bar-consumed"></div>
+                <div id="balance-bar-this" class="balance-bar-this"></div>
+              </div>
+              <div id="balance-legend" class="balance-legend"></div>
+            </div>
+
+            <h4 style="margin-top: 15px;">Candidate PO Ranking</h4>
+            <table class="data-table" id="candidates-table">
+              <thead>
+                <tr>
+                  <th>PO ID</th>
+                  <th>Score</th>
+                  <th>Signals</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody id="candidates-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Validation Rules Table -->
+        <div class="card section-card">
+          <h3>Validation Rule Results</h3>
+          <table class="data-table" id="rules-table">
+            <thead>
+              <tr>
+                <th>Rule</th>
+                <th>Status</th>
+                <th>Severity</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody id="rules-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Pipeline Execution Trace Timeline -->
+        <div class="card section-card">
+          <div class="trace-header">
+            <h3>Execution Trace & Latency Breakdown</h3>
+            <span id="total-latency" class="total-latency">Total: 0ms</span>
+          </div>
+          <table class="data-table" id="trace-table">
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>Status</th>
+                <th>Duration</th>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody id="trace-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

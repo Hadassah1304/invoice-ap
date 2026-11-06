@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-split-04.pdf",
+  "vendor_name": "CyberTech Hardware Systems LLP",
+  "vendor_gstin": "27AABBC3344D1Z8",
+  "invoice_number": "INV-SPLIT-04",
+  "invoice_date": "2026-11-01",
+  "po_reference": "PO-2026-SPLIT",
+  "currency": "INR",
+  "subtotal": 10000.0,
+  "tax_total": 0.0,
+  "grand_total": 10000.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Wireless Optical Mouse",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 1000.0,
+      "line_total": 10000.0,
+      "tax_rate": 0.0
+    }
+  ],
+  "expected": {
+    "decision": "REJECTED",
+    "reason_code": "PO_CLOSED",
+    "po_id": "PO-2026-SPLIT",
+    "tag": "split_4",
+    "notes": "Split 4 of 4: rejected because PO balance is 0"
+  }
+}

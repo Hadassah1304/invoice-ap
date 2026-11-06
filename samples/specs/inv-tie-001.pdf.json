@@ -1,0 +1,40 @@
+{
+  "file_name": "inv-tie-001.pdf",
+  "vendor_name": "Twin Peaks Catering Services LLP",
+  "vendor_gstin": "33AABCT1122T1Z3",
+  "invoice_number": "INV-TIE-001",
+  "invoice_date": "2026-10-27",
+  "po_reference": null,
+  "currency": "INR",
+  "subtotal": 3350.0,
+  "tax_total": 286.5,
+  "grand_total": 3636.5,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Grilled Cheese Sandwich",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "line_total": 1650.0,
+      "tax_rate": 5.0
+    },
+    {
+      "line_no": 2,
+      "description": "Fresh Orange Juice 250ml",
+      "quantity": 20.0,
+      "uom": "bottle",
+      "unit_price": 85.0,
+      "line_total": 1700.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "AMBIGUOUS_PO",
+    "po_id": null,
+    "tag": "burger_tie",
+    "notes": "True tie between identical PO-TIE-A and PO-TIE-B; margin is zero"
+  }
+}

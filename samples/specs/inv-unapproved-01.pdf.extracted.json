@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Unapproved Rogue Traders",
+    "gstin": "07QQQQQ9999Q1Z1",
+    "bank_account": "UNAP00011122233"
+  },
+  "invoice_number": {
+    "value": "INV-UNAPPROVED-01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-08",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 3600.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 648.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 4248.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Heavy Duty Desktop Stapler",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 240.0,
+      "line_total": 3600.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Unapproved Rogue Traders\nGSTIN: 07QQQQQ9999Q1Z1\nInvoice No: INV-UNAPPROVED-01\nDate: 2026-10-22\nPO Reference: PO-2026-MISC-08\n1 Heavy Duty Desktop Stapler 15.0 240.00 3600.00\nSubtotal: 3600.00\nTax Total: 648.00\nGrand Total: Rs. 4248.00"
+}

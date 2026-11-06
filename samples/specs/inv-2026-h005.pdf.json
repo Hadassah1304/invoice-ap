@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h005.pdf",
+  "vendor_name": "Apex Stationary Solutions",
+  "vendor_gstin": "29YYYYY7777Y1Z4",
+  "invoice_number": "INV-2026-H005",
+  "invoice_date": "2026-10-29",
+  "po_reference": "PO-2026-HAPPY-05",
+  "currency": "INR",
+  "subtotal": 3200.0,
+  "tax_total": 384.0,
+  "grand_total": 3584.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 10.0,
+      "uom": "ream",
+      "unit_price": 320.0,
+      "line_total": 3200.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-05",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout itemised_tax_separate"
+  }
+}

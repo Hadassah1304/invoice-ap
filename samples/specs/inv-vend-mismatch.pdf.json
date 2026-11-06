@@ -1,0 +1,40 @@
+{
+  "file_name": "inv-vend-mismatch.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-VEND-MISMATCH",
+  "invoice_date": "2026-10-20",
+  "po_reference": "PO-2026-0042",
+  "currency": "INR",
+  "subtotal": 1750.0,
+  "tax_total": 87.5,
+  "grand_total": 1837.5,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Veg Burger 150g",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 100.0,
+      "line_total": 1000.0,
+      "tax_rate": 5.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cold Coffee 300ml",
+      "quantity": 8.0,
+      "uom": "cup",
+      "unit_price": 93.75,
+      "line_total": 750.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "REJECTED",
+    "reason_code": "VENDOR_MISMATCH",
+    "po_id": "PO-2026-0042",
+    "tag": "po_other_vendor",
+    "notes": "PO belongs to V-BALA, billed by V-STAT"
+  }
+}

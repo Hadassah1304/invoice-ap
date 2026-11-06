@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "QuickBite Refreshments Pvt Ltd",
+    "gstin": "33AAAC2824J1Z1",
+    "bank_account": "SBIN0005108603"
+  },
+  "invoice_number": {
+    "value": "INV-2026-H007",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-31",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-HAPPY-07",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 450.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 54.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 504.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Sticky Notes 3x3 Yellow",
+      "quantity": 10.0,
+      "uom": "pad",
+      "unit_price": 45.0,
+      "line_total": 450.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: QuickBite Refreshments Pvt Ltd\nGSTIN: 33AAAC2824J1Z1\nInvoice No: INV-2026-H007\nDate: 2026-10-31\nPO Reference: PO-2026-HAPPY-07\n1 Sticky Notes 3x3 Yellow 10.0 45.00 450.00\nSubtotal: 450.00\nTax Total: 54.00\nGrand Total: \u20b9 504.00"
+}

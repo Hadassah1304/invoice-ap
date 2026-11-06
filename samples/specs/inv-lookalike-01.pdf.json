@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-lookalike-01.pdf",
+  "vendor_name": "Acme Foods Pvt Ltd",
+  "vendor_gstin": null,
+  "invoice_number": "INV-LOOKALIKE-01",
+  "invoice_date": "2026-10-22",
+  "po_reference": null,
+  "currency": "INR",
+  "subtotal": 675.0,
+  "tax_total": 81.0,
+  "grand_total": 756.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Sticky Notes 3x3 Yellow",
+      "quantity": 15.0,
+      "uom": "pad",
+      "unit_price": 45.0,
+      "line_total": 675.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "VENDOR_UNCLEAR",
+    "po_id": null,
+    "tag": "vendor_lookalike",
+    "notes": "Lookalike vendor name 'Acme Foods' with no GSTIN (matches Acrne Foods at 0.857)"
+  }
+}

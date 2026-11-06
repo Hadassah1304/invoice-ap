@@ -1,0 +1,45 @@
+{
+  "vendor": {
+    "name": "Acme Foods Pvt Ltd",
+    "gstin": null,
+    "bank_account": "HDFC00099887766"
+  },
+  "invoice_number": {
+    "value": "INV-LOOKALIKE-01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 675.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 81.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 756.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Sticky Notes 3x3 Yellow",
+      "quantity": 15.0,
+      "uom": "pad",
+      "unit_price": 45.0,
+      "line_total": 675.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Acme Foods Pvt Ltd\nGSTIN: \nInvoice No: INV-LOOKALIKE-01\nDate: 2026-10-22\n1 Sticky Notes 3x3 Yellow 15.0 45.00 675.00\nSubtotal: 675.00\nTax Total: 81.00\nGrand Total: Rs. 756.00"
+}

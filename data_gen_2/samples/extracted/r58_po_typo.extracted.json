@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "r58_po_typo.png",
+    "file_hash": "ca37b58aa98f85a72ac1fecd1f80759866f03ae341a982e63a83b28b1f5fd2c7",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Navrang General Merchants Pvt Ltd",
+    "gstin": "36AABCN9900P1Z6",
+    "email": "billing@navrangmerchants.co.in",
+    "phone": "+91 40 5550 5505",
+    "address": "4-1-890, Osmangunj Commercial Complex, Hyderabad 500095",
+    "bank_account": "BARB00022334455",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "NVG/26/3491",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-27",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-R-TYPO-I",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 50.0,
+      "uom": "ream",
+      "unit_price": 320.0,
+      "line_total": 16000.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Heavy Duty Desk Stapler 24/6",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 280.0,
+      "line_total": 2800.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 18800.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 2424.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 21224.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

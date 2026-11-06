@@ -1,0 +1,1159 @@
+{
+  "schema_version": 1,
+  "family": "B",
+  "pos": [
+    {
+      "po_id": "PO-B-SPLIT",
+      "vendor_id": "V-TECH",
+      "po_date": {
+        "offset_days": -75
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 60,
+      "group": "split",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-028",
+          "item_name": "Wireless Optical Mouse",
+          "description": "2.4GHz USB ergonomic wireless optical mouse with nano receiver",
+          "uom": "pcs",
+          "qty_ordered": 100,
+          "unit_price": 1000.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-QTY",
+      "vendor_id": "V-SPLITQ",
+      "po_date": {
+        "offset_days": -65
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "split_qty",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-024",
+          "item_name": "USB-C Cable 1m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 1 metre",
+          "uom": "pcs",
+          "qty_ordered": 100,
+          "unit_price": 100.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-033",
+          "item_name": "USB-C Multiport Adapter 6-in-1",
+          "description": "Type-C hub with 4K HDMI 100W PD 3x USB 3.0 SD card slot",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 1000.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-BULK-TOL-WARN",
+      "vendor_id": "V-BULK",
+      "po_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "tolerance",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-046",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+          "description": "Cast stretch film roll for pallet wrapping 500mm width 23 micron 3kg roll",
+          "uom": "roll",
+          "qty_ordered": 50,
+          "unit_price": 640.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-BULK-TOL-REV",
+      "vendor_id": "V-BULK",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "tolerance",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-048",
+          "item_name": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+          "description": "Self-adhesive brown sealing tape 48mm width 65 metre length pack of 6 rolls",
+          "uom": "pack",
+          "qty_ordered": 100,
+          "unit_price": 280.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-BULK-TOL-REJ",
+      "vendor_id": "V-BULK",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "tolerance",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-050",
+          "item_name": "Corrugated Shipping Box 3-Ply 12x10x8 Inch Bundle of 25",
+          "description": "Single wall corrugated cardboard mailing carton 12x10x8 bundle of 25",
+          "uom": "bundle",
+          "qty_ordered": 80,
+          "unit_price": 625.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-OFFIX-FREIGHT",
+      "vendor_id": "V-OFFIX",
+      "po_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "freight",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-013",
+          "item_name": "A4 Copier Paper 80gsm",
+          "description": "Premium bright white high speed multipurpose copier paper 500 sheets",
+          "uom": "ream",
+          "qty_ordered": 100,
+          "unit_price": 320.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-015",
+          "item_name": "Spiral Executive Notebook A5 160 Pages",
+          "description": "Hardbound spiral ruled executive diary notebook A5 size 160 pages",
+          "uom": "pcs",
+          "qty_ordered": 80,
+          "unit_price": 145.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-017",
+          "item_name": "Dry Erase Whiteboard Marker Black Pack of 10",
+          "description": "Low odor non-toxic bullet tip dry erase marker black color pack of 10",
+          "uom": "box",
+          "qty_ordered": 50,
+          "unit_price": 220.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-OFFIX-PART-1",
+      "vendor_id": "V-OFFIX",
+      "po_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "partial",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-014",
+          "item_name": "A4 Copier Paper 70gsm",
+          "description": "Standard economy grade multipurpose copier paper 500 sheets",
+          "uom": "ream",
+          "qty_ordered": 120,
+          "unit_price": 270.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-016",
+          "item_name": "Spiral Executive Notebook B5 160 Pages",
+          "description": "Hardbound spiral ruled executive diary notebook B5 size 160 pages",
+          "uom": "pcs",
+          "qty_ordered": 60,
+          "unit_price": 185.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-018",
+          "item_name": "Dry Erase Whiteboard Marker Blue Pack of 10",
+          "description": "Low odor non-toxic bullet tip dry erase marker blue color pack of 10",
+          "uom": "box",
+          "qty_ordered": 40,
+          "unit_price": 220.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 4,
+          "sku": "SKU-019",
+          "item_name": "Ballpoint Pen Blue 0.7mm Box of 20",
+          "description": "Smooth ink flow medium point blue ballpoint pens box of 20",
+          "uom": "box",
+          "qty_ordered": 50,
+          "unit_price": 160.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-OFFIX-PART-2",
+      "vendor_id": "V-OFFIX",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "partial",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-020",
+          "item_name": "Sticky Notes Yellow 3x3 Inch Pack of 5",
+          "description": "Self-adhesive repositionable memo notes 100 sheets per pad 5 pads",
+          "uom": "pack",
+          "qty_ordered": 80,
+          "unit_price": 125.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-021",
+          "item_name": "Heavy Duty Desk Stapler 24/6",
+          "description": "All metal durable desktop stapler 25 sheet capacity uses 24/6 staples",
+          "uom": "pcs",
+          "qty_ordered": 25,
+          "unit_price": 280.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-022",
+          "item_name": "Plastic Document Folder A4 Pack of 12",
+          "description": "Transparent polypropylene snap button file folder A4 size 12 pieces",
+          "uom": "pack",
+          "qty_ordered": 50,
+          "unit_price": 150.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 4,
+          "sku": "SKU-038",
+          "item_name": "Heavy Duty Garbage Bags Black 30x37 Inch Pack of 30",
+          "description": "Thick tear-resistant black waste bin liners 30x37 inches roll of 30",
+          "uom": "roll",
+          "qty_ordered": 40,
+          "unit_price": 210.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-TECH-NOISE-1",
+      "vendor_id": "V-TECH",
+      "po_date": {
+        "offset_days": -60
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-029",
+          "item_name": "Wired USB Keyboard",
+          "description": "Full-size 104 keys spill-resistant USB membrane keyboard",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 650.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-SPLITQ-NOISE-1",
+      "vendor_id": "V-SPLITQ",
+      "po_date": {
+        "offset_days": -55
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-025",
+          "item_name": "USB-C Cable 2m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 2 metre",
+          "uom": "pcs",
+          "qty_ordered": 40,
+          "unit_price": 380.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-030",
+          "item_name": "HDMI Cable 4K 1.8m",
+          "description": "High-speed HDMI 2.0 cable supporting 4K 60Hz 1.8 metre length",
+          "uom": "pcs",
+          "qty_ordered": 30,
+          "unit_price": 310.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-BULK-NOISE-1",
+      "vendor_id": "V-BULK",
+      "po_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-047",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 29 Micron 3kg",
+          "description": "Heavy duty cast stretch film roll for machinery wrapping 500mm 29 micron 3kg",
+          "uom": "roll",
+          "qty_ordered": 30,
+          "unit_price": 720.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-051",
+          "item_name": "Bubble Wrap Roll 500mm x 50m Double Layer",
+          "description": "Protective air cushion packaging bubble roll 500mm width 50 metre length",
+          "uom": "roll",
+          "qty_ordered": 20,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-B-OFFIX-NOISE-1",
+      "vendor_id": "V-OFFIX",
+      "po_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-040",
+          "item_name": "Disinfectant Surface Floor Cleaner Floral 5L",
+          "description": "Hospital grade germ protection floor cleaner concentrate floral 5 litre",
+          "uom": "can",
+          "qty_ordered": 15,
+          "unit_price": 380.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-041",
+          "item_name": "Microfiber Cleaning Cloths 40x40cm Pack of 6",
+          "description": "Lint-free non-scratch multipurpose microfiber wiping towels 40x40cm 6 pack",
+          "uom": "pack",
+          "qty_ordered": 20,
+          "unit_price": 260.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-042",
+          "item_name": "Glass Cleaner Spray Bottle 500ml",
+          "description": "Streak-free shine glass and mirror cleaning spray 500ml",
+          "uom": "bottle",
+          "qty_ordered": 25,
+          "unit_price": 95.0,
+          "tax_rate": 18
+        }
+      ]
+    }
+  ],
+  "ledger_preload": [],
+  "scenarios": [
+    {
+      "scenario_id": "SC-B-SPLIT-01",
+      "tag": "split_1",
+      "description": "First split invoice billing 40 of 100 units against PO-B-SPLIT",
+      "po_id": "PO-B-SPLIT",
+      "series": {
+        "id": "B-SPLIT",
+        "position": 1
+      },
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "TCH/26/4471",
+        "invoice_date": {
+          "offset_days": -50
+        },
+        "vendor_id": "V-TECH",
+        "po_reference": "PO-B-SPLIT",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 40,
+            "unit_price": 1000.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-B-SPLIT",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "First split invoice, 40 of 100 units billed"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-SPLIT-02",
+      "tag": "split_2",
+      "description": "Second split invoice billing 40 of 100 units against PO-B-SPLIT",
+      "po_id": "PO-B-SPLIT",
+      "series": {
+        "id": "B-SPLIT",
+        "position": 2
+      },
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "TCH/26/5803",
+        "invoice_date": {
+          "offset_days": -36
+        },
+        "vendor_id": "V-TECH",
+        "po_reference": "PO-B-SPLIT",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 40,
+            "unit_price": 1000.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-B-SPLIT",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Second split invoice, 40 units billed (80 cumulative of 100)"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "light",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-SPLIT-03",
+      "tag": "split_3",
+      "description": "Third split invoice billing final 20 units against PO-B-SPLIT, closing the PO exactly",
+      "po_id": "PO-B-SPLIT",
+      "series": {
+        "id": "B-SPLIT",
+        "position": 3
+      },
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "TCH/26/8129",
+        "invoice_date": {
+          "offset_days": -22
+        },
+        "vendor_id": "V-TECH",
+        "po_reference": "PO-B-SPLIT",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 20,
+            "unit_price": 1000.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-B-SPLIT",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Third split invoice, final 20 units billed (100 cumulative), closes PO exactly"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-SPLIT-04",
+      "tag": "split_4",
+      "description": "Fourth split invoice billing 10 units against already fully-closed PO-B-SPLIT",
+      "po_id": "PO-B-SPLIT",
+      "series": {
+        "id": "B-SPLIT",
+        "position": 4
+      },
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "TCH/26/9234",
+        "invoice_date": {
+          "offset_days": -8
+        },
+        "vendor_id": "V-TECH",
+        "po_reference": "PO-B-SPLIT",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 10,
+            "unit_price": 1000.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "PO_CLOSED"
+        ],
+        "po_id": "PO-B-SPLIT",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Attempt to bill 10 units after PO was completely closed by previous split invoices"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "medium",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-QTY-01",
+      "tag": "split_qty_1",
+      "description": "First invoice of B-QTY series billing line 1 qty 80 @ 100.00",
+      "po_id": "PO-B-QTY",
+      "series": {
+        "id": "B-QTY",
+        "position": 1
+      },
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ZNT-9041",
+        "invoice_date": {
+          "offset_days": -40
+        },
+        "vendor_id": "V-SPLITQ",
+        "po_reference": "PO-B-QTY",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 80,
+            "unit_price": 100.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-B-QTY",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Bills 80 of line 1 (100 ordered). Line 2 unbilled. Remaining line 1: 20 qty, line 2: 10 qty. Remaining balance: 12,000."
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-QTY-02",
+      "tag": "split_qty_2",
+      "description": "Second invoice of B-QTY series: line 1 qty 30 exceeds 20 remaining, total 12,000 matches remaining money",
+      "po_id": "PO-B-QTY",
+      "series": {
+        "id": "B-QTY",
+        "position": 2
+      },
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ZNT-4188",
+        "invoice_date": {
+          "offset_days": -25
+        },
+        "vendor_id": "V-SPLITQ",
+        "po_reference": "PO-B-QTY",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 100.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 9,
+            "unit_price": 1000.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "QTY_EXCEEDS_REMAINING"
+        ],
+        "po_id": "PO-B-QTY",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [
+          "validation.qty_over_remaining_policy"
+        ],
+        "notes": "Line 1 billed qty 30 exceeds remaining 20, though money fits remaining balance of 12,000 exactly."
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-TOL-WARN-01",
+      "tag": "tol_warn",
+      "description": "Tolerance warning: bills full PO with 1.0% overage line",
+      "po_id": "PO-B-BULK-TOL-WARN",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "VB-26-1184",
+        "invoice_date": {
+          "offset_days": -28
+        },
+        "vendor_id": "V-BULK",
+        "po_reference": "PO-B-BULK-TOL-WARN",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 640.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "add_overage_line",
+        "params": {
+          "pct_of_total": 1.0
+        }
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "APPROVED_WITH_NOTE"
+        ],
+        "po_id": "PO-B-BULK-TOL-WARN",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [
+          "tolerance_auto_pct"
+        ],
+        "notes": "1.0% overage falls within 2.0% auto-approval tolerance band"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "light",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-TOL-REV-01",
+      "tag": "tol_review",
+      "description": "Tolerance review: bills full PO with 3.5% overage line",
+      "po_id": "PO-B-BULK-TOL-REV",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "VB-26-4927",
+        "invoice_date": {
+          "offset_days": -20
+        },
+        "vendor_id": "V-BULK",
+        "po_reference": "PO-B-BULK-TOL-REV",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 100,
+            "unit_price": 280.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "add_overage_line",
+        "params": {
+          "pct_of_total": 3.5
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [],
+        "po_id": "PO-B-BULK-TOL-REV",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [
+          "tolerance_auto_pct",
+          "tolerance_review_pct"
+        ],
+        "notes": "3.5% overage falls between 2.0% and 5.0% review tolerance band"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "medium",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-TOL-REJ-01",
+      "tag": "tol_reject",
+      "description": "Tolerance reject: bills full PO with 8.0% overage line",
+      "po_id": "PO-B-BULK-TOL-REJ",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "VB-26-8315",
+        "invoice_date": {
+          "offset_days": -12
+        },
+        "vendor_id": "V-BULK",
+        "po_reference": "PO-B-BULK-TOL-REJ",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 80,
+            "unit_price": 625.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "add_overage_line",
+        "params": {
+          "pct_of_total": 8.0
+        }
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "OVERBILLED"
+        ],
+        "po_id": "PO-B-BULK-TOL-REJ",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [
+          "tolerance_review_pct"
+        ],
+        "notes": "8.0% overage exceeds 5.0% threshold, triggering rejection for overbilling"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "heavy",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-FREIGHT-01",
+      "tag": "extra_freight_line",
+      "description": "Partial delivery billing ~70% qty with extra freight line within balance",
+      "po_id": "PO-B-OFFIX-FREIGHT",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "WSE-2026-319",
+        "invoice_date": {
+          "offset_days": -30
+        },
+        "vendor_id": "V-OFFIX",
+        "po_reference": "PO-B-OFFIX-FREIGHT",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 70,
+            "unit_price": 320.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 56,
+            "unit_price": 145.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 3,
+            "description": null,
+            "qty": 35,
+            "unit_price": 220.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "add_extra_line",
+        "params": {
+          "kind": "freight",
+          "amount": 150.0
+        }
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "APPROVED_WITH_NOTE",
+          "OK"
+        ],
+        "po_id": "PO-B-OFFIX-FREIGHT",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Freight line added within remaining PO balance, accepted as approved with note or ok"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-PART-01",
+      "tag": "happy_partial_delivery",
+      "description": "Happy partial delivery billing 2 of 4 lines on PO-B-OFFIX-PART-1",
+      "po_id": "PO-B-OFFIX-PART-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "WSE-2026-582",
+        "invoice_date": {
+          "offset_days": -26
+        },
+        "vendor_id": "V-OFFIX",
+        "po_reference": "PO-B-OFFIX-PART-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 60,
+            "unit_price": 270.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 3,
+            "description": null,
+            "qty": 20,
+            "unit_price": 220.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK",
+          "APPROVED_WITH_NOTE"
+        ],
+        "po_id": "PO-B-OFFIX-PART-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Bills lines 1 and 3 out of 4 PO lines, partial quantities, exact prices"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-B-PART-02",
+      "tag": "happy_partial_delivery",
+      "description": "Happy partial delivery billing 2 of 4 lines on PO-B-OFFIX-PART-2",
+      "po_id": "PO-B-OFFIX-PART-2",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "WSE-2026-847",
+        "invoice_date": {
+          "offset_days": -18
+        },
+        "vendor_id": "V-OFFIX",
+        "po_reference": "PO-B-OFFIX-PART-2",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 15,
+            "unit_price": 280.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 4,
+            "description": null,
+            "qty": 25,
+            "unit_price": 210.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK",
+          "APPROVED_WITH_NOTE"
+        ],
+        "po_id": "PO-B-OFFIX-PART-2",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Bills lines 2 and 4 out of 4 PO lines, partial quantities, exact prices"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    }
+  ]
+}

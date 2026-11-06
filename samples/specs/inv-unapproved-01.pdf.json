@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-unapproved-01.pdf",
+  "vendor_name": "Unapproved Rogue Traders",
+  "vendor_gstin": "07QQQQQ9999Q1Z1",
+  "invoice_number": "INV-UNAPPROVED-01",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-08",
+  "currency": "INR",
+  "subtotal": 3600.0,
+  "tax_total": 648.0,
+  "grand_total": 4248.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Heavy Duty Desktop Stapler",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 240.0,
+      "line_total": 3600.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "REJECTED",
+    "reason_code": "VENDOR_NOT_APPROVED",
+    "po_id": null,
+    "tag": "vendor_unapproved",
+    "notes": "Billed by unapproved vendor"
+  }
+}

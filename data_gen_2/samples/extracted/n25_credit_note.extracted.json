@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "n25_credit_note.pdf",
+    "file_hash": "f71ce5a84e0e2efe82b6b82a1e238fff276969a50a089fc591ccd04d9786cf0d",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Apex Stationery & Print Solutions",
+    "gstin": "29XYZAB5678C1Z2",
+    "email": "billing@apexstationery.com",
+    "phone": "+91 80 5550 1212",
+    "address": "108, Brigade Road, Shanthala Nagar, Bengaluru 560025",
+    "bank_account": "SBIN00098765432",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "APX/26/CN401",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-CRNOTE-01",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Spiral Executive Notebook A5 160 Pages",
+      "quantity": 40.0,
+      "uom": "pcs",
+      "unit_price": -145.0,
+      "line_total": -5800.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": -5800.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": -696.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": -6496.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "credit_note",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

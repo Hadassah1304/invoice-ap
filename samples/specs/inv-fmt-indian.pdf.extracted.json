@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Zenith IT Peripherals Pvt Ltd",
+    "gstin": "27AAAC1434M1Z9",
+    "bank_account": "ICIC0008038374"
+  },
+  "invoice_number": {
+    "value": "INV-FMT-INDIAN",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-12",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 6750.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 1215.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 7965.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "HDMI to VGA Display Adapter",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 450.0,
+      "line_total": 6750.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Zenith IT Peripherals Pvt Ltd\nGSTIN: 27AAAC1434M1Z9\nInvoice No: INV-FMT-INDIAN\nDate: 2026-10-22\nPO Reference: PO-2026-MISC-12\n1 HDMI to VGA Display Adapter 15.0 450.00 6750.00\nSubtotal: 6750.00\nTax Total: 1215.00\nGrand Total: Rs. 7,965.00"
+}

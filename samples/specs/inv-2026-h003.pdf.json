@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h003.pdf",
+  "vendor_name": "CyberTech Hardware Systems LLP",
+  "vendor_gstin": "27AABBC3344D1Z8",
+  "invoice_number": "INV-2026-H003",
+  "invoice_date": "2026-10-25",
+  "po_reference": "PO-2026-HAPPY-03",
+  "currency": "INR",
+  "subtotal": 1100.0,
+  "tax_total": 55.0,
+  "grand_total": 1155.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Grilled Cheese Sandwich",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "line_total": 1100.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-03",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout tax_embedded"
+  }
+}

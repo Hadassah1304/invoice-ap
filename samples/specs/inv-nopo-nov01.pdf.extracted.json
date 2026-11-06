@@ -1,0 +1,45 @@
+{
+  "vendor": {
+    "name": "Anonymous Hardware Seller",
+    "gstin": null,
+    "bank_account": "SBIN0005108603"
+  },
+  "invoice_number": {
+    "value": "INV-NOPO-NOV01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-27",
+    "confidence": 1.0
+  },
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 10800.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 1944.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 12744.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Conference USB Speakerphone",
+      "quantity": 2.0,
+      "uom": "pcs",
+      "unit_price": 5400.0,
+      "line_total": 10800.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Anonymous Hardware Seller\nGSTIN: \nInvoice No: INV-NOPO-NOV01\nDate: 2026-10-27\n1 Conference USB Speakerphone 2.0 5400.00 10800.00\nSubtotal: 10800.00\nTax Total: 1944.00\nGrand Total: Rs. 12744.00"
+}

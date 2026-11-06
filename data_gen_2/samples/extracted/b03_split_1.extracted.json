@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "b03_split_1.pdf",
+    "file_hash": "39583862a2cb2039c1dbdc4c815b0b73dbd69919d646efabd63dbac12272472f",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "CyberTech Hardware Systems LLP",
+    "gstin": "27AABBC3344D1Z8",
+    "email": "billing@cybertech.io",
+    "phone": "+91 22 5550 6606",
+    "address": "Unit 304, Mindspace IT Park, Malad West, Mumbai 400064",
+    "bank_account": "ICIC00055443322",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "TCH/26/4471",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-09-17",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-B-SPLIT",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Wireless Optical Mouse",
+      "quantity": 40.0,
+      "uom": "pcs",
+      "unit_price": 1000.0,
+      "line_total": 40000.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 40000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 40000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

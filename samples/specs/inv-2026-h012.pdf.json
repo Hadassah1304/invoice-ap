@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h012.pdf",
+  "vendor_name": "CleanPro Hygiene Systems",
+  "vendor_gstin": "36AAAC7924O1Z6",
+  "invoice_number": "INV-2026-H012",
+  "invoice_date": "2026-10-26",
+  "po_reference": "PO-2026-HAPPY-12",
+  "currency": "INR",
+  "subtotal": 4500.0,
+  "tax_total": 810.0,
+  "grand_total": 5310.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "HDMI to VGA Display Adapter",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 450.0,
+      "line_total": 4500.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-12",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout multi_page"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-scan-stamp-01.pdf",
+  "vendor_name": "Shree Krishna Dairy & Foods",
+  "vendor_gstin": "29AAAC8359N1Z5",
+  "invoice_number": "INV-SCAN-STAMP-01",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-05",
+  "currency": "INR",
+  "subtotal": 4800.0,
+  "tax_total": 576.0,
+  "grand_total": 5376.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 15.0,
+      "uom": "ream",
+      "unit_price": 320.0,
+      "line_total": 4800.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-MISC-05",
+    "tag": "scan_blur_stamp",
+    "notes": "Heavy scan degradation with stamp over total exercises OCR fallback"
+  }
+}

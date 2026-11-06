@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h006.pdf",
+  "vendor_name": "Delta Supplies & Logistics",
+  "vendor_gstin": "24AAACD9988E1Z7",
+  "invoice_number": "INV-2026-H006",
+  "invoice_date": "2026-10-27",
+  "po_reference": "PO-2026-HAPPY-06",
+  "currency": "INR",
+  "subtotal": 1000.0,
+  "tax_total": 120.0,
+  "grand_total": 1120.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Ballpoint Pen Blue (Pack of 10)",
+      "quantity": 10.0,
+      "uom": "pack",
+      "unit_price": 100.0,
+      "line_total": 1000.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-06",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout bundled"
+  }
+}

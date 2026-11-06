@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-001.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-001",
+  "invoice_date": "2026-10-28",
+  "po_reference": "PO-2026-DUP-FORMAT",
+  "currency": "INR",
+  "subtotal": 6000.0,
+  "tax_total": 720.0,
+  "grand_total": 6720.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Gel Pen Black (Pack of 5)",
+      "quantity": 50.0,
+      "uom": "pack",
+      "unit_price": 120.0,
+      "line_total": 6000.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-DUP-FORMAT",
+    "tag": "dup_near_format",
+    "notes": "First submission with formatted number INV-001"
+  }
+}

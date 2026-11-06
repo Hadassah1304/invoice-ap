@@ -1,0 +1,57 @@
+{
+  "vendor": {
+    "name": "Apex Stationery & Print Solutions",
+    "gstin": "29XYZAB5678C1Z2",
+    "bank_account": "SBIN00098765432"
+  },
+  "invoice_number": {
+    "value": "INV-VEND-MISMATCH",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-20",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-0042",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 1750.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 87.5,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 1837.5,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Veg Burger 150g",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 100.0,
+      "line_total": 1000.0,
+      "tax_rate": 5.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cold Coffee 300ml",
+      "quantity": 8.0,
+      "uom": "cup",
+      "unit_price": 93.75,
+      "line_total": 750.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Apex Stationery & Print Solutions\nGSTIN: 29XYZAB5678C1Z2\nInvoice No: INV-VEND-MISMATCH\nDate: 2026-10-20\nPO Reference: PO-2026-0042\n1 Veg Burger 150g 10.0 100.00 1000.00\n2 Cold Coffee 300ml 8.0 93.75 750.00\nSubtotal: 1750.00\nTax Total: 87.50\nGrand Total: Rs. 1837.50"
+}

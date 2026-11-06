@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-closed-01.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-CLOSED-01",
+  "invoice_date": "2026-09-12",
+  "po_reference": "PO-2026-CLOSED",
+  "currency": "INR",
+  "subtotal": 6400.0,
+  "tax_total": 768.0,
+  "grand_total": 7168.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 20.0,
+      "uom": "ream",
+      "unit_price": 320.0,
+      "line_total": 6400.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "REJECTED",
+    "reason_code": "PO_CLOSED",
+    "po_id": "PO-2026-CLOSED",
+    "tag": "po_closed",
+    "notes": "Invoice billed against CLOSED PO"
+  }
+}

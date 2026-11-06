@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "b11_tol_review.png",
+    "file_hash": "cc7d8bda8ac9c6b2142c8b9e02791f1ed4c67daa77a6f4c33a33bfa8a1922383",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Vardhaman Bulk Commodities Pvt Ltd",
+    "gstin": "27AABCV3344J1Z7",
+    "email": "billing@vardhamanbulk.com",
+    "phone": "+91 22 5550 8808",
+    "address": "Gala 101, Cotton Green Warehousing Zone, Mumbai 400033",
+    "bank_account": "UTIB00033445566",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "VB-26-4927",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-17",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-B-BULK-TOL-REV",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+      "quantity": 100.0,
+      "uom": "pack",
+      "unit_price": 280.0,
+      "line_total": 28000.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 28000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 28000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

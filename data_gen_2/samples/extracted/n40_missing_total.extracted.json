@@ -1,0 +1,75 @@
+{
+  "source": {
+    "file_name": "n40_missing_total.pdf",
+    "file_hash": "8a5517c0305d54ffc4359c00ab11c1ef6d0a09f5ffc6ba26506f5b7d26f8e0ae",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "BlueDart Logistics & Courier LLP",
+    "gstin": "29AAACB1234D1Z6",
+    "email": "billing@bluedartlog.com",
+    "phone": "+91 80 5550 2323",
+    "address": "Warehouse 4, Electronic City Phase 1, Bengaluru 560100",
+    "bank_account": "UBIN00012344321",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "BDL/26/7439",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-27",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-MISS-TOT",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+      "quantity": 50.0,
+      "uom": "pack",
+      "unit_price": 280.0,
+      "line_total": 14000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 14000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 2520.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": null,
+    "confidence": 0.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [
+    "grand_total"
+  ],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

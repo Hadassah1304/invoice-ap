@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "n45_scan_blur_stamp.jpg",
+    "file_hash": "e2dc611463799d0b0b74bbd82ff06203de81c4206f2f7457251eaca50518a682",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Royal Hospitality & Beverages Pvt Ltd",
+    "gstin": "29AABCR9012K1Z1",
+    "email": "billing@royalhospitality.in",
+    "phone": "+91 80 5550 4545",
+    "address": "33/1, Residency Road, Bengaluru 560025",
+    "bank_account": "SYN00056781234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "ROY/26/8412",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-21",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-SCAN-02",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Mineral Water 500ml",
+      "quantity": 120.0,
+      "uom": "bottle",
+      "unit_price": 15.0,
+      "line_total": 1800.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Mineral Water 1L",
+      "quantity": 80.0,
+      "uom": "bottle",
+      "unit_price": 25.0,
+      "line_total": 2000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 3800.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 684.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 4484.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Apex Stationery & Print Solutions",
+    "gstin": "29XYZAB5678C1Z2",
+    "bank_account": "SBIN00098765432"
+  },
+  "invoice_number": {
+    "value": "INV-CLOSED-01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-09-12",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-CLOSED",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 6400.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 768.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 7168.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 20.0,
+      "uom": "ream",
+      "unit_price": 320.0,
+      "line_total": 6400.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Apex Stationery & Print Solutions\nGSTIN: 29XYZAB5678C1Z2\nInvoice No: INV-CLOSED-01\nDate: 2026-09-12\nPO Reference: PO-2026-CLOSED\n1 A4 Copier Paper 80gsm 20.0 320.00 6400.00\nSubtotal: 6400.00\nTax Total: 768.00\nGrand Total: Rs. 7168.00"
+}

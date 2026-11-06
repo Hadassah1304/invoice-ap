@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "r48_po_cancelled.pdf",
+    "file_hash": "2ac3f29913b6d57334135a9b0cb51102042ec6de5a29b97b12d1ffa8bc4c26d8",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Navrang General Merchants Pvt Ltd",
+    "gstin": "36AABCN9900P1Z6",
+    "email": "billing@navrangmerchants.co.in",
+    "phone": "+91 40 5550 5505",
+    "address": "4-1-890, Osmangunj Commercial Complex, Hyderabad 500095",
+    "bank_account": "BARB00022334455",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "NVG/26/6742",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-29",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-R-CANCEL-1",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 20.0,
+      "uom": "pcs",
+      "unit_price": 250.0,
+      "line_total": 5000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 5000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 900.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 5900.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

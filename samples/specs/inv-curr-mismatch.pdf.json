@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-curr-mismatch.pdf",
+  "vendor_name": "CyberTech Hardware Systems LLP",
+  "vendor_gstin": "27AABBC3344D1Z8",
+  "invoice_number": "INV-CURR-MISMATCH",
+  "invoice_date": "2026-11-01",
+  "po_reference": "PO-2026-USD",
+  "currency": "INR",
+  "subtotal": 425.0,
+  "tax_total": 0.0,
+  "grand_total": 425.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Portable SSD 1TB USB 3.2",
+      "quantity": 5.0,
+      "uom": "pcs",
+      "unit_price": 85.0,
+      "line_total": 425.0,
+      "tax_rate": 0.0
+    }
+  ],
+  "expected": {
+    "decision": "REJECTED",
+    "reason_code": "CURRENCY_MISMATCH",
+    "po_id": "PO-2026-USD",
+    "tag": "currency_mismatch",
+    "notes": "Invoice is in INR but PO is in USD"
+  }
+}

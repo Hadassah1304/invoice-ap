@@ -1,0 +1,40 @@
+{
+  "file_name": "inv-burger-winner.pdf",
+  "vendor_name": "Sri Balaji Foods Pvt Ltd",
+  "vendor_gstin": "36ABCDE1234F1Z5",
+  "invoice_number": "INV-BURGER-WINNER",
+  "invoice_date": "2026-10-22",
+  "po_reference": null,
+  "currency": "INR",
+  "subtotal": 2500.0,
+  "tax_total": 125.0,
+  "grand_total": 2625.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Veg Burger 150g",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 120.0,
+      "line_total": 1200.0,
+      "tax_rate": 5.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cheese Burger 150g",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 130.0,
+      "line_total": 1300.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "INFERRED_MATCH",
+    "po_id": "PO-BURGER-B",
+    "tag": "burger_clear_winner",
+    "notes": "Burger triplet: exact total and price match selects PO-BURGER-B over A and C"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-qsplit-01.pdf",
+  "vendor_name": "CyberTech Hardware Systems LLP",
+  "vendor_gstin": "27AABBC3344D1Z8",
+  "invoice_number": "INV-QSPLIT-01",
+  "invoice_date": "2026-10-15",
+  "po_reference": "PO-2026-QTY-SPLIT",
+  "currency": "INR",
+  "subtotal": 70000.0,
+  "tax_total": 0.0,
+  "grand_total": 70000.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Wireless Optical Mouse",
+      "quantity": 70.0,
+      "uom": "pcs",
+      "unit_price": 1000.0,
+      "line_total": 70000.0,
+      "tax_rate": 0.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-QTY-SPLIT",
+    "tag": "split_partial_qty",
+    "notes": "Split Qty 1: 70 units billed, 30 remaining"
+  }
+}

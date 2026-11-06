@@ -1,0 +1,84 @@
+# Family B: Balance and Splits Authoring Notes
+
+## 1. Overview
+Family B covers balance tracking, partial fulfillment, split invoice series, quantity vs. money over-billing, tolerance bands, and extra charges (freight).
+
+Authoring files:
+- `base/family_B.json`
+- `base/NOTES_family_B.txt`
+
+Owned vendors:
+- `V-TECH` (CyberTech Hardware Systems LLP)
+- `V-SPLITQ` (Zenith Micro Systems)
+- `V-BULK` (Vardhaman Bulk Commodities Pvt Ltd)
+- `V-OFFIX` (WorkSpace Essentials Depot)
+
+## 2. Scenarios Summary (12 Scenarios)
+
+### B-1: Split series with balance closure (Series B-SPLIT against PO-B-SPLIT)
+- Vendor: `V-TECH`, PO: `PO-B-SPLIT` (100 units @ 1000.00 = 100,000.00 INR, tax 0%, date -75, terms 60).
+- `SC-B-SPLIT-01` (`split_1`): pos 1, bills qty 40 @ 1000.00 (40,000 INR), date -50. APPROVED / OK. Firm.
+- `SC-B-SPLIT-02` (`split_2`): pos 2, bills qty 40 @ 1000.00 (40,000 INR), date -36. APPROVED / OK. Firm.
+- `SC-B-SPLIT-03` (`split_3`): pos 3, bills qty 20 @ 1000.00 (20,000 INR), date -22. APPROVED / OK. Firm. Exactly closes PO balance and line quantity.
+- `SC-B-SPLIT-04` (`split_4`): pos 4, bills qty 10 @ 1000.00 (10,000 INR), date -8. REJECTED / PO_CLOSED. Firm.
+- Compliance:
+  * Dates spaced 14 days apart (-50, -36, -22, -8), strictly satisfying C4 (>= 12 days).
+  * Visibly distinct invoice numbers (`TCH/26/4471`, `TCH/26/5803`, `TCH/26/8129`, `TCH/26/9234`), normalized edit similarity <= 0.67 (C5 requirement < 0.85).
+
+### B-2: Quantity over-billed while money fits (Series B-QTY against PO-B-QTY)
+- Vendor: `V-SPLITQ`, PO: `PO-B-QTY` (Line 1: 100 @ 100.00 = 10,000 INR; Line 2: 10 @ 1000.00 = 10,000 INR; total 20,000 INR, tax 0%, date -65).
+- `SC-B-QTY-01` (`split_qty_1`): pos 1, bills Line 1 qty 80 @ 100.00 (8,000 INR), date -40. Line 2 unbilled. Remaining: Line 1 qty 20, Line 2 qty 10, remaining balance 12,000 INR. APPROVED / OK. Firm.
+- `SC-B-QTY-02` (`split_qty_2`): pos 2, bills Line 1 qty 30 @ 100.00 (3,000 INR) + Line 2 qty 9 @ 1000.00 (9,000 INR), date -25.
+  * Line 1 billed qty 30 exceeds remaining qty 20.
+  * Total billed is 12,000 INR, which matches remaining money exactly.
+  * Prices match PO unit prices exactly.
+  * Outcome: NEEDS_REVIEW / QTY_EXCEEDS_REMAINING. Firm.
+- Compliance: Dates spaced 15 days apart. Distinct invoice numbers `ZNT-9041` and `ZNT-4188`.
+
+### B-3: Tolerance bands (Vendor V-BULK, 3 distinct POs)
+Clean invoices bill the entire PO at PO quantities and prices. Mutation `add_overage_line` adds an overage line:
+- `SC-B-TOL-WARN-01` (`tol_warn`): PO `PO-B-BULK-TOL-WARN` (50 @ 640.00 = 32,000 INR), invoice date -28.
+  * Mutation: `add_overage_line` with `pct_of_total: 1.0`.
+  * Outcome: APPROVED / APPROVED_WITH_NOTE. Firm.
+- `SC-B-TOL-REV-01` (`tol_review`): PO `PO-B-BULK-TOL-REV` (100 @ 280.00 = 28,000 INR), invoice date -20.
+  * Mutation: `add_overage_line` with `pct_of_total: 3.5`.
+  * Outcome: NEEDS_REVIEW / `[]`. Firm.
+- `SC-B-TOL-REJ-01` (`tol_reject`): PO `PO-B-BULK-TOL-REJ` (80 @ 625.00 = 50,000 INR), invoice date -12.
+  * Mutation: `add_overage_line` with `pct_of_total: 8.0`.
+  * Outcome: REJECTED / OVERBILLED. Firm.
+- Compliance: Distinct POs, distinct dates and invoice numbers (`VB-26-1184`, `VB-26-4927`, `VB-26-8315`).
+
+### B-4: Extra freight line within balance (Vendor V-OFFIX)
+- `SC-B-FREIGHT-01` (`extra_freight_line`): PO `PO-B-OFFIX-FREIGHT` (3 lines, total 54,600 INR, date -50).
+  * Line 1: 100 @ 320.00
+  * Line 2: 80 @ 145.00
+  * Line 3: 50 @ 220.00
+- Invoice bills ~70% quantity: Line 1 qty 70, Line 2 qty 56, Line 3 qty 35 (clean subtotal = 38,220 INR).
+- Mutation `add_extra_line` with `params: {"kind": "freight", "amount": 150.00}`. Total invoice = 38,370 INR <= 54,600 INR.
+- Outcome: APPROVED, accepted `["APPROVED_WITH_NOTE", "OK"]`. Soft.
+
+### B-5: Happy partial delivery x2 (Vendor V-OFFIX)
+- `SC-B-PART-01` (`happy_partial_delivery`): PO `PO-B-OFFIX-PART-1` (4 lines: SKU-014, SKU-016, SKU-018, SKU-019).
+  * Invoice bills lines 1 and 3: SKU-014 qty 60 @ 270.00, SKU-018 qty 20 @ 220.00.
+  * Invoice date -26, inv no `WSE-2026-582`.
+  * Outcome: APPROVED, accepted `["OK", "APPROVED_WITH_NOTE"]`. Firm.
+- `SC-B-PART-02` (`happy_partial_delivery`): PO `PO-B-OFFIX-PART-2` (4 lines: SKU-020, SKU-021, SKU-022, SKU-038).
+  * Invoice bills lines 2 and 4: SKU-021 qty 15 @ 280.00, SKU-038 qty 25 @ 210.00.
+  * Invoice date -18, inv no `WSE-2026-847`.
+  * Outcome: APPROVED, accepted `["OK", "APPROVED_WITH_NOTE"]`. Firm.
+
+## 3. Background (Noise) POs
+Added 4 noise POs across Family B vendors:
+1. `PO-B-TECH-NOISE-1` (V-TECH): 50 @ 650.00 (SKU-029 Wired USB Keyboard), status OPEN.
+2. `PO-B-SPLITQ-NOISE-1` (V-SPLITQ): 40 @ 380.00 (SKU-025 USB-C Cable 2m), 30 @ 310.00 (SKU-030 HDMI Cable 4K), status OPEN.
+3. `PO-B-BULK-NOISE-1` (V-BULK): 30 @ 720.00 (SKU-047 Stretch Wrap 29 Micron), 20 @ 450.00 (SKU-051 Bubble Wrap Roll), status OPEN.
+4. `PO-B-OFFIX-NOISE-1` (V-OFFIX): 15 @ 380.00 (SKU-040 Surface Cleaner 5L), 20 @ 260.00 (SKU-041 Microfiber Cloths), 25 @ 95.00 (SKU-042 Glass Cleaner), status OPEN.
+
+## 4. Collision Rule Validations
+- C1: All scenarios reference exclusively POs owned by Family B.
+- C2b: Across each vendor, every open PO contains strictly disjoint SKU items. No item overlap within any vendor.
+- C3: ZERO catalog items with `unique_item: true` are used in Family B. All 13 unique items remain completely available for Family R.
+- C4: No invoices within 10 days have amounts within 0.5% of each other.
+- C5: All invoice numbers per vendor have rapidfuzz ratio similarity < 0.85 (actual max 0.80).
+- C8: All dates are offsets between -85 and 0, and all invoice dates are strictly >= PO dates.
+- Output Hygiene: No derived fields (`subtotal`, `grand_total`, `tax_total`, `qty_remaining`, `norm`, `hash`) authored anywhere.

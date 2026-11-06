@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h002.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-2026-H002",
+  "invoice_date": "2026-10-28",
+  "po_reference": "PO-2026-HAPPY-02",
+  "currency": "INR",
+  "subtotal": 1400.0,
+  "tax_total": 70.0,
+  "grand_total": 1470.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Cold Coffee 500ml",
+      "quantity": 10.0,
+      "uom": "cup",
+      "unit_price": 140.0,
+      "line_total": 1400.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-02",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout bundled"
+  }
+}

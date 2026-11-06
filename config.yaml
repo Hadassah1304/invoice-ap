@@ -1,0 +1,115 @@
+app:
+  db_path: ./data/ap.db
+  upload_dir: ./data/uploads
+  log_level: INFO
+  cache_by_file_hash: true
+
+ocr:
+  engine: rapidocr                # tesseract | rapidocr
+  text_layer:
+    enabled: true
+    min_chars: 80                 # below this the text layer is considered absent
+    min_alnum_ratio: 0.5          # garbage-text detection
+  preprocess:
+    enabled: true
+    deskew: true
+    denoise: true
+    upscale_dpi: 300
+  pdf_render_dpi: 200
+  tesseract:
+    lang: eng
+    psm: 6
+    cmd: tesseract
+  rapidocr:
+    use_angle_cls: true
+  min_confidence: 0.70            # mean OCR confidence below this triggers fallback
+  vision_fallback:
+    enabled: true                 # send page image to Gemini when OCR is weak or key fields missing
+    trigger_on_missing_fields: [invoice_number, invoice_date, grand_total]
+
+llm:
+  provider: gemini
+  api_key_env: GEMINI_API_KEY
+  model: gemini-2.5-flash         # configurable Gemini model id
+  temperature: 0.0
+  timeout_s: 45
+  max_retries: 2
+  extraction:
+    input_mode: text              # text | image | auto (auto = text unless OCR is weak)
+    require_source_snippets: false
+  explanation:
+    use_llm_polish: false         # templates by default; LLM only rephrases, never decides
+
+grounding:
+  enabled: true
+  numeric_tolerance: 0.01
+  on_failure: flag                # flag | null_out | review
+
+normalization:
+  default_currency: INR
+  date_formats_priority: ["%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%d %b %Y"]   # DD/MM first (India)
+  ambiguous_date_policy: flag     # flag | first_priority
+
+vendor:
+  match_threshold: 0.90
+  reject_threshold: 0.75
+  use_gstin_first: true
+  use_email_domain: true
+
+duplicates:
+  near_dup_window_days: 7
+  near_dup_amount_tolerance_pct: 0.0
+  invoice_no_similarity_threshold: 0.92
+
+matching:
+  tier2:
+    min_score: 0.80
+    min_margin: 0.15
+    top_k: 5
+  tier3:
+    item_similarity_threshold: 0.88    # calibrate; do NOT assume 0.95 works
+    item_margin: 0.03
+    top_k_per_line: 10
+    price_tolerance_pct: 5
+    use_lexical_check: true            # numbers/units/key tokens must agree
+    min_line_coverage_for_partial: 0.6
+    top_k_candidates_to_user: 5
+  line_match:
+    exact_first: true
+    fuzzy_threshold: 90                # rapidfuzz token_set_ratio
+    use_embeddings: true
+  weights:                             # must sum to 1.0
+    price: 0.30
+    quantity: 0.25
+    total_coverage: 0.20
+    line_coverage: 0.15
+    date: 0.10
+  auto_approve_inferred: false         # inferred PO matches always go to review unless true
+
+embeddings:
+  backend: tfidf                       # tfidf | minilm (tfidf is fast and zero extra deps)
+  model_name: sentence-transformers/all-MiniLM-L6-v2
+  cache_description_embeddings: true
+
+validation:
+  rounding_tolerance: 1.00             # absolute currency units for arithmetic
+  tolerance_auto_pct: 2.0              # up to this overage: APPROVED with note
+  tolerance_review_pct: 5.0            # up to this: NEEDS_REVIEW; above: REJECTED
+  price_variance_line_pct: 2.0
+  qty_over_remaining_policy: review    # review | reject
+  reserve_pending_invoices: true       # pending invoices count against PO balance
+  max_invoice_age_days: 90
+  allow_future_dated: false
+  tax_rates_plausible: [0, 5, 12, 18, 28]
+  allow_extra_lines: [freight, handling, shipping]   # keyword list for non-PO lines
+  block_negative_amounts: true         # credit notes are a different document type
+
+decision:
+  review_if_inferred: true
+  review_on_low_confidence_below: 0.75 # any critical extracted field below this -> review
+
+server:
+  host: 0.0.0.0
+  port: 8000
+  max_upload_mb: 15
+  cors_origins: ["*"]

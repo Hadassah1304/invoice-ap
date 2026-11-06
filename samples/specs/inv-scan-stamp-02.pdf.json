@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-scan-stamp-02.pdf",
+  "vendor_name": "Universal Paper Mills Ltd",
+  "vendor_gstin": "33AAAC6514P1Z2",
+  "invoice_number": "INV-SCAN-STAMP-02",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-06",
+  "currency": "INR",
+  "subtotal": 1500.0,
+  "tax_total": 180.0,
+  "grand_total": 1680.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Ballpoint Pen Blue (Pack of 10)",
+      "quantity": 15.0,
+      "uom": "pack",
+      "unit_price": 100.0,
+      "line_total": 1500.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-MISC-06",
+    "tag": "scan_blur_stamp",
+    "notes": "Heavy scan degradation with stamp over total exercises OCR fallback"
+  }
+}

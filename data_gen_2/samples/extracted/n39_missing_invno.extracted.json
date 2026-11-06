@@ -1,0 +1,85 @@
+{
+  "source": {
+    "file_name": "n39_missing_invno.pdf",
+    "file_hash": "e4a2c735b9a404758eac8dc127b50345b063bc3b9439caf2f26f8183c5a5a987",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Royal Hospitality & Beverages Pvt Ltd",
+    "gstin": "29AABCR9012K1Z1",
+    "email": "billing@royalhospitality.in",
+    "phone": "+91 80 5550 4545",
+    "address": "33/1, Residency Road, Bengaluru 560025",
+    "bank_account": "SYN00056781234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": null,
+    "confidence": 0.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-MISS-INV",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Masala Chai 150ml",
+      "quantity": 100.0,
+      "uom": "cup",
+      "unit_price": 20.0,
+      "line_total": 2000.0,
+      "tax_rate": 5.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Veg Club Sandwich 250g",
+      "quantity": 40.0,
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "line_total": 4400.0,
+      "tax_rate": 5.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 6400.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 320.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 6720.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [
+    "invoice_number"
+  ],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "r49_po_closed.pdf",
+    "file_hash": "8970cf66cd4813c3f179d97f81932e9455c6aeb29007bbf10d462ca53de592d4",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Navrang General Merchants Pvt Ltd",
+    "gstin": "36AABCN9900P1Z6",
+    "email": "billing@navrangmerchants.co.in",
+    "phone": "+91 40 5550 5505",
+    "address": "4-1-890, Osmangunj Commercial Complex, Hyderabad 500095",
+    "bank_account": "BARB00022334455",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "NVG/26/5617",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-11-01",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-R-CLOSED-1",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Liquid Hand Wash Fresh Lemon 5L",
+      "quantity": 5.0,
+      "uom": "can",
+      "unit_price": 420.0,
+      "line_total": 2100.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 2100.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 378.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 2478.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

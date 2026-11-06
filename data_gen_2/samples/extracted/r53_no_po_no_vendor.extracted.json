@@ -1,0 +1,71 @@
+{
+  "source": {
+    "file_name": "r53_no_po_no_vendor.pdf",
+    "file_hash": "f2534d39666e7f9c765a01c882607ce01f1d8d33ed53953b7deb0252ee17befd",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": null,
+    "gstin": null,
+    "email": null,
+    "phone": null,
+    "address": null,
+    "bank_account": null,
+    "confidence": 0.0
+  },
+  "invoice_number": {
+    "value": "NVG/26/2184",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-26",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Industrial Cable Tie 300mm Pack of 100",
+      "quantity": 50.0,
+      "uom": "pack",
+      "unit_price": 190.0,
+      "line_total": 9500.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 9500.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1710.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 11210.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [
+    "vendor"
+  ],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

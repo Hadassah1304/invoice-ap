@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "n44_scan_blur_stamp.jpg",
+    "file_hash": "1b5260b948b523431b318d541c244b3ee7384887cb036ed8fc4fb26a8bd53c87",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Garuda Electrical & Engineering",
+    "gstin": "29AAACG5678H1Z4",
+    "email": "billing@garudaengineering.in",
+    "phone": "+91 80 5550 3434",
+    "address": "Plot 51, Peenya Industrial Area 3rd Phase, Bengaluru 560058",
+    "bank_account": "IOBA00098761234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "GAR/26/1758",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-17",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-SCAN-01",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Cat6 Ethernet Patch Cable 3m",
+      "quantity": 50.0,
+      "uom": "pcs",
+      "unit_price": 180.0,
+      "line_total": 9000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "USB 3.0 Flash Drive 64GB",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 450.0,
+      "line_total": 6750.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 15750.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 2835.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 18585.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "b08_happy_partial_delivery.pdf",
+    "file_hash": "297e7c36367abb66d135739e178f795400d60cf804468bc6389cc4546649af04",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "WorkSpace Essentials Depot",
+    "gstin": "27AAACW5566N1Z1",
+    "email": "billing@workspaceessentials.in",
+    "phone": "+91 22 5550 9909",
+    "address": "45, Commercial Chambers, Fort, Mumbai 400001",
+    "bank_account": "PUNB00077889900",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "WSE-2026-582",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-11",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-B-OFFIX-PART-1",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 70gsm",
+      "quantity": 60.0,
+      "uom": "ream",
+      "unit_price": 270.0,
+      "line_total": 16200.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Dry Erase Whiteboard Marker Blue Pack of 10",
+      "quantity": 20.0,
+      "uom": "box",
+      "unit_price": 220.0,
+      "line_total": 4400.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 20600.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 20600.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

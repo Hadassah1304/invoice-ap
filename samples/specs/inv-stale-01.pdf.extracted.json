@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "GreenClean Facility Care LLP",
+    "gstin": "07AAAC3286K1Z2",
+    "bank_account": "HDFC0008078673"
+  },
+  "invoice_number": {
+    "value": "INV-STALE-01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-07-09",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-11",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 21750.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 3915.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 25665.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Bluetooth Multi-Device Mouse",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 1450.0,
+      "line_total": 21750.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: GreenClean Facility Care LLP\nGSTIN: 07AAAC3286K1Z2\nInvoice No: INV-STALE-01\nDate: 2026-07-09\nPO Reference: PO-2026-MISC-11\n1 Bluetooth Multi-Device Mouse 15.0 1450.00 21750.00\nSubtotal: 21750.00\nTax Total: 3915.00\nGrand Total: Rs. 25665.00"
+}

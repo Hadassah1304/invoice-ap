@@ -1,0 +1,31 @@
+{
+  "file_name": "cn-2026-001.pdf",
+  "vendor_name": "Delta Supplies & Logistics",
+  "vendor_gstin": "24AAACD9988E1Z7",
+  "invoice_number": "CN-2026-001",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-10",
+  "currency": "INR",
+  "subtotal": -5250.0,
+  "tax_total": 945.0,
+  "grand_total": -6195.0,
+  "document_type": "credit_note",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 350.0,
+      "line_total": 5250.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "UNSUPPORTED_DOCUMENT_TYPE",
+    "po_id": "PO-2026-MISC-10",
+    "tag": "credit_note",
+    "notes": "Credit note with negative amount is unsupported document type"
+  }
+}

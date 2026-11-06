@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "CyberTech Hardware Systems LLP",
+    "gstin": "27AABBC3344D1Z8",
+    "bank_account": "ICIC00055443322"
+  },
+  "invoice_number": {
+    "value": "INV-2026-H003",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-25",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-HAPPY-03",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 1100.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 55.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 1155.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Grilled Cheese Sandwich",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "line_total": 1100.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: CyberTech Hardware Systems LLP\nGSTIN: 27AABBC3344D1Z8\nInvoice No: INV-2026-H003\nDate: 2026-10-25\nPO Reference: PO-2026-HAPPY-03\n1 Grilled Cheese Sandwich 10.0 110.00 1100.00\nSubtotal: 1100.00\nTax Total: 55.00\nGrand Total: Rs. 1155.00"
+}

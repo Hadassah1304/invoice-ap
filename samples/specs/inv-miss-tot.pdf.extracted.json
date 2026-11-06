@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Paramount Office Essentials",
+    "gstin": "24AAAC1488L1Z2",
+    "bank_account": "ICIC0004903402"
+  },
+  "invoice_number": {
+    "value": "INV-MISS-TOT",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-04",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 1275.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 153.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": null,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Fresh Orange Juice 250ml",
+      "quantity": 15.0,
+      "uom": "bottle",
+      "unit_price": 85.0,
+      "line_total": 1275.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Paramount Office Essentials\nGSTIN: 24AAAC1488L1Z2\nInvoice No: INV-MISS-TOT\nDate: 2026-10-22\nPO Reference: PO-2026-MISC-04\n1 Fresh Orange Juice 250ml 15.0 85.00 1275.00\nSubtotal: 1275.00\nTax Total: 153.00\nGrand Total: Rs. 0.00"
+}

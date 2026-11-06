@@ -1,0 +1,1695 @@
+{
+  "metadata": {
+    "seed": 42,
+    "ref_date": "2026-11-06",
+    "embeddings_backend": "tfidf"
+  },
+  "vendors": [
+    {
+      "vendor_id": "V-BALA",
+      "name": "Sri Balaji Foods Pvt Ltd",
+      "aliases": [
+        "Balaji Foods",
+        "Sri Balaji Foods",
+        "Sri Balaji Foods Private Limited"
+      ],
+      "gstin": "36ABCDE1234F1Z5",
+      "email_domain": "balajifoods.in",
+      "approved": 1,
+      "bank_account": "HDFC00012345678",
+      "address": "Plot 42, IDA Mallapur, Hyderabad, Telangana 500076",
+      "phone": "+91-9849012345"
+    },
+    {
+      "vendor_id": "V-STAT",
+      "name": "Apex Stationery & Print Solutions",
+      "aliases": [
+        "Apex Stationery Ltd",
+        "Apex Print",
+        "Apex Stationery Solutions"
+      ],
+      "gstin": "29XYZAB5678C1Z2",
+      "email_domain": "apexstationery.com",
+      "approved": 1,
+      "bank_account": "SBIN00098765432",
+      "address": "14/2 Brigade Road, Bengaluru, Karnataka 560001",
+      "phone": "+91-8025581234"
+    },
+    {
+      "vendor_id": "V-TECH",
+      "name": "CyberTech Hardware Systems LLP",
+      "aliases": [
+        "CyberTech LLP",
+        "CyberTech Systems"
+      ],
+      "gstin": "27AABBC3344D1Z8",
+      "email_domain": "cybertech.io",
+      "approved": 1,
+      "bank_account": "ICIC00055443322",
+      "address": "Tech Park Phase 2, Hinjewadi, Pune, Maharashtra 411057",
+      "phone": "+91-2066778899"
+    },
+    {
+      "vendor_id": "V-UNAPP",
+      "name": "Unapproved Rogue Traders",
+      "aliases": [
+        "Rogue Traders",
+        "Rogue Commercials"
+      ],
+      "gstin": "07QQQQQ9999Q1Z1",
+      "email_domain": "roguetraders.org",
+      "approved": 0,
+      "bank_account": "UNAP00011122233",
+      "address": "Chandni Chowk Market, Old Delhi 110006",
+      "phone": "+91-1123245678"
+    },
+    {
+      "vendor_id": "V-LOOK-1",
+      "name": "Acrne Foods Pvt Ltd",
+      "aliases": [
+        "Acrne Foods"
+      ],
+      "gstin": "36ZZZZZ8888Z1Z9",
+      "email_domain": "acrnefoods.in",
+      "approved": 1,
+      "bank_account": "HDFC00099887766",
+      "address": "Industrial Area, Nacharam, Hyderabad 500076",
+      "phone": "+91-9849099887"
+    },
+    {
+      "vendor_id": "V-LOOK-2",
+      "name": "Apex Stationary Solutions",
+      "aliases": [
+        "Apex Stationary"
+      ],
+      "gstin": "29YYYYY7777Y1Z4",
+      "email_domain": "apexstationary.net",
+      "approved": 1,
+      "bank_account": "SBIN00077665544",
+      "address": "Residency Road, Bengaluru 560025",
+      "phone": "+91-8025599887"
+    },
+    {
+      "vendor_id": "V-TIE",
+      "name": "Twin Peaks Catering Services LLP",
+      "aliases": [
+        "Twin Peaks Catering",
+        "Twin Peaks"
+      ],
+      "gstin": "33AABCT1122T1Z3",
+      "email_domain": "twinpeakscatering.com",
+      "approved": 1,
+      "bank_account": "AXIS00011223344",
+      "address": "Mount Road, Anna Salai, Chennai, Tamil Nadu 600002",
+      "phone": "+91-4428521122"
+    },
+    {
+      "vendor_id": "V-CTRL",
+      "name": "Delta Supplies & Logistics",
+      "aliases": [
+        "Delta Supplies"
+      ],
+      "gstin": "24AAACD9988E1Z7",
+      "email_domain": "deltasupplies.co.in",
+      "approved": 1,
+      "bank_account": "KKBK00044556677",
+      "address": "GIDC Estate, Makarpura, Vadodara, Gujarat 390010",
+      "phone": "+91-2652634455"
+    },
+    {
+      "vendor_id": "V-VEN09",
+      "name": "QuickBite Refreshments Pvt Ltd",
+      "aliases": [
+        "QuickBite Refreshments"
+      ],
+      "gstin": "33AAAC2824J1Z1",
+      "email_domain": "quickbite.in",
+      "approved": 1,
+      "bank_account": "SBIN0005108603",
+      "address": "949, Grover Nagar, Ludhiana-482733",
+      "phone": "+91-9339670711"
+    },
+    {
+      "vendor_id": "V-VEN10",
+      "name": "GreenClean Facility Care LLP",
+      "aliases": [
+        "GreenClean Facility Care"
+      ],
+      "gstin": "07AAAC3286K1Z2",
+      "email_domain": "greenclean.co.in",
+      "approved": 1,
+      "bank_account": "HDFC0008078673",
+      "address": "60/71, Dixit Circle, Khandwa 166384",
+      "phone": "+91-9134126396"
+    },
+    {
+      "vendor_id": "V-VEN11",
+      "name": "Paramount Office Essentials",
+      "aliases": [
+        "Paramount Office Essentials"
+      ],
+      "gstin": "24AAAC1488L1Z2",
+      "email_domain": "paramountoffice.in",
+      "approved": 1,
+      "bank_account": "ICIC0004903402",
+      "address": "98/212, Sachdev, Sambhal 967423",
+      "phone": "+91-9642621108"
+    },
+    {
+      "vendor_id": "V-VEN12",
+      "name": "Zenith IT Peripherals Pvt Ltd",
+      "aliases": [
+        "Zenith IT Peripherals"
+      ],
+      "gstin": "27AAAC1434M1Z9",
+      "email_domain": "zenithit.com",
+      "approved": 1,
+      "bank_account": "ICIC0008038374",
+      "address": "H.No. 429, Varkey Road, Bathinda 843891",
+      "phone": "+91-9336696312"
+    },
+    {
+      "vendor_id": "V-VEN13",
+      "name": "Shree Krishna Dairy & Foods",
+      "aliases": [
+        "Shree Krishna Dairy & Foods"
+      ],
+      "gstin": "29AAAC8359N1Z5",
+      "email_domain": "krishnadairy.in",
+      "approved": 1,
+      "bank_account": "HDFC0003678638",
+      "address": "H.No. 42, Lall Zila, Nandyal 878812",
+      "phone": "+91-9849621470"
+    },
+    {
+      "vendor_id": "V-VEN14",
+      "name": "CleanPro Hygiene Systems",
+      "aliases": [
+        "CleanPro Hygiene Systems"
+      ],
+      "gstin": "36AAAC7924O1Z6",
+      "email_domain": "cleanproindia.com",
+      "approved": 1,
+      "bank_account": "SBIN0003608513",
+      "address": "359, Kamdar Zila, Bongaigaon-371659",
+      "phone": "+91-9331191390"
+    },
+    {
+      "vendor_id": "V-VEN15",
+      "name": "Universal Paper Mills Ltd",
+      "aliases": [
+        "Universal Paper Mills"
+      ],
+      "gstin": "33AAAC6514P1Z2",
+      "email_domain": "universalpaper.in",
+      "approved": 1,
+      "bank_account": "HDFC0007374122",
+      "address": "H.No. 435, Khosla Circle, Hubli\u2013Dharwad-522494",
+      "phone": "+91-9203848421"
+    },
+    {
+      "vendor_id": "V-VEN16",
+      "name": "Matrix Cloud & Network Hardware",
+      "aliases": [
+        "Matrix Cloud & Network Hardware"
+      ],
+      "gstin": "07AAAC6881Q1Z6",
+      "email_domain": "matrixnetwork.io",
+      "approved": 1,
+      "bank_account": "SBIN0001728977",
+      "address": "H.No. 662, Balasubramanian Street, Medininagar 531520",
+      "phone": "+91-9883543540"
+    },
+    {
+      "vendor_id": "V-VEN17",
+      "name": "Sai Hospitality & Cafeteria Solutions",
+      "aliases": [
+        "Sai Hospitality & Cafeteria Solutions"
+      ],
+      "gstin": "24AAAC8527R1Z9",
+      "email_domain": "saihospitality.in",
+      "approved": 1,
+      "bank_account": "HDFC0007350753",
+      "address": "11/763, Pathak Zila, Thanjavur-618986",
+      "phone": "+91-9184611066"
+    }
+  ],
+  "purchase_orders": [
+    {
+      "po_id": "PO-BURGER-A",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 10296.56,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-BURGER-B",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 2625.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-BURGER-C",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 4242.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-TIE-A",
+      "vendor_id": "V-TIE",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 3636.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-TIE-B",
+      "vendor_id": "V-TIE",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 3636.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-SPLIT",
+      "vendor_id": "V-TECH",
+      "po_date": "2026-10-12",
+      "currency": "INR",
+      "total": 100000.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-QTY-SPLIT",
+      "vendor_id": "V-TECH",
+      "po_date": "2026-10-12",
+      "currency": "INR",
+      "total": 100000.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-DRIFT-CLEAN",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-19",
+      "currency": "INR",
+      "total": 1837.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-DRIFT-SCAN",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-19",
+      "currency": "INR",
+      "total": 1837.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-0042",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-15",
+      "currency": "INR",
+      "total": 1837.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-CLOSED",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-09-07",
+      "currency": "INR",
+      "total": 7168.0,
+      "status": "CLOSED",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-CANCELLED",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-09-27",
+      "currency": "INR",
+      "total": 2832.0,
+      "status": "CANCELLED",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-USD",
+      "vendor_id": "V-TECH",
+      "po_date": "2026-10-27",
+      "currency": "USD",
+      "total": 425.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-TOL-WARN",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-23",
+      "currency": "INR",
+      "total": 10000.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-TOL-REV",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-23",
+      "currency": "INR",
+      "total": 10000.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-TOL-REJ",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-23",
+      "currency": "INR",
+      "total": 10000.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-CTRL",
+      "vendor_id": "V-CTRL",
+      "po_date": "2026-10-25",
+      "currency": "INR",
+      "total": 3835.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-DUP-EXACT",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-21",
+      "currency": "INR",
+      "total": 5600.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-DUP-FORMAT",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-21",
+      "currency": "INR",
+      "total": 6720.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-DUP-POSS",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-21",
+      "currency": "INR",
+      "total": 14336.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-UNIQUE-ITEM-01",
+      "vendor_id": "V-VEN09",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 12744.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-UNIQUE-ITEM-02",
+      "vendor_id": "V-VEN09",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 12980.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-01",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 236.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-02",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 1470.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-03",
+      "vendor_id": "V-TECH",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 1155.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-04",
+      "vendor_id": "V-LOOK-1",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 952.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-05",
+      "vendor_id": "V-LOOK-2",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 3584.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-06",
+      "vendor_id": "V-CTRL",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 1120.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-07",
+      "vendor_id": "V-VEN09",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 504.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-08",
+      "vendor_id": "V-VEN10",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 2832.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-09",
+      "vendor_id": "V-VEN11",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 767.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-10",
+      "vendor_id": "V-VEN12",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 4130.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-11",
+      "vendor_id": "V-VEN13",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 17110.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-HAPPY-12",
+      "vendor_id": "V-VEN14",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 5310.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-PARTIAL-01",
+      "vendor_id": "V-LOOK-2",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 2302.56,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-PARTIAL-02",
+      "vendor_id": "V-CTRL",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 4042.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-NOPO-VEND-01",
+      "vendor_id": "V-VEN09",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 984.38,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-NOPO-VEND-02",
+      "vendor_id": "V-VEN10",
+      "po_date": "2026-10-22",
+      "currency": "INR",
+      "total": 1470.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-01",
+      "vendor_id": "V-TECH",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 354.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-02",
+      "vendor_id": "V-LOOK-2",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 2205.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-03",
+      "vendor_id": "V-VEN09",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 1732.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-04",
+      "vendor_id": "V-VEN11",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 1428.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-05",
+      "vendor_id": "V-VEN13",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 5376.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-06",
+      "vendor_id": "V-VEN15",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 1680.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-07",
+      "vendor_id": "V-VEN17",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 756.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-08",
+      "vendor_id": "V-STAT",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 4248.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-09",
+      "vendor_id": "V-LOOK-1",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 1150.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-10",
+      "vendor_id": "V-CTRL",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 6195.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-11",
+      "vendor_id": "V-VEN10",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 25665.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-12",
+      "vendor_id": "V-VEN12",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 7965.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-13",
+      "vendor_id": "V-VEN14",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 32745.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-14",
+      "vendor_id": "V-VEN16",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 120360.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-15",
+      "vendor_id": "V-BALA",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 2688.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-16",
+      "vendor_id": "V-TECH",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 12600.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-17",
+      "vendor_id": "V-LOOK-2",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 7056.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-18",
+      "vendor_id": "V-VEN09",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 2835.0,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-MISC-19",
+      "vendor_id": "V-VEN11",
+      "po_date": "2026-10-17",
+      "currency": "INR",
+      "total": 619.5,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-0101",
+      "vendor_id": "V-VEN14",
+      "po_date": "2026-09-27",
+      "currency": "INR",
+      "total": 3669.02,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-0102",
+      "vendor_id": "V-VEN15",
+      "po_date": "2026-10-26",
+      "currency": "INR",
+      "total": 20549.28,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    },
+    {
+      "po_id": "PO-2026-0103",
+      "vendor_id": "V-VEN16",
+      "po_date": "2026-10-08",
+      "currency": "INR",
+      "total": 1054.52,
+      "status": "OPEN",
+      "payment_terms_days": 30
+    }
+  ],
+  "items": [
+    {
+      "po_id": "PO-BURGER-A",
+      "item_name": "Veg Burger 150g",
+      "description": "Crispy vegetable patty with lettuce",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 120.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAADLb2Q+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAHOsGPgAAAAAc6wY+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAc6wY+GZKNPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+HOsGPgAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-A",
+      "item_name": "Cheese Burger 150g",
+      "description": "Vegetable patty with extra cheddar cheese slice",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 130.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAB8kEY+AAAAAAAAAAB8kEY+AAAAAAAAAAD4jOo9AAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAD4jOo9+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAPiM6j18kEY+AAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAACOHXY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9+IzqPQAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7tiz4AAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAHyQRj4AAAAA+IzqPQAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAACOHXY++IzqPY4ddj4AAAAAAAAAAHyQRj74jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAPiM6j0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-A",
+      "item_name": "Cold Coffee 300ml",
+      "description": "Chilled blended cold brew coffee 300ml",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 93.75,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAGPnnD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAKKdSz4AAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPqKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz56hPA9eoTwPXqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAHqE8D0AAAAAAAAAAAAAAACDfI8+AAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-A",
+      "item_name": "Salted French Fries 100g",
+      "description": "Crisp golden potato fries regular",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 80.0,
+      "uom": "pack",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdOb4PXTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAHTm+D0AAAAAdOb4PQAAAAB05vg9AAAAAFy2Uj4AAAAAdOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAdOb4PXTm+D0AAAAAAAAAAAAAAAB05vg9AAAAAAAAAAB05vg9AAAAAAAAAAB05vg9XLZSPgAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAdOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAdOb4PXTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAdOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAHTm+D105vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABctlI+AAAAAAAAAAAAAAAAAAAAAAAAAAB05vg9XLZSPgAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL98lD505vg9FZaCPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdOb4PXTm+D0AAAAAAAAAABWWgj4AAAAAAAAAAAAAAAB05vg9dOb4PQAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFy2Uj5ctlI+dOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-A",
+      "item_name": "Chicken Burger 150g",
+      "description": "Grilled seasoned chicken patty distractor",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 180.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "KwD1PQAAAAAAAAAAAAAAAD1pTz4AAAAAAAAAACsA9T0AAAAAAAAAAAAAAAArAPU9AAAAAAAAAAAAAAAAKwD1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACsA9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACsA9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACsA9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9aU8+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACsA9T0AAAAAAAAAACsA9T0rAPU9AAAAACsA9T0AAAAAKwD1PQAAAAAAAAAAAAAAAAAAAAArAPU9AAAAAFSKgD4AAAAAAAAAACsA9T0AAAAAAAAAACsA9T0rAPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACsA9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwD1PQAAAAArAPU9AAAAAAAAAAAAAAAAAAAAAAAAAAArAPU9AAAAAAAAAAAAAAAAAAAAACsA9T09aU8+AAAAAAAAAAArAPU9AAAAACsA9T0AAAAAAAAAAAAAAAAAAAAAAAAAACsA9T0AAAAAAAAAACsA9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVIqAPgAAAAA9aU8+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwD1PQAAAAArAPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwD1PQAAAAAAAAAAAAAAAD1pTz4AAAAAAAAAAAAAAAAAAAAAKwD1PQAAAAArAPU9AAAAAAAAAAAAAAAAKwD1PQAAAAArAPU9AAAAAAAAAAArAPU9AAAAAAAAAAAAAAAAKwD1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAPU9AAAAAD1pTz4AAAAAAAAAACsA9T0AAAAAAAAAAAAAAAArAPU9KwD1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAPU9PWlPPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-B",
+      "item_name": "Veg Burger 150g",
+      "description": "Crispy vegetable patty with lettuce",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 120.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAADLb2Q+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAHOsGPgAAAAAc6wY+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAc6wY+GZKNPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+HOsGPgAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-B",
+      "item_name": "Cheese Burger 150g",
+      "description": "Vegetable patty with extra cheddar cheese slice",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 130.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAB8kEY+AAAAAAAAAAB8kEY+AAAAAAAAAAD4jOo9AAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAD4jOo9+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAPiM6j18kEY+AAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAACOHXY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9+IzqPQAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7tiz4AAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAHyQRj4AAAAA+IzqPQAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAACOHXY++IzqPY4ddj4AAAAAAAAAAHyQRj74jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAPiM6j0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-C",
+      "item_name": "Veg Burger 150g",
+      "description": "Crispy vegetable patty with lettuce",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 114.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAADLb2Q+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAHOsGPgAAAAAc6wY+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAc6wY+GZKNPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+HOsGPgAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-C",
+      "item_name": "Cheese Burger 150g",
+      "description": "Vegetable patty with extra cheddar cheese slice",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 130.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAB8kEY+AAAAAAAAAAB8kEY+AAAAAAAAAAD4jOo9AAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAD4jOo9+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAPiM6j18kEY+AAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAACOHXY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9+IzqPQAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAPiM6j0AAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7tiz4AAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAHyQRj4AAAAA+IzqPQAAAAD4jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAA+IzqPQAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAACOHXY++IzqPY4ddj4AAAAAAAAAAHyQRj74jOo9AAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAAAAAAAAAAAAAAAAAAAAAAD4jOo9AAAAAPiM6j0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-BURGER-C",
+      "item_name": "Salted French Fries 100g",
+      "description": "Crisp golden potato fries regular",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 80.0,
+      "uom": "pack",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdOb4PXTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAHTm+D0AAAAAdOb4PQAAAAB05vg9AAAAAFy2Uj4AAAAAdOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAdOb4PXTm+D0AAAAAAAAAAAAAAAB05vg9AAAAAAAAAAB05vg9AAAAAAAAAAB05vg9XLZSPgAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAdOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAdOb4PXTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAdOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAHTm+D105vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABctlI+AAAAAAAAAAAAAAAAAAAAAAAAAAB05vg9XLZSPgAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAAAAAAB05vg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL98lD505vg9FZaCPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdOb4PXTm+D0AAAAAAAAAABWWgj4AAAAAAAAAAAAAAAB05vg9dOb4PQAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFy2Uj5ctlI+dOb4PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTm+D0AAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-TIE-A",
+      "item_name": "Grilled Cheese Sandwich",
+      "description": "Toasted multi-grain bread with cheddar",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 110.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAH5T1PQAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PZ00oD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+H5T1PX7mTz4AAAAAAAAAAB+U9T0flPU9AAAAAAAAAAD014A+H5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-TIE-A",
+      "item_name": "Fresh Orange Juice 250ml",
+      "description": "100% natural cold pressed orange juice",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 85.0,
+      "uom": "bottle",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPXrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9euvqPX7gRj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAB+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAH7gRj4AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAB66+o9euvqPQAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAeuvqPXrr6j1+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-TIE-B",
+      "item_name": "Grilled Cheese Sandwich",
+      "description": "Toasted multi-grain bread with cheddar",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 110.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAH5T1PQAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PZ00oD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+H5T1PX7mTz4AAAAAAAAAAB+U9T0flPU9AAAAAAAAAAD014A+H5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-TIE-B",
+      "item_name": "Fresh Orange Juice 250ml",
+      "description": "100% natural cold pressed orange juice",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 85.0,
+      "uom": "bottle",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPXrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9euvqPX7gRj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAB+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAH7gRj4AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAB66+o9euvqPQAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAeuvqPXrr6j1+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-SPLIT",
+      "item_name": "Wireless Optical Mouse",
+      "description": "2.4GHz USB cordless ergonomic mouse",
+      "qty_ordered": 100.0,
+      "qty_remaining": 100.0,
+      "unit_price": 1000.0,
+      "uom": "pcs",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9fVM+AAAAAP19Uz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9fVM+AAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9Q9L5PQAAAAD9fVM+AAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAEPS+T39fVM+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAQ9L5PQAAAAAAAAAAQ9L5PQAAAABD0vk9Q9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T1D0vk9AAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAQ9L5PQAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAQ9L5PQAAAABD0vk9Q9L5PQAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9fVM+AAAAAP19Uz4AAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAQ9L5PQAAAAAAAAAAQ9L5PQAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM0Rgz4AAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAP19Uz4AAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/X1TPgAAAABD0vk9Q9L5PQ=="
+    },
+    {
+      "po_id": "PO-2026-QTY-SPLIT",
+      "item_name": "Wireless Optical Mouse",
+      "description": "2.4GHz USB cordless ergonomic mouse",
+      "qty_ordered": 100.0,
+      "qty_remaining": 100.0,
+      "unit_price": 1000.0,
+      "uom": "pcs",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9fVM+AAAAAP19Uz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9fVM+AAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9Q9L5PQAAAAD9fVM+AAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAEPS+T39fVM+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAQ9L5PQAAAAAAAAAAQ9L5PQAAAABD0vk9Q9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T1D0vk9AAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAQ9L5PQAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAQ9L5PQAAAABD0vk9Q9L5PQAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9fVM+AAAAAP19Uz4AAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9L5PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAQ9L5PQAAAAAAAAAAQ9L5PQAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM0Rgz4AAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAP19Uz4AAAAAAAAAAEPS+T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABD0vk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/X1TPgAAAABD0vk9Q9L5PQ=="
+    },
+    {
+      "po_id": "PO-2026-DRIFT-CLEAN",
+      "item_name": "Veg Burger 150g",
+      "description": "Crispy vegetable patty with lettuce",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 100.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAADLb2Q+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAHOsGPgAAAAAc6wY+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAc6wY+GZKNPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+HOsGPgAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-DRIFT-CLEAN",
+      "item_name": "Cold Coffee 300ml",
+      "description": "Chilled blended cold brew coffee 300ml",
+      "qty_ordered": 8.0,
+      "qty_remaining": 8.0,
+      "unit_price": 93.75,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAGPnnD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAKKdSz4AAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPqKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz56hPA9eoTwPXqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAHqE8D0AAAAAAAAAAAAAAACDfI8+AAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-DRIFT-SCAN",
+      "item_name": "Veg Burger 150g",
+      "description": "Crispy vegetable patty with lettuce",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 100.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAADLb2Q+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAHOsGPgAAAAAc6wY+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAc6wY+GZKNPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+HOsGPgAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-DRIFT-SCAN",
+      "item_name": "Cold Coffee 300ml",
+      "description": "Chilled blended cold brew coffee 300ml",
+      "qty_ordered": 8.0,
+      "qty_remaining": 8.0,
+      "unit_price": 93.75,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAGPnnD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAKKdSz4AAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPqKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz56hPA9eoTwPXqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAHqE8D0AAAAAAAAAAAAAAACDfI8+AAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0042",
+      "item_name": "Veg Burger 150g",
+      "description": "Crispy vegetable patty with lettuce",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 100.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAHOsGPgAAAADLb2Q+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAHOsGPgAAAAAc6wY+AAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzrBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+HOsGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHOsGPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAy29kPgAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAc6wY+GZKNPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAMtvZD4AAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAABzrBj4c6wY+HOsGPgAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAAAAAAAc6wY+AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0042",
+      "item_name": "Cold Coffee 300ml",
+      "description": "Chilled blended cold brew coffee 300ml",
+      "qty_ordered": 8.0,
+      "qty_remaining": 8.0,
+      "unit_price": 93.75,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAGPnnD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAKKdSz4AAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPqKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz56hPA9eoTwPXqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAHqE8D0AAAAAAAAAAAAAAACDfI8+AAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-CLOSED",
+      "item_name": "A4 Copier Paper 80gsm",
+      "description": "Premium multipurpose white copier paper 500 sheets",
+      "qty_ordered": 20.0,
+      "qty_remaining": 0.0,
+      "unit_price": 320.0,
+      "uom": "ream",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAFz4Oz4AAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAUQnePQAAAAAAAAAAUQnePQAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABRCd49UQnePQAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz4AAAAAXPg7PgAAAABRCd49UQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAUQnePQAAAAAAAAAAXPg7PlEJ3j1RCd49AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABc+Ds+UQnePQAAAABRCd49AAAAAAAAAABc+Ds+AAAAAFEJ3j0AAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAD52JA+AAAAAAAAAABRCd49UQnePQAAAAAAAAAAUQnePVz4Oz5c+Ds+AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz5c+Ds+AAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-CANCELLED",
+      "item_name": "Heavy Duty Desktop Stapler",
+      "description": "All-metal stapler standard 24/6 capacity 30 sheets",
+      "qty_ordered": 10.0,
+      "qty_remaining": 0.0,
+      "unit_price": 240.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAIus2PrgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0AAAAAuBHYPSLrNj4AAAAAuBHYPQAAAAAAAAAAuBHYPbgR2D24Edg9uBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D0AAAAAuBHYPQAAAAAAAAAAAAAAACLrNj4AAAAAAAAAAAAAAAAHuWI+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLrNj4AAAAAuBHYPSLrNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAi6zY+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC05oA+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAi6zY+AAAAALgR2D24Edg9uBHYPQAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAIus2PgAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0HuWI+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHuWI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-USD",
+      "item_name": "Portable SSD 1TB USB 3.2",
+      "description": "Compact external high-speed solid state drive",
+      "qty_ordered": 5.0,
+      "qty_remaining": 5.0,
+      "unit_price": 85.0,
+      "uom": "pcs",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAqR7mPQAAAAAAAAAANtBCPgAAAAAAAAAAqR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANtBCPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAADbQQj6pHuY9qR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPake5j0AAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAACpHuY9qR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPake5j2pHuY9AAAAAKke5j0AAAAAqR7mPQAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAKke5j2pHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAA20EI+qR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPQAAAACpHuY9AAAAAAAAAACpHuY9AAAAAKke5j0AAAAAqR7mPake5j2pHuY9AAAAAAAAAAAAAAAAqR7mPQAAAACpHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j2pHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANtBCPgAAAAAAAAAAqR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA20EI+UndxPqke5j2pHuY9AAAAAKke5j2pHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA20EI+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPQAAAAA20EI+AAAAAAAAAAA20EI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-TOL-WARN",
+      "item_name": "A4 Copier Paper 80gsm",
+      "description": "Premium multipurpose white copier paper 500 sheets",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 320.0,
+      "uom": "ream",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAFz4Oz4AAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAUQnePQAAAAAAAAAAUQnePQAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABRCd49UQnePQAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz4AAAAAXPg7PgAAAABRCd49UQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAUQnePQAAAAAAAAAAXPg7PlEJ3j1RCd49AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABc+Ds+UQnePQAAAABRCd49AAAAAAAAAABc+Ds+AAAAAFEJ3j0AAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAD52JA+AAAAAAAAAABRCd49UQnePQAAAAAAAAAAUQnePVz4Oz5c+Ds+AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz5c+Ds+AAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-TOL-WARN",
+      "item_name": "Heavy Duty Desktop Stapler",
+      "description": "All-metal stapler standard 24/6 capacity 30 sheets",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 240.0,
+      "uom": "pcs",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAAAAAAAAIus2PrgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0AAAAAuBHYPSLrNj4AAAAAuBHYPQAAAAAAAAAAuBHYPbgR2D24Edg9uBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D0AAAAAuBHYPQAAAAAAAAAAAAAAACLrNj4AAAAAAAAAAAAAAAAHuWI+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLrNj4AAAAAuBHYPSLrNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAi6zY+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC05oA+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAi6zY+AAAAALgR2D24Edg9uBHYPQAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAIus2PgAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0HuWI+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHuWI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-TOL-REV",
+      "item_name": "A4 Copier Paper 80gsm",
+      "description": "Premium multipurpose white copier paper 500 sheets",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 320.0,
+      "uom": "ream",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAFz4Oz4AAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAUQnePQAAAAAAAAAAUQnePQAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABRCd49UQnePQAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz4AAAAAXPg7PgAAAABRCd49UQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAUQnePQAAAAAAAAAAXPg7PlEJ3j1RCd49AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABc+Ds+UQnePQAAAABRCd49AAAAAAAAAABc+Ds+AAAAAFEJ3j0AAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAD52JA+AAAAAAAAAABRCd49UQnePQAAAAAAAAAAUQnePVz4Oz5c+Ds+AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz5c+Ds+AAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-TOL-REV",
+      "item_name": "Heavy Duty Desktop Stapler",
+      "description": "All-metal stapler standard 24/6 capacity 30 sheets",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 240.0,
+      "uom": "pcs",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAAAAAAAAIus2PrgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0AAAAAuBHYPSLrNj4AAAAAuBHYPQAAAAAAAAAAuBHYPbgR2D24Edg9uBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D0AAAAAuBHYPQAAAAAAAAAAAAAAACLrNj4AAAAAAAAAAAAAAAAHuWI+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLrNj4AAAAAuBHYPSLrNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAi6zY+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC05oA+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAi6zY+AAAAALgR2D24Edg9uBHYPQAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAIus2PgAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0HuWI+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHuWI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-TOL-REJ",
+      "item_name": "A4 Copier Paper 80gsm",
+      "description": "Premium multipurpose white copier paper 500 sheets",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 320.0,
+      "uom": "ream",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAFz4Oz4AAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAUQnePQAAAAAAAAAAUQnePQAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABRCd49UQnePQAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz4AAAAAXPg7PgAAAABRCd49UQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAUQnePQAAAAAAAAAAXPg7PlEJ3j1RCd49AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABc+Ds+UQnePQAAAABRCd49AAAAAAAAAABc+Ds+AAAAAFEJ3j0AAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAD52JA+AAAAAAAAAABRCd49UQnePQAAAAAAAAAAUQnePVz4Oz5c+Ds+AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz5c+Ds+AAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-TOL-REJ",
+      "item_name": "Heavy Duty Desktop Stapler",
+      "description": "All-metal stapler standard 24/6 capacity 30 sheets",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 240.0,
+      "uom": "pcs",
+      "tax_rate": 0.0,
+      "embedding": "AAAAAAAAAAAAAAAAIus2PrgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0AAAAAuBHYPSLrNj4AAAAAuBHYPQAAAAAAAAAAuBHYPbgR2D24Edg9uBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D0AAAAAuBHYPQAAAAAAAAAAAAAAACLrNj4AAAAAAAAAAAAAAAAHuWI+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLrNj4AAAAAuBHYPSLrNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAi6zY+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC05oA+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAi6zY+AAAAALgR2D24Edg9uBHYPQAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAIus2PgAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0HuWI+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHuWI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-CTRL",
+      "item_name": "Clear Packaging Tape 2-inch 50m",
+      "description": "BOPP heavy adhesion parcel packing tape",
+      "qty_ordered": 50.0,
+      "qty_remaining": 50.0,
+      "unit_price": 65.0,
+      "uom": "roll",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAH/H4D0AAAAAf8fgPX/H4D0AAAAAAAAAAM1KPj4AAAAAzUo+Pn/H4D0AAAAAf8fgPQAAAAAAAAAAvtxrPgAAAAAAAAAAAAAAAM1KPj4AAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAM1KPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9f8fgPQAAAAAAAAAAAAAAAAAAAAB/x+A9f8fgPQAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAC+3Gs+AAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPc1KPj4AAAAAf8fgPX/H4D0AAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAf8fgPQAAAADNSj4+AAAAAH/H4D1/x+A9zUo+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAH/H4D0AAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPc1KPj4AAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAB/x+A9AAAAAL7caz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADNSj4+AAAAAAAAAAB/x+A9AAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-DUP-EXACT",
+      "item_name": "Ballpoint Pen Blue (Pack of 10)",
+      "description": "Smooth 0.7mm tip blue ink writing pens",
+      "qty_ordered": 50.0,
+      "qty_remaining": 50.0,
+      "unit_price": 100.0,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "I5g9PnP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAABL/2o+AAAAAHP03z1z9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPXP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPXP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAABz9N89AAAAACOYPT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI5g9PgAAAAAAAAAAAAAAAHP03z0AAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z1z9N89S/9qPgAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAjmD0+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z1z9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAS/9qPnP03z0AAAAAI5g9PgAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAI5g9PnP03z0AAAAAAAAAAAAAAABz9N89c/TfPQAAAABL/2o+c/TfPQAAAAAAAAAAAAAAAAAAAABL/2o+S/9qPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-DUP-FORMAT",
+      "item_name": "Gel Pen Black (Pack of 5)",
+      "description": "Waterproof quick-drying black gel roller pens",
+      "qty_ordered": 50.0,
+      "qty_remaining": 50.0,
+      "unit_price": 120.0,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "ymHcPQAAAADKYdw9AAAAAAAAAAAAAAAAAAAAAMph3D0AAAAAymHcPcph3D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKYdw9AAAAAMph3D3KYdw9AAAAAAAAAAAAAAAAymHcPcph3D0AAAAAAAAAAAAAAAAAAAAAAAAAAMph3D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKYdw9iT9nPsph3D0AAAAAAAAAAIk/Zz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKYdw9AAAAAMph3D0AAAAAAAAAAMph3D0AAAAAAAAAAAAAAADKYdw9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKYdw9z5E6PgAAAADKYdw9AAAAAAAAAAAAAAAAAAAAAAAAAADKYdw9AAAAAM+ROj7KYdw9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMph3D0AAAAAAAAAAM+ROj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMph3D3KYdw9iT9nPgAAAAAAAAAAAAAAAM+ROj4AAAAAAAAAAAAAAADPkTo+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMph3D0AAAAAAAAAAMph3D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKYdw9AAAAAAAAAADKYdw9AAAAAAAAAAAAAAAAymHcPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKYdw9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAymHcPQAAAAAAAAAAiT9nPgAAAADKYdw9AAAAAAAAAAAAAAAAz5E6PgAAAAAAAAAAiT9nPgAAAAAAAAAAymHcPQAAAAAAAAAAAAAAAAAAAADKYdw9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz5E6Psph3D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACJP2c+ymHcPQAAAAAAAAAAAAAAAMph3D0AAAAAz5E6PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-DUP-POSS",
+      "item_name": "Permanent Marker Set (Pack of 4)",
+      "description": "Bullet tip quick dry permanent markers assorted",
+      "qty_ordered": 80.0,
+      "qty_remaining": 80.0,
+      "unit_price": 160.0,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "cnfNPQAAAAAAAAAAcnfNPQAAAAAAAAAATfEtPk3xLT4AAAAAAAAAAAAAAAAAAAAATfEtPgAAAAAAAAAAAAAAAE3xLT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADrmFc+AAAAAE3xLT5yd809AAAAAAAAAABN8S0+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHJ3zT0AAAAAAAAAAAAAAAAAAAAAAAAAAHJ3zT0AAAAATfEtPnJ3zT0AAAAATfEtPgAAAAByd809AAAAAAAAAAAAAAAAAAAAAAAAAAByd809TfEtPgAAAAAAAAAAcnfNPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcnfNPQAAAAAAAAAAAAAAAOuYVz4AAAAAAAAAAAAAAAByd809AAAAAAAAAAAAAAAAAAAAAE3xLT5yd809AAAAAAAAAAAAAAAAAAAAAHJ3zT0AAAAAAAAAAAAAAAAAAAAAAAAAAHJ3zT0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcnfNPQAAAAAAAAAAAAAAAAAAAABN8S0+cnfNPQAAAAAAAAAAAAAAAHJ3zT0AAAAAAAAAAAAAAABN8S0+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcnfNPXJ3zT0AAAAAAAAAAHJ3zT0AAAAAcnfNPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAByd809TfEtPgAAAAByd809AAAAAAAAAAAAAAAAAAAAAHJ3zT0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcnfNPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHJ3zT0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE3xLT4AAAAAAAAAAHJ3zT0AAAAAAAAAAHJ3zT0AAAAAvwmGPgAAAAAAAAAAcnfNPQAAAAAAAAAAAAAAAAAAAAByd809AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATfEtPnJ3zT0AAAAAcnfNPXJ3zT0AAAAAAAAAAAAAAAAAAAAATfEtPgAAAABN8S0+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcnfNPXJ3zT0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-UNIQUE-ITEM-01",
+      "item_name": "Conference USB Speakerphone",
+      "description": "",
+      "qty_ordered": 2.0,
+      "qty_remaining": 2.0,
+      "unit_price": 5400.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAAAAAACjEUU+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjEUU+AAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAKMRRT4AAAAAAAAAAKMRRT6jEUU+AAAAAKMRRT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMRRT4AAAAAAAAAAAAAAAAAAAAAAAAAAKMRRT4AAAAAAAAAAAAAAACjEUU+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMRRT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjEUU+AAAAAAAAAAAAAAAAAAAAAKMRRT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKMRRT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjEUU+AAAAAAAAAAAAAAAAAAAAAKMRRT4AAAAAAAAAAAAAAAAAAAAAoxFFPgAAAAAAAAAAoxFFPgAAAAAAAAAAAAAAAAAAAACjEUU+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjEUU+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-UNIQUE-ITEM-02",
+      "item_name": "USB-C Multiport Hub 6-in-1",
+      "description": "",
+      "qty_ordered": 5.0,
+      "qty_remaining": 5.0,
+      "unit_price": 2200.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACr0kg+q9JIPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKvSSD4AAAAAAAAAAAAAAAAAAAAAAAAAAKvSSD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq9JIPgAAAAAAAAAAAAAAAAAAAAAAAAAAq9JIPgAAAAAAAAAAq9JIPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq9JIPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq9JIPgAAAAAAAAAAq9JIPgAAAAAAAAAAq9JIPgAAAAAAAAAAq9JIPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKvSSD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq9JIPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKvSSD6r0kg+AAAAAAAAAACr0kg+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq9JIPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKvSSD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq9JIPgAAAAAAAAAAAAAAAAAAAACr0kg+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKvSSD4AAAAAAAAAAAAAAACr0kg+AAAAAAAAAACr0kg+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACr0kg+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACr0kg+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-01",
+      "item_name": "Mineral Water 500ml",
+      "description": "Packaged natural mineral water bottle 500ml",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 20.0,
+      "uom": "bottle",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAOWQPj4AAAAAAAAAAJ4zbD4AAAAASRrhPQAAAAAAAAAA5ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAAAAAAAAAAADlkD4+AAAAAAAAAABJGuE9AAAAAOWQPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOWQPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAAAAAABJGuE9AAAAAOWQPj4AAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAnjNsPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEka4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlkD4+5ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEka4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5ZA+Pkka4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACeM2w+AAAAAAAAAABJGuE9AAAAAAAAAABJGuE9AAAAAAAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABJGuE9AAAAAFJKhj5JGuE95ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEka4T1JGuE95ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPeWQPj4AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-02",
+      "item_name": "Cold Coffee 500ml",
+      "description": "Chilled blended cold brew coffee 500ml",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 140.0,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi+DuPQAAAAAAAAAAAAAAAL6nej4AAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACE6Sj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhOko+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhOko+AAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAACE6Sj4AAAAAAAAAACE6Sj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhOko+i+DuPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIvg7j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi+DuPQAAAAAhOko+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIvg7j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi+DuPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAAAAAAAAAAAAAAAAAAAAAACL4O49i+DuPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACE6Sj4AAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49i+DuPb6nej4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAIvg7j0AAAAAAAAAAAAAAAD+gY4+AAAAACE6Sj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-03",
+      "item_name": "Grilled Cheese Sandwich",
+      "description": "Toasted multi-grain bread with cheddar",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 110.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAH5T1PQAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PZ00oD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+H5T1PX7mTz4AAAAAAAAAAB+U9T0flPU9AAAAAAAAAAD014A+H5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-04",
+      "item_name": "Fresh Orange Juice 250ml",
+      "description": "100% natural cold pressed orange juice",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 85.0,
+      "uom": "bottle",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPXrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9euvqPX7gRj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAB+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAH7gRj4AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAB66+o9euvqPQAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAeuvqPXrr6j1+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-05",
+      "item_name": "A4 Copier Paper 80gsm",
+      "description": "Premium multipurpose white copier paper 500 sheets",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 320.0,
+      "uom": "ream",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAFz4Oz4AAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAUQnePQAAAAAAAAAAUQnePQAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABRCd49UQnePQAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz4AAAAAXPg7PgAAAABRCd49UQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAUQnePQAAAAAAAAAAXPg7PlEJ3j1RCd49AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABc+Ds+UQnePQAAAABRCd49AAAAAAAAAABc+Ds+AAAAAFEJ3j0AAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAD52JA+AAAAAAAAAABRCd49UQnePQAAAAAAAAAAUQnePVz4Oz5c+Ds+AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz5c+Ds+AAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-06",
+      "item_name": "Ballpoint Pen Blue (Pack of 10)",
+      "description": "Smooth 0.7mm tip blue ink writing pens",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 100.0,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "I5g9PnP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAABL/2o+AAAAAHP03z1z9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPXP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPXP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAABz9N89AAAAACOYPT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI5g9PgAAAAAAAAAAAAAAAHP03z0AAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z1z9N89S/9qPgAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAjmD0+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z1z9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAS/9qPnP03z0AAAAAI5g9PgAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAI5g9PnP03z0AAAAAAAAAAAAAAABz9N89c/TfPQAAAABL/2o+c/TfPQAAAAAAAAAAAAAAAAAAAABL/2o+S/9qPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-07",
+      "item_name": "Sticky Notes 3x3 Yellow",
+      "description": "Self-adhesive repositionable memo pad 100 sheets",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 45.0,
+      "uom": "pad",
+      "tax_rate": 12.0,
+      "embedding": "HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAAAAAAV9ZAPgAAAAAAAAAAHMnjPQAAAAAcyeM9AAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAABzJ4z1X1kA+AAAAABzJ4z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABX1kA+AAAAAAAAAAAcyeM9HMnjPRzJ4z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAABzJ4z0cyeM9HMnjPQAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAV9ZAPhzJ4z0AAAAAAAAAAAAAAAAAAAAAHMnjPQAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAHMnjPQAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAHMnjPQAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAABzJ4z0cyeM9AAAAAAAAAAAAAAAAHMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHMnjPQAAAAAcyeM9AAAAAAAAAAAAAAAAHMnjPU4Ebz5OBG8+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEOSHPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFfWQD4cyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAABzJ4z0cyeM9AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-08",
+      "item_name": "Heavy Duty Desktop Stapler",
+      "description": "All-metal stapler standard 24/6 capacity 30 sheets",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 240.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAIus2PrgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0AAAAAuBHYPSLrNj4AAAAAuBHYPQAAAAAAAAAAuBHYPbgR2D24Edg9uBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D0AAAAAuBHYPQAAAAAAAAAAAAAAACLrNj4AAAAAAAAAAAAAAAAHuWI+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLrNj4AAAAAuBHYPSLrNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAi6zY+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC05oA+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAi6zY+AAAAALgR2D24Edg9uBHYPQAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAIus2PgAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0HuWI+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHuWI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-09",
+      "item_name": "Clear Packaging Tape 2-inch 50m",
+      "description": "BOPP heavy adhesion parcel packing tape",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 65.0,
+      "uom": "roll",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAH/H4D0AAAAAf8fgPX/H4D0AAAAAAAAAAM1KPj4AAAAAzUo+Pn/H4D0AAAAAf8fgPQAAAAAAAAAAvtxrPgAAAAAAAAAAAAAAAM1KPj4AAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAM1KPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9f8fgPQAAAAAAAAAAAAAAAAAAAAB/x+A9f8fgPQAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAC+3Gs+AAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPc1KPj4AAAAAf8fgPX/H4D0AAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAf8fgPQAAAADNSj4+AAAAAH/H4D1/x+A9zUo+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAH/H4D0AAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPc1KPj4AAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAB/x+A9AAAAAL7caz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADNSj4+AAAAAAAAAAB/x+A9AAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-10",
+      "item_name": "USB-C Cable 1m",
+      "description": "Braided 60W USB-C to USB-C charging data cable 1 metre",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 350.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv9vgPQAAAAAAAAAAAAAAAAAAAAAAAAAAv9vgPQAAAAD+8Ws+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv9vgPQAAAAAAAAAAv9vgPQAAAAC/2+A9v9vgPQAAAAAAAAAA/vFrPgAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAv9vgPb/b4D0AAAAA8ls+PgAAAAAAAAAAv9vgPQAAAAC/2+A9AAAAAAAAAAAAAAAAv9vgPQAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAA/vFrPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/vFrPgAAAAAAAAAAv9vgPQAAAADyWz4+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D2/2+A9AAAAAAAAAAAAAAAAAAAAAPJbPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAL/b4D2/2+A9v9vgPQAAAAC/2+A9AAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADyWz4+AAAAAAAAAAAAAAAAv9vgPfJbPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D3+8Ws+v9vgPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADyWz4+AAAAAAAAAAAAAAAAAAAAAAAAAADyWz4+AAAAAL/b4D0AAAAAAAAAAAAAAAC/2+A9AAAAAAAAAADyWz4+AAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-11",
+      "item_name": "Bluetooth Multi-Device Mouse",
+      "description": "Silent click Bluetooth 5.0 rechargeable mouse",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 1450.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "NB7XPQAAAAAAAAAAAAAAADQe1z0AAAAANB7XPTQe1z0AAAAAAAAAADQe1z0AAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAPscNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+xw2PgAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAAAAAAAAAAAA+xw2PgAAAAAAAAAAAAAAAAAAAAD7HDY+AAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAAPscNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9blWAPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAPscNj40Htc9+xw2PgAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+xw2PgAAAAA0Htc9AAAAAAAAAAD7HDY+AAAAAPscNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAD7HDY+AAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAPscNj4AAAAANB7XPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9NB7XPQAAAAAAAAAAAAAAAIG5YT4AAAAAAAAAAAAAAAA0Htc9gblhPgAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAD7HDY++xw2PgAAAAAAAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-HAPPY-12",
+      "item_name": "HDMI to VGA Display Adapter",
+      "description": "Active 1080p video converter dongle with audio",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 450.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAALc/4T23P+E9AAAAAJSwPj63P+E9AAAAAAAAAAAAAAAAlLA+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAALc/4T23P+E9AAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9lLA+Prc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSwPj63P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAtz/hPQAAAAC3P+E9AAAAAAAAAAAAAAAAtz/hPbc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9lLA+PgAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9lLA+Prc/4T0AAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAtz/hPQAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAlLA+PgAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAAAAAAACUsD4+AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9AAAAAAAAAACUsD4+tz/hPQAAAAAAAAAAAAAAALc/4T2UsD4+AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-PARTIAL-01",
+      "item_name": "Mineral Water 1L",
+      "description": "Packaged natural mineral water bottle 1 litre",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 35.0,
+      "uom": "bottle",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAABtG0M+AAAAAAAAAAAAAAAAAAAAAG0bQz4AAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAbRtDPgAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtG0M+AAAAAG0bQz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG0bQz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCd+Y9AAAAAG0bQz4AAAAAAAAAAIJ35j0AAAAAgnfmPQAAAAAAAAAAjH2JPgAAAACCd+Y9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtG0M+bRtDPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPYJ35j0AAAAAbRtDPoJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACM1HE+gnfmPQAAAACCd+Y9AAAAAIJ35j2Cd+Y9AAAAAAAAAABtG0M+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtG0M+AAAAAG0bQz6Cd+Y9bRtDPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j2Cd+Y9bRtDPgAAAAAAAAAAAAAAAAAAAACCd+Y9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPW0bQz4AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-PARTIAL-01",
+      "item_name": "Cold Coffee 300ml",
+      "description": "Chilled blended cold brew coffee 300ml",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 93.75,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAGPnnD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAKKdSz4AAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPqKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz56hPA9eoTwPXqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAHqE8D0AAAAAAAAAAAAAAACDfI8+AAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-PARTIAL-02",
+      "item_name": "Peri Peri French Fries 150g",
+      "description": "Spiced potato fries with peri peri seasoning",
+      "qty_ordered": 20.0,
+      "qty_remaining": 20.0,
+      "unit_price": 110.0,
+      "uom": "pack",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6qzZPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOqs2T0AAAAAAAAAAOqs2T3qrNk96qzZPQAAAADqrNk9AAAAAD5HOD4AAAAA6qzZPQAAAAAAAAAAAAAAAOqs2T0AAAAAAAAAAAAAAAAAAAAAAAAAAOqs2T0D3IE+AAAAAOqs2T0AAAAAAAAAAAAAAADqrNk9Pkc4PgAAAAAAAAAAAAAAAAAAAADqrNk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOqs2T0AAAAAAAAAAAAAAADqrNk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6qzZPQAAAAAAAAAA6qzZPQAAAAAAAAAAAAAAAOqs2T0+Rzg+A9yBPuqs2T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADqrNk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD3IE+AAAAAOqs2T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/aGQ+6qzZPQAAAAAAAAAA6qzZPQAAAADqrNk9Pkc4PgAAAAAAAAAA6qzZPT5HOD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6qzZPQAAAAAAAAAA6qzZPQAAAAAAAAAAAAAAAAAAAADqrNk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOqs2T3qrNk9Pkc4PgAAAAAAAAAAAAAAAAAAAAAAAAAAA9yBPgAAAAAAAAAAAAAAAOqs2T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH9oZD4AAAAA6qzZPQAAAAAAAAAAAAAAAAAAAADqrNk9AAAAAOqs2T0AAAAAAAAAAAAAAAA+Rzg+AAAAAAAAAAAAAAAAAAAAAAAAAADqrNk9AAAAAAAAAAA+Rzg+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-PARTIAL-02",
+      "item_name": "Grilled Cheese Sandwich",
+      "description": "Toasted multi-grain bread with cheddar",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 110.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAH5T1PQAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PZ00oD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+H5T1PX7mTz4AAAAAAAAAAB+U9T0flPU9AAAAAAAAAAD014A+H5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-NOPO-VEND-01",
+      "item_name": "Cold Coffee 300ml",
+      "description": "Chilled blended cold brew coffee 300ml",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 93.75,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAGPnnD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAKKdSz4AAAAAAAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACinUs+eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAACinUs+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9eoTwPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz4AAAAAop1LPgAAAAAAAAAAAAAAAAAAAAAAAAAAop1LPqKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKKdSz56hPA9eoTwPXqE8D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6hPA9AAAAAHqE8D0AAAAAAAAAAAAAAACDfI8+AAAAAKKdSz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-NOPO-VEND-02",
+      "item_name": "Paneer Tikka Sandwich",
+      "description": "Grilled spiced paneer cottage cheese filling",
+      "qty_ordered": 10.0,
+      "qty_remaining": 10.0,
+      "unit_price": 140.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAA+nFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwunQ+AAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAACJOuk9AAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiTrpPQAAAAAAAAAAAAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiTrpPQAAAAAAAAAAAAAAAAAAAACJOuk9+nFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiTrpPYk66T0AAAAAiTrpPQAAAAAAAAAAAAAAAIk66T2JOuk9AAAAAAAAAAAAAAAAiTrpPYk66T2JOuk9iTrpPQAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPYk66T0AAAAAAAAAAIk66T0AAAAAAAAAAIk66T0AAAAA+nFFPgAAAAAAAAAAiTrpPYk66T2JOuk9AAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHC6dD4AAAAAAAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgjiz4AAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPQAAAACJOuk9AAAAAAAAAAD6cUU+AAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAcLp0PgAAAAD6cUU+AAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6cUU+AAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-01",
+      "item_name": "Mineral Water 500ml",
+      "description": "Packaged natural mineral water bottle 500ml",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 20.0,
+      "uom": "bottle",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAOWQPj4AAAAAAAAAAJ4zbD4AAAAASRrhPQAAAAAAAAAA5ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAAAAAAAAAAADlkD4+AAAAAAAAAABJGuE9AAAAAOWQPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOWQPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAAAAAABJGuE9AAAAAOWQPj4AAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAnjNsPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEka4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlkD4+5ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEka4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5ZA+Pkka4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACeM2w+AAAAAAAAAABJGuE9AAAAAAAAAABJGuE9AAAAAAAAAADlkD4+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABJGuE9AAAAAFJKhj5JGuE95ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEka4T1JGuE95ZA+PgAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPQAAAAAAAAAAAAAAAAAAAAAAAAAASRrhPeWQPj4AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-02",
+      "item_name": "Cold Coffee 500ml",
+      "description": "Chilled blended cold brew coffee 500ml",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 140.0,
+      "uom": "cup",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi+DuPQAAAAAAAAAAAAAAAL6nej4AAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACE6Sj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhOko+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhOko+AAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAACE6Sj4AAAAAAAAAACE6Sj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhOko+i+DuPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIvg7j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi+DuPQAAAAAhOko+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIvg7j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi+DuPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAAAAAAAAAAAAAAAAAAAAAACL4O49i+DuPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACE6Sj4AAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAITpKPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49i+DuPb6nej4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL4O49AAAAAIvg7j0AAAAAAAAAAAAAAAD+gY4+AAAAACE6Sj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-03",
+      "item_name": "Grilled Cheese Sandwich",
+      "description": "Toasted multi-grain bread with cheddar",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 110.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9H5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+5k8+AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAH5T1PQAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAH5T1PR+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH5T1PZ00oD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAAflPU9AAAAAAAAAAAAAAAAAAAAAAAAAAAflPU9AAAAAAAAAAB+5k8+H5T1PX7mTz4AAAAAAAAAAB+U9T0flPU9AAAAAAAAAAD014A+H5T1PQAAAAAAAAAAH5T1PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+U9T0AAAAAAAAAAB+U9T0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-04",
+      "item_name": "Fresh Orange Juice 250ml",
+      "description": "100% natural cold pressed orange juice",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 85.0,
+      "uom": "bottle",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPXrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9euvqPX7gRj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAB+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAH7gRj4AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAB66+o9euvqPQAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAeuvqPXrr6j1+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-05",
+      "item_name": "A4 Copier Paper 80gsm",
+      "description": "Premium multipurpose white copier paper 500 sheets",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 320.0,
+      "uom": "ream",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAFz4Oz4AAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAUQnePQAAAAAAAAAAUQnePQAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABRCd49UQnePQAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz4AAAAAXPg7PgAAAABRCd49UQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAUQnePQAAAAAAAAAAXPg7PlEJ3j1RCd49AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAABc+Ds+UQnePQAAAABRCd49AAAAAAAAAABc+Ds+AAAAAFEJ3j0AAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQnePQAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAABRCd49UQnePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRCd49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEJ3j0AAAAAAAAAAAAAAAD52JA+AAAAAAAAAABRCd49UQnePQAAAAAAAAAAUQnePVz4Oz5c+Ds+AAAAAAAAAAAAAAAAUQnePVEJ3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFz4Oz5c+Ds+AAAAAAAAAAAAAAAAXPg7PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-06",
+      "item_name": "Ballpoint Pen Blue (Pack of 10)",
+      "description": "Smooth 0.7mm tip blue ink writing pens",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 100.0,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "I5g9PnP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAABL/2o+AAAAAHP03z1z9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPXP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPXP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAABz9N89AAAAACOYPT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI5g9PgAAAAAAAAAAAAAAAHP03z0AAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z1z9N89S/9qPgAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAjmD0+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z1z9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAAAAAAAAAAABz9N89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAS/9qPnP03z0AAAAAI5g9PgAAAAAAAAAAAAAAAAAAAABz9N89c/TfPQAAAAAAAAAAAAAAAHP03z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAc/TfPQAAAAAAAAAAI5g9PnP03z0AAAAAAAAAAAAAAABz9N89c/TfPQAAAABL/2o+c/TfPQAAAAAAAAAAAAAAAAAAAABL/2o+S/9qPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-07",
+      "item_name": "Sticky Notes 3x3 Yellow",
+      "description": "Self-adhesive repositionable memo pad 100 sheets",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 45.0,
+      "uom": "pad",
+      "tax_rate": 12.0,
+      "embedding": "HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAAAAAAV9ZAPgAAAAAAAAAAHMnjPQAAAAAcyeM9AAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAABzJ4z1X1kA+AAAAABzJ4z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABX1kA+AAAAAAAAAAAcyeM9HMnjPRzJ4z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAABzJ4z0cyeM9HMnjPQAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAV9ZAPhzJ4z0AAAAAAAAAAAAAAAAAAAAAHMnjPQAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAHMnjPQAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAHMnjPQAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAABzJ4z0cyeM9AAAAAAAAAAAAAAAAHMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHMnjPQAAAAAcyeM9AAAAAAAAAAAAAAAAHMnjPU4Ebz5OBG8+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEOSHPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcyeM9AAAAAAAAAAAcyeM9HMnjPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFfWQD4cyeM9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzJ4z0AAAAAAAAAABzJ4z0cyeM9AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-08",
+      "item_name": "Heavy Duty Desktop Stapler",
+      "description": "All-metal stapler standard 24/6 capacity 30 sheets",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 240.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAIus2PrgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0AAAAAuBHYPSLrNj4AAAAAuBHYPQAAAAAAAAAAuBHYPbgR2D24Edg9uBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D0AAAAAuBHYPQAAAAAAAAAAAAAAACLrNj4AAAAAAAAAAAAAAAAHuWI+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLrNj4AAAAAuBHYPSLrNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAAi6zY+AAAAAAAAAAAAAAAAAAAAAAAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPQAAAAC4Edg9AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC05oA+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuBHYPbgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAi6zY+AAAAALgR2D24Edg9uBHYPQAAAAC4Edg9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D24Edg9AAAAAAAAAAAAAAAAIus2PgAAAAAAAAAAAAAAALgR2D24Edg9AAAAALgR2D0HuWI+AAAAALgR2D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHuWI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-09",
+      "item_name": "Clear Packaging Tape 2-inch 50m",
+      "description": "BOPP heavy adhesion parcel packing tape",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 65.0,
+      "uom": "roll",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAH/H4D0AAAAAf8fgPX/H4D0AAAAAAAAAAM1KPj4AAAAAzUo+Pn/H4D0AAAAAf8fgPQAAAAAAAAAAvtxrPgAAAAAAAAAAAAAAAM1KPj4AAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAM1KPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9f8fgPQAAAAAAAAAAAAAAAAAAAAB/x+A9f8fgPQAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAC+3Gs+AAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPc1KPj4AAAAAf8fgPX/H4D0AAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAf8fgPQAAAADNSj4+AAAAAH/H4D1/x+A9zUo+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAH/H4D0AAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAB/x+A9AAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPQAAAAAAAAAAAAAAAAAAAAAAAAAAf8fgPc1KPj4AAAAAAAAAAH/H4D0AAAAAAAAAAAAAAAB/x+A9AAAAAL7caz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADNSj4+AAAAAAAAAAB/x+A9AAAAAH/H4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/x+A9AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-10",
+      "item_name": "USB-C Cable 1m",
+      "description": "Braided 60W USB-C to USB-C charging data cable 1 metre",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 350.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv9vgPQAAAAAAAAAAAAAAAAAAAAAAAAAAv9vgPQAAAAD+8Ws+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv9vgPQAAAAAAAAAAv9vgPQAAAAC/2+A9v9vgPQAAAAAAAAAA/vFrPgAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAv9vgPb/b4D0AAAAA8ls+PgAAAAAAAAAAv9vgPQAAAAC/2+A9AAAAAAAAAAAAAAAAv9vgPQAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAA/vFrPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/vFrPgAAAAAAAAAAv9vgPQAAAADyWz4+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D2/2+A9AAAAAAAAAAAAAAAAAAAAAPJbPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAL/b4D2/2+A9v9vgPQAAAAC/2+A9AAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADyWz4+AAAAAAAAAAAAAAAAv9vgPfJbPj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL/b4D3+8Ws+v9vgPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAL/b4D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADyWz4+AAAAAAAAAAAAAAAAAAAAAAAAAADyWz4+AAAAAL/b4D0AAAAAAAAAAAAAAAC/2+A9AAAAAAAAAADyWz4+AAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAC/2+A9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-11",
+      "item_name": "Bluetooth Multi-Device Mouse",
+      "description": "Silent click Bluetooth 5.0 rechargeable mouse",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 1450.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "NB7XPQAAAAAAAAAAAAAAADQe1z0AAAAANB7XPTQe1z0AAAAAAAAAADQe1z0AAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAPscNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+xw2PgAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAAAAAAAAAAAA+xw2PgAAAAAAAAAAAAAAAAAAAAD7HDY+AAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAAPscNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9blWAPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAPscNj40Htc9+xw2PgAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+xw2PgAAAAA0Htc9AAAAAAAAAAD7HDY+AAAAAPscNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAD7HDY+AAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAAAAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAANB7XPQAAAAAAAAAAAAAAAPscNj4AAAAANB7XPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Htc9AAAAAAAAAAA0Htc9NB7XPQAAAAAAAAAAAAAAAIG5YT4AAAAAAAAAAAAAAAA0Htc9gblhPgAAAAAAAAAAAAAAAAAAAAAAAAAANB7XPQAAAAD7HDY++xw2PgAAAAAAAAAAAAAAADQe1z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-12",
+      "item_name": "HDMI to VGA Display Adapter",
+      "description": "Active 1080p video converter dongle with audio",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 450.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAALc/4T23P+E9AAAAAJSwPj63P+E9AAAAAAAAAAAAAAAAlLA+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAALc/4T23P+E9AAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9lLA+Prc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSwPj63P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAtz/hPQAAAAC3P+E9AAAAAAAAAAAAAAAAtz/hPbc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9lLA+PgAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9lLA+Prc/4T0AAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAtz/hPQAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAlLA+PgAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAAAAAAACUsD4+AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9AAAAAAAAAACUsD4+tz/hPQAAAAAAAAAAAAAAALc/4T2UsD4+AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-13",
+      "item_name": "USB Stereo Headset with Mic",
+      "description": "Noise-cancelling boom microphone call headset",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 1850.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAABRZN49bltpPgAAAAAAAAAAZUU8PgAAAABRZN49UWTePQAAAAAAAAAAAAAAAAAAAABRZN49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlRTw+AAAAAFFk3j0AAAAAAAAAAAAAAAAAAAAAUWTePQAAAAAAAAAAUWTePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRZN49UWTePQAAAAAAAAAAAAAAAAAAAAAAAAAAUWTePVFk3j0AAAAAAAAAAFFk3j0AAAAAAAAAAAAAAABRZN49ZUU8PgAAAABRZN49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUWTePVFk3j0AAAAAAAAAAAAAAAAAAAAAAAAAAFFk3j0AAAAAAAAAAAAAAAAAAAAAUWTePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFk3j0AAAAAUWTePQAAAABRZN49AAAAAAAAAAAAAAAAAAAAAAAAAABRZN49AAAAAAAAAAAAAAAAUWTePQAAAAAAAAAAUWTePQAAAAAAAAAAAAAAAFFk3j0AAAAAUWTePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGVFPD5lRTw+AAAAAFFk3j1RZN49AAAAAAAAAAAAAAAAAAAAAFFk3j0AAAAAAAAAAFFk3j0AAAAAUWTePQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZUU8PgAAAABlRTw+UWTePQAAAAAAAAAAAAAAAFFk3j0AAAAAAAAAAFFk3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFk3j0AAAAAAAAAAAAAAAAAAAAAUWTePQAAAAAAAAAAAAAAAFFk3j0AAAAAAAAAAFFk3j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlRTw+AAAAAAAAAAAAAAAAZUU8PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRZN49AAAAAAAAAAAAAAAAAAAAAAAAAABlRTw+AAAAAAAAAABRZN49AAAAAAAAAAAAAAAAAAAAAFFk3j0AAAAAAAAAAGVFPD4AAAAAUWTePQAAAABlRTw+UWTePQAAAABRZN49AAAAAAAAAABRZN49AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRZN49AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-14",
+      "item_name": "Portable SSD 1TB USB 3.2",
+      "description": "Compact external high-speed solid state drive",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 6800.0,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAqR7mPQAAAAAAAAAANtBCPgAAAAAAAAAAqR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANtBCPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAADbQQj6pHuY9qR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPake5j0AAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAACpHuY9qR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPake5j2pHuY9AAAAAKke5j0AAAAAqR7mPQAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAKke5j2pHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAA20EI+qR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPQAAAACpHuY9AAAAAAAAAACpHuY9AAAAAKke5j0AAAAAqR7mPake5j2pHuY9AAAAAAAAAAAAAAAAqR7mPQAAAACpHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAAAAAACpHuY9AAAAAAAAAACpHuY9AAAAAAAAAAAAAAAAAAAAAKke5j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKke5j2pHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANtBCPgAAAAAAAAAAqR7mPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA20EI+UndxPqke5j2pHuY9AAAAAKke5j2pHuY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA20EI+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqR7mPQAAAAA20EI+AAAAAAAAAAA20EI+AAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-15",
+      "item_name": "Microfiber Cleaning Cloths (Pack of 4)",
+      "description": "Lint-free ultra absorbent wiping cloths",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 160.0,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAACCONc9AAAAAII41z2CONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z2CONc9AAAAAAAAAACCONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPzM2Pj8zNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAAAAAAG9VhPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAgjjXPQAAAACCONc9AAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAPzM2PgAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAPzM2PgAAAAAAAAAAAAAAAII41z0AAAAAgjjXPQAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAgjjXPRvVYT4AAAAAgjjXPQAAAAAAAAAAAAAAAII41z0AAAAAgjjXPQAAAAAAAAAAAAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAACCONc9gjjXPQAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAb1WE+AAAAAAAAAACCONc9AAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAII41z0AAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAACCONc9AAAAAII41z2CONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAACCONc9AAAAAAAAAACCONc9PzM2PgAAAAA/MzY+AAAAAAAAAAAAAAAAAAAAAAAAAAA/MzY+gjjXPYI41z2CONc9AAAAAAAAAAAAAAAAgjjXPQAAAAAb1WE+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAD8zNj4AAAAAgjjXPQAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-16",
+      "item_name": "Paper Hand Towels M-Fold (Pack of 20)",
+      "description": "Virgin pulp 2-ply soft washroom hand tissues",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 750.0,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "mH/TPQAAAACYf9M9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmH/TPQAAAACYf9M9mH/TPQAAAACYf9M9mH/TPZh/0z0AAAAAAAAAAJh/0z0AAAAAigwzPgAAAAAAAAAAAAAAAAAAAACYf9M9AAAAAAAAAACKDDM+mH/TPQAAAACYf9M9AAAAAAAAAACYf9M9mH/TPQAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAIoMMz4AAAAAmH/TPQAAAACKDDM+mH/TPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAJh/0z0AAAAAAAAAAAAAAACYf9M9AAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAmH/TPQAAAACYf9M9mH/TPQAAAAAAAAAAAAAAAAAAAACYf9M9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXtXT4AAAAAmH/TPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAAAAAACYf9M9AAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAIoMMz6Yf9M9mH/TPQAAAAAAAAAAAAAAAIoMMz4AAAAAAAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAJh/0z0AAAAAAAAAAJh/0z2Yf9M9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACKDDM+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmH/TPZh/0z0AAAAAmH/TPQAAAABHWXw+mH/TPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIoMMz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmH/TPQAAAAAAAAAAmH/TPQAAAAAAAAAAAAAAAAAAAAAAAAAAmH/TPQAAAACKDDM+mH/TPQAAAAAAAAAAAAAAAAAAAAAAAAAAmH/TPQAAAACYf9M9AAAAAAAAAAAAAAAAAAAAAAAAAACYf9M9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJh/0z0AAAAAAAAAAAAAAAAAAAAAAAAAAJh/0z2Yf9M9AAAAAAAAAACYf9M9AAAAAAAAAACYf9M9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAigwzPph/0z0AAAAAAAAAAAAAAAAAAAAAmH/TPQ=="
+    },
+    {
+      "po_id": "PO-2026-MISC-17",
+      "item_name": "Nitrile Disposable Gloves Blue (Box of 100)",
+      "description": "Powder-free non-latex food and cleaning gloves",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 420.0,
+      "uom": "box",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAACIhCY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMrLEPTKyxD2IhCY+AAAAAAAAAAAAAAAAAAAAADKyxD0yssQ9AAAAAAAAAAAAAAAAMrLEPQAAAAAAAAAAAAAAADKyxD0yssQ9AAAAAAAAAACIhCY+MrLEPTKyxD0AAAAAAAAAAAAAAAAAAAAAMrLEPTKyxD0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD3ZE4+AAAAAIiEJj4AAAAAAAAAADKyxD0yssQ9iIQmPjKyxD0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyssQ9AAAAAAAAAAAAAAAAMrLEPQAAAAAyssQ9MrLEPQAAAAAAAAAAAAAAAAAAAAAAAAAAMrLEPYiEJj4yssQ9AAAAAAAAAAAAAAAAAAAAAIiEJj4yssQ9iIQmPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMrLEPQAAAAAAAAAAAAAAAAAAAAAAAAAAMrLEPYiEJj4AAAAAiIQmPgAAAAAAAAAAAAAAAIiEJj4yssQ9AAAAAAAAAAAyssQ9AAAAAAAAAAAAAAAAMrLEPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMrLEPQAAAAAAAAAAMrLEPQAAAACIhCY+AAAAAAAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKyxD0AAAAAAAAAAAAAAACIhCY+MrLEPTKyxD0AAAAAAAAAAIiEJj6IhCY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA92ROPgAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyssQ9AAAAAAAAAACIhCY+iIQmPgAAAAAyssQ9AAAAADKyxD0yssQ9MrLEPQAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAADKyxD2IhCY+MrLEPTKyxD0AAAAAAAAAAAAAAAAAAAAAMrLEPQAAAAAyssQ9AAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-18",
+      "item_name": "Chicken Burger 150g",
+      "description": "Grilled seasoned chicken patty",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 180.0,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "ShEGPgAAAAAAAAAAAAAAAP/+Yj4AAAAAAAAAAEoRBj4AAAAAAAAAAAAAAABKEQY+AAAAAAAAAAAAAAAAShEGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKEQY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoRBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoRBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//mI+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoRBj4AAAAAAAAAAEoRBj5KEQY+AAAAAEoRBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKEQY+AAAAAP/+Yj4AAAAAAAAAAEoRBj4AAAAAAAAAAEoRBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoRBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKEQY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAShEGPgAAAABKEQY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoRBj7//mI+AAAAAAAAAABKEQY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoRBj4AAAAAAAAAAEoRBj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiq2MPgAAAAD//mI+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAShEGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/+Yj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKEQY+AAAAAAAAAAAAAAAAShEGPgAAAAAAAAAAAAAAAAAAAABKEQY+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKEQY+AAAAAP/+Yj4AAAAAAAAAAEoRBj4AAAAAAAAAAAAAAABKEQY+ShEGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKEQY+//5iPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-MISC-19",
+      "item_name": "Mineral Water 1L",
+      "description": "Packaged natural mineral water bottle 1 litre",
+      "qty_ordered": 15.0,
+      "qty_remaining": 15.0,
+      "unit_price": 35.0,
+      "uom": "bottle",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAABtG0M+AAAAAAAAAAAAAAAAAAAAAG0bQz4AAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAbRtDPgAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtG0M+AAAAAG0bQz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG0bQz4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCd+Y9AAAAAG0bQz4AAAAAAAAAAIJ35j0AAAAAgnfmPQAAAAAAAAAAjH2JPgAAAACCd+Y9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtG0M+bRtDPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPYJ35j0AAAAAbRtDPoJ35j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACM1HE+gnfmPQAAAACCd+Y9AAAAAIJ35j2Cd+Y9AAAAAAAAAABtG0M+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtG0M+AAAAAG0bQz6Cd+Y9bRtDPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJ35j2Cd+Y9bRtDPgAAAAAAAAAAAAAAAAAAAACCd+Y9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgnfmPW0bQz4AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0101",
+      "item_name": "HDMI to VGA Display Adapter",
+      "description": "Active 1080p video converter dongle with audio",
+      "qty_ordered": 4.0,
+      "qty_remaining": 4.0,
+      "unit_price": 437.74,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "AAAAALc/4T23P+E9AAAAAJSwPj63P+E9AAAAAAAAAAAAAAAAlLA+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAALc/4T23P+E9AAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9lLA+Prc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSwPj63P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAtz/hPQAAAAC3P+E9AAAAAAAAAAAAAAAAtz/hPbc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9lLA+PgAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T23P+E9AAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9lLA+Prc/4T0AAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALc/4T0AAAAAtz/hPQAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAlLA+PgAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAALc/4T0AAAAAAAAAAAAAAAAAAAAAtz/hPQAAAAAAAAAAAAAAAAAAAACUsD4+AAAAAAAAAAC3P+E9tz/hPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9AAAAAAAAAAC3P+E9AAAAAAAAAACUsD4+tz/hPQAAAAAAAAAAAAAAALc/4T2UsD4+AAAAAAAAAAAAAAAAAAAAAAAAAAC3P+E9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0101",
+      "item_name": "Fresh Orange Juice 250ml",
+      "description": "100% natural cold pressed orange juice",
+      "qty_ordered": 9.0,
+      "qty_remaining": 9.0,
+      "unit_price": 86.39,
+      "uom": "bottle",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPXrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9euvqPX7gRj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAB+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAB66+o9fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAH7gRj4AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7gRj5+4EY+fuBGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j166+o9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHrr6j0AAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAB66+o9euvqPQAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAeuvqPXrr6j1+4EY+AAAAAAAAAAAAAAAAfuBGPgAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAHrr6j0AAAAAAAAAAAAAAAB66+o9AAAAAAAAAAAAAAAAeuvqPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0101",
+      "item_name": "Microfiber Cleaning Cloths (Pack of 4)",
+      "description": "Lint-free ultra absorbent wiping cloths",
+      "qty_ordered": 4.0,
+      "qty_remaining": 4.0,
+      "unit_price": 163.41,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAACCONc9AAAAAII41z2CONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z2CONc9AAAAAAAAAACCONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPzM2Pj8zNj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAAAAAAG9VhPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAgjjXPQAAAACCONc9AAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAPzM2PgAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAPzM2PgAAAAAAAAAAAAAAAII41z0AAAAAgjjXPQAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAgjjXPRvVYT4AAAAAgjjXPQAAAAAAAAAAAAAAAII41z0AAAAAgjjXPQAAAAAAAAAAAAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAACCONc9gjjXPQAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAAAb1WE+AAAAAAAAAACCONc9AAAAAAAAAAAAAAAAgjjXPQAAAAAAAAAAAAAAAII41z0AAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAACCONc9AAAAAII41z2CONc9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCONc9AAAAAAAAAACCONc9AAAAAAAAAACCONc9PzM2PgAAAAA/MzY+AAAAAAAAAAAAAAAAAAAAAAAAAAA/MzY+gjjXPYI41z2CONc9AAAAAAAAAAAAAAAAgjjXPQAAAAAb1WE+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAII41z0AAAAAAAAAAAAAAAAAAAAAAAAAAD8zNj4AAAAAgjjXPQAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0102",
+      "item_name": "65W GaN Fast Charger USB-C",
+      "description": "Dual port Type-C PD laptop power brick",
+      "qty_ordered": 8.0,
+      "qty_remaining": 8.0,
+      "unit_price": 1969.91,
+      "uom": "pcs",
+      "tax_rate": 18.0,
+      "embedding": "WQTrPQAAAABZBOs9AAAAAAAAAAAAAAAAjPVGPlkE6z0AAAAAAAAAAFkE6z0AAAAAAAAAAAAAAABZBOs9WQTrPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQTrPYz1Rj4AAAAAAAAAAAAAAAAAAAAAAAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkE6z0AAAAAjPVGPgAAAAAAAAAAAAAAAAAAAABZBOs9WQTrPQAAAAAAAAAAWQTrPQAAAABZBOs9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIz1Rj4AAAAAAAAAAAAAAAAAAAAAWQTrPYz1Rj4AAAAAAAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZBOs9AAAAAAAAAAAAAAAAWQTrPQAAAAAAAAAAWQTrPQAAAABZBOs9AAAAAAAAAAAAAAAAjPVGPgAAAAAAAAAAWQTrPQAAAAAAAAAAWQTrPQAAAAAAAAAAAAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAWQTrPQAAAABZBOs9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkE6z1ZBOs9AAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0pp2PgAAAAAAAAAAWQTrPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQTrPQAAAAAAAAAAAAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAjPVGPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZBOs9AAAAAAAAAACM9UY+WQTrPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkE6z0AAAAAWQTrPQAAAACM9UY+AAAAAAAAAAAAAAAAWQTrPQAAAABZBOs9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIz1Rj4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQTrPQAAAACM9UY+AAAAAFkE6z0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0102",
+      "item_name": "Spiral Notebook Ruled A5",
+      "description": "160 pages hardbound wire-bound notebook",
+      "qty_ordered": 4.0,
+      "qty_remaining": 4.0,
+      "unit_price": 95.62,
+      "uom": "pcs",
+      "tax_rate": 12.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF7G5D0AAAAAXsbkPQAAAAAAAAAAXsbkPQAAAAC9rEE+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABexuQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABexuQ9AAAAAF7G5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABexuQ9AAAAAAAAAAC9rEE+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABexuQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDnA+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvaxBPgAAAAAAAAAAAAAAAL2sQT4AAAAAXsbkPQAAAABexuQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF7G5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXsbkPQAAAABexuQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvaxBPgAAAAC9rEE+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF7G5D0AAAAAAAAAAAAAAAAAAAAAXsbkPQAAAABexuQ9AAAAAAAAAABexuQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC9rEE+AAAAAF7G5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABexuQ9AAAAAAAAAAAAAAAAAAAAAF7G5D0AAAAAAAAAAAAAAAAAAAAAAAAAAF7G5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXsbkPV7G5D0AAAAAvaxBPgAAAAAAAAAAAAAAAL2sQT5exuQ9AAAAAAAAAAC9rEE+AAAAAAAAAAAAAAAAAAAAAAAAAAC9rEE+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC9rEE+XsbkPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL2sQT5exuQ9AAAAAL2sQT5exuQ9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvaxBPgAAAAAAAAAAAAAAAAAAAAAAAAAAvaxBPgAAAAAAAAAAAAAAAL2sQT4AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0102",
+      "item_name": "Paneer Tikka Sandwich",
+      "description": "Grilled spiced paneer cottage cheese filling",
+      "qty_ordered": 7.0,
+      "qty_remaining": 7.0,
+      "unit_price": 140.29,
+      "uom": "pcs",
+      "tax_rate": 5.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAA+nFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwunQ+AAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAACJOuk9AAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiTrpPQAAAAAAAAAAAAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiTrpPQAAAAAAAAAAAAAAAAAAAACJOuk9+nFFPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiTrpPYk66T0AAAAAiTrpPQAAAAAAAAAAAAAAAIk66T2JOuk9AAAAAAAAAAAAAAAAiTrpPYk66T2JOuk9iTrpPQAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPYk66T0AAAAAAAAAAIk66T0AAAAAAAAAAIk66T0AAAAA+nFFPgAAAAAAAAAAiTrpPYk66T2JOuk9AAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHC6dD4AAAAAAAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgjiz4AAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAIk66T0AAAAAiTrpPQAAAACJOuk9AAAAAAAAAAD6cUU+AAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAcLp0PgAAAAD6cUU+AAAAAIk66T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6cUU+AAAAAAAAAAAAAAAAAAAAAAAAAACJOuk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0102",
+      "item_name": "Sticky Notes 3x3 Neon Pink",
+      "description": "Bright fluorescent repositionable memo pad",
+      "qty_ordered": 9.0,
+      "qty_remaining": 9.0,
+      "unit_price": 48.99,
+      "uom": "pad",
+      "tax_rate": 12.0,
+      "embedding": "vGDpPQAAAAAAAAAAAAAAAFGSRT4AAAAAUZJFPrxg6T0AAAAAvGDpPQAAAAAAAAAAAAAAAAAAAAAAAAAAvGDpPQAAAAC8YOk9AAAAAAAAAAC8YOk9AAAAAAAAAAAAAAAAvGDpPbxg6T0AAAAAAAAAAAAAAAC8YOk9vGDpPQAAAAAAAAAAAAAAAAAAAAC8YOk9AAAAAAAAAAC8YOk9AAAAAAAAAAAAAAAAAAAAAAAAAAC8YOk9AAAAALxg6T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRkkU+AAAAAAAAAAC8YOk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALxg6T28YOk9AAAAAAAAAAC8YOk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvGDpPQAAAAAAAAAAAAAAAAAAAAC8YOk9AAAAAAAAAAAAAAAAAAAAAAAAAABRkkU+AAAAAAAAAAAAAAAAvGDpPQAAAAAAAAAAAAAAALxg6T28YOk9vGDpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvGDpPQAAAAAAAAAAvGDpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALxg6T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8YOk9AAAAAAAAAAC8YOk9vGDpPQAAAAAAAAAAAAAAAAAAAAC8YOk9vGDpPQAAAAAAAAAAvGDpPQAAAAAAAAAAAAAAALxg6T0AAAAAAAAAALxg6T28YOk9AAAAAAAAAAAAAAAAvGDpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUZJFPgAAAAC8YOk9AAAAAAAAAAAAAAAAAAAAAIXidD5RkkU+vGDpPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAheJ0PgAAAAAAAAAAAAAAALxg6T0AAAAAAAAAALxg6T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8YOk9vGDpPQAAAAAAAAAAAAAAALxg6T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8YOk9vGDpPQAAAAAAAAAAAAAAAAAAAAAAAAAAvGDpPbxg6T0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALxg6T28YOk9AAAAALxg6T0AAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0103",
+      "item_name": "Surface Disinfectant Spray 500ml",
+      "description": "Multi-surface antibacterial alcohol cleaning spray",
+      "qty_ordered": 3.0,
+      "qty_remaining": 3.0,
+      "unit_price": 177.07,
+      "uom": "bottle",
+      "tax_rate": 18.0,
+      "embedding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKI3PPSiNzz0AAAAAKI3PPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACiNzz0AAAAAAAAAACiNzz0AAAAAAAAAAAAAAAAojc89AAAAAAAAAAAojc89AAAAACiNzz0AAAAAKI3PPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKI3PPQAAAAAAAAAAAAAAAAAAAAAojc89AAAAAAAAAAAAAAAAAAAAAAAAAAAhtS8+AAAAAAAAAAAAAAAAAAAAACiNzz0ojc89AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA88hZPgAAAAAAAAAAAAAAACG1Lz4AAAAAKI3PPQAAAAAAAAAAKI3PPQAAAAAAAAAAAAAAAAAAAAAAAAAAIbUvPiiNzz0AAAAAAAAAAAAAAAAhtS8+KI3PPQAAAAAojc89KI3PPQAAAAAAAAAAKI3PPQAAAAAojc89AAAAAAAAAAAAAAAAAAAAAAAAAAAhtS8+KI3PPQAAAAAAAAAAAAAAACiNzz0AAAAAAAAAACiNzz0AAAAAKI3PPQAAAAAojc89AAAAAAAAAAAAAAAAKI3PPQAAAAAAAAAAAAAAAAAAAAAhtS8+AAAAAAAAAAAAAAAAIbUvPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIbUvPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAraN3PgAAAAAAAAAAKI3PPQAAAAAhtS8+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKI3PPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACiNzz0AAAAAIbUvPiiNzz0AAAAAKI3PPQAAAAAAAAAAAAAAACiNzz0AAAAAAAAAACiNzz0AAAAAAAAAAAAAAAAojc89AAAAAAAAAAAAAAAAAAAAAAAAAAAojc89AAAAAAAAAAAojc89AAAAAAAAAAAojc89IbUvPiiNzz0AAAAAAAAAAAAAAAAojc89AAAAAAAAAAAojc89KI3PPSiNzz0htS8+AAAAAAAAAAAAAAAAKI3PPQAAAAAojc89AAAAACiNzz0ojc89AAAAAAAAAAAAAAAAKI3PPQAAAAAAAAAAKI3PPQAAAAAAAAAAAAAAAAAAAAAojc89IbUvPgAAAAAAAAAAAAAAAA=="
+    },
+    {
+      "po_id": "PO-2026-0103",
+      "item_name": "Gel Pen 0.5mm Blue (Pack of 5)",
+      "description": "Waterproof quick-drying micro gel pens",
+      "qty_ordered": 3.0,
+      "qty_remaining": 3.0,
+      "unit_price": 127.29,
+      "uom": "pack",
+      "tax_rate": 12.0,
+      "embedding": "lsPkPZbD5D2Ww+Q9AAAAAAAAAACWw+Q9AAAAAGKqQT4AAAAAlsPkPZbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlsPkPQAAAAAAAAAAAAAAAAAAAACWw+Q9AAAAAAAAAAAAAAAAlsPkPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWw+Q9lsPkPZbD5D0AAAAAAAAAAJbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWw+Q9AAAAAJbD5D0AAAAAAAAAAJbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWw+Q9IQtwPgAAAACWw+Q9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGKqQT6Ww+Q9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlsPkPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWw+Q9YqpBPgAAAAAAAAAAAAAAAGKqQT4AAAAAAAAAAAAAAABiqkE+AAAAAJbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAJbD5D0AAAAAAAAAAJbD5D0AAAAAAAAAAJbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWw+Q9AAAAAAAAAACWw+Q9AAAAAAAAAACWw+Q9lsPkPQAAAAAAAAAAAAAAAJbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlsPkPQAAAAAAAAAAAAAAAJbD5D2Ww+Q9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlsPkPQAAAAAAAAAAIQtwPpbD5D2Ww+Q9AAAAAAAAAACWw+Q9YqpBPgAAAAAAAAAAIQtwPgAAAAAAAAAAlsPkPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWw+Q9AAAAAAAAAACWw+Q9AAAAAAAAAAAAAAAAlsPkPZbD5D0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABiqkE+AAAAAAAAAACWw+Q9AAAAAAAAAAAAAAAAYqpBPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ],
+  "ledger_preload": []
+}

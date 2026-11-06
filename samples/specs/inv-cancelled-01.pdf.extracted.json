@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Apex Stationery & Print Solutions",
+    "gstin": "29XYZAB5678C1Z2",
+    "bank_account": "SBIN00098765432"
+  },
+  "invoice_number": {
+    "value": "INV-CANCELLED-01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-02",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-CANCELLED",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 2400.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 432.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 2832.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Heavy Duty Desktop Stapler",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 240.0,
+      "line_total": 2400.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Apex Stationery & Print Solutions\nGSTIN: 29XYZAB5678C1Z2\nInvoice No: INV-CANCELLED-01\nDate: 2026-10-02\nPO Reference: PO-2026-CANCELLED\n1 Heavy Duty Desktop Stapler 10.0 240.00 2400.00\nSubtotal: 2400.00\nTax Total: 432.00\nGrand Total: Rs. 2832.00"
+}

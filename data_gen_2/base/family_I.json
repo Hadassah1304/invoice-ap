@@ -1,0 +1,714 @@
+{
+  "schema_version": 1,
+  "family": "I",
+  "pos": [
+    {
+      "po_id": "PO-I-DUP",
+      "vendor_id": "V-INTEG",
+      "po_date": {
+        "offset_days": -60
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "dup",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-024",
+          "item_name": "USB-C Cable 1m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 1 metre",
+          "uom": "pcs",
+          "qty_ordered": 200,
+          "unit_price": 250.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-I-CTRL-1",
+      "vendor_id": "V-CTRL",
+      "po_date": {
+        "offset_days": -55
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "ctrl",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-058",
+          "item_name": "Clear Polycarbonate Safety Goggles Anti-Fog",
+          "description": "Impact resistant wraparound eye protection glasses with anti-fog coating",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 140.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-I-CTRL-2",
+      "vendor_id": "V-CTRL",
+      "po_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "lookalike",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-029",
+          "item_name": "Wired USB Keyboard",
+          "description": "Standard 104-key USB chiclet keyboard black",
+          "uom": "pcs",
+          "qty_ordered": 25,
+          "unit_price": 650.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-I-CTRL-3",
+      "vendor_id": "V-CTRL",
+      "po_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "currency",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-030",
+          "item_name": "HDMI Cable 4K 1.8m",
+          "description": "High speed HDMI 2.0 cable with gold plated connectors 1.8m",
+          "uom": "pcs",
+          "qty_ordered": 40,
+          "unit_price": 310.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-I-UNAPP-1",
+      "vendor_id": "V-UNAPP",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "unapp",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-032",
+          "item_name": "USB 3.0 Flash Drive 64GB",
+          "description": "Metal casing USB 3.0 pen drive 64GB read speed up to 100MB/s",
+          "uom": "pcs",
+          "qty_ordered": 30,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-I-BANKCHG-1",
+      "vendor_id": "V-BANKCHG",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "bankchg",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-040",
+          "item_name": "Disinfectant Surface Floor Cleaner Floral 5L",
+          "description": "Concentrated hospital-grade disinfectant floor cleaning fluid 5L can",
+          "uom": "can",
+          "qty_ordered": 20,
+          "unit_price": 380.0,
+          "tax_rate": 18
+        }
+      ]
+    }
+  ],
+  "ledger_preload": [],
+  "scenarios": [
+    {
+      "scenario_id": "SC-I-DUP-01",
+      "tag": "dup_orig",
+      "description": "Original invoice for duplicate series, billing 20 units @ 250",
+      "po_id": "PO-I-DUP",
+      "series": {
+        "id": "I-DUP",
+        "position": 1
+      },
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "INT/26/7741",
+        "invoice_date": {
+          "offset_days": -40
+        },
+        "vendor_id": "V-INTEG",
+        "po_reference": "PO-I-DUP",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 20,
+            "unit_price": 250.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-I-DUP",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Original clean invoice in duplicate detection series"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-DUP-02",
+      "tag": "dup_resend_identical",
+      "description": "Identical resend of pos 1 (byte copy), expecting cached decision",
+      "po_id": "PO-I-DUP",
+      "series": {
+        "id": "I-DUP",
+        "position": 2
+      },
+      "relation": {
+        "type": "duplicate_of",
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "invoice": null,
+      "derive_from": {
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "mutation": {
+        "name": "resend_identical",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-I-DUP",
+        "confidence": "firm",
+        "expect_cached": true,
+        "config_dependency": [],
+        "notes": "Byte-identical resend hits cache gate first"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-I-DUP-03",
+      "tag": "dup_exact",
+      "description": "Exact duplicate re-rendered with different layout, evaluated by duplicate gate",
+      "po_id": "PO-I-DUP",
+      "series": {
+        "id": "I-DUP",
+        "position": 3
+      },
+      "relation": {
+        "type": "duplicate_of",
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "invoice": null,
+      "derive_from": {
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "mutation": {
+        "name": "rerender",
+        "params": {
+          "layout": "bundled"
+        }
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "DUPLICATE_EXACT"
+        ],
+        "po_id": "PO-I-DUP",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Same vendor and normalized invoice number in non-rejected ledger"
+      },
+      "render": {
+        "layout": "bundled",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-DUP-04",
+      "tag": "dup_near_format",
+      "description": "Duplicate with renumbered format (INT267741) and date +1 day",
+      "po_id": "PO-I-DUP",
+      "series": {
+        "id": "I-DUP",
+        "position": 4
+      },
+      "relation": {
+        "type": "duplicate_of",
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "invoice": null,
+      "derive_from": {
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "mutation": {
+        "name": "renumber_format",
+        "params": {
+          "new_invoice_no": "INT267741",
+          "date_delta_days": 1
+        }
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "DUPLICATE_EXACT"
+        ],
+        "po_id": "PO-I-DUP",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Normalizes to INT267741 matching original normalized number"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-DUP-05",
+      "tag": "dup_rescan",
+      "description": "Duplicate re-scan degraded to medium quality",
+      "po_id": "PO-I-DUP",
+      "series": {
+        "id": "I-DUP",
+        "position": 5
+      },
+      "relation": {
+        "type": "duplicate_of",
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "invoice": null,
+      "derive_from": {
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "mutation": {
+        "name": "rerender",
+        "params": {
+          "degrade": "medium"
+        }
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "DUPLICATE_EXACT"
+        ],
+        "po_id": "PO-I-DUP",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Degraded re-scan recognized as exact duplicate after OCR"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "medium",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-CTRL-01",
+      "tag": "same_invno_other_vendor",
+      "description": "Control scenario: same raw invoice number INT/26/7741 but different vendor V-CTRL",
+      "po_id": "PO-I-CTRL-1",
+      "series": {
+        "id": "I-DUP",
+        "position": 6
+      },
+      "relation": {
+        "type": "control_of",
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "invoice": {
+        "invoice_no": "INT/26/7741",
+        "invoice_date": {
+          "offset_days": -25
+        },
+        "vendor_id": "V-CTRL",
+        "po_reference": "PO-I-CTRL-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 140.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-I-CTRL-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Duplicates are per vendor; same invoice number under different vendor is valid"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-DUP-06",
+      "tag": "dup_possible",
+      "description": "Near-duplicate: different invoice number, same total, date within window (+3 days)",
+      "po_id": "PO-I-DUP",
+      "series": {
+        "id": "I-DUP",
+        "position": 7
+      },
+      "relation": {
+        "type": "duplicate_of",
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "invoice": null,
+      "derive_from": {
+        "scenario_id": "SC-I-DUP-01"
+      },
+      "mutation": {
+        "name": "new_number_same_amount",
+        "params": {
+          "new_invoice_no": "INT/26/9052",
+          "date_delta_days": 3
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "DUPLICATE_POSSIBLE"
+        ],
+        "po_id": "PO-I-DUP",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Near-duplicate triggered by identical amount within near_dup_window_days (3 days delta, window 7)"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-LOOK-01",
+      "tag": "vendor_lookalike",
+      "description": "Lookalike vendor name with dropped metadata triggers VENDOR_UNCLEAR",
+      "po_id": "PO-I-CTRL-2",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "FAL/26/1834",
+        "invoice_date": {
+          "offset_days": -30
+        },
+        "vendor_id": "V-CTRL",
+        "po_reference": "PO-I-CTRL-2",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 15,
+            "unit_price": 650.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "lookalike_vendor",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "VENDOR_UNCLEAR"
+        ],
+        "po_id": "PO-I-CTRL-2",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Fuzzy match falls between reject_threshold 0.75 and match_threshold 0.90"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-UNAPP-01",
+      "tag": "vendor_unapproved",
+      "description": "Invoice from unapproved vendor V-UNAPP",
+      "po_id": "PO-I-UNAPP-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ROG/26/3142",
+        "invoice_date": {
+          "offset_days": -20
+        },
+        "vendor_id": "V-UNAPP",
+        "po_reference": "PO-I-UNAPP-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 10,
+            "unit_price": 450.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "VENDOR_NOT_APPROVED"
+        ],
+        "po_id": "PO-I-UNAPP-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Vendor approved flag is false in master vendor database"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-BANK-01",
+      "tag": "bank_changed",
+      "description": "Invoice with modified bank account details triggers bank mismatch review",
+      "po_id": "PO-I-BANKCHG-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "MET/26/8419",
+        "invoice_date": {
+          "offset_days": -22
+        },
+        "vendor_id": "V-BANKCHG",
+        "po_reference": "PO-I-BANKCHG-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 10,
+            "unit_price": 380.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "change_bank",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [],
+        "po_id": "PO-I-BANKCHG-1",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Bank account does not match master vendor record; soft rule"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-I-CURR-01",
+      "tag": "currency_mismatch",
+      "description": "Invoice currency changed to USD while PO currency is INR",
+      "po_id": "PO-I-CTRL-3",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "FAL/26/5291",
+        "invoice_date": {
+          "offset_days": -28
+        },
+        "vendor_id": "V-CTRL",
+        "po_reference": "PO-I-CTRL-3",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 20,
+            "unit_price": 310.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "change_currency",
+        "params": {
+          "currency": "USD"
+        }
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "CURRENCY_MISMATCH"
+        ],
+        "po_id": "PO-I-CTRL-3",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Invoice currency USD conflicts with PO currency INR"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    }
+  ]
+}

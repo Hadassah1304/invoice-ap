@@ -1,0 +1,40 @@
+{
+  "file_name": "inv-tol-review.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-TOL-REVIEW",
+  "invoice_date": "2026-10-28",
+  "po_reference": "PO-2026-TOL-REV",
+  "currency": "INR",
+  "subtotal": 10400.0,
+  "tax_total": 0.0,
+  "grand_total": 10400.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 20.0,
+      "uom": "ream",
+      "unit_price": 332.8,
+      "line_total": 6656.0,
+      "tax_rate": 0.0
+    },
+    {
+      "line_no": 2,
+      "description": "Heavy Duty Desktop Stapler",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 249.6,
+      "line_total": 3744.0,
+      "tax_rate": 0.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "OVERBILLED",
+    "po_id": "PO-2026-TOL-REV",
+    "tag": "tol_review",
+    "notes": "Total is 4% over PO, within review tolerance"
+  }
+}

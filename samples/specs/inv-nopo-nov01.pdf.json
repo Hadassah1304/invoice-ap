@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-nopo-nov01.pdf",
+  "vendor_name": "Anonymous Hardware Seller",
+  "vendor_gstin": null,
+  "invoice_number": "INV-NOPO-NOV01",
+  "invoice_date": "2026-10-27",
+  "po_reference": null,
+  "currency": "INR",
+  "subtotal": 10800.0,
+  "tax_total": 1944.0,
+  "grand_total": 12744.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Conference USB Speakerphone",
+      "quantity": 2.0,
+      "uom": "pcs",
+      "unit_price": 5400.0,
+      "line_total": 10800.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "INFERRED_MATCH",
+    "po_id": "PO-2026-UNIQUE-ITEM-01",
+    "tag": "no_po_no_vendor",
+    "notes": "PO and vendor omitted, matched via unique item search"
+  }
+}

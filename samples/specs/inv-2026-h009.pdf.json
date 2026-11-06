@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h009.pdf",
+  "vendor_name": "Paramount Office Essentials",
+  "vendor_gstin": "24AAAC1488L1Z2",
+  "invoice_number": "INV-2026-H009",
+  "invoice_date": "2026-10-31",
+  "po_reference": "PO-2026-HAPPY-09",
+  "currency": "INR",
+  "subtotal": 650.0,
+  "tax_total": 117.0,
+  "grand_total": 767.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Clear Packaging Tape 2-inch 50m",
+      "quantity": 10.0,
+      "uom": "roll",
+      "unit_price": 65.0,
+      "line_total": 650.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-09",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout itemised_tax_separate"
+  }
+}

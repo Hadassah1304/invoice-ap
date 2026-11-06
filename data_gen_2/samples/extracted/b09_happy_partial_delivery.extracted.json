@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "b09_happy_partial_delivery.pdf",
+    "file_hash": "e93f9aa308b3eb497599fe0f0127c96437efa53a92fa0f7c6fb013a6a417c6fc",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "WorkSpace Essentials Depot",
+    "gstin": "27AAACW5566N1Z1",
+    "email": "billing@workspaceessentials.in",
+    "phone": "+91 22 5550 9909",
+    "address": "45, Commercial Chambers, Fort, Mumbai 400001",
+    "bank_account": "PUNB00077889900",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "WSE-2026-847",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-19",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-B-OFFIX-PART-2",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Heavy Duty Desk Stapler 24/6",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 280.0,
+      "line_total": 4200.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Heavy Duty Garbage Bags Black 30x37 Inch Pack of 30",
+      "quantity": 25.0,
+      "uom": "roll",
+      "unit_price": 210.0,
+      "line_total": 5250.0,
+      "tax_rate": 0.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 9450.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 9450.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

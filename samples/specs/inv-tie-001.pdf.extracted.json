@@ -1,0 +1,54 @@
+{
+  "vendor": {
+    "name": "Twin Peaks Catering Services LLP",
+    "gstin": "33AABCT1122T1Z3",
+    "bank_account": "AXIS00011223344"
+  },
+  "invoice_number": {
+    "value": "INV-TIE-001",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-27",
+    "confidence": 1.0
+  },
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 3350.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 286.5,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 3636.5,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Grilled Cheese Sandwich",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "line_total": 1650.0,
+      "tax_rate": 5.0
+    },
+    {
+      "line_no": 2,
+      "description": "Fresh Orange Juice 250ml",
+      "quantity": 20.0,
+      "uom": "bottle",
+      "unit_price": 85.0,
+      "line_total": 1700.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Twin Peaks Catering Services LLP\nGSTIN: 33AABCT1122T1Z3\nInvoice No: INV-TIE-001\nDate: 2026-10-27\n1 Grilled Cheese Sandwich 15.0 110.00 1650.00\n2 Fresh Orange Juice 250ml 20.0 85.00 1700.00\nSubtotal: 3350.00\nTax Total: 286.50\nGrand Total: Rs. 3636.50"
+}

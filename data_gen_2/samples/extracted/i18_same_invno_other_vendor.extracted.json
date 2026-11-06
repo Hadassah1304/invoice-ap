@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "i18_same_invno_other_vendor.pdf",
+    "file_hash": "7da56e62579f196e991a21b9b835b7dde57c945fe709a9dbc096b8d103c1a37c",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Falcon Precision Components",
+    "gstin": "07AAACF6677S1Z5",
+    "email": "billing@falconprecision.com",
+    "phone": "+91 11 5550 0003",
+    "address": "B-48, Naraina Industrial Area Phase 2, New Delhi 110028",
+    "bank_account": "CNRB00055667788",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "INT/26/7741",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-12",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-I-CTRL-1",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Clear Polycarbonate Safety Goggles Anti-Fog",
+      "quantity": 30.0,
+      "uom": "pcs",
+      "unit_price": 140.0,
+      "line_total": 4200.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 4200.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 756.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 4956.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

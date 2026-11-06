@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "n35_happy_explicit.pdf",
+    "file_hash": "21012f9142105fad07d545c1cc9935ddac1d9528e75d5a9c3436ea9888a180c8",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Garuda Electrical & Engineering",
+    "gstin": "29AAACG5678H1Z4",
+    "email": "billing@garudaengineering.in",
+    "phone": "+91 80 5550 3434",
+    "address": "Plot 51, Peenya Industrial Area 3rd Phase, Bengaluru 560058",
+    "bank_account": "IOBA00098761234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "GAR/26/9102",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-21",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-HAPPY-06",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Nitrile Chemical Resistant Safety Gloves Size M Pack of 12 Pairs",
+      "quantity": 30.0,
+      "uom": "pack",
+      "unit_price": 780.0,
+      "line_total": 23400.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Nitrile Chemical Resistant Safety Gloves Size L Pack of 12 Pairs",
+      "quantity": 30.0,
+      "uom": "pack",
+      "unit_price": 780.0,
+      "line_total": 23400.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 46800.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 8424.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 55224.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

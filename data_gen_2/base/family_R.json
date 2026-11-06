@@ -1,0 +1,1733 @@
+{
+  "schema_version": 1,
+  "family": "R",
+  "pos": [
+    {
+      "po_id": "PO-R-BURGER-A",
+      "vendor_id": "V-BALA",
+      "po_date": {
+        "offset_days": -30
+      },
+      "currency": "INR",
+      "status": "PARTIAL",
+      "payment_terms_days": 30,
+      "group": "burger",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-001",
+          "item_name": "Veg Burger 150g",
+          "description": "Crispy vegetable patty burger with fresh lettuce and mayo",
+          "uom": "pcs",
+          "qty_ordered": 20,
+          "unit_price": 120.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-002",
+          "item_name": "Cheese Burger 150g",
+          "description": "Grilled vegetable patty topped with cheddar cheese slice",
+          "uom": "pcs",
+          "qty_ordered": 20,
+          "unit_price": 130.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-003",
+          "item_name": "Chicken Burger 150g",
+          "description": "Tender spiced chicken patty in toasted sesame seed bun",
+          "uom": "pcs",
+          "qty_ordered": 15,
+          "unit_price": 135.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 4,
+          "sku": "SKU-006",
+          "item_name": "Cold Coffee 300ml",
+          "description": "Chilled sweetened brewed coffee beverage 300ml",
+          "uom": "bottle",
+          "qty_ordered": 20,
+          "unit_price": 95.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 5,
+          "sku": "SKU-008",
+          "item_name": "French Fries 200g",
+          "description": "Golden salted crispy potato french fries 200g portion",
+          "uom": "pack",
+          "qty_ordered": 25,
+          "unit_price": 80.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-BURGER-B",
+      "vendor_id": "V-BALA",
+      "po_date": {
+        "offset_days": -25
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "burger",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-001",
+          "item_name": "Veg Burger 150g",
+          "description": "Crispy vegetable patty burger with fresh lettuce and mayo",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 120.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-002",
+          "item_name": "Cheese Burger 150g",
+          "description": "Grilled vegetable patty topped with cheddar cheese slice",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 130.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-BURGER-C",
+      "vendor_id": "V-BALA",
+      "po_date": {
+        "offset_days": -22
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "burger",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-001",
+          "item_name": "Veg Burger 150g",
+          "description": "Crispy vegetable patty burger with fresh lettuce and mayo",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 110.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-002",
+          "item_name": "Cheese Burger 150g",
+          "description": "Grilled vegetable patty topped with cheddar cheese slice",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 130.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-008",
+          "item_name": "French Fries 200g",
+          "description": "Golden salted crispy potato french fries 200g portion",
+          "uom": "pack",
+          "qty_ordered": 15,
+          "unit_price": 80.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-TIE-A",
+      "vendor_id": "V-TIE",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "tie",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-002",
+          "item_name": "Cheese Burger 150g",
+          "description": "Grilled vegetable patty topped with cheddar cheese slice",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 130.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-006",
+          "item_name": "Cold Coffee 300ml",
+          "description": "Chilled sweetened brewed coffee beverage 300ml",
+          "uom": "bottle",
+          "qty_ordered": 10,
+          "unit_price": 95.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-TIE-B",
+      "vendor_id": "V-TIE",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "tie",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-002",
+          "item_name": "Cheese Burger 150g",
+          "description": "Grilled vegetable patty topped with cheddar cheese slice",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 130.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-006",
+          "item_name": "Cold Coffee 300ml",
+          "description": "Chilled sweetened brewed coffee beverage 300ml",
+          "uom": "bottle",
+          "qty_ordered": 10,
+          "unit_price": 95.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-FRESH-1",
+      "vendor_id": "V-FRESH",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-004",
+          "item_name": "Mineral Water 500ml",
+          "description": "Packaged natural mineral drinking water 500ml bottle",
+          "uom": "bottle",
+          "qty_ordered": 100,
+          "unit_price": 15.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-011",
+          "item_name": "Salted Cashew Nuts 500g",
+          "description": "Premium roasted and salted whole cashew nuts 500g pack",
+          "uom": "pack",
+          "qty_ordered": 20,
+          "unit_price": 480.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-FRESH-2",
+      "vendor_id": "V-FRESH",
+      "po_date": {
+        "offset_days": -30
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-005",
+          "item_name": "Mineral Water 1L",
+          "description": "Packaged natural mineral drinking water 1 litre bottle",
+          "uom": "bottle",
+          "qty_ordered": 80,
+          "unit_price": 25.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-007",
+          "item_name": "Cold Coffee 500ml",
+          "description": "Chilled sweetened brewed coffee beverage 500ml bottle",
+          "uom": "bottle",
+          "qty_ordered": 40,
+          "unit_price": 140.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-FRESH-3",
+      "vendor_id": "V-FRESH",
+      "po_date": {
+        "offset_days": -20
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-009",
+          "item_name": "Masala Chai 150ml",
+          "description": "Freshly brewed hot Indian spiced tea 150ml cup",
+          "uom": "cup",
+          "qty_ordered": 150,
+          "unit_price": 20.0,
+          "tax_rate": 5
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-010",
+          "item_name": "Veg Club Sandwich 250g",
+          "description": "Triple layer toasted sandwich with cucumber tomato and mint chutney",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 110.0,
+          "tax_rate": 5
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-PACK-1",
+      "vendor_id": "V-PACK",
+      "po_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-046",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+          "description": "Cast stretch film roll for pallet wrapping 500mm width 23 micron 3kg roll",
+          "uom": "roll",
+          "qty_ordered": 30,
+          "unit_price": 640.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-048",
+          "item_name": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+          "description": "Self-adhesive brown sealing tape 48mm width 65 metre length pack of 6 rolls",
+          "uom": "pack",
+          "qty_ordered": 50,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-PACK-2",
+      "vendor_id": "V-PACK",
+      "po_date": {
+        "offset_days": -32
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-047",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 29 Micron 3kg",
+          "description": "Heavy duty cast stretch film roll for machinery wrapping 500mm 29 micron 3kg",
+          "uom": "roll",
+          "qty_ordered": 25,
+          "unit_price": 720.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-049",
+          "item_name": "BOPP Packaging Tape Clear 48mm x 65m Pack of 6",
+          "description": "Self-adhesive transparent sealing tape 48mm width 65 metre length pack of 6 rolls",
+          "uom": "pack",
+          "qty_ordered": 40,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-PACK-3",
+      "vendor_id": "V-PACK",
+      "po_date": {
+        "offset_days": -18
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-050",
+          "item_name": "Corrugated Shipping Box 3-Ply 12x10x8 Inch Bundle of 25",
+          "description": "Single wall corrugated cardboard mailing carton 12x10x8 bundle of 25",
+          "uom": "bundle",
+          "qty_ordered": 40,
+          "unit_price": 625.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-051",
+          "item_name": "Bubble Wrap Roll 500mm x 50m Double Layer",
+          "description": "Protective air cushion packaging bubble roll 500mm width 50 metre length",
+          "uom": "roll",
+          "qty_ordered": 15,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOVEND-1",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "novendor",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-052",
+          "item_name": "Thermal Label Roll 110x80mm 500 Labels",
+          "description": "Direct thermal barcode barcode shipping label roll 110x80mm 500 labels per roll",
+          "uom": "roll",
+          "qty_ordered": 30,
+          "unit_price": 310.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOVEND-2",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -28
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "novendor",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-059",
+          "item_name": "Industrial Cable Tie 300mm Pack of 100",
+          "description": "Self-locking UV resistant heavy duty nylon zip ties 300mm x 4.8mm pack of 100",
+          "uom": "pack",
+          "qty_ordered": 50,
+          "unit_price": 190.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-TYPO-1",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -25
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-013",
+          "item_name": "A4 Copier Paper 80gsm",
+          "description": "Premium bright white high speed multipurpose copier paper 500 sheets",
+          "uom": "ream",
+          "qty_ordered": 50,
+          "unit_price": 320.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-021",
+          "item_name": "Heavy Duty Desk Stapler 24/6",
+          "description": "All metal durable desktop stapler 25 sheet capacity uses 24/6 staples",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-OTHERV-1",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-015",
+          "item_name": "Spiral Executive Notebook A5 160 Pages",
+          "description": "Hardbound spiral ruled executive diary notebook A5 size 160 pages",
+          "uom": "pcs",
+          "qty_ordered": 60,
+          "unit_price": 145.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-019",
+          "item_name": "Ballpoint Pen Blue 0.7mm Box of 20",
+          "description": "Smooth ink flow medium point blue ballpoint pens box of 20",
+          "uom": "box",
+          "qty_ordered": 35,
+          "unit_price": 160.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-OTHERV-2",
+      "vendor_id": "V-FRESH",
+      "po_date": {
+        "offset_days": -42
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-003",
+          "item_name": "Chicken Burger 150g",
+          "description": "Tender spiced chicken patty in toasted sesame seed bun",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 135.0,
+          "tax_rate": 5
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-CLOSED-1",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -70
+      },
+      "currency": "INR",
+      "status": "CLOSED",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-036",
+          "item_name": "Liquid Hand Wash Fresh Lemon 5L",
+          "description": "Antibacterial commercial liquid soap lemon fragrance 5 litre can",
+          "uom": "can",
+          "qty_ordered": 20,
+          "unit_price": 420.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-038",
+          "item_name": "Heavy Duty Garbage Bags Black 30x37 Inch Pack of 30",
+          "description": "Thick tear-resistant black waste bin liners 30x37 inches roll of 30",
+          "uom": "roll",
+          "qty_ordered": 30,
+          "unit_price": 210.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-CANCEL-1",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "status": "CANCELLED",
+      "payment_terms_days": 30,
+      "group": "routing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-024",
+          "item_name": "USB-C Cable 1m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 1 metre",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 250.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-030",
+          "item_name": "HDMI Cable 4K 1.8m",
+          "description": "High-speed HDMI 2.0 cable supporting 4K 60Hz 1.8 metre length",
+          "uom": "pcs",
+          "qty_ordered": 30,
+          "unit_price": 310.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-REWORD-1",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -30
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "reword",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-017",
+          "item_name": "Dry Erase Whiteboard Marker Black Pack of 10",
+          "description": "Low odor non-toxic bullet tip dry erase marker black color pack of 10",
+          "uom": "box",
+          "qty_ordered": 20,
+          "unit_price": 220.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-020",
+          "item_name": "Sticky Notes Yellow 3x3 Inch Pack of 5",
+          "description": "Self-adhesive repositionable memo notes 100 sheets per pad 5 pads",
+          "uom": "pack",
+          "qty_ordered": 40,
+          "unit_price": 125.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-REWORD-2",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -22
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "reword",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-026",
+          "item_name": "Ergonomic Gel Mouse Pad Standard 210x240mm",
+          "description": "Non-slip rubber base mouse pad with wrist support 210x240mm",
+          "uom": "pcs",
+          "qty_ordered": 25,
+          "unit_price": 320.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-031",
+          "item_name": "Cat6 Ethernet Patch Cable 3m",
+          "description": "RJ45 molded snagless Cat6 gigabit network patch cord 3 metre",
+          "uom": "pcs",
+          "qty_ordered": 30,
+          "unit_price": 180.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOISE-BALA-1",
+      "vendor_id": "V-BALA",
+      "po_date": {
+        "offset_days": -80
+      },
+      "currency": "INR",
+      "status": "CLOSED",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-001",
+          "item_name": "Veg Burger 150g",
+          "description": "Crispy vegetable patty burger with fresh lettuce and mayo",
+          "uom": "pcs",
+          "qty_ordered": 15,
+          "unit_price": 120.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOISE-TIE-1",
+      "vendor_id": "V-TIE",
+      "po_date": {
+        "offset_days": -60
+      },
+      "currency": "INR",
+      "status": "CANCELLED",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-002",
+          "item_name": "Cheese Burger 150g",
+          "description": "Grilled vegetable patty topped with cheddar cheese slice",
+          "uom": "pcs",
+          "qty_ordered": 20,
+          "unit_price": 130.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOISE-FRESH-1",
+      "vendor_id": "V-FRESH",
+      "po_date": {
+        "offset_days": -55
+      },
+      "currency": "INR",
+      "status": "PARTIAL",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-004",
+          "item_name": "Mineral Water 500ml",
+          "description": "Packaged natural mineral drinking water 500ml bottle",
+          "uom": "bottle",
+          "qty_ordered": 150,
+          "unit_price": 15.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOISE-PACK-1",
+      "vendor_id": "V-PACK",
+      "po_date": {
+        "offset_days": -65
+      },
+      "currency": "INR",
+      "status": "CANCELLED",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-046",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+          "description": "Cast stretch film roll for pallet wrapping 500mm width 23 micron 3kg roll",
+          "uom": "roll",
+          "qty_ordered": 20,
+          "unit_price": 640.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOISE-PACK-2",
+      "vendor_id": "V-PACK",
+      "po_date": {
+        "offset_days": -75
+      },
+      "currency": "INR",
+      "status": "CLOSED",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-048",
+          "item_name": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+          "description": "Self-adhesive brown sealing tape 48mm width 65 metre length pack of 6 rolls",
+          "uom": "pack",
+          "qty_ordered": 30,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOISE-ROUTE-1",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "status": "PARTIAL",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-040",
+          "item_name": "Disinfectant Surface Floor Cleaner Floral 5L",
+          "description": "Hospital grade germ protection floor cleaner concentrate floral 5 litre",
+          "uom": "can",
+          "qty_ordered": 25,
+          "unit_price": 380.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-041",
+          "item_name": "Microfiber Cleaning Cloths 40x40cm Pack of 6",
+          "description": "Lint-free non-scratch multipurpose microfiber wiping towels 40x40cm 6 pack",
+          "uom": "pack",
+          "qty_ordered": 30,
+          "unit_price": 260.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-R-NOISE-ROUTE-2",
+      "vendor_id": "V-ROUTE",
+      "po_date": {
+        "offset_days": -75
+      },
+      "currency": "INR",
+      "status": "CLOSED",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-042",
+          "item_name": "Glass Cleaner Spray Bottle 500ml",
+          "description": "Streak-free shine glass and mirror cleaning spray 500ml",
+          "uom": "bottle",
+          "qty_ordered": 40,
+          "unit_price": 95.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-043",
+          "item_name": "Paper Hand Towels C-Fold 150 Sheets Pack of 4",
+          "description": "Absorbent 2-ply virgin paper hand drying towels c-fold 600 sheets total",
+          "uom": "pack",
+          "qty_ordered": 25,
+          "unit_price": 290.0,
+          "tax_rate": 12
+        }
+      ]
+    }
+  ],
+  "ledger_preload": [
+    {
+      "preload_id": "LP-R-BURGER-A-1",
+      "po_id": "PO-R-BURGER-A",
+      "vendor_id": "V-BALA",
+      "invoice_no": "BAL/26/3310",
+      "invoice_date": {
+        "offset_days": -14
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 14,
+          "unit_price": 120.0
+        }
+      ]
+    },
+    {
+      "preload_id": "LP-R-CLOSED-1",
+      "po_id": "PO-R-CLOSED-1",
+      "vendor_id": "V-ROUTE",
+      "invoice_no": "NVG/26/0892",
+      "invoice_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 20,
+          "unit_price": 420.0
+        },
+        {
+          "po_line_no": 2,
+          "qty": 30,
+          "unit_price": 210.0
+        }
+      ]
+    },
+    {
+      "preload_id": "LP-R-NOISE-BALA-1",
+      "po_id": "PO-R-NOISE-BALA-1",
+      "vendor_id": "V-BALA",
+      "invoice_no": "BAL/26/1044",
+      "invoice_date": {
+        "offset_days": -65
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 15,
+          "unit_price": 120.0
+        }
+      ]
+    },
+    {
+      "preload_id": "LP-R-NOISE-FRESH-1",
+      "po_id": "PO-R-NOISE-FRESH-1",
+      "vendor_id": "V-FRESH",
+      "invoice_no": "KAV/26/1930",
+      "invoice_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 70,
+          "unit_price": 15.0
+        }
+      ]
+    },
+    {
+      "preload_id": "LP-R-NOISE-PACK-2",
+      "po_id": "PO-R-NOISE-PACK-2",
+      "vendor_id": "V-PACK",
+      "invoice_no": "SPK/26/1108",
+      "invoice_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 30,
+          "unit_price": 280.0
+        }
+      ]
+    },
+    {
+      "preload_id": "LP-R-NOISE-ROUTE-1",
+      "po_id": "PO-R-NOISE-ROUTE-1",
+      "vendor_id": "V-ROUTE",
+      "invoice_no": "NVG/26/1199",
+      "invoice_date": {
+        "offset_days": -30
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 10,
+          "unit_price": 380.0
+        },
+        {
+          "po_line_no": 2,
+          "qty": 10,
+          "unit_price": 260.0
+        }
+      ]
+    },
+    {
+      "preload_id": "LP-R-NOISE-ROUTE-2",
+      "po_id": "PO-R-NOISE-ROUTE-2",
+      "vendor_id": "V-ROUTE",
+      "invoice_no": "NVG/26/0471",
+      "invoice_date": {
+        "offset_days": -55
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 40,
+          "unit_price": 95.0
+        },
+        {
+          "po_line_no": 2,
+          "qty": 25,
+          "unit_price": 290.0
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "SC-R-BURGER-CLEAR-01",
+      "tag": "burger_clear_winner",
+      "description": "Invoice without PO reference matching PO-R-BURGER-B among burger pool",
+      "po_id": "PO-R-BURGER-B",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "BAL/26/5803",
+        "invoice_date": {
+          "offset_days": -10
+        },
+        "vendor_id": "V-BALA",
+        "po_reference": "PO-R-BURGER-B",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 10,
+            "unit_price": 120.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 10,
+            "unit_price": 130.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "drop_po_ref",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "INFERRED_MATCH"
+        ],
+        "po_id": "PO-R-BURGER-B",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Pool has 3 POs (A, B, C). C fails on Veg price (110 vs 120). A fails on Veg remaining quantity (6 remaining vs 10 billed). B is exact match on lines, prices, and balance."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "light",
+        "number_format": "plain",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-TIE-01",
+      "tag": "burger_tie",
+      "description": "Invoice without PO reference matching two identical candidate POs",
+      "po_id": null,
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "TIE/26/1104",
+        "invoice_date": {
+          "offset_days": -15
+        },
+        "vendor_id": "V-TIE",
+        "po_reference": null,
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": "Cheese Burger 150g",
+            "qty": 10,
+            "unit_price": 130.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 2,
+            "description": "Cold Coffee 300ml",
+            "qty": 10,
+            "unit_price": 95.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "AMBIGUOUS_PO"
+        ],
+        "po_id": null,
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Pool has 2 identical open POs (PO-R-TIE-A and PO-R-TIE-B). Pipeline must identify ambiguous tie and not pick either."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-NOPO-FRESH-01",
+      "tag": "no_po_vendor_known",
+      "description": "Invoice without PO reference for known vendor V-FRESH matching PO-R-FRESH-1",
+      "po_id": "PO-R-FRESH-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "KAV/26/4201",
+        "invoice_date": {
+          "offset_days": -12
+        },
+        "vendor_id": "V-FRESH",
+        "po_reference": null,
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": "Mineral Water 500ml",
+            "qty": 100,
+            "unit_price": 15.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": "Salted Cashew Nuts 500g",
+            "qty": 20,
+            "unit_price": 480.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "INFERRED_MATCH"
+        ],
+        "po_id": "PO-R-FRESH-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "V-FRESH pool has 3 open POs with distinct items. PO-R-FRESH-1 is unique match for SKU-004 and SKU-011 at exact quantities and balance."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "light",
+        "number_format": "plain",
+        "currency_style": "\u20b9",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-NOPO-PACK-01",
+      "tag": "no_po_vendor_known",
+      "description": "Invoice without PO reference for known vendor V-PACK matching PO-R-PACK-1",
+      "po_id": "PO-R-PACK-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "SPK/26/7821",
+        "invoice_date": {
+          "offset_days": -16
+        },
+        "vendor_id": "V-PACK",
+        "po_reference": null,
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+            "qty": 30,
+            "unit_price": 640.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+            "qty": 50,
+            "unit_price": 280.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "INFERRED_MATCH"
+        ],
+        "po_id": "PO-R-PACK-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "V-PACK pool has 3 open POs with distinct items. PO-R-PACK-1 is unique match for SKU-046 and SKU-048 at exact quantities and balance."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-NOVEND-01",
+      "tag": "no_po_no_vendor",
+      "description": "Invoice with vendor block and PO ref dropped, containing globally unique item SKU-052",
+      "po_id": "PO-R-NOVEND-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/1033",
+        "invoice_date": {
+          "offset_days": -14
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-NOVEND-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 310.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "drop_vendor_block",
+        "params": {
+          "also_drop_po_ref": true
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "INFERRED_MATCH",
+          "MISSING_FIELDS"
+        ],
+        "po_id": "PO-R-NOVEND-1",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Vendor block and PO ref dropped. Item SKU-052 is globally unique and appears in only PO-R-NOVEND-1. Completeness gate may reject with MISSING_FIELDS before matching."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "\u20b9",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-NOVEND-02",
+      "tag": "no_po_no_vendor",
+      "description": "Invoice with vendor block and PO ref dropped, containing globally unique item SKU-059",
+      "po_id": "PO-R-NOVEND-2",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/2184",
+        "invoice_date": {
+          "offset_days": -11
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-NOVEND-2",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 190.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "drop_vendor_block",
+        "params": {
+          "also_drop_po_ref": true
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "INFERRED_MATCH",
+          "MISSING_FIELDS"
+        ],
+        "po_id": "PO-R-NOVEND-2",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Vendor block and PO ref dropped. Item SKU-059 is globally unique and appears in only PO-R-NOVEND-2. Soft due to completeness gate."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-TYPO-01",
+      "tag": "po_typo",
+      "description": "Invoice with typo in PO reference against PO-R-TYPO-1",
+      "po_id": "PO-R-TYPO-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/3491",
+        "invoice_date": {
+          "offset_days": -10
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-TYPO-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 320.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 10,
+            "unit_price": 280.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "po_typo",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "INVALID_PO_REF"
+        ],
+        "po_id": "PO-R-TYPO-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Mutation introduces a single character typo in the PO reference. Ground truth PO is PO-R-TYPO-1."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "medium",
+        "number_format": "plain",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-OTHERV-01",
+      "tag": "po_other_vendor",
+      "description": "Invoice from V-ROUTE referencing PO-R-OTHERV-2 which belongs to V-FRESH",
+      "po_id": null,
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/4920",
+        "invoice_date": {
+          "offset_days": -15
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-OTHERV-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 60,
+            "unit_price": 145.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 35,
+            "unit_price": 160.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "swap_po_ref",
+        "params": {
+          "target_po_id": "PO-R-OTHERV-2"
+        }
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "VENDOR_MISMATCH"
+        ],
+        "po_id": null,
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Invoice from V-ROUTE references PO-R-OTHERV-2 belonging to V-FRESH, triggering VENDOR_MISMATCH rejection."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "\u20b9",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-CLOSED-01",
+      "tag": "po_closed",
+      "description": "Invoice referencing fully consumed CLOSED PO PO-R-CLOSED-1",
+      "po_id": "PO-R-CLOSED-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/5617",
+        "invoice_date": {
+          "offset_days": -5
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-CLOSED-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 5,
+            "unit_price": 420.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "PO_CLOSED"
+        ],
+        "po_id": "PO-R-CLOSED-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "PO-R-CLOSED-1 status is CLOSED and its balance is completely consumed by LP-R-CLOSED-1 preload."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-CANCEL-01",
+      "tag": "po_cancelled",
+      "description": "Invoice referencing CANCELLED PO PO-R-CANCEL-1",
+      "po_id": "PO-R-CANCEL-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/6742",
+        "invoice_date": {
+          "offset_days": -8
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-CANCEL-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 20,
+            "unit_price": 250.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "REJECTED",
+        "decision_accepted": [
+          "REJECTED"
+        ],
+        "reason_codes_accepted": [
+          "PO_CLOSED"
+        ],
+        "po_id": "PO-R-CANCEL-1",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "PO-R-CANCEL-1 status is CANCELLED. Explicit reference triggers PO_CLOSED rejection per pipeline behavior 11.7."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-REWORD-01",
+      "tag": "reworded_items",
+      "description": "Invoice with reworded item descriptions matching PO-R-REWORD-1 with explicit PO ref",
+      "po_id": "PO-R-REWORD-1",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/7305",
+        "invoice_date": {
+          "offset_days": -12
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-REWORD-1",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 20,
+            "unit_price": 220.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 40,
+            "unit_price": 125.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "reword_descriptions",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-R-REWORD-1",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Explicit PO reference retained. Descriptions reworded using catalog variants. Soft due to LLM/embedding line matching variance."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "medium",
+        "number_format": "plain",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-R-REWORD-02",
+      "tag": "reworded_items",
+      "description": "Invoice with reworded item descriptions and dropped PO ref matching PO-R-REWORD-2",
+      "po_id": "PO-R-REWORD-2",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "NVG/26/8951",
+        "invoice_date": {
+          "offset_days": -9
+        },
+        "vendor_id": "V-ROUTE",
+        "po_reference": "PO-R-REWORD-2",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 25,
+            "unit_price": 320.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 30,
+            "unit_price": 180.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "reword_descriptions",
+        "params": {
+          "drop_po_ref": true
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "INFERRED_MATCH"
+        ],
+        "po_id": "PO-R-REWORD-2",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "PO reference dropped and descriptions reworded. Candidate pool on V-ROUTE has distinct items per C2b, making PO-R-REWORD-2 the unique candidate. Soft due to inferred match and reworded semantic matching."
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "plain",
+        "currency_style": "\u20b9",
+        "date_style": "dmy_slash"
+      }
+    }
+  ]
+}

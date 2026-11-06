@@ -1,0 +1,40 @@
+{
+  "file_name": "inv-tol-warn.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-TOL-WARN",
+  "invoice_date": "2026-10-28",
+  "po_reference": "PO-2026-TOL-WARN",
+  "currency": "INR",
+  "subtotal": 10100.0,
+  "tax_total": 0.0,
+  "grand_total": 10100.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "A4 Copier Paper 80gsm",
+      "quantity": 20.0,
+      "uom": "ream",
+      "unit_price": 323.2,
+      "line_total": 6464.0,
+      "tax_rate": 0.0
+    },
+    {
+      "line_no": 2,
+      "description": "Heavy Duty Desktop Stapler",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 242.4,
+      "line_total": 3636.0,
+      "tax_rate": 0.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "APPROVED_WITH_NOTE",
+    "po_id": "PO-2026-TOL-WARN",
+    "tag": "tol_warn",
+    "notes": "Total is 1% over PO, within auto-tolerance"
+  }
+}

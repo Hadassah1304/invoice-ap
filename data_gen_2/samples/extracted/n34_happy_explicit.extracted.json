@@ -1,0 +1,183 @@
+{
+  "source": {
+    "file_name": "n34_happy_explicit.pdf",
+    "file_hash": "0202da24153ca0cdb82646fa0e6948daec9d7a947cf21726a1366d7a9b35e238",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 2
+  },
+  "vendor": {
+    "name": "Garuda Electrical & Engineering",
+    "gstin": "29AAACG5678H1Z4",
+    "email": "billing@garudaengineering.in",
+    "phone": "+91 80 5550 3434",
+    "address": "Plot 51, Peenya Industrial Area 3rd Phase, Bengaluru 560058",
+    "bank_account": "IOBA00098761234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "GAR/26/6314",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-09",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-HAPPY-05",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 20.0,
+      "uom": "pcs",
+      "unit_price": 250.0,
+      "line_total": 5000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "USB-C Cable 2m",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 380.0,
+      "line_total": 5700.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 3,
+      "description": "Ergonomic Gel Mouse Pad Standard 210x240mm",
+      "quantity": 25.0,
+      "uom": "pcs",
+      "unit_price": 320.0,
+      "line_total": 8000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 4,
+      "description": "Ergonomic Gel Mouse Pad XL 300x350mm",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 520.0,
+      "line_total": 5200.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 5,
+      "description": "Wireless Optical Mouse",
+      "quantity": 12.0,
+      "uom": "pcs",
+      "unit_price": 1000.0,
+      "line_total": 12000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 6,
+      "description": "Wired USB Keyboard",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 650.0,
+      "line_total": 9750.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 7,
+      "description": "HDMI Cable 4K 1.8m",
+      "quantity": 30.0,
+      "uom": "pcs",
+      "unit_price": 310.0,
+      "line_total": 9300.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 8,
+      "description": "Cat6 Ethernet Patch Cable 3m",
+      "quantity": 40.0,
+      "uom": "pcs",
+      "unit_price": 180.0,
+      "line_total": 7200.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 9,
+      "description": "USB 3.0 Flash Drive 64GB",
+      "quantity": 20.0,
+      "uom": "pcs",
+      "unit_price": 450.0,
+      "line_total": 9000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 10,
+      "description": "USB-C Multiport Adapter 6-in-1",
+      "quantity": 8.0,
+      "uom": "pcs",
+      "unit_price": 1850.0,
+      "line_total": 14800.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 11,
+      "description": "Corded Foam Ear Plugs NRR 32dB Box of 50 Pairs",
+      "quantity": 50.0,
+      "uom": "box",
+      "unit_price": 450.0,
+      "line_total": 22500.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 12,
+      "description": "Clear Polycarbonate Safety Goggles Anti-Fog",
+      "quantity": 60.0,
+      "uom": "pcs",
+      "unit_price": 140.0,
+      "line_total": 8400.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 116850.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 21033.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 137883.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

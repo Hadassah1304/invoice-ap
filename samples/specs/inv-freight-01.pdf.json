@@ -1,0 +1,40 @@
+{
+  "file_name": "inv-freight-01.pdf",
+  "vendor_name": "CleanPro Hygiene Systems",
+  "vendor_gstin": "36AAAC7924O1Z6",
+  "invoice_number": "INV-FREIGHT-01",
+  "invoice_date": "2026-10-22",
+  "po_reference": "PO-2026-MISC-13",
+  "currency": "INR",
+  "subtotal": 27900.0,
+  "tax_total": 5022.0,
+  "grand_total": 32922.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "USB Stereo Headset with Mic",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 1850.0,
+      "line_total": 27750.0,
+      "tax_rate": 18.0
+    },
+    {
+      "line_no": 2,
+      "description": "Standard Surface Freight & Handling",
+      "quantity": 1.0,
+      "uom": "trip",
+      "unit_price": 150.0,
+      "line_total": 150.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "APPROVED_WITH_NOTE",
+    "po_id": "PO-2026-MISC-13",
+    "tag": "extra_freight_line",
+    "notes": "Allowable extra freight line approved with note"
+  }
+}

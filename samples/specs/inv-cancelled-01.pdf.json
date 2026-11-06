@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-cancelled-01.pdf",
+  "vendor_name": "Apex Stationery & Print Solutions",
+  "vendor_gstin": "29XYZAB5678C1Z2",
+  "invoice_number": "INV-CANCELLED-01",
+  "invoice_date": "2026-10-02",
+  "po_reference": "PO-2026-CANCELLED",
+  "currency": "INR",
+  "subtotal": 2400.0,
+  "tax_total": 432.0,
+  "grand_total": 2832.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Heavy Duty Desktop Stapler",
+      "quantity": 10.0,
+      "uom": "pcs",
+      "unit_price": 240.0,
+      "line_total": 2400.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "REJECTED",
+    "reason_code": "PO_CLOSED",
+    "po_id": "PO-2026-CANCELLED",
+    "tag": "po_cancelled",
+    "notes": "Invoice billed against CANCELLED PO"
+  }
+}

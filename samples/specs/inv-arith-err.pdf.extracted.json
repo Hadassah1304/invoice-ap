@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "QuickBite Refreshments Pvt Ltd",
+    "gstin": "33AAAC2824J1Z1",
+    "bank_account": "SBIN0005108603"
+  },
+  "invoice_number": {
+    "value": "INV-ARITH-ERR",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-03",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 550.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 27.5,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 602.5,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Grilled Cheese Sandwich",
+      "quantity": 5.0,
+      "uom": "pcs",
+      "unit_price": 110.0,
+      "line_total": 550.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: QuickBite Refreshments Pvt Ltd\nGSTIN: 33AAAC2824J1Z1\nInvoice No: INV-ARITH-ERR\nDate: 2026-10-22\nPO Reference: PO-2026-MISC-03\n1 Grilled Cheese Sandwich 5.0 110.00 550.00\nSubtotal: 550.00\nTax Total: 27.50\nGrand Total: Rs. 602.50"
+}

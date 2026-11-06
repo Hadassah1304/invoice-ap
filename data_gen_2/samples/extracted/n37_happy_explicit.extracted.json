@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "n37_happy_explicit.pdf",
+    "file_hash": "d28746f4e550bcf5214e6dfe617d54ab5f875e0864405ee4b43bd6edea2e66be",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Royal Hospitality & Beverages Pvt Ltd",
+    "gstin": "29AABCR9012K1Z1",
+    "email": "billing@royalhospitality.in",
+    "phone": "+91 80 5550 4545",
+    "address": "33/1, Residency Road, Bengaluru 560025",
+    "bank_account": "SYN00056781234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "ROY/26/7231",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-25",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-HAPPY-08",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Cold Coffee 300ml",
+      "quantity": 80.0,
+      "uom": "bottle",
+      "unit_price": 95.0,
+      "line_total": 7600.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cold Coffee 500ml",
+      "quantity": 50.0,
+      "uom": "bottle",
+      "unit_price": 140.0,
+      "line_total": 7000.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 14600.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1752.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 16352.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

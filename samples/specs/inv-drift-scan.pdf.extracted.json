@@ -1,0 +1,57 @@
+{
+  "vendor": {
+    "name": "Sri Balaji Foods Pvt Ltd",
+    "gstin": "36ABCDE1234F1Z5",
+    "bank_account": "HDFC00012345678"
+  },
+  "invoice_number": {
+    "value": "INV-DRIFT-SCAN",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-11-02",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-DRIFT-SCAN",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 1750.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 87.5,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 1837.5,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Veg Burger 150g",
+      "quantity": 5.0,
+      "uom": "pcs",
+      "unit_price": 175.0,
+      "line_total": 875.0,
+      "tax_rate": 5.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cold Coffee 300ml",
+      "quantity": 7.0,
+      "uom": "cup",
+      "unit_price": 125.0,
+      "line_total": 875.0,
+      "tax_rate": 5.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Sri Balaji Foods Pvt Ltd\nGSTIN: 36ABCDE1234F1Z5\nInvoice No: INV-DRIFT-SCAN\nDate: 2026-11-02\nPO Reference: PO-2026-DRIFT-SCAN\n1 Veg Burger 150g 5.0 175.00 875.00\n2 Cold Coffee 300ml 7.0 125.00 875.00\nSubtotal: 1750.00\nTax Total: 87.50\nGrand Total: Rs. 1837.50"
+}

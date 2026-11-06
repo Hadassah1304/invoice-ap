@@ -1,0 +1,39 @@
+NOTES - Agent 0 (Core Data Author)
+=====================================
+
+1. Vendors (base/core.json):
+-----------------------------
+- Exactly 17 vendors authored as prescribed:
+  * Family R: V-BALA (fixed), V-TIE, V-FRESH, V-PACK, V-ROUTE
+  * Family B: V-TECH (fixed), V-SPLITQ, V-BULK, V-OFFIX
+  * Family I: V-UNAPP (fixed, approved: false), V-INTEG, V-CTRL, V-BANKCHG
+  * Family N: V-STAT (fixed), V-NUM1, V-NUM2, V-NUM3
+- All 16 approved vendors have pairwise fuzzy similarity < 0.70 after stripping entity suffixes ("pvt", "ltd", "llp", "inc", etc.).
+- Exactly one vendor is unapproved: V-UNAPP ("Unapproved Rogue Traders").
+- All GSTINs are valid Indian GSTIN format (2-digit state code + 5 letters PAN + 4 digits + 1 letter + 1 entity char + 'Z' + 1 check char).
+- All bank accounts (IFSC + unique account numbers) and domains are unique across all 17 vendors.
+- Fixed vendor details (names, GSTINs, bank accounts, domains, aliases) match 00_CONTRACT.md and 01_BASE_DATA_AGENTS.md exactly.
+
+2. Catalog (base/core.json):
+----------------------------
+- Exactly 62 catalog items spanning 6 realistic categories:
+  * food (12 items)
+  * stationery (11 items)
+  * it_accessories (12 items)
+  * cleaning_facilities (10 items)
+  * packaging (9 items)
+  * industrial (8 items)
+- Required near-twin groups with explicit twin_group and distinguisher attributes:
+  * burger: Veg Burger 150g (SKU-001 @ 120.00), Cheese Burger 150g (SKU-002 @ 130.00), Chicken Burger 150g (SKU-003 @ 135.00)
+  * water: Mineral Water 500ml (SKU-004 @ 15.00), Mineral Water 1L (SKU-005 @ 25.00)
+  * paper: A4 Copier Paper 80gsm (SKU-013 @ 320.00), A4 Copier Paper 70gsm (SKU-014 @ 270.00)
+  * cable: USB-C Cable 1m (SKU-024 @ 250.00), USB-C Cable 2m (SKU-025 @ 380.00)
+  * coffee: Cold Coffee 300ml (SKU-006 @ 95.00), Cold Coffee 500ml (SKU-007 @ 140.00)
+  * Additional twin groups provided: notebook (A5 vs B5), marker (black vs blue), mousepad (standard vs XL), handwash (lemon vs rose), trashbag (black vs blue), stretchfilm (23mic vs 29mic), bopptape (brown vs clear), gloves (M vs L).
+- Other explicitly required standalone items:
+  * French Fries 200g (SKU-008 @ 80.00)
+  * Wireless Optical Mouse (SKU-028 @ 1000.00)
+- Unique items: Exactly 13 items have "unique_item": true (exceeding required >= 10), dedicated for vendor-less matching scenarios (C3).
+- Reworded variants: Each item has 2 to 3 reworded variants strictly preserving all digits, unit specifications, and distinguishing characteristics.
+- Output contains NO derived fields (no line_total, subtotal, tax_total, grand_total, qty_remaining, hash, etc.).
+- Schema version is 1, and core.json has been validated against all contract rules.

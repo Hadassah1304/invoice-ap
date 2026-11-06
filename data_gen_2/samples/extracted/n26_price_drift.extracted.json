@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "n26_price_drift.pdf",
+    "file_hash": "d4b4d401af81890844133e33a1f61e266b165ab67601dcabca5e078533f62bf0",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Apex Stationery & Print Solutions",
+    "gstin": "29XYZAB5678C1Z2",
+    "email": "billing@apexstationery.com",
+    "phone": "+91 80 5550 1212",
+    "address": "108, Brigade Road, Shanthala Nagar, Bengaluru 560025",
+    "bank_account": "SBIN00098765432",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "APX/26/5193",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-19",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-DRIFT-01",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Dry Erase Whiteboard Marker Black Pack of 10",
+      "quantity": 28.0,
+      "uom": "box",
+      "unit_price": 232.1,
+      "line_total": 6498.8,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Dry Erase Whiteboard Marker Blue Pack of 10",
+      "quantity": 12.0,
+      "uom": "box",
+      "unit_price": 925.1,
+      "line_total": 11101.2,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 17600.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 2112.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 19712.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

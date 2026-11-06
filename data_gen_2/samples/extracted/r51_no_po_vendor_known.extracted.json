@@ -1,0 +1,79 @@
+{
+  "source": {
+    "file_name": "r51_no_po_vendor_known.pdf",
+    "file_hash": "11e1cbf0337ca67541cac346ce4b680d3245b0edddce01c80f4d40b79b359b5d",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "SafePack Containers & Boxes",
+    "gstin": "36AAECS7788M1Z9",
+    "email": "billing@safepackindia.com",
+    "phone": "+91 40 5550 4404",
+    "address": "Plot 88, Phase 2, IDA Cherlapally, Hyderabad 500051",
+    "bank_account": "KKBK00088990011",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "SPK/26/7821",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-21",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+      "quantity": 30.0,
+      "uom": "pcs",
+      "unit_price": 640.0,
+      "line_total": 19200.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+      "quantity": 50.0,
+      "uom": "pcs",
+      "unit_price": 280.0,
+      "line_total": 14000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 33200.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 5976.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 39176.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

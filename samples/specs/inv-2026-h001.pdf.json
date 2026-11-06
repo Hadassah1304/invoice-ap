@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-2026-h001.pdf",
+  "vendor_name": "Sri Balaji Foods Pvt Ltd",
+  "vendor_gstin": "36ABCDE1234F1Z5",
+  "invoice_number": "INV-2026-H001",
+  "invoice_date": "2026-10-30",
+  "po_reference": "PO-2026-HAPPY-01",
+  "currency": "INR",
+  "subtotal": 200.0,
+  "tax_total": 36.0,
+  "grand_total": 236.0,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Mineral Water 500ml",
+      "quantity": 10.0,
+      "uom": "bottle",
+      "unit_price": 20.0,
+      "line_total": 200.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "expected": {
+    "decision": "APPROVED",
+    "reason_code": "OK",
+    "po_id": "PO-2026-HAPPY-01",
+    "tag": "happy_explicit",
+    "notes": "Happy path explicit match with layout itemised_tax_separate"
+  }
+}

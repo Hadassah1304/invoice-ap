@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Matrix Cloud & Network Hardware",
+    "gstin": "07AAAC6881Q1Z6",
+    "bank_account": "SBIN0001728977"
+  },
+  "invoice_number": {
+    "value": "INV-MISS-DATE",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-14",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 102000.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 18360.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 120360.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Portable SSD 1TB USB 3.2",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 6800.0,
+      "line_total": 102000.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Matrix Cloud & Network Hardware\nGSTIN: 07AAAC6881Q1Z6\nInvoice No: INV-MISS-DATE\nDate: \nPO Reference: PO-2026-MISC-14\n1 Portable SSD 1TB USB 3.2 15.0 6800.00 102000.00\nSubtotal: 102000.00\nTax Total: 18360.00\nGrand Total: Rs. 120360.00"
+}

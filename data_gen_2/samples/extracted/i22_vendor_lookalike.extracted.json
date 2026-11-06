@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "i22_vendor_lookalike.pdf",
+    "file_hash": "1618f34a47d3fa059dfac9100556d519df2938295bda65c210ba0a480c889beb",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Falcon Precision Parts",
+    "gstin": null,
+    "email": null,
+    "phone": null,
+    "address": "B-48, Naraina Industrial Area Phase 2, New Delhi 110028",
+    "bank_account": null,
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "FAL/26/1834",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-07",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-I-CTRL-2",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Wired USB Keyboard",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 650.0,
+      "line_total": 9750.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 9750.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1755.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 11505.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

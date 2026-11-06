@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Apex Stationery & Print Solutions",
+    "gstin": "29XYZAB5678C1Z2",
+    "bank_account": "SBIN00098765432"
+  },
+  "invoice_number": {
+    "value": "INV-DUP-P01",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-26",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-DUP-POSS",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 4800.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 576.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 5376.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Permanent Marker Set (Pack of 4)",
+      "quantity": 30.0,
+      "uom": "pack",
+      "unit_price": 160.0,
+      "line_total": 4800.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Apex Stationery & Print Solutions\nGSTIN: 29XYZAB5678C1Z2\nInvoice No: INV-DUP-P01\nDate: 2026-10-26\nPO Reference: PO-2026-DUP-POSS\n1 Permanent Marker Set (Pack of 4) 30.0 160.00 4800.00\nSubtotal: 4800.00\nTax Total: 576.00\nGrand Total: Rs. 5376.00"
+}

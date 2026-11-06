@@ -1,0 +1,2483 @@
+{
+  "schema_version": 1,
+  "family": "N",
+  "pos": [
+    {
+      "po_id": "PO-N-HAPPY-01",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-015",
+          "item_name": "Spiral Executive Notebook A5 160 Pages",
+          "description": "Hardbound spiral ruled executive diary notebook A5 size 160 pages",
+          "uom": "pcs",
+          "qty_ordered": 30,
+          "unit_price": 145.0,
+          "tax_rate": 0
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-020",
+          "item_name": "Sticky Notes Yellow 3x3 Inch Pack of 5",
+          "description": "Self-adhesive repositionable memo notes 100 sheets per pad 5 pads",
+          "uom": "pack",
+          "qty_ordered": 50,
+          "unit_price": 125.0,
+          "tax_rate": 0
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-HAPPY-02",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -60
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-013",
+          "item_name": "A4 Copier Paper 80gsm",
+          "description": "Premium bright white high speed multipurpose copier paper 500 sheets",
+          "uom": "ream",
+          "qty_ordered": 40,
+          "unit_price": 320.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-014",
+          "item_name": "A4 Copier Paper 70gsm",
+          "description": "Standard economy grade multipurpose copier paper 500 sheets",
+          "uom": "ream",
+          "qty_ordered": 30,
+          "unit_price": 270.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-016",
+          "item_name": "Spiral Executive Notebook B5 160 Pages",
+          "description": "Hardbound spiral ruled executive diary notebook B5 size 160 pages",
+          "uom": "pcs",
+          "qty_ordered": 20,
+          "unit_price": 185.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-HAPPY-03",
+      "vendor_id": "V-NUM1",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-046",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+          "description": "Cast stretch film roll for pallet wrapping 500mm width 23 micron 3kg roll",
+          "uom": "roll",
+          "qty_ordered": 50,
+          "unit_price": 640.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-HAPPY-04",
+      "vendor_id": "V-NUM1",
+      "po_date": {
+        "offset_days": -55
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-048",
+          "item_name": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+          "description": "Self-adhesive brown sealing tape 48mm width 65 metre length pack of 6 rolls",
+          "uom": "pack",
+          "qty_ordered": 40,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-049",
+          "item_name": "BOPP Packaging Tape Clear 48mm x 65m Pack of 6",
+          "description": "Self-adhesive transparent sealing tape 48mm width 65 metre length pack of 6 rolls",
+          "uom": "pack",
+          "qty_ordered": 40,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-050",
+          "item_name": "Corrugated Shipping Box 3-Ply 12x10x8 Inch Bundle of 25",
+          "description": "Single wall corrugated cardboard mailing carton 12x10x8 bundle of 25",
+          "uom": "bundle",
+          "qty_ordered": 15,
+          "unit_price": 625.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 4,
+          "sku": "SKU-051",
+          "item_name": "Bubble Wrap Roll 500mm x 50m Double Layer",
+          "description": "Protective air cushion packaging bubble roll 500mm width 50 metre length",
+          "uom": "roll",
+          "qty_ordered": 20,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-HAPPY-05",
+      "vendor_id": "V-NUM2",
+      "po_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-024",
+          "item_name": "USB-C Cable 1m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 1 metre",
+          "uom": "pcs",
+          "qty_ordered": 20,
+          "unit_price": 250.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-025",
+          "item_name": "USB-C Cable 2m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 2 metre",
+          "uom": "pcs",
+          "qty_ordered": 15,
+          "unit_price": 380.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-026",
+          "item_name": "Ergonomic Gel Mouse Pad Standard 210x240mm",
+          "description": "Non-slip rubber base mouse pad with wrist support 210x240mm",
+          "uom": "pcs",
+          "qty_ordered": 25,
+          "unit_price": 320.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 4,
+          "sku": "SKU-027",
+          "item_name": "Ergonomic Gel Mouse Pad XL 300x350mm",
+          "description": "Large non-slip rubber base mouse pad with extended wrist support 300x350mm",
+          "uom": "pcs",
+          "qty_ordered": 10,
+          "unit_price": 520.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 5,
+          "sku": "SKU-028",
+          "item_name": "Wireless Optical Mouse",
+          "description": "2.4GHz USB ergonomic wireless optical mouse with nano receiver",
+          "uom": "pcs",
+          "qty_ordered": 12,
+          "unit_price": 1000.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 6,
+          "sku": "SKU-029",
+          "item_name": "Wired USB Keyboard",
+          "description": "Full-size 104 keys spill-resistant USB membrane keyboard",
+          "uom": "pcs",
+          "qty_ordered": 15,
+          "unit_price": 650.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 7,
+          "sku": "SKU-030",
+          "item_name": "HDMI Cable 4K 1.8m",
+          "description": "High-speed HDMI 2.0 cable supporting 4K 60Hz 1.8 metre length",
+          "uom": "pcs",
+          "qty_ordered": 30,
+          "unit_price": 310.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 8,
+          "sku": "SKU-031",
+          "item_name": "Cat6 Ethernet Patch Cable 3m",
+          "description": "RJ45 molded snagless Cat6 gigabit network patch cord 3 metre",
+          "uom": "pcs",
+          "qty_ordered": 40,
+          "unit_price": 180.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 9,
+          "sku": "SKU-032",
+          "item_name": "USB 3.0 Flash Drive 64GB",
+          "description": "High-speed compact metal casing USB 3.0 pen drive 64GB",
+          "uom": "pcs",
+          "qty_ordered": 20,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 10,
+          "sku": "SKU-033",
+          "item_name": "USB-C Multiport Adapter 6-in-1",
+          "description": "Type-C hub with 4K HDMI 100W PD 3x USB 3.0 SD card slot",
+          "uom": "pcs",
+          "qty_ordered": 8,
+          "unit_price": 1850.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 11,
+          "sku": "SKU-057",
+          "item_name": "Corded Foam Ear Plugs NRR 32dB Box of 50 Pairs",
+          "description": "Soft polyurethane expandable corded hearing protection earplugs 32dB 50 pairs",
+          "uom": "box",
+          "qty_ordered": 50,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 12,
+          "sku": "SKU-058",
+          "item_name": "Clear Polycarbonate Safety Goggles Anti-Fog",
+          "description": "Impact resistant wraparound eye protection glasses with anti-fog coating",
+          "uom": "pcs",
+          "qty_ordered": 60,
+          "unit_price": 140.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-HAPPY-06",
+      "vendor_id": "V-NUM2",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-055",
+          "item_name": "Nitrile Chemical Resistant Safety Gloves Size M Pack of 12 Pairs",
+          "description": "Green flock-lined nitrile protective work gloves size medium 12 pairs",
+          "uom": "pack",
+          "qty_ordered": 30,
+          "unit_price": 780.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-056",
+          "item_name": "Nitrile Chemical Resistant Safety Gloves Size L Pack of 12 Pairs",
+          "description": "Green flock-lined nitrile protective work gloves size large 12 pairs",
+          "uom": "pack",
+          "qty_ordered": 30,
+          "unit_price": 780.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-HAPPY-07",
+      "vendor_id": "V-NUM3",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-001",
+          "item_name": "Veg Burger 150g",
+          "description": "Crispy vegetable patty burger with fresh lettuce and mayo",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 120.0,
+          "tax_rate": 5
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-002",
+          "item_name": "Cheese Burger 150g",
+          "description": "Grilled vegetable patty topped with cheddar cheese slice",
+          "uom": "pcs",
+          "qty_ordered": 40,
+          "unit_price": 130.0,
+          "tax_rate": 5
+        },
+        {
+          "line_no": 3,
+          "sku": "SKU-008",
+          "item_name": "French Fries 200g",
+          "description": "Golden salted crispy potato french fries 200g portion",
+          "uom": "pack",
+          "qty_ordered": 60,
+          "unit_price": 80.0,
+          "tax_rate": 5
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-HAPPY-08",
+      "vendor_id": "V-NUM3",
+      "po_date": {
+        "offset_days": -30
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "happy",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-006",
+          "item_name": "Cold Coffee 300ml",
+          "description": "Chilled sweetened brewed coffee beverage 300ml",
+          "uom": "bottle",
+          "qty_ordered": 80,
+          "unit_price": 95.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-007",
+          "item_name": "Cold Coffee 500ml",
+          "description": "Chilled sweetened brewed coffee beverage 500ml bottle",
+          "uom": "bottle",
+          "qty_ordered": 50,
+          "unit_price": 140.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-DRIFT-01",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "drift",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-017",
+          "item_name": "Dry Erase Whiteboard Marker Black Pack of 10",
+          "description": "Low odor non-toxic bullet tip dry erase marker black color pack of 10",
+          "uom": "box",
+          "qty_ordered": 40,
+          "unit_price": 220.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-018",
+          "item_name": "Dry Erase Whiteboard Marker Blue Pack of 10",
+          "description": "Low odor non-toxic bullet tip dry erase marker blue color pack of 10",
+          "uom": "box",
+          "qty_ordered": 40,
+          "unit_price": 220.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-DRIFT-02",
+      "vendor_id": "V-NUM1",
+      "po_date": {
+        "offset_days": -50
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "drift",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-046",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 23 Micron 3kg",
+          "description": "Cast stretch film roll for pallet wrapping 500mm width 23 micron 3kg roll",
+          "uom": "roll",
+          "qty_ordered": 30,
+          "unit_price": 640.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-047",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 29 Micron 3kg",
+          "description": "Heavy duty cast stretch film roll for machinery wrapping 500mm 29 micron 3kg",
+          "uom": "roll",
+          "qty_ordered": 25,
+          "unit_price": 720.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-ARITH-01",
+      "vendor_id": "V-NUM2",
+      "po_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "arith",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-024",
+          "item_name": "USB-C Cable 1m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 1 metre",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 250.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-025",
+          "item_name": "USB-C Cable 2m",
+          "description": "Braided nylon USB Type-C fast charging cable 60W 2 metre",
+          "uom": "pcs",
+          "qty_ordered": 30,
+          "unit_price": 380.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-MISS-INV",
+      "vendor_id": "V-NUM3",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "missing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-009",
+          "item_name": "Masala Chai 150ml",
+          "description": "Freshly brewed hot Indian spiced tea 150ml cup",
+          "uom": "cup",
+          "qty_ordered": 100,
+          "unit_price": 20.0,
+          "tax_rate": 5
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-010",
+          "item_name": "Veg Club Sandwich 250g",
+          "description": "Triple layer toasted sandwich with cucumber tomato and mint chutney",
+          "uom": "pcs",
+          "qty_ordered": 40,
+          "unit_price": 110.0,
+          "tax_rate": 5
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-MISS-DAT",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "missing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-019",
+          "item_name": "Ballpoint Pen Blue 0.7mm Box of 20",
+          "description": "Smooth ink flow medium point blue ballpoint pens box of 20",
+          "uom": "box",
+          "qty_ordered": 60,
+          "unit_price": 160.0,
+          "tax_rate": 12
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-021",
+          "item_name": "Heavy Duty Desk Stapler 24/6",
+          "description": "All metal durable desktop stapler 25 sheet capacity uses 24/6 staples",
+          "uom": "pcs",
+          "qty_ordered": 20,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-MISS-TOT",
+      "vendor_id": "V-NUM1",
+      "po_date": {
+        "offset_days": -30
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "missing",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-048",
+          "item_name": "BOPP Packaging Tape Brown 48mm x 65m Pack of 6",
+          "description": "Self-adhesive brown sealing tape 48mm width 65 metre length pack of 6 rolls",
+          "uom": "pack",
+          "qty_ordered": 50,
+          "unit_price": 280.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-SCAN-01",
+      "vendor_id": "V-NUM2",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "scan",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-031",
+          "item_name": "Cat6 Ethernet Patch Cable 3m",
+          "description": "RJ45 molded snagless Cat6 gigabit network patch cord 3 metre",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 180.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-032",
+          "item_name": "USB 3.0 Flash Drive 64GB",
+          "description": "High-speed compact metal casing USB 3.0 pen drive 64GB",
+          "uom": "pcs",
+          "qty_ordered": 15,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-SCAN-02",
+      "vendor_id": "V-NUM3",
+      "po_date": {
+        "offset_days": -35
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "scan",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-004",
+          "item_name": "Mineral Water 500ml",
+          "description": "Packaged natural mineral drinking water 500ml bottle",
+          "uom": "bottle",
+          "qty_ordered": 120,
+          "unit_price": 15.0,
+          "tax_rate": 18
+        },
+        {
+          "line_no": 2,
+          "sku": "SKU-005",
+          "item_name": "Mineral Water 1L",
+          "description": "Packaged natural mineral drinking water 1 litre bottle",
+          "uom": "bottle",
+          "qty_ordered": 80,
+          "unit_price": 25.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-CRNOTE-01",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "credit_note",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-015",
+          "item_name": "Spiral Executive Notebook A5 160 Pages",
+          "description": "Hardbound spiral ruled executive diary notebook A5 size 160 pages",
+          "uom": "pcs",
+          "qty_ordered": 40,
+          "unit_price": 145.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-FUTURE-01",
+      "vendor_id": "V-NUM1",
+      "po_date": {
+        "offset_days": -20
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "date",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-050",
+          "item_name": "Corrugated Shipping Box 3-Ply 12x10x8 Inch Bundle of 25",
+          "description": "Single wall corrugated cardboard mailing carton 12x10x8 bundle of 25",
+          "uom": "bundle",
+          "qty_ordered": 30,
+          "unit_price": 625.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-STALE-01",
+      "vendor_id": "V-NUM2",
+      "po_date": {
+        "offset_days": -160
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "date",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-030",
+          "item_name": "HDMI Cable 4K 1.8m",
+          "description": "High-speed HDMI 2.0 cable supporting 4K 60Hz 1.8 metre length",
+          "uom": "pcs",
+          "qty_ordered": 50,
+          "unit_price": 310.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-PREDATE-01",
+      "vendor_id": "V-NUM3",
+      "po_date": {
+        "offset_days": -20
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "date",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-011",
+          "item_name": "Salted Cashew Nuts 500g",
+          "description": "Premium roasted and salted whole cashew nuts 500g pack",
+          "uom": "pack",
+          "qty_ordered": 30,
+          "unit_price": 480.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-NUM-IND",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -70
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 60,
+      "group": "format",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-013",
+          "item_name": "A4 Copier Paper 80gsm",
+          "description": "Premium bright white high speed multipurpose copier paper 500 sheets",
+          "uom": "ream",
+          "qty_ordered": 400,
+          "unit_price": 320.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-NUM-EU",
+      "vendor_id": "V-NUM1",
+      "po_date": {
+        "offset_days": -75
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 60,
+      "group": "format",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-047",
+          "item_name": "Stretch Wrap Packaging Film 500mm x 29 Micron 3kg",
+          "description": "Heavy duty cast stretch film roll for machinery wrapping 500mm 29 micron 3kg",
+          "uom": "roll",
+          "qty_ordered": 60,
+          "unit_price": 720.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-EMBED-01",
+      "vendor_id": "V-NUM2",
+      "po_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "tax_mode",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-041",
+          "item_name": "Microfiber Cleaning Cloths 40x40cm Pack of 6",
+          "description": "Lint-free non-scratch multipurpose microfiber wiping towels 40x40cm 6 pack",
+          "uom": "pack",
+          "qty_ordered": 50,
+          "unit_price": 260.0,
+          "tax_rate": 12
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-NOISE-01",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -65
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-022",
+          "item_name": "Plastic Document Folder A4 Pack of 12",
+          "description": "Transparent polypropylene snap button file folder A4 size 12 pieces",
+          "uom": "pack",
+          "qty_ordered": 100,
+          "unit_price": 150.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-NOISE-02",
+      "vendor_id": "V-NUM1",
+      "po_date": {
+        "offset_days": -80
+      },
+      "currency": "INR",
+      "status": "CANCELLED",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-051",
+          "item_name": "Bubble Wrap Roll 500mm x 50m Double Layer",
+          "description": "Protective air cushion packaging bubble roll 500mm width 50 metre length",
+          "uom": "roll",
+          "qty_ordered": 40,
+          "unit_price": 450.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-NOISE-03",
+      "vendor_id": "V-NUM2",
+      "po_date": {
+        "offset_days": -75
+      },
+      "currency": "INR",
+      "status": "CLOSED",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-036",
+          "item_name": "Liquid Hand Wash Fresh Lemon 5L",
+          "description": "Antibacterial commercial liquid soap lemon fragrance 5 litre can",
+          "uom": "can",
+          "qty_ordered": 50,
+          "unit_price": 420.0,
+          "tax_rate": 18
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-NOISE-04",
+      "vendor_id": "V-NUM3",
+      "po_date": {
+        "offset_days": -70
+      },
+      "currency": "INR",
+      "status": "PARTIAL",
+      "payment_terms_days": 30,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-003",
+          "item_name": "Chicken Burger 150g",
+          "description": "Tender spiced chicken patty in toasted sesame seed bun",
+          "uom": "pcs",
+          "qty_ordered": 100,
+          "unit_price": 135.0,
+          "tax_rate": 5
+        }
+      ]
+    },
+    {
+      "po_id": "PO-N-NOISE-05",
+      "vendor_id": "V-STAT",
+      "po_date": {
+        "offset_days": -55
+      },
+      "currency": "INR",
+      "status": "OPEN",
+      "payment_terms_days": 45,
+      "group": "noise",
+      "lines": [
+        {
+          "line_no": 1,
+          "sku": "SKU-014",
+          "item_name": "A4 Copier Paper 70gsm",
+          "description": "Standard economy grade multipurpose copier paper 500 sheets",
+          "uom": "ream",
+          "qty_ordered": 80,
+          "unit_price": 270.0,
+          "tax_rate": 12
+        }
+      ]
+    }
+  ],
+  "ledger_preload": [
+    {
+      "preload_id": "LP-N-NOISE-03-1",
+      "po_id": "PO-N-NOISE-03",
+      "vendor_id": "V-NUM2",
+      "invoice_no": "GAR/26/1109",
+      "invoice_date": {
+        "offset_days": -45
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 50,
+          "unit_price": 420.0
+        }
+      ]
+    },
+    {
+      "preload_id": "LP-N-NOISE-04-1",
+      "po_id": "PO-N-NOISE-04",
+      "vendor_id": "V-NUM3",
+      "invoice_no": "ROY/26/2208",
+      "invoice_date": {
+        "offset_days": -40
+      },
+      "currency": "INR",
+      "lines": [
+        {
+          "po_line_no": 1,
+          "qty": 40,
+          "unit_price": 135.0
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "SC-N-HAPPY-01",
+      "tag": "happy_explicit",
+      "description": "Clean 2-line stationery invoice with 0% tax, itemised layout",
+      "po_id": "PO-N-HAPPY-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "APX/26/1042",
+        "invoice_date": {
+          "offset_days": -30
+        },
+        "vendor_id": "V-STAT",
+        "po_reference": "PO-N-HAPPY-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 145.0,
+            "tax_rate": 0
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 50,
+            "unit_price": 125.0,
+            "tax_rate": 0
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-01",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Standard happy path itemised invoice"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-HAPPY-02",
+      "tag": "happy_explicit",
+      "description": "Clean 3-line paper invoice with 12% tax, bundled layout and light degrade",
+      "po_id": "PO-N-HAPPY-02",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "APX/26/3891",
+        "invoice_date": {
+          "offset_days": -40
+        },
+        "vendor_id": "V-STAT",
+        "po_reference": "PO-N-HAPPY-02",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 40,
+            "unit_price": 320.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 30,
+            "unit_price": 270.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 3,
+            "description": null,
+            "qty": 20,
+            "unit_price": 185.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-02",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Bundled layout with light scan degrade"
+      },
+      "render": {
+        "layout": "bundled",
+        "degrade": "light",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-HAPPY-03",
+      "tag": "happy_explicit",
+      "description": "Clean 1-line stretch wrap packaging invoice with 18% tax, tax_embedded layout",
+      "po_id": "PO-N-HAPPY-03",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "BDL/26/5120",
+        "invoice_date": {
+          "offset_days": -22
+        },
+        "vendor_id": "V-NUM1",
+        "po_reference": "PO-N-HAPPY-03",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 640.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-03",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Single line packaging supplies invoice with tax_embedded layout"
+      },
+      "render": {
+        "layout": "tax_embedded",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-HAPPY-04",
+      "tag": "happy_explicit",
+      "description": "Clean 4-line shipping supplies invoice with mixed 12% and 18% tax, light degrade",
+      "po_id": "PO-N-HAPPY-04",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "BDL/26/8904",
+        "invoice_date": {
+          "offset_days": -35
+        },
+        "vendor_id": "V-NUM1",
+        "po_reference": "PO-N-HAPPY-04",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 40,
+            "unit_price": 280.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 40,
+            "unit_price": 280.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 3,
+            "description": null,
+            "qty": 15,
+            "unit_price": 625.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 4,
+            "description": null,
+            "qty": 20,
+            "unit_price": 450.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-04",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "4 lines packaging invoice with light degrade"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "light",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-HAPPY-05",
+      "tag": "happy_explicit",
+      "description": "Clean 12-line electrical & hardware invoice across multiple pages",
+      "po_id": "PO-N-HAPPY-05",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "GAR/26/6314",
+        "invoice_date": {
+          "offset_days": -28
+        },
+        "vendor_id": "V-NUM2",
+        "po_reference": "PO-N-HAPPY-05",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 20,
+            "unit_price": 250.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 15,
+            "unit_price": 380.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 3,
+            "description": null,
+            "qty": 25,
+            "unit_price": 320.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 4,
+            "description": null,
+            "qty": 10,
+            "unit_price": 520.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 5,
+            "description": null,
+            "qty": 12,
+            "unit_price": 1000.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 6,
+            "description": null,
+            "qty": 15,
+            "unit_price": 650.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 7,
+            "description": null,
+            "qty": 30,
+            "unit_price": 310.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 8,
+            "description": null,
+            "qty": 40,
+            "unit_price": 180.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 9,
+            "description": null,
+            "qty": 20,
+            "unit_price": 450.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 10,
+            "description": null,
+            "qty": 8,
+            "unit_price": 1850.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 11,
+            "description": null,
+            "qty": 50,
+            "unit_price": 450.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 12,
+            "description": null,
+            "qty": 60,
+            "unit_price": 140.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-05",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Multi-page layout with 12 lines testing pagination robustness"
+      },
+      "render": {
+        "layout": "multi_page",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-HAPPY-06",
+      "tag": "happy_explicit",
+      "description": "Clean 2-line safety gloves invoice with 18% tax, itemised layout",
+      "po_id": "PO-N-HAPPY-06",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "GAR/26/9102",
+        "invoice_date": {
+          "offset_days": -16
+        },
+        "vendor_id": "V-NUM2",
+        "po_reference": "PO-N-HAPPY-06",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 780.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 30,
+            "unit_price": 780.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-06",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Clean industrial gloves invoice"
+      },
+      "render": {
+        "layout": "itemised",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-HAPPY-07",
+      "tag": "happy_explicit",
+      "description": "Clean 3-line catering invoice with 5% tax, bundled layout",
+      "po_id": "PO-N-HAPPY-07",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ROY/26/1845",
+        "invoice_date": {
+          "offset_days": -20
+        },
+        "vendor_id": "V-NUM3",
+        "po_reference": "PO-N-HAPPY-07",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 120.0,
+            "tax_rate": 5
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 40,
+            "unit_price": 130.0,
+            "tax_rate": 5
+          },
+          {
+            "po_line_no": 3,
+            "description": null,
+            "qty": 60,
+            "unit_price": 80.0,
+            "tax_rate": 5
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-07",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Food & catering invoice with 5% GST and bundled layout"
+      },
+      "render": {
+        "layout": "bundled",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-HAPPY-08",
+      "tag": "happy_explicit",
+      "description": "Clean 2-line beverage invoice with 12% tax, tax_embedded layout",
+      "po_id": "PO-N-HAPPY-08",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ROY/26/7231",
+        "invoice_date": {
+          "offset_days": -12
+        },
+        "vendor_id": "V-NUM3",
+        "po_reference": "PO-N-HAPPY-08",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 80,
+            "unit_price": 95.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 50,
+            "unit_price": 140.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-HAPPY-08",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Beverage invoice with tax embedded layout"
+      },
+      "render": {
+        "layout": "tax_embedded",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-DRIFT-01",
+      "tag": "price_drift",
+      "description": "Clean digital invoice with line price drift > 5% on 12% tax items",
+      "po_id": "PO-N-DRIFT-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "APX/26/5193",
+        "invoice_date": {
+          "offset_days": -18
+        },
+        "vendor_id": "V-STAT",
+        "po_reference": "PO-N-DRIFT-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 40,
+            "unit_price": 220.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 40,
+            "unit_price": 220.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "price_drift",
+        "params": {
+          "min_drift_pct": 5
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "PRICE_DRIFT"
+        ],
+        "po_id": "PO-N-DRIFT-01",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Price drift on digital document triggers line price variance flag"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-DRIFT-02",
+      "tag": "price_drift",
+      "description": "Heavy scan invoice with line price drift > 5% on 18% tax items",
+      "po_id": "PO-N-DRIFT-02",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "BDL/26/2957",
+        "invoice_date": {
+          "offset_days": -24
+        },
+        "vendor_id": "V-NUM1",
+        "po_reference": "PO-N-DRIFT-02",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 640.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 25,
+            "unit_price": 720.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "price_drift",
+        "params": {
+          "min_drift_pct": 5
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "PRICE_DRIFT"
+        ],
+        "po_id": "PO-N-DRIFT-02",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Price drift combined with heavy scan degrade is marked soft due to OCR fuzziness"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "heavy",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-ARITH-01",
+      "tag": "arith_mismatch",
+      "description": "Partial billing invoice with arithmetic break delta of 12.00",
+      "po_id": "PO-N-ARITH-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "GAR/26/4821",
+        "invoice_date": {
+          "offset_days": -25
+        },
+        "vendor_id": "V-NUM2",
+        "po_reference": "PO-N-ARITH-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 20,
+            "unit_price": 250.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 15,
+            "unit_price": 380.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "arith_break",
+        "params": {
+          "delta": 12.0
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "ARITHMETIC_MISMATCH"
+        ],
+        "po_id": "PO-N-ARITH-01",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Arithmetic delta exceeds 1.00 rounding tolerance"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-MISS-INV",
+      "tag": "missing_invno",
+      "description": "Invoice missing invoice number field and label entirely",
+      "po_id": "PO-N-MISS-INV",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ROY/26/3901",
+        "invoice_date": {
+          "offset_days": -15
+        },
+        "vendor_id": "V-NUM3",
+        "po_reference": "PO-N-MISS-INV",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 100,
+            "unit_price": 20.0,
+            "tax_rate": 5
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 40,
+            "unit_price": 110.0,
+            "tax_rate": 5
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "missing_field",
+        "params": {
+          "field": "invoice_number",
+          "omit_label": true
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "MISSING_FIELDS"
+        ],
+        "po_id": "PO-N-MISS-INV",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Missing required invoice_number stops completeness gate"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-MISS-DAT",
+      "tag": "missing_date",
+      "description": "Invoice with invoice date label present but date value missing",
+      "po_id": "PO-N-MISS-DAT",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "APX/26/6218",
+        "invoice_date": {
+          "offset_days": -20
+        },
+        "vendor_id": "V-STAT",
+        "po_reference": "PO-N-MISS-DAT",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 60,
+            "unit_price": 160.0,
+            "tax_rate": 12
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 20,
+            "unit_price": 280.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "missing_field",
+        "params": {
+          "field": "invoice_date",
+          "omit_label": false
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "MISSING_FIELDS"
+        ],
+        "po_id": "PO-N-MISS-DAT",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Blank date field stops completeness gate"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-MISS-TOT",
+      "tag": "missing_total",
+      "description": "Invoice with grand total label present but amount value missing",
+      "po_id": "PO-N-MISS-TOT",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "BDL/26/7439",
+        "invoice_date": {
+          "offset_days": -10
+        },
+        "vendor_id": "V-NUM1",
+        "po_reference": "PO-N-MISS-TOT",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 280.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "missing_field",
+        "params": {
+          "field": "grand_total",
+          "omit_label": false
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "MISSING_FIELDS"
+        ],
+        "po_id": "PO-N-MISS-TOT",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Missing grand total value stops completeness gate"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-SCAN-01",
+      "tag": "scan_blur_stamp",
+      "description": "Scanned invoice with heavy blur and stamp artifact",
+      "po_id": "PO-N-SCAN-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "GAR/26/1758",
+        "invoice_date": {
+          "offset_days": -20
+        },
+        "vendor_id": "V-NUM2",
+        "po_reference": "PO-N-SCAN-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 180.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 15,
+            "unit_price": 450.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED",
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-SCAN-01",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Heavy degradation may cause low OCR confidence or pass cleanly"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "heavy",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-SCAN-02",
+      "tag": "scan_blur_stamp",
+      "description": "Scanned beverage invoice with heavy degrade and stamps",
+      "po_id": "PO-N-SCAN-02",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ROY/26/8412",
+        "invoice_date": {
+          "offset_days": -16
+        },
+        "vendor_id": "V-NUM3",
+        "po_reference": "PO-N-SCAN-02",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 120,
+            "unit_price": 15.0,
+            "tax_rate": 18
+          },
+          {
+            "po_line_no": 2,
+            "description": null,
+            "qty": 80,
+            "unit_price": 25.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "none",
+        "params": {}
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED",
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-SCAN-02",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Heavy scan degradation on beverage invoice"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "heavy",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-CRNOTE-01",
+      "tag": "credit_note",
+      "description": "Vendor credit note document submitted instead of tax invoice",
+      "po_id": "PO-N-CRNOTE-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "APX/26/CN401",
+        "invoice_date": {
+          "offset_days": -15
+        },
+        "vendor_id": "V-STAT",
+        "po_reference": "PO-N-CRNOTE-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 40,
+            "unit_price": 145.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "make_credit_note",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "UNSUPPORTED_DOCUMENT_TYPE"
+        ],
+        "po_id": "PO-N-CRNOTE-01",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Credit note document type is flagged as unsupported document type"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-FUTURE-01",
+      "tag": "future_dated",
+      "description": "Invoice dated in the future relative to REFERENCE_DATE",
+      "po_id": "PO-N-FUTURE-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "BDL/26/4105",
+        "invoice_date": {
+          "offset_days": -5
+        },
+        "vendor_id": "V-NUM1",
+        "po_reference": "PO-N-FUTURE-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 625.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "shift_date",
+        "params": {
+          "offset_days": 12
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "DATE_INVALID"
+        ],
+        "po_id": "PO-N-FUTURE-01",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Invoice date shifted into the future (+12 days) fails date check"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-STALE-01",
+      "tag": "stale",
+      "description": "Invoice dated 140 days ago, exceeding max invoice age of 90 days",
+      "po_id": "PO-N-STALE-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "GAR/26/5283",
+        "invoice_date": {
+          "offset_days": -30
+        },
+        "vendor_id": "V-NUM2",
+        "po_reference": "PO-N-STALE-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 310.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "shift_date",
+        "params": {
+          "offset_days": -140
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "DATE_INVALID"
+        ],
+        "po_id": "PO-N-STALE-01",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Invoice age 140 days > 90 days threshold"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-PREDATE-01",
+      "tag": "date_before_po",
+      "description": "Invoice dated before the purchase order creation date",
+      "po_id": "PO-N-PREDATE-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "ROY/26/9541",
+        "invoice_date": {
+          "offset_days": -10
+        },
+        "vendor_id": "V-NUM3",
+        "po_reference": "PO-N-PREDATE-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 30,
+            "unit_price": 480.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "shift_date",
+        "params": {
+          "offset_days": -35
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW"
+        ],
+        "reason_codes_accepted": [
+          "DATE_INVALID"
+        ],
+        "po_id": "PO-N-PREDATE-01",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Invoice date offset -35 is prior to PO date offset -20"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    },
+    {
+      "scenario_id": "SC-N-NUM-IND",
+      "tag": "number_formats_indian",
+      "description": "High value invoice formatted in Indian numbering style (lakhs) and Rs. currency",
+      "po_id": "PO-N-NUM-IND",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "APX/26/9745",
+        "invoice_date": {
+          "offset_days": -50
+        },
+        "vendor_id": "V-STAT",
+        "po_reference": "PO-N-NUM-IND",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 400,
+            "unit_price": 320.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "reformat",
+        "params": {
+          "number_format": "indian",
+          "currency_style": "Rs.",
+          "date_style": "dmy_slash"
+        }
+      },
+      "intent": {
+        "decision": "APPROVED",
+        "decision_accepted": [
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [
+          "OK"
+        ],
+        "po_id": "PO-N-NUM-IND",
+        "confidence": "firm",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Lakh comma separator formatting is cleanly parsed and normalized"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "indian",
+        "currency_style": "Rs.",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-N-NUM-EU",
+      "tag": "number_formats_eu_ambiguous",
+      "description": "European number formatted invoice with ambiguous date (day <= 12)",
+      "po_id": "PO-N-NUM-EU",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "BDL/26/6381",
+        "invoice_date": {
+          "offset_days": -60
+        },
+        "vendor_id": "V-NUM1",
+        "po_reference": "PO-N-NUM-EU",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 60,
+            "unit_price": 720.0,
+            "tax_rate": 18
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "reformat",
+        "params": {
+          "number_format": "eu",
+          "currency_style": "INR",
+          "date_style": "dmy_slash"
+        }
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW",
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [],
+        "po_id": "PO-N-NUM-EU",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [
+          "normalization.ambiguous_date_policy"
+        ],
+        "notes": "EU formatting and ambiguous d/m vs m/d date notation depends on normalization config"
+      },
+      "render": {
+        "layout": "auto",
+        "degrade": "none",
+        "number_format": "eu",
+        "currency_style": "INR",
+        "date_style": "dmy_slash"
+      }
+    },
+    {
+      "scenario_id": "SC-N-EMBED-01",
+      "tag": "tax_embedded",
+      "description": "Invoice with tax embedded in line item prices rather than itemised separately",
+      "po_id": "PO-N-EMBED-01",
+      "series": null,
+      "relation": {
+        "type": "none",
+        "scenario_id": null
+      },
+      "invoice": {
+        "invoice_no": "GAR/26/3490",
+        "invoice_date": {
+          "offset_days": -18
+        },
+        "vendor_id": "V-NUM2",
+        "po_reference": "PO-N-EMBED-01",
+        "currency": "INR",
+        "lines": [
+          {
+            "po_line_no": 1,
+            "description": null,
+            "qty": 50,
+            "unit_price": 260.0,
+            "tax_rate": 12
+          }
+        ],
+        "extra_lines": []
+      },
+      "derive_from": null,
+      "mutation": {
+        "name": "embed_tax",
+        "params": {}
+      },
+      "intent": {
+        "decision": "NEEDS_REVIEW",
+        "decision_accepted": [
+          "NEEDS_REVIEW",
+          "APPROVED"
+        ],
+        "reason_codes_accepted": [],
+        "po_id": "PO-N-EMBED-01",
+        "confidence": "soft",
+        "expect_cached": false,
+        "config_dependency": [],
+        "notes": "Embedded tax line pricing flags review or approval depending on tax recalculation"
+      },
+      "render": {
+        "layout": "tax_embedded",
+        "degrade": "none",
+        "number_format": "auto",
+        "currency_style": "auto",
+        "date_style": "auto"
+      }
+    }
+  ]
+}

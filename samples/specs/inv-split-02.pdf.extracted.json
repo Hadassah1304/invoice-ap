@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "CyberTech Hardware Systems LLP",
+    "gstin": "27AABBC3344D1Z8",
+    "bank_account": "ICIC00055443322"
+  },
+  "invoice_number": {
+    "value": "INV-SPLIT-02",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-SPLIT",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 40000.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 40000.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Wireless Optical Mouse",
+      "quantity": 40.0,
+      "uom": "pcs",
+      "unit_price": 1000.0,
+      "line_total": 40000.0,
+      "tax_rate": 0.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: CyberTech Hardware Systems LLP\nGSTIN: 27AABBC3344D1Z8\nInvoice No: INV-SPLIT-02\nDate: 2026-10-22\nPO Reference: PO-2026-SPLIT\n1 Wireless Optical Mouse 40.0 1000.00 40000.00\nSubtotal: 40000.00\nTax Total: 0.00\nGrand Total: Rs. 40000.00"
+}

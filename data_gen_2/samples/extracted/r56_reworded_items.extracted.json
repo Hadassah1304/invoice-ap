@@ -1,0 +1,79 @@
+{
+  "source": {
+    "file_name": "r56_reworded_items.pdf",
+    "file_hash": "05487a24c53dc9096bae06723a28464ed68de943f5f6f1689cb25a1cd5181e60",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Navrang General Merchants Pvt Ltd",
+    "gstin": "36AABCN9900P1Z6",
+    "email": "billing@navrangmerchants.co.in",
+    "phone": "+91 40 5550 5505",
+    "address": "4-1-890, Osmangunj Commercial Complex, Hyderabad 500095",
+    "bank_account": "BARB00022334455",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "NVG/26/8951",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-28",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Gel Mouse Pad with Wrist Rest 210x240mm",
+      "quantity": 25.0,
+      "uom": "pcs",
+      "unit_price": 320.0,
+      "line_total": 8000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "Cat6 Gigabit Ethernet Patch Cord 3m",
+      "quantity": 30.0,
+      "uom": "pcs",
+      "unit_price": 180.0,
+      "line_total": 5400.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 13400.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 2412.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 15812.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

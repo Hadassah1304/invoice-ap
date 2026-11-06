@@ -1,0 +1,31 @@
+{
+  "file_name": "inv-nopo-v01.pdf",
+  "vendor_name": "QuickBite Refreshments Pvt Ltd",
+  "vendor_gstin": "33AAAC2824J1Z1",
+  "invoice_number": "INV-NOPO-V01",
+  "invoice_date": "2026-10-27",
+  "po_reference": null,
+  "currency": "INR",
+  "subtotal": 937.5,
+  "tax_total": 46.88,
+  "grand_total": 984.38,
+  "document_type": "invoice",
+  "lines": [
+    {
+      "line_no": 1,
+      "description": "Cold Coffee 300ml",
+      "quantity": 10.0,
+      "uom": "cup",
+      "unit_price": 93.75,
+      "line_total": 937.5,
+      "tax_rate": 5.0
+    }
+  ],
+  "expected": {
+    "decision": "NEEDS_REVIEW",
+    "reason_code": "INFERRED_MATCH",
+    "po_id": "PO-2026-NOPO-VEND-01",
+    "tag": "no_po_vendor_known",
+    "notes": "PO omitted but vendor known and unique PO candidate"
+  }
+}

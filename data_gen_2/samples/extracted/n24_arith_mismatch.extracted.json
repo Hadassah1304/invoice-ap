@@ -1,0 +1,83 @@
+{
+  "source": {
+    "file_name": "n24_arith_mismatch.pdf",
+    "file_hash": "9d8bf300929803fe3400809bb343b7a2f1cd942b0557ce8ed3abba63631caa66",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "Garuda Electrical & Engineering",
+    "gstin": "29AAACG5678H1Z4",
+    "email": "billing@garudaengineering.in",
+    "phone": "+91 80 5550 3434",
+    "address": "Plot 51, Peenya Industrial Area 3rd Phase, Bengaluru 560058",
+    "bank_account": "IOBA00098761234",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "GAR/26/4821",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-10-12",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-ARITH-01",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Cable 1m",
+      "quantity": 20.0,
+      "uom": "pcs",
+      "unit_price": 250.0,
+      "line_total": 5000.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    },
+    {
+      "line_no": 2,
+      "description": "USB-C Cable 2m",
+      "quantity": 15.0,
+      "uom": "pcs",
+      "unit_price": 380.0,
+      "line_total": 5700.0,
+      "tax_rate": 18.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 10700.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 1926.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 12638.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}

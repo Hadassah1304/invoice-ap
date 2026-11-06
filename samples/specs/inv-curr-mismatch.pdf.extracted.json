@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "CyberTech Hardware Systems LLP",
+    "gstin": "27AABBC3344D1Z8",
+    "bank_account": "ICIC00055443322"
+  },
+  "invoice_number": {
+    "value": "INV-CURR-MISMATCH",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-11-01",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-USD",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 425.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 0.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 425.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Portable SSD 1TB USB 3.2",
+      "quantity": 5.0,
+      "uom": "pcs",
+      "unit_price": 85.0,
+      "line_total": 425.0,
+      "tax_rate": 0.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: CyberTech Hardware Systems LLP\nGSTIN: 27AABBC3344D1Z8\nInvoice No: INV-CURR-MISMATCH\nDate: 2026-11-01\nPO Reference: PO-2026-USD\n1 Portable SSD 1TB USB 3.2 5.0 85.00 425.00\nSubtotal: 425.00\nTax Total: 0.00\nGrand Total: \u20b9 425.00"
+}

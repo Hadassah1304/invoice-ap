@@ -1,0 +1,62 @@
+file,edge_case_tag,expected_decision,expected_reason_code,expected_po,run_order,layout,degraded,notes
+inv-2026-h001.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-01,1,itemised_tax_separate,False,Happy path explicit match with layout itemised_tax_separate
+inv-2026-h002.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-02,2,bundled,False,Happy path explicit match with layout bundled
+inv-2026-h003.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-03,3,tax_embedded,False,Happy path explicit match with layout tax_embedded
+inv-2026-h004.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-04,4,multi_page,False,Happy path explicit match with layout multi_page
+inv-2026-h005.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-05,5,itemised_tax_separate,False,Happy path explicit match with layout itemised_tax_separate
+inv-2026-h006.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-06,6,bundled,False,Happy path explicit match with layout bundled
+inv-2026-h007.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-07,7,tax_embedded,False,Happy path explicit match with layout tax_embedded
+inv-2026-h008.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-08,8,multi_page,False,Happy path explicit match with layout multi_page
+inv-2026-h009.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-09,9,itemised_tax_separate,False,Happy path explicit match with layout itemised_tax_separate
+inv-2026-h010.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-10,10,bundled,False,Happy path explicit match with layout bundled
+inv-2026-h011.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-11,11,tax_embedded,False,Happy path explicit match with layout tax_embedded
+inv-2026-h012.pdf,happy_explicit,APPROVED,OK,PO-2026-HAPPY-12,12,multi_page,False,Happy path explicit match with layout multi_page
+inv-2026-part-01.pdf,happy_partial_delivery,APPROVED,OK,PO-2026-PARTIAL-01,13,itemised_tax_separate,False,Partial delivery of PO lines
+inv-2026-part-02.pdf,happy_partial_delivery,APPROVED,OK,PO-2026-PARTIAL-02,14,itemised_tax_separate,False,Partial delivery of PO lines
+inv-nopo-v01.pdf,no_po_vendor_known,NEEDS_REVIEW,INFERRED_MATCH,PO-2026-NOPO-VEND-01,15,itemised_tax_separate,False,PO omitted but vendor known and unique PO candidate
+inv-nopo-v02.pdf,no_po_vendor_known,NEEDS_REVIEW,INFERRED_MATCH,PO-2026-NOPO-VEND-02,16,itemised_tax_separate,False,PO omitted but vendor known and unique PO candidate
+inv-nopo-nov01.pdf,no_po_no_vendor,NEEDS_REVIEW,INFERRED_MATCH,PO-2026-UNIQUE-ITEM-01,17,itemised_tax_separate,False,"PO and vendor omitted, matched via unique item search"
+inv-nopo-nov02.pdf,no_po_no_vendor,NEEDS_REVIEW,INFERRED_MATCH,PO-2026-UNIQUE-ITEM-02,18,itemised_tax_separate,False,"PO and vendor omitted, matched via unique item search"
+inv-burger-winner.pdf,burger_clear_winner,NEEDS_REVIEW,INFERRED_MATCH,PO-BURGER-B,19,itemised_tax_separate,False,Burger triplet: exact total and price match selects PO-BURGER-B over A and C
+inv-tie-001.pdf,burger_tie,NEEDS_REVIEW,AMBIGUOUS_PO,,20,itemised_tax_separate,False,True tie between identical PO-TIE-A and PO-TIE-B; margin is zero
+inv-typo-01.pdf,po_typo,NEEDS_REVIEW,INVALID_PO_REF,,21,itemised_tax_separate,False,Typo in PO reference (PO-2026-0O42)
+inv-vend-mismatch.pdf,po_other_vendor,REJECTED,VENDOR_MISMATCH,PO-2026-0042,22,itemised_tax_separate,False,"PO belongs to V-BALA, billed by V-STAT"
+inv-closed-01.pdf,po_closed,REJECTED,PO_CLOSED,PO-2026-CLOSED,23,itemised_tax_separate,False,Invoice billed against CLOSED PO
+inv-cancelled-01.pdf,po_cancelled,REJECTED,PO_CLOSED,PO-2026-CANCELLED,24,itemised_tax_separate,False,Invoice billed against CANCELLED PO
+inv-split-01.pdf,split_1,APPROVED,OK,PO-2026-SPLIT,25,itemised_tax_separate,False,"Split 1 of 4: ₹40,000 approved"
+inv-split-02.pdf,split_2,APPROVED,OK,PO-2026-SPLIT,26,itemised_tax_separate,False,"Split 2 of 4: ₹40,000 approved"
+inv-split-03.pdf,split_3,APPROVED,OK,PO-2026-SPLIT,27,itemised_tax_separate,False,"Split 3 of 4: ₹20,000 approved, closes PO"
+inv-split-04.pdf,split_4,REJECTED,PO_CLOSED,PO-2026-SPLIT,28,itemised_tax_separate,False,Split 4 of 4: rejected because PO balance is 0
+inv-qsplit-01.pdf,split_partial_qty,APPROVED,OK,PO-2026-QTY-SPLIT,29,itemised_tax_separate,False,"Split Qty 1: 70 units billed, 30 remaining"
+inv-qsplit-02.pdf,split_partial_qty,NEEDS_REVIEW,QTY_EXCEEDS_REMAINING,PO-2026-QTY-SPLIT,30,itemised_tax_separate,False,Invoiced qty 40 exceeds remaining 30 while total fits
+inv-dup-orig.pdf,dup_exact,APPROVED,OK,PO-2026-DUP-EXACT,31,itemised_tax_separate,False,Base invoice for duplicate series
+inv_dup_exact_resend.pdf,dup_exact,REJECTED,DUPLICATE_EXACT,PO-2026-DUP-EXACT,32,itemised_tax_separate,False,Resend of same invoice number
+inv-001.pdf,dup_near_format,APPROVED,OK,PO-2026-DUP-FORMAT,33,itemised_tax_separate,False,First submission with formatted number INV-001
+inv001.pdf,dup_near_format,REJECTED,DUPLICATE_EXACT,PO-2026-DUP-FORMAT,34,itemised_tax_separate,False,Normalized invoice key matches INV-001
+inv_dup_rescan.pdf,dup_rescan,REJECTED,DUPLICATE_EXACT,PO-2026-DUP-EXACT,35,itemised_tax_separate,True,Re-scanned degraded copy with same invoice number
+inv_dup_p01.pdf,dup_possible,APPROVED,OK,PO-2026-DUP-POSS,36,itemised_tax_separate,False,Base invoice for near-duplicate amount test
+inv-dup-diffno.pdf,dup_possible,NEEDS_REVIEW,DUPLICATE_POSSIBLE,PO-2026-DUP-POSS,37,itemised_tax_separate,False,"Same vendor, total, and date window with different invoice #"
+inv_ctrl_001.pdf,same_invno_other_vendor,APPROVED,OK,PO-2026-CTRL,38,itemised_tax_separate,False,Same invoice number INV-001 on different vendor is valid
+inv-tol-warn.pdf,tol_warn,APPROVED,APPROVED_WITH_NOTE,PO-2026-TOL-WARN,39,itemised_tax_separate,False,"Total is 1% over PO, within auto-tolerance"
+inv-tol-review.pdf,tol_review,NEEDS_REVIEW,OVERBILLED,PO-2026-TOL-REV,40,itemised_tax_separate,False,"Total is 4% over PO, within review tolerance"
+inv-tol-reject.pdf,tol_reject,REJECTED,OVERBILLED,PO-2026-TOL-REJ,41,itemised_tax_separate,False,"Total is 10% over PO, exceeds hard tolerance"
+inv-drift-clean.pdf,price_drift,NEEDS_REVIEW,PRICE_DRIFT,PO-2026-DRIFT-CLEAN,42,itemised_tax_separate,False,Unit price drift on clean PDF under exact matching total
+inv-drift-scan.pdf,price_drift,NEEDS_REVIEW,PRICE_DRIFT,PO-2026-DRIFT-SCAN,43,itemised_tax_separate,True,Unit price drift on degraded scan under exact matching total
+inv-rew-withpo.pdf,reworded_items,APPROVED,OK,PO-2026-MISC-01,44,itemised_tax_separate,False,Reworded item descriptions match PO items via fuzzy/token check
+inv-rew-nopo.pdf,reworded_items,NEEDS_REVIEW,INFERRED_MATCH,PO-2026-MISC-02,45,itemised_tax_separate,False,Reworded descriptions match PO via Tier 2/3 inference
+inv-arith-err.pdf,arith_mismatch,NEEDS_REVIEW,ARITHMETIC_MISMATCH,PO-2026-MISC-03,46,itemised_tax_separate,False,Printed grand total is higher than subtotal + tax
+inv-miss-tot.pdf,missing_total,NEEDS_REVIEW,MISSING_FIELDS,PO-2026-MISC-04,47,itemised_tax_separate,False,Missing grand total
+inv-miss-date.pdf,missing_date,NEEDS_REVIEW,MISSING_FIELDS,PO-2026-MISC-14,48,itemised_tax_separate,False,Missing invoice date
+inv_miss_num.pdf,missing_invno,NEEDS_REVIEW,MISSING_FIELDS,PO-2026-MISC-15,49,itemised_tax_separate,False,Missing invoice number
+inv-scan-stamp-01.pdf,scan_blur_stamp,APPROVED,OK,PO-2026-MISC-05,50,itemised_tax_separate,True,Heavy scan degradation with stamp over total exercises OCR fallback
+inv-scan-stamp-02.pdf,scan_blur_stamp,APPROVED,OK,PO-2026-MISC-06,51,itemised_tax_separate,True,Heavy scan degradation with stamp over total exercises OCR fallback
+inv-lookalike-01.pdf,vendor_lookalike,NEEDS_REVIEW,VENDOR_UNCLEAR,,52,itemised_tax_separate,False,Lookalike vendor name 'Acme Foods' with no GSTIN (matches Acrne Foods at 0.857)
+inv-unapproved-01.pdf,vendor_unapproved,REJECTED,VENDOR_NOT_APPROVED,,53,itemised_tax_separate,False,Billed by unapproved vendor
+inv-bank-changed.pdf,bank_changed,NEEDS_REVIEW,VENDOR_UNCLEAR,PO-2026-MISC-09,54,itemised_tax_separate,False,Bank account differs from master (soft fraud signal)
+inv-curr-mismatch.pdf,currency_mismatch,REJECTED,CURRENCY_MISMATCH,PO-2026-USD,55,itemised_tax_separate,False,Invoice is in INR but PO is in USD
+cn-2026-001.pdf,credit_note,NEEDS_REVIEW,UNSUPPORTED_DOCUMENT_TYPE,PO-2026-MISC-10,56,itemised_tax_separate,False,Credit note with negative amount is unsupported document type
+inv-future-01.pdf,future_dated,NEEDS_REVIEW,DATE_INVALID,PO-2026-MISC-11,57,itemised_tax_separate,False,Invoice date is in the future
+inv-stale-01.pdf,stale,NEEDS_REVIEW,DATE_INVALID,PO-2026-MISC-11,58,itemised_tax_separate,False,Invoice is 120 days old (> 90 days limit)
+inv-fmt-indian.pdf,number_formats,APPROVED,OK,PO-2026-MISC-12,59,itemised_tax_separate,False,"Indian numbering format 1,00,000.00 with Rs. prefix"
+inv-fmt-eu.pdf,number_formats,APPROVED,OK,PO-2026-MISC-12,60,itemised_tax_separate,False,"European numbering format 1.000,00 parsed correctly"
+inv-freight-01.pdf,extra_freight_line,APPROVED,APPROVED_WITH_NOTE,PO-2026-MISC-13,61,itemised_tax_separate,False,Allowable extra freight line approved with note

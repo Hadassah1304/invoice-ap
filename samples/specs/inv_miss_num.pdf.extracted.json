@@ -1,0 +1,48 @@
+{
+  "vendor": {
+    "name": "Sri Balaji Foods Pvt Ltd",
+    "gstin": "36ABCDE1234F1Z5",
+    "bank_account": "HDFC00012345678"
+  },
+  "invoice_number": {
+    "value": "",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-22",
+    "confidence": 1.0
+  },
+  "po_reference": {
+    "value": "PO-2026-MISC-15",
+    "confidence": 1.0
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 2400.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 288.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 2688.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Microfiber Cleaning Cloths (Pack of 4)",
+      "quantity": 15.0,
+      "uom": "pack",
+      "unit_price": 160.0,
+      "line_total": 2400.0,
+      "tax_rate": 12.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Sri Balaji Foods Pvt Ltd\nGSTIN: 36ABCDE1234F1Z5\nInvoice No: \nDate: 2026-10-22\nPO Reference: PO-2026-MISC-15\n1 Microfiber Cleaning Cloths (Pack of 4) 15.0 160.00 2400.00\nSubtotal: 2400.00\nTax Total: 288.00\nGrand Total: Rs. 2688.00"
+}

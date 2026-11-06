@@ -1,0 +1,45 @@
+{
+  "vendor": {
+    "name": "Anonymous Hardware Seller",
+    "gstin": null,
+    "bank_account": "SBIN0005108603"
+  },
+  "invoice_number": {
+    "value": "INV-NOPO-NOV02",
+    "confidence": 1.0
+  },
+  "invoice_date": {
+    "value": "2026-10-27",
+    "confidence": 1.0
+  },
+  "po_reference": null,
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0
+  },
+  "subtotal": {
+    "value": 11000.0,
+    "confidence": 1.0
+  },
+  "tax_total": {
+    "value": 1980.0,
+    "confidence": 1.0
+  },
+  "grand_total": {
+    "value": 12980.0,
+    "confidence": 1.0
+  },
+  "document_type": "invoice",
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "USB-C Multiport Hub 6-in-1",
+      "quantity": 5.0,
+      "uom": "pcs",
+      "unit_price": 2200.0,
+      "line_total": 11000.0,
+      "tax_rate": 18.0
+    }
+  ],
+  "raw_text": "TAX INVOICE\nVendor: Anonymous Hardware Seller\nGSTIN: \nInvoice No: INV-NOPO-NOV02\nDate: 2026-10-27\n1 USB-C Multiport Hub 6-in-1 5.0 2200.00 11000.00\nSubtotal: 11000.00\nTax Total: 1980.00\nGrand Total: Rs. 12980.00"
+}

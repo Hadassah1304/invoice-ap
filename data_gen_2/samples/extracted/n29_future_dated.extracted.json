@@ -1,0 +1,73 @@
+{
+  "source": {
+    "file_name": "n29_future_dated.pdf",
+    "file_hash": "6bcb65593cdff9092e800ea96455e20fbcb906da648d05e3435c1be3b7fd7ac7",
+    "extraction_method": "synthetic",
+    "ocr_confidence": 1.0,
+    "page_count": 1
+  },
+  "vendor": {
+    "name": "BlueDart Logistics & Courier LLP",
+    "gstin": "29AAACB1234D1Z6",
+    "email": "billing@bluedartlog.com",
+    "phone": "+91 80 5550 2323",
+    "address": "Warehouse 4, Electronic City Phase 1, Bengaluru 560100",
+    "bank_account": "UBIN00012344321",
+    "confidence": 1.0
+  },
+  "invoice_number": {
+    "value": "BDL/26/4105",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "invoice_date": {
+    "value": "2026-11-18",
+    "confidence": 1.0,
+    "ambiguous": false
+  },
+  "due_date": null,
+  "po_reference": {
+    "value": "PO-N-FUTURE-01",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "currency": {
+    "value": "INR",
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "line_items": [
+    {
+      "line_no": 1,
+      "description": "Corrugated Shipping Box 3-Ply 12x10x8 Inch Bundle of 25",
+      "quantity": 30.0,
+      "uom": "bundle",
+      "unit_price": 625.0,
+      "line_total": 18750.0,
+      "tax_rate": 12.0,
+      "confidence": 1.0
+    }
+  ],
+  "subtotal": {
+    "value": 18750.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "tax_total": {
+    "value": 2250.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "grand_total": {
+    "value": 21000.0,
+    "confidence": 1.0,
+    "ambiguous": null
+  },
+  "document_type": "invoice",
+  "raw_text": null,
+  "missing_fields": [],
+  "grounding": {
+    "checked": 0,
+    "failed": []
+  }
+}
