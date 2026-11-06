@@ -66,9 +66,10 @@ class ExplanationConfig(BaseModel):
 
 
 class LLMConfig(BaseModel):
-    provider: str = "gemini"
-    api_key_env: str = "GEMINI_API_KEY"
-    model: str = "gemini-2.5-flash"
+    provider: str = "openai"
+    base_url: str = "https://api.experientiallabs.ai/v1"
+    api_key_env: str = "EXPLABS_API_KEY"
+    model: str = "gemini-2.5-flash-lite"
     temperature: float = 0.0
     timeout_s: int = 45
     max_retries: int = 2
@@ -203,6 +204,12 @@ class PipelineConfig(BaseSettings):
 
 def load_config(config_path: Optional[str | Path] = None) -> PipelineConfig:
     """Loads configuration from YAML file and applies environment variable overrides."""
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
+
     data: dict[str, Any] = {}
     path = config_path or os.environ.get("INVOICE_CONFIG", "config.yaml")
     p = Path(path)

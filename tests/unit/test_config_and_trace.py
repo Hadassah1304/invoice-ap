@@ -11,6 +11,10 @@ def test_load_default_config():
     assert cfg.matching.weights.total_coverage == 0.20
     assert cfg.matching.weights.line_coverage == 0.15
     assert cfg.matching.weights.date == 0.10
+    assert cfg.llm.provider == "openai"
+    assert cfg.llm.base_url == "https://api.experientiallabs.ai/v1"
+    assert cfg.llm.api_key_env == "EXPLABS_API_KEY"
+    assert cfg.llm.model == "gemini-2.5-flash-lite"
 
 
 def test_weights_sum_validation():

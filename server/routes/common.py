@@ -44,9 +44,15 @@ def get_public_config(config: PipelineConfig = Depends(get_config)):
 
 
 @router.get("/api/health")
-def health_check():
+def health_check(config: PipelineConfig = Depends(get_config)):
+    key_env = config.llm.api_key_env if config and config.llm else "EXPLABS_API_KEY"
+    has_key = bool(
+        os.environ.get(key_env)
+        or os.environ.get("EXPLABS_API_KEY")
+        or os.environ.get("GEMINI_API_KEY")
+    )
     return {
         "status": "healthy",
         "ocr_engines": ["rapidocr", "tesseract"],
-        "llm_key_present": bool(os.environ.get("GEMINI_API_KEY")),
+        "llm_key_present": has_key,
     }

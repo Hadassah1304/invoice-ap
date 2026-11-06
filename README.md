@@ -150,7 +150,7 @@ invoice-ap serve --port 8000
 ### 4. Docker
 ```bash
 docker build -t invoice-ap .
-docker run -p 8000:8000 -e GEMINI_API_KEY="your-key" invoice-ap
+docker run -p 8000:8000 -e EXPLABS_API_KEY="your-key" invoice-ap
 ```
 
 ---

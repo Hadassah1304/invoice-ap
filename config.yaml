@@ -24,13 +24,14 @@ ocr:
     use_angle_cls: true
   min_confidence: 0.70            # mean OCR confidence below this triggers fallback
   vision_fallback:
-    enabled: true                 # send page image to Gemini when OCR is weak or key fields missing
+    enabled: true                 # send page image to vision LLM when OCR is weak or key fields missing
     trigger_on_missing_fields: [invoice_number, invoice_date, grand_total]
 
 llm:
-  provider: gemini
-  api_key_env: GEMINI_API_KEY
-  model: gemini-2.5-flash         # configurable Gemini model id
+  provider: openai
+  base_url: https://api.experientiallabs.ai/v1
+  api_key_env: EXPLABS_API_KEY
+  model: gemini-2.5-flash-lite
   temperature: 0.0
   timeout_s: 45
   max_retries: 2
