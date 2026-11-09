@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDocumentViewerModal();
   loadHistory();
   loadPOs();
+  loadPOHub();
 
   const btnProcess = $('btn-process');
   if (btnProcess) btnProcess.addEventListener('click', handleProcess);
@@ -1908,20 +1909,25 @@ function initPOHub() {
     });
   }
 
-  const chips = document.querySelectorAll('.po-chip');
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      chips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      currentPOFilter = chip.dataset.postatus;
+  const filterSelect = $('po-filter-status');
+  if (filterSelect) {
+    filterSelect.addEventListener('change', (e) => {
+      currentPOFilter = e.target.value.toUpperCase();
       renderPOMasterTable();
     });
-  });
+  }
 
-  const btnRefresh = $('btn-refresh-po-detail');
-  if (btnRefresh) {
-    btnRefresh.addEventListener('click', () => {
-      if (selectedPOId) selectPODetail(selectedPOId);
+  const closeBtn = $('pod-close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      const detailCard = $('po-detail-card');
+      if (detailCard) detailCard.classList.add('hidden');
+      const emptyCard = $('po-detail-empty');
+      if (emptyCard) emptyCard.classList.remove('hidden');
+      selectedPOId = null;
+      document.querySelectorAll('#pos-master-tbody tr').forEach(r => {
+        r.classList.remove('bg-amber-500/10', 'border-l-2', 'border-amber-500');
+      });
     });
   }
 }
@@ -1941,6 +1947,11 @@ async function loadPOHub() {
     // Select the first PO if none selected
     if (!selectedPOId && poListData.length) {
       selectPODetail(poListData[0].po_id);
+    } else if (!poListData.length) {
+      const detailCard = $('po-detail-card');
+      if (detailCard) detailCard.classList.add('hidden');
+      const emptyCard = $('po-detail-empty');
+      if (emptyCard) emptyCard.classList.remove('hidden');
     }
   } catch (err) {
     console.error('Failed to load PO Hub:', err);
@@ -1949,33 +1960,23 @@ async function loadPOHub() {
 
 function renderPOSummaryKPIs() {
   const totalCount = poListData.length;
-  const openCount = poListData.filter(p => p.status === 'OPEN' || p.status === 'PARTIAL').length;
   const totalBudget = poListData.reduce((sum, p) => sum + (Number(p.total_budget || p.total) || 0), 0);
   const totalBilled = poListData.reduce((sum, p) => sum + (Number(p.billed_total) || 0), 0);
   const remainingHeadroom = Math.max(0, totalBudget - totalBilled);
-  const overallUtil = totalBudget > 0 ? Math.round((totalBilled / totalBudget) * 100) : 0;
 
-  setText('po-kpi-total-cnt', totalCount);
-  setText('po-kpi-open-cnt', openCount);
-  setText('po-kpi-budget-val', `₹ ${totalBudget.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`);
-  setText('po-kpi-billed-val', `₹ ${totalBilled.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`);
-  setText('po-kpi-util-val', `${overallUtil}% utilized overall`);
-  setText('po-kpi-rem-val', `₹ ${remainingHeadroom.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`);
-
-  // Update chip counters
-  setText('po-chip-all', totalCount);
-  setText('po-chip-open', poListData.filter(p => p.status === 'OPEN').length);
-  setText('po-chip-partial', poListData.filter(p => p.status === 'PARTIAL').length);
-  setText('po-chip-closed', poListData.filter(p => p.status === 'CLOSED').length);
+  setText('pos-stat-total-count', totalCount);
+  setText('pos-stat-total-budget', `₹ ${totalBudget.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`);
+  setText('pos-stat-total-billed', `₹ ${totalBilled.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`);
+  setText('pos-stat-total-rem', `₹ ${remainingHeadroom.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`);
 }
 
 function getFilteredPOs() {
   return poListData.filter(po => {
-    // Status filter
-    if (currentPOFilter !== 'ALL' && po.status !== currentPOFilter) {
-      return false;
+    if (currentPOFilter && currentPOFilter !== 'ALL') {
+      if ((po.status || '').toUpperCase() !== currentPOFilter) {
+        return false;
+      }
     }
-    // Search filter
     if (currentPOSearch) {
       const idMatch = (po.po_id || '').toLowerCase().includes(currentPOSearch);
       const vendorMatch = (po.vendor_name || po.vendor_id || '').toLowerCase().includes(currentPOSearch);
@@ -1991,56 +1992,58 @@ function renderPOMasterTable() {
 
   const list = getFilteredPOs();
   if (!list.length) {
-    tbody.innerHTML = `<tr><td colspan="7" class="empty-state">No purchase orders found matching current criteria.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-[#64748b]">No purchase orders found matching current criteria.</td></tr>`;
     return;
   }
 
   tbody.innerHTML = '';
   list.forEach(po => {
     const tr = document.createElement('tr');
-    if (selectedPOId === po.po_id) {
-      tr.classList.add('selected');
-    }
+    const isSelected = selectedPOId === po.po_id;
+    tr.className = `hover:bg-[#1a2434]/60 transition cursor-pointer ${isSelected ? 'bg-amber-500/10 border-l-2 border-amber-500' : ''}`;
 
     const budget = Number(po.total_budget || po.total) || 0;
     const billed = Number(po.billed_total) || 0;
     const remaining = Number(po.remaining_balance) || Math.max(0, budget - billed);
     const utilPct = budget > 0 ? Math.min(100, Math.round((billed / budget) * 100)) : 0;
 
-    let statusPill = '';
-    if (po.status === 'OPEN') statusPill = `<span class="badge badge-green">OPEN</span>`;
-    else if (po.status === 'PARTIAL') statusPill = `<span class="badge" style="background:#eff6ff; color:#2563eb; border:1px solid #bfdbfe;">PARTIAL</span>`;
-    else if (po.status === 'CLOSED') statusPill = `<span class="badge" style="background:#f1f5f9; color:#64748b; border:1px solid #e2e8f0;">CLOSED</span>`;
-    else statusPill = `<span class="badge badge-amber">${escapeHtml(po.status)}</span>`;
+    let statusPill = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+    if (po.status === 'OPEN') statusPill = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+    else if (po.status === 'CLOSED') statusPill = 'bg-slate-800 text-slate-300 border border-slate-700';
 
     tr.innerHTML = `
-      <td><strong>${escapeHtml(po.po_id)}</strong></td>
-      <td>
-        <div><strong>${escapeHtml(po.vendor_name || po.vendor_id)}</strong></div>
-        <div class="hint">ID: ${escapeHtml(po.vendor_id)}</div>
+      <td class="py-2.5 px-3">
+        <strong class="font-mono text-[13px] text-amber-400">${escapeHtml(po.po_id)}</strong>
+        <div class="text-[10px] text-[#64748b] font-mono">${escapeHtml(po.po_date || '—')}</div>
       </td>
-      <td>${escapeHtml(po.po_date || '—')}</td>
-      <td>${statusPill}</td>
-      <td><strong>₹ ${budget.toLocaleString('en-IN')}</strong></td>
-      <td>
-        <div class="mini-conf-bar" style="width: 130px;">
-          <div class="mini-bar-track" style="width: 70px;">
-            <div class="mini-bar-fill" style="width: ${utilPct}%; background-color: ${utilPct > 90 ? '#dc2626' : '#2563eb'};"></div>
+      <td class="py-2.5 px-3">
+        <div class="font-medium text-[#dee2ee] text-[12px] truncate max-w-[150px]">${escapeHtml(po.vendor_name || po.vendor_id)}</div>
+        <div class="text-[10px] text-[#64748b] font-mono">${escapeHtml(po.vendor_id)}</div>
+      </td>
+      <td class="py-2.5 px-3 font-mono font-bold text-[#dee2ee]">
+        ₹ ${budget.toLocaleString('en-IN')}
+      </td>
+      <td class="py-2.5 px-3">
+        <div class="flex items-center gap-1.5">
+          <div class="w-16 bg-[#1a2434] h-1.5 overflow-hidden border border-[#232f42]">
+            <div class="${utilPct > 90 ? 'bg-red-500' : 'bg-emerald-400'} h-full" style="width: ${utilPct}%;"></div>
           </div>
-          <span class="hint">${utilPct}%</span>
+          <span class="font-mono text-[11px] text-[#94a3b8]">${utilPct}%</span>
         </div>
-        <div class="hint">Rem: ₹ ${remaining.toLocaleString('en-IN')}</div>
+        <div class="text-[10px] text-[#64748b] font-mono">Rem: ₹ ${remaining.toLocaleString('en-IN')}</div>
       </td>
-      <td>
-        <span class="badge" style="background:#f8fafc; border:1px solid #cbd5e1; font-weight:700;">
-          ${po.linked_invoices_count || 0} linked
+      <td class="py-2.5 px-2 text-center">
+        <span class="inline-flex px-1.5 py-0.5 text-[10px] font-mono font-bold ${statusPill}">
+          ${escapeHtml(po.status)}
         </span>
       </td>
     `;
 
     tr.addEventListener('click', () => {
-      document.querySelectorAll('#pos-master-tbody tr').forEach(r => r.classList.remove('selected'));
-      tr.classList.add('selected');
+      document.querySelectorAll('#pos-master-tbody tr').forEach(r => {
+        r.classList.remove('bg-amber-500/10', 'border-l-2', 'border-amber-500');
+      });
+      tr.classList.add('bg-amber-500/10', 'border-l-2', 'border-amber-500');
       selectPODetail(po.po_id);
     });
 
@@ -2050,20 +2053,18 @@ function renderPOMasterTable() {
 
 async function selectPODetail(poId) {
   selectedPOId = poId;
-  const emptyPlaceholder = $('po-detail-empty');
-  const contentCard = $('po-detail-content');
+  const detailCard = $('po-detail-card');
+  const emptyCard = $('po-detail-empty');
+  if (emptyCard) emptyCard.classList.add('hidden');
+  if (detailCard) detailCard.classList.remove('hidden');
 
   try {
     const res = await fetch(`/api/pos/${encodeURIComponent(poId)}`);
     const data = await res.json();
     if (data.error) {
-      alert(`PO Error: ${data.error}`);
+      console.error('PO error:', data.error);
       return;
     }
-
-    if (emptyPlaceholder) emptyPlaceholder.classList.add('hidden');
-    if (contentCard) contentCard.classList.remove('hidden');
-
     renderPODetail(data);
   } catch (err) {
     console.error('Failed to load PO details for:', poId, err);
@@ -2077,17 +2078,17 @@ function renderPODetail(data) {
   const items = data.items || [];
   const invoices = data.invoices || [];
 
-  setText('pod-id', po.po_id || 'PO Master');
+  setText('pod-title-id', po.po_id || 'PO Master');
   const statusBadge = $('pod-status-badge');
   if (statusBadge) {
     statusBadge.textContent = po.status || 'OPEN';
-    statusBadge.className = `badge ${po.status === 'OPEN' ? 'badge-green' : (po.status === 'CLOSED' ? 'badge-neutral' : 'badge-amber')}`;
+    statusBadge.className = `px-2 py-0.5 text-[10px] font-mono font-bold ${po.status === 'OPEN' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : (po.status === 'CLOSED' ? 'bg-slate-800 text-slate-300 border border-slate-700' : 'bg-amber-500/10 text-amber-400 border border-amber-500/30')}`;
   }
 
   setText('pod-vendor-name', vendor.name || po.vendor_name || po.vendor_id || 'Unknown Vendor');
-  setText('pod-meta-sub', `PO Date: ${po.po_date || '—'} · Terms: ${po.payment_terms_days ? po.payment_terms_days + ' days' : 'Standard 30 days'} · Currency: ${po.currency || 'INR'}`);
+  setText('pod-created-date', po.po_date || '—');
 
-  // KPI Mini Cards
+  // Balances
   const budget = Number(balance.total_budget || po.total) || 0;
   const approved = Number(balance.billed_approved) || 0;
   const pending = Number(balance.billed_pending) || 0;
@@ -2125,7 +2126,7 @@ function renderPODetail(data) {
   const itemsTbody = $('pod-items-tbody');
   if (itemsTbody) {
     if (!items.length) {
-      itemsTbody.innerHTML = `<tr><td colspan="4" class="empty-state">No line items specified</td></tr>`;
+      itemsTbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-[#64748b]">No line items specified</td></tr>`;
     } else {
       itemsTbody.innerHTML = '';
       items.forEach(it => {
@@ -2134,13 +2135,13 @@ function renderPODetail(data) {
         const qtyRem = Number(it.qty_remaining) || 0;
         const unitP = Number(it.unit_price) || 0;
         tr.innerHTML = `
-          <td>
-            <strong>${escapeHtml(it.item_name)}</strong>
-            <div class="hint">${escapeHtml(it.description || '')}</div>
+          <td class="py-1.5 px-2">
+            <strong class="text-[#dee2ee]">${escapeHtml(it.item_name)}</strong>
+            <div class="text-[10px] text-[#64748b]">${escapeHtml(it.description || '')}</div>
           </td>
-          <td>${qtyOrd} ${escapeHtml(it.uom || 'units')}</td>
-          <td><strong style="color: ${qtyRem > 0 ? '#16a34a' : '#64748b'};">${qtyRem}</strong></td>
-          <td>₹ ${unitP.toLocaleString('en-IN')}</td>
+          <td class="py-1.5 px-2 font-mono text-[#cbd5e1]">${qtyOrd} ${escapeHtml(it.uom || 'units')}</td>
+          <td class="py-1.5 px-2 font-mono"><strong class="${qtyRem > 0 ? 'text-emerald-400' : 'text-[#64748b]'}">${qtyRem}</strong></td>
+          <td class="py-1.5 px-2 font-mono text-amber-400">₹ ${unitP.toLocaleString('en-IN')}</td>
         `;
         itemsTbody.appendChild(tr);
       });
@@ -2152,33 +2153,30 @@ function renderPODetail(data) {
   const invsTbody = $('pod-invoices-tbody');
   if (invsTbody) {
     if (!invoices.length) {
-      invsTbody.innerHTML = `<tr><td colspan="6" class="empty-state">No invoices linked to this PO yet. Process invoices matching this PO to see them here.</td></tr>`;
+      invsTbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-[#64748b]">No invoices linked to this PO yet. Process invoices matching this PO to see them here.</td></tr>`;
     } else {
       invsTbody.innerHTML = '';
       invoices.forEach(inv => {
         const tr = document.createElement('tr');
         const ts = formatTimestamp(inv.created_at);
         const amt = Number(inv.total) || 0;
-        let statusBadge = '';
-        if (inv.status === 'APPROVED') statusBadge = `<span class="badge badge-green">APPROVED</span>`;
-        else if (inv.status === 'REJECTED') statusBadge = `<span class="badge badge-red">REJECTED</span>`;
-        else statusBadge = `<span class="badge badge-amber">NEEDS_REVIEW</span>`;
+        let statusBadge = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+        if (inv.status === 'APPROVED') statusBadge = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+        else if (inv.status === 'REJECTED') statusBadge = 'bg-red-500/10 text-red-400 border border-red-500/30';
 
         tr.innerHTML = `
-          <td><strong>#${escapeHtml(inv.invoice_no_raw || inv.invoice_id)}</strong></td>
-          <td>${escapeHtml(inv.invoice_date || '—')}</td>
-          <td><strong>${inv.currency || '₹'} ${amt.toLocaleString('en-IN')}</strong></td>
-          <td>${statusBadge}</td>
-          <td>
-            <div class="timestamp-cell">
-              <span class="timestamp-exact">${escapeHtml(ts.exact)}</span>
-              <span class="timestamp-relative">${escapeHtml(ts.relative)}</span>
-            </div>
-          </td>
-          <td>
-            <div class="action-btn-group">
-              <button class="btn btn-sm btn-outline btn-view-po-doc" title="Preview Original Document">📄 View</button>
-              <button class="btn btn-sm btn-outline btn-inspect-linked">Inspect Trace</button>
+          <td class="py-1.5 px-2 font-mono font-medium text-amber-400">#${escapeHtml(inv.invoice_no_raw || inv.invoice_id)}</td>
+          <td class="py-1.5 px-2 font-mono text-[#cbd5e1]">${escapeHtml(inv.invoice_date || '—')}</td>
+          <td class="py-1.5 px-2 font-mono font-bold text-[#dee2ee]">${inv.currency || '₹'} ${amt.toLocaleString('en-IN')}</td>
+          <td class="py-1.5 px-2"><span class="inline-flex px-1.5 py-0.2 text-[9px] font-mono font-bold ${statusBadge}">${escapeHtml(inv.status)}</span></td>
+          <td class="py-1.5 px-2 text-right">
+            <div class="flex items-center justify-end gap-1">
+              <button class="h-6 px-2 flex items-center gap-1 bg-[#1a2434] hover:bg-[#232f42] text-[#dee2ee] text-[10px] font-medium border border-[#232f42] transition btn-view-po-doc cursor-pointer">
+                <span class="material-symbols-outlined text-[12px]">visibility</span> View
+              </button>
+              <button class="h-6 px-2 flex items-center gap-1 bg-[#1a2434] hover:bg-amber-500 hover:text-slate-950 text-[#dee2ee] text-[10px] font-medium border border-[#232f42] transition btn-inspect-linked cursor-pointer">
+                Inspect
+              </button>
             </div>
           </td>
         `;
@@ -2197,7 +2195,24 @@ function renderPODetail(data) {
           });
         }
 
-        tr.querySelector('.btn-inspect-linked').addEventListener('click', async (e) => {
+        const btnInspect = tr.querySelector('.btn-inspect-linked');
+        if (btnInspect) {
+          btnInspect.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            currentInvoiceId = inv.invoice_id;
+            showBreadcrumb('ws-pos', inv.invoice_no_raw || `#${inv.invoice_id}`);
+            switchWorkspace('ws-single');
+            const res = await fetch(`/api/invoices/${inv.invoice_id}`);
+            const fullData = await res.json();
+            await renderDecisionResult(fullData);
+          });
+        }
+
+        invsTbody.appendChild(tr);
+      });
+    }
+  }
+}
           e.stopPropagation();
           currentInvoiceId = inv.invoice_id;
           showBreadcrumb('ws-pos', inv.invoice_no_raw || `#${inv.invoice_id}`);

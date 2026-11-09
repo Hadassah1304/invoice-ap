@@ -1004,6 +1004,15 @@
           </div>
         </section>
 
+        <!-- Right: Empty State when no PO selected -->
+        <section id="po-detail-empty" class="bg-[#161f2c] border border-dashed border-[#232f42] p-12 text-center my-auto flex flex-col items-center justify-center hidden">
+          <div class="w-12 h-12 mb-3 bg-[#1a2434] border border-[#232f42] flex items-center justify-center text-amber-400">
+            <span class="material-symbols-outlined text-[24px]">folder_managed</span>
+          </div>
+          <h3 class="text-[15px] font-semibold text-[#dee2ee] font-headline mb-1">Select a Purchase Order</h3>
+          <p class="text-[12px] text-[#94a3b8] max-w-xs">Click any purchase order in the directory to inspect its budget allocations, line items, and linked invoices.</p>
+        </section>
+
         <!-- Right: PO Detail Inspector Drawer -->
         <section id="po-detail-card" class="bg-[#161f2c] border border-[#232f42] shadow-sm flex flex-col hidden">
           <div class="p-4 border-b border-[#232f42] bg-[#131a24] flex items-center justify-between">
