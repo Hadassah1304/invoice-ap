@@ -2489,22 +2489,26 @@ body {
   font-size: 9px;
   text-transform: uppercase;
 }
-.note-pill.note-pill-green {
-  background: var(--color-success-bg);
-  color: var(--color-success-text);
-  border: 1px solid var(--color-success-border);
+.note-pill.note-pill-green,
+.note-pill.note-positive {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
 }
-.note-pill.note-pill-amber {
-  background: var(--color-warning-bg);
-  color: var(--color-warning-text);
-  border: 1px solid var(--color-warning-border);
+.note-pill.note-pill-amber,
+.note-pill.note-warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
-.note-pill.note-pill-red {
-  background: var(--color-danger-bg);
-  color: var(--color-danger-text);
-  border: 1px solid var(--color-danger-border);
+.note-pill.note-pill-red,
+.note-pill.note-danger {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
 }
-.note-pill.note-pill-neutral {
+.note-pill.note-pill-neutral,
+.note-pill.note-info {
   background: #1e293b;
   color: #cbd5e1;
   border: 1px solid #334155;

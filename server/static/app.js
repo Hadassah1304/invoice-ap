@@ -235,6 +235,15 @@ async function fetchPODetail(poId) {
 
 async function renderDecisionResult(result) {
   if (!result) return;
+  if (result.detail || result.error) {
+    console.error('API Error in decision payload:', result);
+    alert(result.detail || result.error || 'Failed to retrieve invoice analysis.');
+    return;
+  }
+  if (!result.decision && !result.extracted) {
+    console.warn('Incomplete invoice payload received:', result);
+    return;
+  }
   currentResult = result;
   if (result.invoice_id) {
     currentInvoiceId = result.invoice_id;
@@ -1163,6 +1172,15 @@ function renderRules(checks, filter) {
   setText('rule-cnt-exceptions', excCnt);
   setText('rule-cnt-passed', passCnt);
 
+  const excCntSpan = $('rule-cnt-exceptions');
+  if (excCntSpan) {
+    if (excCnt > 0) {
+      excCntSpan.className = 'text-amber-400 font-bold';
+    } else {
+      excCntSpan.className = '';
+    }
+  }
+
   const filtered = (checks || []).filter(chk => {
     if (filter === 'exceptions') return chk.status !== 'PASS';
     if (filter === 'passed') return chk.status === 'PASS';
@@ -1175,12 +1193,26 @@ function renderRules(checks, filter) {
   }
 
   filtered.forEach(chk => {
-    let statusClass = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+    let statusClass = 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/35';
     const st = (chk.status || '').toUpperCase();
     if (st === 'FAIL' || st === 'BLOCK' || st === 'REJECT') {
-      statusClass = 'bg-red-500/10 text-red-400 border border-red-500/30';
+      statusClass = 'bg-red-500/15 text-red-400 border border-red-500/35';
     } else if (st === 'WARN' || st === 'FLAG' || st === 'REVIEW') {
-      statusClass = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+      statusClass = 'bg-amber-500/15 text-amber-400 border border-amber-500/35';
+    } else if (st === 'SKIP') {
+      statusClass = 'bg-slate-700/40 text-slate-400 border border-slate-600/50';
+    } else if (st === 'INFO') {
+      statusClass = 'bg-sky-500/15 text-sky-400 border border-sky-500/35';
+    }
+
+    let sevClass = 'bg-slate-800 text-slate-300 border border-slate-700';
+    const sev = (chk.severity || 'info').toLowerCase();
+    if (sev === 'hard' || sev === 'blocker' || sev === 'critical') {
+      sevClass = 'bg-red-500/15 text-red-400 border border-red-500/35';
+    } else if (sev === 'soft' || sev === 'warn' || sev === 'warning' || sev === 'medium') {
+      sevClass = 'bg-amber-500/15 text-amber-400 border border-amber-500/35';
+    } else if (sev === 'info' || sev === 'low') {
+      sevClass = 'bg-sky-500/10 text-sky-400 border border-sky-500/30';
     }
 
     const tr = document.createElement('tr');
@@ -1193,7 +1225,7 @@ function renderRules(checks, filter) {
         </span>
       </td>
       <td class="py-2.5 px-3 text-center">
-        <span class="inline-flex px-1.5 py-0.5 text-[9px] font-mono font-bold bg-slate-800 text-slate-300 border border-slate-700">
+        <span class="inline-flex px-2 py-0.5 text-[9px] font-mono font-bold ${sevClass}">
           ${escapeHtml(chk.severity || 'info')}
         </span>
       </td>
@@ -1361,10 +1393,22 @@ async function loadHistory() {
         });
       }
       div.addEventListener('click', async () => {
-        currentInvoiceId = inv.invoice_id;
-        const detailRes = await fetch(`/api/invoices/${inv.invoice_id}`);
-        const fullData = await detailRes.json();
-        await renderDecisionResult(fullData);
+        try {
+          currentInvoiceId = inv.invoice_id;
+          showBreadcrumb('ws-single', inv.invoice_no_raw || `#${inv.invoice_id}`);
+          switchWorkspace('ws-single');
+          const detailRes = await fetch(`/api/invoices/${inv.invoice_id}`);
+          if (!detailRes.ok) {
+            const err = await detailRes.json().catch(() => ({}));
+            alert(err.detail || `Server error (${detailRes.status}) while loading invoice`);
+            return;
+          }
+          const fullData = await detailRes.json();
+          await renderDecisionResult(fullData);
+        } catch (e) {
+          console.error('Failed to load invoice details:', e);
+          alert('Could not connect to server to fetch invoice details.');
+        }
       });
       list.appendChild(div);
     });
@@ -2207,20 +2251,6 @@ function renderPODetail(data) {
             await renderDecisionResult(fullData);
           });
         }
-
-        invsTbody.appendChild(tr);
-      });
-    }
-  }
-}
-          e.stopPropagation();
-          currentInvoiceId = inv.invoice_id;
-          showBreadcrumb('ws-pos', inv.invoice_no_raw || `#${inv.invoice_id}`);
-          switchWorkspace('ws-single');
-          const res = await fetch(`/api/invoices/${inv.invoice_id}`);
-          const fullData = await res.json();
-          await renderDecisionResult(fullData);
-        });
 
         invsTbody.appendChild(tr);
       });

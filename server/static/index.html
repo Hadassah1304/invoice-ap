@@ -55,7 +55,7 @@
   </script>
 
   <!-- Custom Industrial Dark Theme Styles -->
-  <link rel="stylesheet" href="style.css?v=4.0"/>
+  <link rel="stylesheet" href="style.css?v=4.2"/>
 </head>
 
 <body class="bg-[#0f141c] text-[#dee2ee] antialiased min-h-screen flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
@@ -579,34 +579,92 @@
               </div>
 
               <!-- Collapsible Match Confidence Calculation Explanation -->
-              <details id="matching-math-details" class="border-b border-[#232f42] bg-[#0f141c]/80 p-3 group">
-                <summary class="text-[12px] font-mono font-semibold text-amber-400 cursor-pointer list-none flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[16px] transition-transform group-open:rotate-90">arrow_right</span>
-                  <span>How is Match Confidence calculated?</span>
+              <details id="matching-math-details" class="border-b border-[#232f42] bg-[#111722] p-3.5 group">
+                <summary class="text-[12px] font-mono font-semibold text-amber-400 hover:text-amber-300 cursor-pointer list-none flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px] transition-transform group-open:rotate-90 text-amber-400">arrow_right</span>
+                    <span class="font-bold tracking-wide">How is Match Confidence calculated?</span>
+                  </div>
+                  <span class="text-[10px] text-[#64748b] group-open:hidden font-sans">Click to expand explanation</span>
                 </summary>
-                <div class="mt-3 text-[12px] text-[#94a3b8] space-y-2.5">
-                  <p>Candidate POs are evaluated against the invoice using weighted deterministic heuristics:</p>
-                  <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
-                    <div class="bg-[#161f2c] border border-[#232f42] p-2">
-                      <div class="text-amber-400 font-mono font-bold text-[11px]">35% Price</div>
-                      <div class="text-[10px] text-[#64748b]">Unit price agreement</div>
+                <div class="mt-3 text-[12px] text-[#94a3b8] space-y-3 pt-2 border-t border-[#232f42]/60">
+                  <p class="text-[#cbd5e1] leading-relaxed">
+                    When an invoice is uploaded, our engine compares it against all open Purchase Orders (POs) from the same vendor to find the exact match.
+                    Each candidate PO is scored out of <strong class="text-amber-400 font-mono">100%</strong> using 5 weighted business checks:
+                  </p>
+                  
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
+                    <div class="bg-[#161f2c] border border-[#232f42] p-2.5 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center justify-between">
+                          <span class="text-amber-400 font-mono font-bold text-[12px]">35%</span>
+                          <span class="text-[9px] font-mono uppercase px-1.5 py-0.2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Primary</span>
+                        </div>
+                        <div class="text-[11px] font-bold text-[#dee2ee] mt-1">Price Agreement</div>
+                        <div class="text-[10px] text-[#94a3b8] mt-1 leading-snug">Do unit prices match the contracted rates in the PO?</div>
+                      </div>
                     </div>
-                    <div class="bg-[#161f2c] border border-[#232f42] p-2">
-                      <div class="text-amber-400 font-mono font-bold text-[11px]">30% Quantity</div>
-                      <div class="text-[10px] text-[#64748b]">Remaining headroom</div>
+
+                    <div class="bg-[#161f2c] border border-[#232f42] p-2.5 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center justify-between">
+                          <span class="text-amber-400 font-mono font-bold text-[12px]">30%</span>
+                          <span class="text-[9px] font-mono uppercase px-1.5 py-0.2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Quantity</span>
+                        </div>
+                        <div class="text-[11px] font-bold text-[#dee2ee] mt-1">Quantity Headroom</div>
+                        <div class="text-[10px] text-[#94a3b8] mt-1 leading-snug">Does the billed quantity fit within remaining unbilled units?</div>
+                      </div>
                     </div>
-                    <div class="bg-[#161f2c] border border-[#232f42] p-2">
-                      <div class="text-amber-400 font-mono font-bold text-[11px]">20% Coverage</div>
-                      <div class="text-[10px] text-[#64748b]">Budget commitment fit</div>
+
+                    <div class="bg-[#161f2c] border border-[#232f42] p-2.5 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center justify-between">
+                          <span class="text-amber-400 font-mono font-bold text-[12px]">20%</span>
+                          <span class="text-[9px] font-mono uppercase px-1.5 py-0.2 bg-sky-500/10 text-sky-400 border border-sky-500/30">Budget</span>
+                        </div>
+                        <div class="text-[11px] font-bold text-[#dee2ee] mt-1">Budget Coverage</div>
+                        <div class="text-[10px] text-[#94a3b8] mt-1 leading-snug">Does the invoice total stay within the remaining unbilled budget?</div>
+                      </div>
                     </div>
-                    <div class="bg-[#161f2c] border border-[#232f42] p-2">
-                      <div class="text-amber-400 font-mono font-bold text-[11px]">10% Lines</div>
-                      <div class="text-[10px] text-[#64748b]">Line item overlap</div>
+
+                    <div class="bg-[#161f2c] border border-[#232f42] p-2.5 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center justify-between">
+                          <span class="text-amber-400 font-mono font-bold text-[12px]">10%</span>
+                          <span class="text-[9px] font-mono uppercase px-1.5 py-0.2 bg-slate-800 text-slate-300 border border-slate-700">Catalog</span>
+                        </div>
+                        <div class="text-[11px] font-bold text-[#dee2ee] mt-1">Line Overlap</div>
+                        <div class="text-[10px] text-[#94a3b8] mt-1 leading-snug">Do item descriptions and part names match PO items?</div>
+                      </div>
                     </div>
-                    <div class="bg-[#161f2c] border border-[#232f42] p-2">
-                      <div class="text-amber-400 font-mono font-bold text-[11px]">5% Terms</div>
-                      <div class="text-[10px] text-[#64748b]">Timeline &amp; dates</div>
+
+                    <div class="bg-[#161f2c] border border-[#232f42] p-2.5 flex flex-col justify-between">
+                      <div>
+                        <div class="flex items-center justify-between">
+                          <span class="text-amber-400 font-mono font-bold text-[12px]">5%</span>
+                          <span class="text-[9px] font-mono uppercase px-1.5 py-0.2 bg-slate-800 text-slate-300 border border-slate-700">Timeline</span>
+                        </div>
+                        <div class="text-[11px] font-bold text-[#dee2ee] mt-1">Timeline &amp; Dates</div>
+                        <div class="text-[10px] text-[#94a3b8] mt-1 leading-snug">Was the invoice issued on or after the PO order date?</div>
+                      </div>
                     </div>
+                  </div>
+
+                  <!-- Confidence Interpretation Legend -->
+                  <div class="flex flex-wrap items-center gap-4 pt-1.5 text-[11px] border-t border-[#232f42]/40">
+                    <span class="text-[#64748b] font-mono text-[10px] uppercase tracking-wide">Confidence Thresholds:</span>
+                    <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      <strong>80%–100%:</strong> High Fit (Ready for automatic straight-through approval)
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-amber-400">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                      <strong>50%–79%:</strong> Moderate Fit (Partial delivery or slight variation requiring review)
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-red-400">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                      <strong>&lt; 50%:</strong> Low Fit (Overbilled, closed PO, or catalog mismatch)
+                    </span>
                   </div>
                 </div>
               </details>
@@ -1158,6 +1216,6 @@
   </div>
 
   <!-- Main JavaScript Controller -->
-  <script src="app.js?v=4.0"></script>
+  <script src="app.js?v=4.2"></script>
 </body>
 </html>
