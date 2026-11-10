@@ -100,6 +100,10 @@ def init_db(db_path: str, schema_path: Optional[str] = None) -> None:
             conn.execute("ALTER TABLE invoices ADD COLUMN file_name TEXT;")
         if "file_path" not in columns:
             conn.execute("ALTER TABLE invoices ADD COLUMN file_path TEXT;")
+        if "is_manual_override" not in columns:
+            conn.execute("ALTER TABLE invoices ADD COLUMN is_manual_override INTEGER DEFAULT 0;")
+        if "override_note" not in columns:
+            conn.execute("ALTER TABLE invoices ADD COLUMN override_note TEXT;")
         # Add performance indexes
         conn.execute("CREATE INDEX IF NOT EXISTS idx_invoices_status_id ON invoices(status, invoice_id DESC);")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_po_date_desc ON purchase_orders(po_date DESC);")

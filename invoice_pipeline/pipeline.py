@@ -465,7 +465,15 @@ def process_invoice(
     po_balance_summary: Optional[POBalanceSummary] = None
 
     po_data = po_repo.get_by_id(match_res.selected_po) if match_res.selected_po else None
-    po_items = item_repo.list_by_po(match_res.selected_po) if match_res.selected_po else []
+    po_items = (
+        item_repo.list_by_po(
+            match_res.selected_po,
+            exclude_invoice_id=target_invoice_id,
+            include_pending=cfg.validation.reserve_pending_invoices,
+        )
+        if match_res.selected_po
+        else []
+    )
     consumed = (
         inv_repo.get_po_consumed_amount(
             match_res.selected_po,
@@ -686,6 +694,7 @@ def process_invoice(
                         decision_json=decision_result.model_dump_json(),
                         po_id=match_res.selected_po,
                         match_method=match_res.method.value if match_res.method else None,
+                        clear_override=True,
                     )
                     inv_repo.delete_lines(inv_id)
                 else:
@@ -773,7 +782,7 @@ def resolve_invoice(
 ) -> DecisionResult:
     """
     Applies human reviewer action to resolve a PENDING_REVIEW invoice in place without self-duplicate collisions.
-    Restores PO balance reservation on reject.
+    Supports 'approve'/'force_approve', 'reject', 'undo'/'revert', and 'select_po'.
     """
     cfg = config or load_config()
     conn = get_connection(cfg.app.db_path)
@@ -793,19 +802,128 @@ def resolve_invoice(
     prev_dec = json.loads(decision_json)
     pre_ext = prev_dec.get("extracted")
 
-    if action == "reject":
+    if action in ("approve", "force_approve"):
         with transaction(conn, mode="IMMEDIATE"):
-            # Restore reserved line quantities
-            lines = inv_repo.get_lines(invoice_id)
-            for l in lines:
-                if l.get("po_item_row_id") and l.get("quantity"):
-                    item_repo.restore_qty(l["po_item_row_id"], float(l["quantity"]))
+            prev_status = row.get("status", "")
+            if prev_status == "REJECTED":
+                lines = inv_repo.get_lines(invoice_id)
+                for l in lines:
+                    if l.get("po_item_row_id") and l.get("quantity"):
+                        item_repo.decrement_qty(l["po_item_row_id"], float(l["quantity"]))
 
-            prev_dec["decision"] = "REJECTED"
-            prev_dec["reasoning"].append(f"[REVIEWER ACTION] Rejected with note: {note or 'Manual rejection'}")
+            if not prev_dec.get("original_decision"):
+                prev_dec["original_decision"] = prev_dec.get("decision", "NEEDS_REVIEW")
+            if not prev_dec.get("original_reason_code"):
+                prev_dec["original_reason_code"] = prev_dec.get("reason_code", "REVIEW_REQUIRED")
+
+            prev_dec["decision"] = "APPROVED"
+            prev_dec["is_manual_override"] = True
+            prev_dec["override_action"] = "approve"
+            prev_dec["override_note"] = note
+            prev_dec["review"] = {"required": False, "actions": []}
+            note_str = f" Note: {note}" if note else ""
+            prev_dec.setdefault("reasoning", []).append(
+                {"status": "INFO", "text": f"[MANUAL OVERRIDE] Approved by reviewer.{note_str}"}
+            )
             prev_dec["invoice_id"] = invoice_id
             new_json = json.dumps(prev_dec)
-            inv_repo.update_invoice(invoice_id, status="REJECTED", decision_json=new_json)
+            inv_repo.update_invoice(
+                invoice_id=invoice_id,
+                status="APPROVED",
+                decision_json=new_json,
+                is_manual_override=1,
+                override_note=note,
+            )
+
+            selected_po = row.get("po_id") or (prev_dec.get("match") or {}).get("selected_po")
+            if selected_po:
+                po_repo = PORepo(conn)
+                all_items = item_repo.list_by_po(selected_po)
+                consumed_after = inv_repo.get_po_consumed_amount(selected_po, include_pending=True)
+                po_row = po_repo.get_by_id(selected_po)
+                is_zero_balance = po_row and (float(po_row["total"]) - consumed_after <= 0.01)
+                all_qty_zero = all_items and all(float(it["qty_remaining"]) <= 0 for it in all_items)
+                if is_zero_balance or all_qty_zero:
+                    po_repo.update_status(selected_po, "CLOSED")
+                else:
+                    po_repo.update_status(selected_po, "PARTIAL")
+
+        conn.close()
+        return DecisionResult(**prev_dec)
+
+    elif action == "reject":
+        with transaction(conn, mode="IMMEDIATE"):
+            prev_status = row.get("status", "")
+            if prev_status != "REJECTED":
+                lines = inv_repo.get_lines(invoice_id)
+                for l in lines:
+                    if l.get("po_item_row_id") and l.get("quantity"):
+                        item_repo.restore_qty(l["po_item_row_id"], float(l["quantity"]))
+
+            if not prev_dec.get("original_decision"):
+                prev_dec["original_decision"] = prev_dec.get("decision", "NEEDS_REVIEW")
+            if not prev_dec.get("original_reason_code"):
+                prev_dec["original_reason_code"] = prev_dec.get("reason_code", "REVIEW_REQUIRED")
+
+            prev_dec["decision"] = "REJECTED"
+            prev_dec["is_manual_override"] = True
+            prev_dec["override_action"] = "reject"
+            prev_dec["override_note"] = note
+            prev_dec["review"] = {"required": False, "actions": []}
+            note_str = f" Note: {note}" if note else ""
+            prev_dec.setdefault("reasoning", []).append(
+                {"status": "INFO", "text": f"[MANUAL OVERRIDE] Rejected by reviewer.{note_str}"}
+            )
+            prev_dec["invoice_id"] = invoice_id
+            new_json = json.dumps(prev_dec)
+            inv_repo.update_invoice(
+                invoice_id=invoice_id,
+                status="REJECTED",
+                decision_json=new_json,
+                is_manual_override=1,
+                override_note=note,
+            )
+
+            selected_po = row.get("po_id") or (prev_dec.get("match") or {}).get("selected_po")
+            if selected_po:
+                po_repo = PORepo(conn)
+                po_repo.update_status(selected_po, "PARTIAL")
+
+        conn.close()
+        return DecisionResult(**prev_dec)
+
+    elif action in ("undo", "revert"):
+        with transaction(conn, mode="IMMEDIATE"):
+            prev_status = row.get("status", "")
+            if prev_status == "REJECTED" and cfg.validation.reserve_pending_invoices:
+                lines = inv_repo.get_lines(invoice_id)
+                for l in lines:
+                    if l.get("po_item_row_id") and l.get("quantity"):
+                        item_repo.decrement_qty(l["po_item_row_id"], float(l["quantity"]))
+
+            orig_dec = prev_dec.get("original_decision", "NEEDS_REVIEW")
+            orig_rc = prev_dec.get("original_reason_code", "REVIEW_REQUIRED")
+
+            prev_dec["decision"] = orig_dec
+            prev_dec["reason_code"] = orig_rc
+            prev_dec["is_manual_override"] = False
+            prev_dec["override_action"] = None
+            prev_dec["override_note"] = None
+            prev_dec["review"] = {
+                "required": True,
+                "actions": [{"type": "select_po", "options": []}],
+            }
+            prev_dec.setdefault("reasoning", []).append(
+                {"status": "INFO", "text": "[MANUAL OVERRIDE] Override undone by reviewer - restored to pending review."}
+            )
+            prev_dec["invoice_id"] = invoice_id
+            new_json = json.dumps(prev_dec)
+            inv_repo.update_invoice(
+                invoice_id=invoice_id,
+                status="PENDING_REVIEW",
+                decision_json=new_json,
+                clear_override=True,
+            )
         conn.close()
         return DecisionResult(**prev_dec)
 

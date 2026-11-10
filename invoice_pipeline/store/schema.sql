@@ -49,6 +49,8 @@ CREATE TABLE IF NOT EXISTS invoices (
   file_hash TEXT,
   file_name TEXT,
   file_path TEXT,
+  is_manual_override INTEGER DEFAULT 0,
+  override_note TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 -- Partial unique index excluding rejected and null/empty invoice numbers

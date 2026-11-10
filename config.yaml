@@ -48,7 +48,7 @@ grounding:
 
 normalization:
   default_currency: INR
-  date_formats_priority: ["%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%d %b %Y"]   # DD/MM first (India)
+  date_formats_priority: ["%d/%m/%Y", "%d-%m-%Y", "%d-%b-%Y", "%d %b %Y", "%d-%B-%Y", "%Y-%m-%d"]   # DD/MM first (India)
   ambiguous_date_policy: flag     # flag | first_priority
 
 vendor:

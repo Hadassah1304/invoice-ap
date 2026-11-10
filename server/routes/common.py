@@ -103,7 +103,12 @@ def list_pos(
 
 
 @router.get("/api/pos/{po_id}")
-def get_po_detail(po_id: str, response: Response, db=Depends(get_db)):
+def get_po_detail(
+    po_id: str,
+    response: Response,
+    exclude_invoice_id: Optional[int] = None,
+    db=Depends(get_db),
+):
     po_repo = PORepo(db)
     item_repo = ItemRepo(db)
     vendor_repo = VendorRepo(db)
@@ -117,13 +122,13 @@ def get_po_detail(po_id: str, response: Response, db=Depends(get_db)):
 
     po_dict = dict(po)
     total_budget = float(po_dict.get("total") or 0.0)
-    billed_approved = inv_repo.get_po_consumed_amount(po_id, include_pending=False)
-    billed_total = inv_repo.get_po_consumed_amount(po_id, include_pending=True)
+    billed_approved = inv_repo.get_po_consumed_amount(po_id, include_pending=False, exclude_invoice_id=exclude_invoice_id)
+    billed_total = inv_repo.get_po_consumed_amount(po_id, include_pending=True, exclude_invoice_id=exclude_invoice_id)
     billed_pending = max(0.0, billed_total - billed_approved)
     remaining = round(max(0.0, total_budget - billed_total), 2)
     util_pct = round((billed_total / total_budget) * 100, 1) if total_budget > 0 else 0.0
 
-    items = item_repo.list_by_po(po_id)
+    items = item_repo.list_by_po(po_id, exclude_invoice_id=exclude_invoice_id)
     clean_items = []
     for it in items:
         d = dict(it)

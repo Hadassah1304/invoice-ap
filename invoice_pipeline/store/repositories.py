@@ -99,9 +99,46 @@ class ItemRepo:
     def __init__(self, conn: sqlite3.Connection) -> None:
         self.conn = conn
 
-    def list_by_po(self, po_id: str) -> List[dict]:
+    def list_by_po(
+        self,
+        po_id: str,
+        exclude_invoice_id: Optional[int] = None,
+        include_pending: bool = True,
+    ) -> List[dict]:
         cur = self.conn.execute("SELECT * FROM po_items WHERE po_id = ?", (po_id,))
-        return [dict(r) for r in cur.fetchall()]
+        items = [dict(r) for r in cur.fetchall()]
+        if not items:
+            return []
+
+        status_filter = "('APPROVED', 'PENDING_REVIEW')" if include_pending else "('APPROVED')"
+        q = f"""SELECT il.po_item_row_id, COALESCE(SUM(il.quantity), 0.0) as billed
+                FROM invoice_lines il
+                JOIN invoices inv ON il.invoice_id = inv.invoice_id
+                WHERE inv.po_id = ?
+                  AND inv.status IN {status_filter}"""
+        params = [po_id]
+        if exclude_invoice_id:
+            q += " AND inv.invoice_id != ?"
+            params.append(exclude_invoice_id)
+        q += " GROUP BY il.po_item_row_id"
+
+        cur_lines = self.conn.execute(q, params)
+        billed_by_item = {r["po_item_row_id"]: float(r["billed"]) for r in cur_lines.fetchall()}
+
+        for it in items:
+            row_id = it["row_id"]
+            if row_id in billed_by_item or exclude_invoice_id:
+                prior = billed_by_item.get(row_id, 0.0)
+                it["prior_billed_qty"] = prior
+                it["qty_remaining"] = max(0.0, float(it["qty_ordered"]) - prior)
+                it["available_qty"] = it["qty_remaining"]
+            else:
+                rem = float(it["qty_remaining"])
+                ord_qty = float(it["qty_ordered"])
+                it["prior_billed_qty"] = max(0.0, ord_qty - rem)
+                it["available_qty"] = rem
+
+        return items
 
     def list_all_open(self) -> List[dict]:
         # Filter for both OPEN/PARTIAL PO and lines with qty_remaining > 0
@@ -355,14 +392,28 @@ class InvoiceRepo:
         match_method: Optional[str] = None,
         file_name: Optional[str] = None,
         file_path: Optional[str] = None,
+        is_manual_override: Optional[int] = None,
+        override_note: Optional[str] = None,
+        clear_override: bool = False,
     ) -> None:
-        self.conn.execute(
-            """UPDATE invoices 
-               SET status = ?, decision_json = ?, po_id = COALESCE(?, po_id), match_method = COALESCE(?, match_method),
-                   file_name = COALESCE(?, file_name), file_path = COALESCE(?, file_path)
-               WHERE invoice_id = ?""",
-            (status, decision_json, po_id, match_method, file_name, file_path, invoice_id),
-        )
+        if clear_override:
+            self.conn.execute(
+                """UPDATE invoices 
+                   SET status = ?, decision_json = ?, po_id = COALESCE(?, po_id), match_method = COALESCE(?, match_method),
+                       file_name = COALESCE(?, file_name), file_path = COALESCE(?, file_path),
+                       is_manual_override = 0, override_note = NULL
+                   WHERE invoice_id = ?""",
+                (status, decision_json, po_id, match_method, file_name, file_path, invoice_id),
+            )
+        else:
+            self.conn.execute(
+                """UPDATE invoices 
+                   SET status = ?, decision_json = ?, po_id = COALESCE(?, po_id), match_method = COALESCE(?, match_method),
+                       file_name = COALESCE(?, file_name), file_path = COALESCE(?, file_path),
+                       is_manual_override = COALESCE(?, is_manual_override), override_note = COALESCE(?, override_note)
+                   WHERE invoice_id = ?""",
+                (status, decision_json, po_id, match_method, file_name, file_path, is_manual_override, override_note, invoice_id),
+            )
 
     def add_line(
         self,

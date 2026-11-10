@@ -12,6 +12,7 @@ CRITICAL RULES:
 5. Do NOT perform arithmetic to calculate or adjust missing totals or tax. Report exactly what is printed. Grand totals often appear on the final page of multi-page invoices.
 6. Identify `document_type`: "invoice", "credit_note", "debit_note", "proforma", or "other". Note that credit notes often have negative amounts or "Credit Note" headers.
 7. Preserve numbers accurately, including Indian numbering (e.g. 1,00,000.00) and European (e.g. 1.000,00).
+8. Normalize extracted dates (`invoice_date`, `due_date`) to standard ISO format "YYYY-MM-DD" (e.g. "19-Oct-2026" -> "2026-10-19", "15/10/2026" -> "2026-10-15"). If a numeric date is ambiguous (e.g. "04/05/2026"), default to day/month/year (DD/MM/YYYY) and set ambiguous to true.
 """
 
 EXPLANATION_POLISH_PROMPT = """You are an accounts payable auditor. Rephrase and polish the following structured decision explanation into clear, professional sentences for a finance executive.

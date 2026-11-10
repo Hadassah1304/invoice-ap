@@ -248,6 +248,11 @@ class DecisionResult(BaseModel):
     timings_ms: Timings = Field(default_factory=Timings)
     cost: CostSummary = Field(default_factory=CostSummary)
     cached: bool = False
+    is_manual_override: bool = False
+    override_note: Optional[str] = None
+    override_action: Optional[str] = None
+    original_decision: Optional[str] = None
+    original_reason_code: Optional[str] = None
 
 
 class BatchItemResult(BaseModel):

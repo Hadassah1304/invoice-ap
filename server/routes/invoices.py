@@ -237,13 +237,21 @@ def get_invoice(invoice_id: int, response: Response, db=Depends(get_db)):
     row = repo.get_by_id(invoice_id)
     if not row:
         raise HTTPException(status_code=404, detail="Invoice not found")
-    response.headers["Cache-Control"] = "private, max-age=60, stale-while-revalidate=120"
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     if row.get("decision_json"):
         data = json.loads(row["decision_json"])
         if row.get("file_name"):
             data["file_name"] = row["file_name"]
         if row.get("file_path"):
             data["file_path"] = row["file_path"]
+        data["is_manual_override"] = bool(row.get("is_manual_override", 0))
+        data["override_note"] = row.get("override_note")
+        if row.get("status"):
+            data["status"] = row["status"]
+            if row["status"] == "PENDING_REVIEW":
+                data["decision"] = "NEEDS_REVIEW"
+            else:
+                data["decision"] = row["status"]
         return data
     return dict(row)
 

@@ -39,6 +39,44 @@ function debounce(fn, delayMs = 250) {
   };
 }
 
+function parseDateToTimestamp(str) {
+  if (!str || str === '—' || str === 'Not Specified') return null;
+  const s = String(str).trim();
+  // Check DD-MM-YYYY or DD/MM/YYYY
+  const dmy = s.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/);
+  if (dmy) {
+    const d = parseInt(dmy[1], 10);
+    const m = parseInt(dmy[2], 10) - 1;
+    const y = parseInt(dmy[3], 10);
+    return new Date(y, m, d).getTime();
+  }
+  // Check ISO YYYY-MM-DD
+  const ymd = s.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+  if (ymd) {
+    const y = parseInt(ymd[1], 10);
+    const m = parseInt(ymd[2], 10) - 1;
+    const d = parseInt(ymd[3], 10);
+    return new Date(y, m, d).getTime();
+  }
+  // Try string with month name, e.g. 19-Oct-2026 -> 19 Oct 2026
+  const normalized = s.replace(/-/g, ' ');
+  const t = Date.parse(normalized);
+  if (!isNaN(t)) return t;
+  const directT = Date.parse(s);
+  return isNaN(directT) ? null : directT;
+}
+
+function formatDisplayDate(str) {
+  if (!str || str === '—' || str === 'Not Specified') return '—';
+  const ts = parseDateToTimestamp(str);
+  if (!ts) return str;
+  const dt = new Date(ts);
+  const day = String(dt.getDate()).padStart(2, '0');
+  const month = String(dt.getMonth() + 1).padStart(2, '0');
+  const year = dt.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+
 /* ==========================================================================
    PRODUCTION DATA CACHE LAYER (Memory + SessionStorage + SWR)
    ========================================================================== */
@@ -214,6 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnReject = $('btn-review-reject');
   if (btnReject) btnReject.addEventListener('click', () => handleResolve('reject'));
+
+  const btnUndo = $('btn-undo-override');
+  if (btnUndo) btnUndo.addEventListener('click', () => handleResolve('undo'));
 
   // Initialize Route Handlers
   initAppRoutes();
@@ -591,15 +632,20 @@ function getConfidenceTier(val) {
   }
 }
 
-async function fetchPODetail(poId) {
+async function fetchPODetail(poId, excludeInvoiceId = null) {
   if (!poId) return null;
-  if (poCache[poId]) return poCache[poId];
+  const cacheKey = `${poId}_${excludeInvoiceId || 'none'}`;
+  if (poCache[cacheKey]) return poCache[cacheKey];
   try {
-    const res = await fetch(`/api/pos/${encodeURIComponent(poId)}`);
+    let url = `/api/pos/${encodeURIComponent(poId)}`;
+    if (excludeInvoiceId) {
+      url += `?exclude_invoice_id=${encodeURIComponent(excludeInvoiceId)}`;
+    }
+    const res = await fetch(url);
     if (!res.ok) return null;
     const data = await res.json();
     if (!data.error) {
-      poCache[poId] = data;
+      poCache[cacheKey] = data;
       return data;
     }
   } catch (e) {
@@ -642,13 +688,49 @@ async function renderDecisionResult(result) {
 
   const decBadge = $('decision-badge');
   if (decBadge) {
-    decBadge.textContent = result.decision || 'UNKNOWN';
-    if (result.decision === 'APPROVED') {
-      decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono';
-    } else if (result.decision === 'REJECTED') {
-      decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-red-500/10 text-red-400 border border-red-500/30 font-mono';
+    if (result.is_manual_override) {
+      if (result.decision === 'APPROVED') {
+        decBadge.textContent = 'MANUALLY ACCEPTED';
+        decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-emerald-500/20 text-emerald-300 border border-emerald-500/50 font-mono shadow-[0_0_10px_rgba(16,185,129,0.2)]';
+      } else {
+        decBadge.textContent = 'MANUALLY REJECTED';
+        decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-red-500/20 text-red-300 border border-red-500/50 font-mono shadow-[0_0_10px_rgba(239,68,68,0.2)]';
+      }
     } else {
-      decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono';
+      decBadge.textContent = result.decision || 'UNKNOWN';
+      if (result.decision === 'APPROVED') {
+        decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono';
+      } else if (result.decision === 'REJECTED') {
+        decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-red-500/10 text-red-400 border border-red-500/30 font-mono';
+      } else {
+        decBadge.className = 'inline-flex items-center px-2 py-0.5 text-[11px] font-bold tracking-wide bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono';
+      }
+    }
+  }
+
+  // Manual Override Banner Rendering
+  const overridePanel = $('manual-override-panel');
+  if (overridePanel) {
+    if (result.is_manual_override) {
+      overridePanel.classList.remove('hidden');
+      const heading = $('manual-override-heading');
+      if (heading) {
+        heading.textContent = result.decision === 'APPROVED' ? 'Invoice Manually Accepted' : 'Invoice Manually Rejected';
+      }
+      const desc = $('manual-override-desc');
+      if (desc) {
+        desc.textContent = `This invoice was manually overridden by a reviewer (${result.decision === 'APPROVED' ? 'Approved' : 'Rejected'}). Automatic review flags have been bypassed.`;
+      }
+      const noteBox = $('manual-override-note-container');
+      const noteText = $('manual-override-note-text');
+      if (result.override_note && result.override_note.trim()) {
+        if (noteText) noteText.textContent = `"${result.override_note.trim()}"`;
+        if (noteBox) noteBox.classList.remove('hidden');
+      } else {
+        if (noteBox) noteBox.classList.add('hidden');
+      }
+    } else {
+      overridePanel.classList.add('hidden');
     }
   }
 
@@ -711,7 +793,7 @@ async function renderDecisionResult(result) {
             if (toggleBtnText) toggleBtnText.textContent = 'Hide Suspected Candidates';
             if (!activePOId && candidates.length > 0) {
               activePOId = candidates[0].po_id;
-              const d = await fetchPODetail(activePOId);
+              const d = await fetchPODetail(activePOId, result.invoice_id || currentInvoiceId);
               renderPOSelectorToolbar(result, activePOId);
               renderSideBySide(result, activePOId, d);
               renderCandidateTable(candidates, activePOId);
@@ -738,7 +820,7 @@ async function renderDecisionResult(result) {
   renderPOSelectorToolbar(result, activePOId);
 
   // Review Actions Panel
-  renderReviewPanel(result.review);
+  renderReviewPanel(result.review, result.is_manual_override);
 
   // Snapshot Bar
   renderSnapshotBar(result, activePOId);
@@ -746,7 +828,7 @@ async function renderDecisionResult(result) {
   // Load PO Detail & Render Side-by-Side Verification
   let poDetail = null;
   if (activePOId) {
-    poDetail = await fetchPODetail(activePOId);
+    poDetail = await fetchPODetail(activePOId, result.invoice_id || currentInvoiceId);
   }
   const invCurr = result.extracted?.currency?.value || 'INR';
   const poCurr = poDetail?.po?.currency || result.po_balance?.currency || 'INR';
@@ -822,7 +904,7 @@ function renderPOSelectorToolbar(result, currentActivePO) {
 
 async function switchActivePO(poId) {
   activePOId = poId;
-  const poDetail = await fetchPODetail(poId);
+  const poDetail = await fetchPODetail(poId, currentResult?.invoice_id || currentInvoiceId);
   renderPOSelectorToolbar(currentResult, activePOId);
   renderSnapshotBar(currentResult, activePOId);
   renderSideBySide(currentResult, activePOId, poDetail);
@@ -833,10 +915,15 @@ async function switchActivePO(poId) {
   if (targetRadio) targetRadio.checked = true;
 }
 
-function renderReviewPanel(review) {
+function renderReviewPanel(review, isManualOverride = false) {
   const reviewPanel = $('review-action-panel');
   const reviewControls = $('review-action-controls');
   if (reviewControls) reviewControls.innerHTML = '';
+
+  if (isManualOverride) {
+    if (reviewPanel) reviewPanel.classList.add('hidden');
+    return;
+  }
 
   if (review && review.required) {
     if (reviewPanel) reviewPanel.classList.remove('hidden');
@@ -873,7 +960,7 @@ function renderSnapshotBar(result, currentPoId) {
 
   setText('snap-inv-no', ext.invoice_number?.value || 'N/A');
   setText('snap-vendor', ext.vendor?.name || 'Unknown Vendor');
-  setText('snap-date', ext.invoice_date?.value || '—');
+  setText('snap-date', formatDisplayDate(ext.invoice_date?.value));
 
   const totalVal = ext.grand_total?.value != null ? Number(ext.grand_total.value).toFixed(2) : '0.00';
   setText('snap-total', `${curr} ${Number(totalVal).toLocaleString()}`);
@@ -1003,14 +1090,18 @@ function renderSideBySide(result, targetPoId, poDetail) {
 
   // 2. Chronology / Dates
   const poDate = poDetail?.po?.po_date || '—';
-  setText('diff-inv-date', invDate);
-  setText('diff-po-date', poDate !== '—' ? poDate : 'Not Specified');
+  const displayInvDate = formatDisplayDate(invDate);
+  const displayPoDate = poDate !== '—' ? formatDisplayDate(poDate) : 'Not Specified';
+  setText('diff-inv-date', displayInvDate);
+  setText('diff-po-date', displayPoDate);
 
   const dStatus = $('diff-date-status');
   const dSub = $('diff-date-sub');
   if (dStatus) {
-    if (invDate !== '—' && poDate !== '—') {
-      if (invDate >= poDate) {
+    const tInv = parseDateToTimestamp(invDate);
+    const tPo = parseDateToTimestamp(poDate);
+    if (tInv != null && tPo != null) {
+      if (tInv >= tPo) {
         dStatus.className = 'diff-status-pill status-match';
         dStatus.textContent = 'CHRONOLOGY VALID';
         if (dSub) dSub.textContent = 'Invoice is dated on or after purchase order issuance';
@@ -1145,12 +1236,22 @@ function renderSideBySide(result, targetPoId, poDetail) {
     const pUnit = poItem ? Number(poItem.unit_price) : null;
     const iUnit = invLine.unit_price != null ? Number(invLine.unit_price) : null;
     const pQty = poItem ? Number(poItem.qty_ordered) : null;
+    const pQtyRem = poItem ? Number(poItem.available_qty ?? poItem.qty_remaining ?? poItem.qty_ordered) : null;
+    const priorInvoiced = (poItem && poItem.prior_billed_qty != null)
+      ? Number(poItem.prior_billed_qty)
+      : ((pQty != null && pQtyRem != null) ? Math.max(0, pQty - pQtyRem) : 0);
     const iQty = invLine.quantity != null ? Number(invLine.quantity) : null;
     const iTot = invLine.line_total != null ? Number(invLine.line_total) : 0;
     const pTot = (pUnit != null && pQty != null) ? pUnit * pQty : null;
+    const uom = escapeHtml(invLine.uom || poItem?.uom || 'pcs');
+
+    // Detect overdraw against available remaining allocation
+    const isOverdraw = Boolean(poItem && pQtyRem != null && iQty != null && iQty > (pQtyRem + 0.001));
+    const overdrawQty = isOverdraw ? Number((iQty - pQtyRem).toFixed(4)) : 0;
 
     let overallBadgeHtml = '';
     const deltaChips = [];
+    let qtyLedgerHtml = '';
 
     if (!targetPoId) {
       overallBadgeHtml = '<span class="item-match-badge diff-unmatched">NO PO LINKED</span>';
@@ -1177,53 +1278,96 @@ function renderSideBySide(result, targetPoId, poDetail) {
           isPriceMatch = Math.abs(priceDiff) <= 0.01;
         }
 
-        // Analyze qty diff
-        let isQtyMatch = true;
-        let qtyDiff = 0;
-        if (pQty != null && iQty != null) {
-          qtyDiff = iQty - pQty;
-          isQtyMatch = Math.abs(qtyDiff) <= 0.01;
-        }
-
-        if (isPriceMatch && isQtyMatch) {
-          overallBadgeHtml = '<span class="item-match-badge diff-exact">MATCH: EXACT PRICE & QTY</span>';
-          deltaChips.push('<span class="delta-chip delta-ok">RATE: EXACT MATCH</span>');
-          deltaChips.push('<span class="delta-chip delta-ok">QTY: ALLOCATED HEADROOM VALID</span>');
-        } else if (!isPriceMatch && !isQtyMatch) {
-          overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: RATE & QUANTITY</span>';
+        // Header Badge determination
+        if (isOverdraw && !isPriceMatch) {
+          overallBadgeHtml = '<span class="item-match-badge diff-unmatched">OVERDRAW & RATE VARIANCE</span>';
+        } else if (isOverdraw) {
+          overallBadgeHtml = '<span class="item-match-badge diff-unmatched">OVERDRAW: QTY EXCEEDS REMAINING</span>';
         } else if (!isPriceMatch) {
           overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: UNIT RATE</span>';
+        } else if (pQty != null && iQty != null && Math.abs(iQty - pQty) > 0.01) {
+          overallBadgeHtml = '<span class="item-match-badge diff-exact">PARTIAL CLAIM: WITHIN QUOTA</span>';
         } else {
-          overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: QUANTITY</span>';
+          overallBadgeHtml = '<span class="item-match-badge diff-exact">MATCH: EXACT PRICE & QTY</span>';
         }
 
+        // 1. Rate Chip
         if (!isPriceMatch && pUnit != null && iUnit != null) {
           const driftPct = ((priceDiff / pUnit) * 100).toFixed(1);
           const sign = priceDiff > 0 ? '+' : '';
           const chipClass = priceDiff > 0 ? 'delta-drift' : 'delta-info';
           deltaChips.push(`<span class="delta-chip ${chipClass}">RATE VARIANCE: ${sign}${invCurr} ${priceDiff.toFixed(2)} (${sign}${driftPct}%)</span>`);
+        } else if (pUnit != null && iUnit != null) {
+          deltaChips.push(`<span class="delta-chip delta-ok">RATE: EXACT MATCH (${invCurr} ${iUnit.toFixed(2)})</span>`);
         }
 
-        if (!isQtyMatch && pQty != null && iQty != null) {
-          const sign = qtyDiff > 0 ? '+' : '';
-          const chipClass = qtyDiff > 0 ? 'delta-warn' : 'delta-ok';
-          deltaChips.push(`<span class="delta-chip ${chipClass}">QTY VARIANCE: ${sign}${qtyDiff} ${invLine.uom || 'units'} vs PO</span>`);
+        // 2. Quantity / Quota Chip (Evaluates against remaining available quota)
+        if (isOverdraw) {
+          deltaChips.push(`<span class="delta-chip delta-drift">⚠️ OVERDRAW: +${overdrawQty} ${uom} EXCEEDS REMAINING QUOTA (${pQtyRem} rem)</span>`);
+        } else if (pQtyRem != null && iQty != null && pQty != null && Math.abs(iQty - pQty) > 0.01) {
+          deltaChips.push(`<span class="delta-chip delta-ok">QUOTA VERIFIED: ${iQty} of ${pQtyRem} ${uom} available</span>`);
+        } else if (pQtyRem != null && iQty != null) {
+          deltaChips.push(`<span class="delta-chip delta-ok">QTY: ALLOCATED HEADROOM VALID</span>`);
         }
 
-        if (pTot != null) {
+        // 3. Lifetime Order Context Chip (If claim is a partial draw of original order)
+        if (pQty != null && iQty != null && Math.abs(iQty - pQty) > 0.01) {
+          const lifePct = ((iQty / pQty) * 100).toFixed(0);
+          deltaChips.push(`<span class="delta-chip delta-info">LIFETIME PO: ${iQty} of ${pQty} ${uom} (${lifePct}%)</span>`);
+        }
+
+        // 4. Overdraw Dollar Value or Line Delta
+        if (isOverdraw) {
+          const overdrawVal = overdrawQty * (pUnit || iUnit || 0);
+          deltaChips.push(`<span class="delta-chip delta-drift">OVERDRAW VALUE: +${invCurr} ${overdrawVal.toFixed(2)}</span>`);
+        } else if (pTot != null) {
           const totDiff = iTot - pTot;
           if (Math.abs(totDiff) > 0.01) {
-            const sign = totDiff > 0 ? '+' : '';
-            deltaChips.push(`<span class="delta-chip delta-warn">LINE TOTAL DELTA: ${sign}${invCurr} ${totDiff.toFixed(2)}</span>`);
+            deltaChips.push(`<span class="delta-chip delta-info">LINE CLAIM: ${invCurr} ${iTot.toFixed(2)} (PO Total: ${poCurr} ${pTot.toFixed(2)})</span>`);
           }
         }
       }
+
+      // 4-Stage Quantity Ledger Breakdown Ribbon (Option 1)
+      if (poItem && pQty != null && pQtyRem != null && iQty != null) {
+        qtyLedgerHtml = `
+          <div class="item-qty-ledger">
+            <div class="ledger-pill">
+              <span class="ledger-lbl">1. PO Ordered</span>
+              <span class="ledger-val">${pQty} ${uom}</span>
+            </div>
+            <span class="ledger-operator">−</span>
+            <div class="ledger-pill">
+              <span class="ledger-lbl">2. Prior Invoiced</span>
+              <span class="ledger-val">${priorInvoiced} ${uom}</span>
+            </div>
+            <span class="ledger-operator">=</span>
+            <div class="ledger-pill ${pQtyRem <= 0 ? 'pill-exhausted' : 'pill-available'}">
+              <span class="ledger-lbl">3. Available Quota</span>
+              <span class="ledger-val">${pQtyRem} ${uom}</span>
+            </div>
+            <span class="ledger-divider"></span>
+            <div class="ledger-pill pill-claim ${isOverdraw ? 'pill-overdraw' : ''}">
+              <span class="ledger-lbl">4. This Invoice</span>
+              <span class="ledger-val">${iQty} ${uom}</span>
+            </div>
+            <div class="ledger-summary ${isOverdraw ? 'summary-overdraw' : 'summary-valid'}">
+              ${isOverdraw
+                ? `⚠️ Overdraw: +${overdrawQty} ${uom} exceeds available quota`
+                : (pQtyRem === pQty && iQty === pQty
+                    ? `✓ 100% PO Fulfillment`
+                    : `✓ Within Available Quota (${(pQtyRem - iQty).toFixed(0)} rem after)`)}
+            </div>
+          </div>
+        `;
+      }
     }
 
+    const hasVariance = Boolean(isOverdraw || (poItem && pUnit != null && iUnit != null && Math.abs(iUnit - pUnit) > 0.01));
     const widget = document.createElement('div');
-    widget.className = 'item-widget';
+    widget.className = `item-widget ${hasVariance ? 'is-open' : ''}`;
     widget.innerHTML = `
-      <div class="item-widget-header" role="button" tabindex="0" aria-expanded="false" title="Click to view PO comparison details">
+      <div class="item-widget-header" role="button" tabindex="0" aria-expanded="${hasVariance ? 'true' : 'false'}" title="Click to view PO comparison details">
         <div class="item-widget-header-left">
           <span class="item-line-no">Item #${invLine.line_no ?? (idx + 1)}</span>
           <span class="item-main-desc" title="${escapeHtml(invLine.description)}">${escapeHtml(invLine.description)}</span>
@@ -1276,7 +1420,7 @@ function renderSideBySide(result, targetPoId, poDetail) {
             </div>
             <div class="item-cell-stat">
               <span class="stat-lbl">PO Ordered</span>
-              <span class="stat-val">${poItem ? `${poItem.qty_ordered} ${escapeHtml(poItem.uom || '')}` : '—'} ${poItem ? `<span class="rem-note">(${poItem.qty_remaining} rem)</span>` : ''}</span>
+              <span class="stat-val">${poItem ? `${poItem.qty_ordered} ${escapeHtml(poItem.uom || '')}` : '—'} ${poItem ? `<span class="rem-note ${pQtyRem <= 0 ? 'text-red font-bold' : ''}">(${poItem.qty_remaining} rem)</span>` : ''}</span>
             </div>
             <div class="item-cell-stat">
               <span class="stat-lbl">PO Rate</span>
@@ -1288,6 +1432,8 @@ function renderSideBySide(result, targetPoId, poDetail) {
             </div>
           </div>
         </div>
+
+        ${qtyLedgerHtml}
 
         ${deltaChips.length > 0 ? `
           <div class="item-delta-strip">
@@ -1637,7 +1783,7 @@ function renderExtractedFields(ext) {
   addRow('GSTIN', ext.vendor?.gstin, ext.vendor?.confidence, false);
   addRow('Bank Account', ext.vendor?.bank_account, ext.vendor?.confidence, false);
   addRow('Invoice #', ext.invoice_number?.value, ext.invoice_number?.confidence, false);
-  addRow('Invoice Date', ext.invoice_date?.value, ext.invoice_date?.confidence, false);
+  addRow('Invoice Date', formatDisplayDate(ext.invoice_date?.value), ext.invoice_date?.confidence, false);
   addRow('PO Reference', ext.po_reference?.value, ext.po_reference?.confidence, false);
   addRow('Currency', ext.currency?.value, ext.currency?.confidence, false);
   addRow('Total Invoiced', `${ext.currency?.value ?? 'INR'} ${ext.grand_total?.value != null ? Number(ext.grand_total.value).toLocaleString('en-IN') : 0}`, ext.grand_total?.confidence, true);
@@ -1807,12 +1953,17 @@ async function handleResolve(action) {
     const res = await fetch(`/api/invoices/${currentInvoiceId}/resolve`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: action === 'approve' ? 'select_po' : 'reject', po_id: poId, note: note }),
+      body: JSON.stringify({ action: action, po_id: poId, note: note }),
     });
-    if (!res.ok) throw new Error('Failed to resolve');
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.detail || 'Failed to resolve');
+    }
     const updated = await res.json();
+    if (noteInput) noteInput.value = '';
     DataCache.invalidate('invoices');
     DataCache.invalidate('pos');
+    DataCache.set(`/api/invoices/${currentInvoiceId}`, updated, 300);
     await renderDecisionResult(updated);
     loadCockpitQueue({ reset: true });
     if (typeof batchResults !== 'undefined' && batchResults && batchResults.length) {
@@ -1951,21 +2102,33 @@ function appendHistoryItem(inv, list) {
   const isCurrent = currentInvoiceId === inv.invoice_id;
   const isRej = inv.status === 'REJECTED';
   const isApp = inv.status === 'APPROVED';
+  const isManual = Boolean(inv.is_manual_override);
 
   let rowClass = 'p-2.5 hover:bg-[#1a2434]/70 transition flex items-center justify-between group cursor-pointer history-queue-item';
   if (isCurrent) {
     rowClass += isRej
       ? ' bg-red-950/30 border-l-2 border-red-500 active-queue-item'
-      : ' bg-amber-500/10 border-l-2 border-amber-500 active-queue-item';
+      : (isApp ? ' bg-emerald-500/10 border-l-2 border-emerald-500 active-queue-item' : ' bg-amber-500/10 border-l-2 border-amber-500 active-queue-item');
   } else if (isRej) {
     rowClass += ' hover:bg-red-950/20';
   }
 
   let statusBadge = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
-  if (isApp) {
-    statusBadge = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
-  } else if (isRej) {
-    statusBadge = 'bg-red-500/10 text-red-400 border border-red-500/30';
+  let statusText = escapeHtml(inv.status);
+  if (isManual) {
+    if (isApp) {
+      statusBadge = 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/50';
+      statusText = 'MANUAL ACCEPT';
+    } else if (isRej) {
+      statusBadge = 'bg-red-500/20 text-red-300 border border-red-500/50';
+      statusText = 'MANUAL REJECT';
+    }
+  } else {
+    if (isApp) {
+      statusBadge = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+    } else if (isRej) {
+      statusBadge = 'bg-red-500/10 text-red-400 border border-red-500/30';
+    }
   }
 
   const ts = formatTimestamp(inv.created_at);
@@ -1974,8 +2137,9 @@ function appendHistoryItem(inv, list) {
   div.dataset.invoiceId = String(inv.invoice_id);
   div.innerHTML = `
     <div class="space-y-0.5 min-w-0 pr-2">
-      <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-1.5 flex-wrap">
         <span class="font-mono text-[12px] font-bold text-[#dee2ee]">#${escapeHtml(inv.invoice_no_raw || 'N/A')}</span>
+        ${isManual ? '<span class="px-1 py-0.2 text-[8px] font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40 uppercase">MANUAL</span>' : ''}
         ${isRej ? '<span class="h-1.5 w-1.5 bg-red-400"></span>' : ''}
         <span class="current-badge ${isCurrent ? '' : 'hidden'} text-[9px] font-mono text-amber-400 uppercase font-bold">[CURRENT]</span>
       </div>
@@ -1989,7 +2153,7 @@ function appendHistoryItem(inv, list) {
     </div>
     <div class="flex flex-col items-end gap-1 flex-shrink-0">
       <span class="inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold tracking-wide ${statusBadge} font-mono uppercase">
-        ${escapeHtml(inv.status)}
+        ${statusText}
       </span>
       <button class="h-5 px-1.5 flex items-center gap-1 bg-[#1a2434] hover:bg-[#232f42] text-[#dee2ee] text-[10px] font-medium transition border border-[#232f42] btn-view-hist-doc cursor-pointer">
         <span class="material-symbols-outlined text-[12px]">visibility</span>

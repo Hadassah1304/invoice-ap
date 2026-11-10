@@ -118,7 +118,7 @@ def parse_date(
     ambiguous_policy: str = "flag",
 ) -> Tuple[Optional[str], bool]:
     """
-    Parses a date string into ISO YYYY-MM-DD.
+    Parses any human or standard date string into standard ISO YYYY-MM-DD.
     Returns (iso_date_or_none, is_ambiguous).
     Never returns an invalid string that would corrupt a SQLite DATE column.
     """
@@ -126,7 +126,10 @@ def parse_date(
         return None, False
 
     clean = str(date_str).strip()
-    formats = priority_formats or [
+    # Remove ordinal suffixes like 1st, 2nd, 3rd, 19th
+    clean = re.sub(r"(\d+)(st|nd|rd|th)", r"\1", clean, flags=re.IGNORECASE)
+
+    standard_formats = [
         "%d/%m/%Y",
         "%d-%m-%Y",
         "%Y-%m-%d",
@@ -134,13 +137,27 @@ def parse_date(
         "%d %B %Y",
         "%d-%b-%Y",
         "%d-%B-%Y",
+        "%d/%b/%Y",
+        "%d/%B/%Y",
+        "%d.%m.%Y",
+        "%Y.%m.%d",
         "%b %d, %Y",
         "%B %d, %Y",
         "%b %d %Y",
         "%B %d %Y",
+        "%b-%d-%Y",
+        "%B-%d-%Y",
         "%Y/%m/%d",
         "%m/%d/%Y",
+        "%m-%d-%Y",
+        "%d%m%Y",
+        "%Y%m%d",
     ]
+
+    formats = list(priority_formats or [])
+    for fmt in standard_formats:
+        if fmt not in formats:
+            formats.append(fmt)
 
     # Check for DD/MM vs MM/DD ambiguity (e.g. 03/04/2026)
     m = re.match(r"^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$", clean)

@@ -2936,6 +2936,104 @@ body {
   color: var(--text-secondary);
 }
 
+/* Quantity Ledger Breakdown Ribbon (Option 1) */
+.item-qty-ledger {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(13, 19, 28, 0.95);
+  border-top: 1px solid var(--outline-variant);
+  font-family: var(--font-mono);
+}
+
+.ledger-pill {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: var(--surface-high);
+  border: 1px solid var(--outline-variant);
+  min-width: 80px;
+}
+
+.ledger-lbl {
+  font-size: 8px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ledger-val {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ledger-operator {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  user-select: none;
+  padding: 0 0.125rem;
+}
+
+.ledger-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--outline-variant);
+  margin: 0 0.25rem;
+}
+
+.pill-exhausted {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.12);
+}
+.pill-exhausted .ledger-val {
+  color: var(--color-danger-text);
+}
+
+.pill-available {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+}
+.pill-available .ledger-val {
+  color: var(--color-success-text);
+}
+
+.pill-claim {
+  border-color: var(--outline-variant);
+}
+
+.pill-overdraw {
+  border-color: var(--color-danger-border);
+  background: var(--color-danger-bg);
+}
+.pill-overdraw .ledger-val {
+  color: var(--color-danger-text);
+}
+
+.ledger-summary {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+}
+
+.summary-overdraw {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+  border: 1px solid var(--color-danger-border);
+}
+
+.summary-valid {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+  border: 1px solid var(--color-success-border);
+}
+
 /* Mini Confidence Bar */
 .mini-conf-bar {
   display: flex;

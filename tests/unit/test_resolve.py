@@ -147,4 +147,146 @@ def test_resolve_reject_restores_quantities(tmp_path):
 
     inv_row = InvoiceRepo(conn).get_by_id(inv_id)
     assert inv_row["status"] == "REJECTED"
+    assert inv_row["is_manual_override"] == 1
+    assert inv_row["override_note"] == "Rejected by AP manager"
+    conn.close()
+
+
+def test_resolve_approve_and_undo(tmp_path):
+    db_file = str(tmp_path / "approve_undo_test.db")
+    setup_test_db(db_file)
+    cfg = PipelineConfig(app={"db_path": db_file})
+    cfg.validation.reserve_pending_invoices = True
+
+    canned = {
+        "vendor": {"name": "Apex Supplies Ltd"},
+        "invoice_number": {"value": "INV-RES-03"},
+        "invoice_date": {"value": "2026-10-15"},
+        "po_reference": {"value": "PO-TEST-01"},
+        "currency": {"value": "INR"},
+        "grand_total": {"value": 500.0},
+        "line_items": [
+            {"line_no": 1, "description": "A4 Paper 80gsm Ream", "quantity": 4.0, "unit_price": 125.0, "line_total": 500.0}
+        ],
+        "document_type": "invoice",
+    }
+
+    pdf_path = tmp_path / "dummy3.pdf"
+    pdf_path.write_bytes(b"%PDF-1.4 dummy")
+
+    res = process_invoice(pdf_path, config=cfg, pre_extracted_json=canned)
+    assert res.decision == DecisionEnum.NEEDS_REVIEW
+
+    conn = get_connection(db_file)
+    invoices = InvoiceRepo(conn).list_all()
+    inv_id = invoices[0]["invoice_id"]
+    conn.close()
+
+    # 1. Force approve
+    app_res = resolve_invoice(
+        invoice_id=inv_id,
+        action="approve",
+        config=cfg,
+        note="Approved by supervisor exception",
+    )
+    assert app_res.decision == DecisionEnum.APPROVED
+    assert app_res.is_manual_override is True
+    assert app_res.override_note == "Approved by supervisor exception"
+    assert app_res.override_action == "approve"
+    assert app_res.review.required is False
+
+    conn = get_connection(db_file)
+    inv_row = InvoiceRepo(conn).get_by_id(inv_id)
+    assert inv_row["status"] == "APPROVED"
+    assert inv_row["is_manual_override"] == 1
+    assert inv_row["override_note"] == "Approved by supervisor exception"
+    conn.close()
+
+    # 2. Undo override back to PENDING_REVIEW
+    undo_res = resolve_invoice(
+        invoice_id=inv_id,
+        action="undo",
+        config=cfg,
+    )
+    assert undo_res.decision == DecisionEnum.NEEDS_REVIEW
+    assert undo_res.is_manual_override is False
+    assert undo_res.override_note is None
+    assert undo_res.override_action is None
+    assert undo_res.review.required is True
+
+    conn = get_connection(db_file)
+    inv_row_after = InvoiceRepo(conn).get_by_id(inv_id)
+    assert inv_row_after["status"] == "PENDING_REVIEW"
+    assert inv_row_after["is_manual_override"] == 0
+    assert inv_row_after["override_note"] is None
+    conn.close()
+
+
+def test_resolve_reject_and_undo(tmp_path):
+    db_file = str(tmp_path / "reject_undo_test.db")
+    setup_test_db(db_file)
+    cfg = PipelineConfig(app={"db_path": db_file})
+    cfg.validation.reserve_pending_invoices = True
+
+    canned = {
+        "vendor": {"name": "Apex Supplies Ltd"},
+        "invoice_number": {"value": "INV-RES-04"},
+        "invoice_date": {"value": "2026-10-15"},
+        "po_reference": {"value": "PO-TEST-01"},
+        "currency": {"value": "INR"},
+        "grand_total": {"value": 500.0},
+        "line_items": [
+            {"line_no": 1, "description": "A4 Paper 80gsm Ream", "quantity": 4.0, "unit_price": 125.0, "line_total": 500.0}
+        ],
+        "document_type": "invoice",
+    }
+
+    pdf_path = tmp_path / "dummy4.pdf"
+    pdf_path.write_bytes(b"%PDF-1.4 dummy")
+
+    res = process_invoice(pdf_path, config=cfg, pre_extracted_json=canned)
+    assert res.decision == DecisionEnum.NEEDS_REVIEW
+
+    conn = get_connection(db_file)
+    invoices = InvoiceRepo(conn).list_all()
+    inv_id = invoices[0]["invoice_id"]
+    conn.close()
+
+    # 1. Reject
+    rej_res = resolve_invoice(
+        invoice_id=inv_id,
+        action="reject",
+        config=cfg,
+        note="Rejected due to mismatch",
+    )
+    assert rej_res.decision == DecisionEnum.REJECTED
+    assert rej_res.is_manual_override is True
+    assert rej_res.override_note == "Rejected due to mismatch"
+
+    conn = get_connection(db_file)
+    inv_row = InvoiceRepo(conn).get_by_id(inv_id)
+    assert inv_row["status"] == "REJECTED"
+    assert inv_row["is_manual_override"] == 1
+    # Check qty was restored
+    items = ItemRepo(conn).list_by_po("PO-TEST-01")
+    assert items[0]["qty_remaining"] == 10.0
+    conn.close()
+
+    # 2. Undo reject
+    undo_res = resolve_invoice(
+        invoice_id=inv_id,
+        action="undo",
+        config=cfg,
+    )
+    assert undo_res.decision == DecisionEnum.NEEDS_REVIEW
+    assert undo_res.is_manual_override is False
+    assert undo_res.review.required is True
+
+    conn = get_connection(db_file)
+    inv_row_after = InvoiceRepo(conn).get_by_id(inv_id)
+    assert inv_row_after["status"] == "PENDING_REVIEW"
+    assert inv_row_after["is_manual_override"] == 0
+    # Check qty was decremented again upon returning to PENDING_REVIEW
+    items_after = ItemRepo(conn).list_by_po("PO-TEST-01")
+    assert items_after[0]["qty_remaining"] == 6.0
     conn.close()

@@ -361,6 +361,29 @@
             </div>
           </div>
 
+          <!-- Manual Override Status & Undo Banner (Shown when is_manual_override is true) -->
+          <div id="manual-override-panel" class="bg-purple-950/20 border border-purple-500/40 p-4 shadow-sm hidden space-y-2">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-purple-400 text-[18px]">verified_user</span>
+                <div>
+                  <h3 id="manual-override-heading" class="text-[13px] font-semibold text-purple-200 font-headline">Decision Overridden by Reviewer</h3>
+                  <p id="manual-override-desc" class="text-[11px] text-purple-300/80 font-sans"></p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span id="manual-override-badge" class="px-2 py-0.5 text-[10px] font-mono bg-purple-500/20 text-purple-300 border border-purple-500/40 font-bold uppercase">MANUAL OVERRIDE</span>
+                <button id="btn-undo-override" class="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-semibold transition flex items-center gap-1 font-mono uppercase cursor-pointer">
+                  <span class="material-symbols-outlined text-[14px]">undo</span>
+                  Undo Override
+                </button>
+              </div>
+            </div>
+            <div id="manual-override-note-container" class="text-[11px] font-mono text-[#cbd5e1] bg-[#0f141c]/60 p-2 border border-purple-500/20 rounded-none hidden">
+              <span class="text-purple-400 font-bold">Reviewer Note:</span> <span id="manual-override-note-text"></span>
+            </div>
+          </div>
+
           <!-- 2. Invoice Snapshot Bar matching Stitch Screen -->
           <div id="invoice-snapshot-bar" class="bg-[#161f2c] border border-[#232f42] p-4 shadow-sm grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-4 items-center">
             <div>

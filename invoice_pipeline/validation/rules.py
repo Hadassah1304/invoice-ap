@@ -4,6 +4,7 @@ import datetime
 from typing import Any, Dict, List, Optional
 from invoice_pipeline.config import ValidationConfig
 from invoice_pipeline.models import RuleResult, RuleStatusEnum, SeverityEnum
+from invoice_pipeline.normalize.normalizers import parse_date
 
 
 class ValidationContext:
@@ -327,12 +328,16 @@ def check_date_sanity(ctx: ValidationContext) -> RuleResult:
     try:
         inv_date = datetime.date.fromisoformat(str(inv_date_str))
     except ValueError:
-        return RuleResult(
-            rule="date_sanity",
-            status=RuleStatusEnum.FLAG,
-            severity=SeverityEnum.SOFT,
-            message=f"Invalid date format: {inv_date_str}",
-        )
+        iso_str, _ = parse_date(str(inv_date_str))
+        if iso_str:
+            inv_date = datetime.date.fromisoformat(iso_str)
+        else:
+            return RuleResult(
+                rule="date_sanity",
+                status=RuleStatusEnum.FLAG,
+                severity=SeverityEnum.SOFT,
+                message=f"Invalid date format: {inv_date_str}",
+            )
 
     # Use injectable as_of_date
     today = ctx.as_of_date
@@ -356,15 +361,22 @@ def check_date_sanity(ctx: ValidationContext) -> RuleResult:
     if ctx.po and ctx.po.get("po_date"):
         try:
             po_date_val = ctx.po["po_date"]
-            po_date = po_date_val if isinstance(po_date_val, datetime.date) else datetime.date.fromisoformat(str(po_date_val))
-            if inv_date < po_date:
+            if isinstance(po_date_val, datetime.date):
+                po_date = po_date_val
+            else:
+                try:
+                    po_date = datetime.date.fromisoformat(str(po_date_val))
+                except ValueError:
+                    po_iso, _ = parse_date(str(po_date_val))
+                    po_date = datetime.date.fromisoformat(po_iso) if po_iso else None
+            if po_date and inv_date < po_date:
                 return RuleResult(
                     rule="date_sanity",
                     status=RuleStatusEnum.FLAG,
                     severity=SeverityEnum.SOFT,
                     message=f"Invoice date ({inv_date_str}) is before PO date ({po_date})",
                 )
-        except ValueError:
+        except Exception:
             pass
 
     return RuleResult(
