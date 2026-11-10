@@ -35,6 +35,7 @@ EXPOSE 8000
 
 # Default configuration (runtime only requires EXPLABS_API_KEY)
 ENV INVOICE_CONFIG=config.yaml
+ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
 CMD ["invoice-ap", "serve", "--host", "0.0.0.0", "--port", "8000"]

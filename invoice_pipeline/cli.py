@@ -372,6 +372,12 @@ def serve(
     port: int = typer.Option(8000, "--port", "-p"),
 ):
     """Start the FastAPI AP Automation Server."""
+    import sys
+    proj_root = str(Path(__file__).resolve().parent.parent)
+    if proj_root not in sys.path:
+        sys.path.insert(0, proj_root)
+    if os.getcwd() not in sys.path:
+        sys.path.insert(0, os.getcwd())
     import uvicorn
     uvicorn.run("server.main:app", host=host, port=port, reload=False)
 

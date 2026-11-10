@@ -33,7 +33,7 @@ dependencies = [
 invoice-ap = "invoice_pipeline.cli:app"
 
 [tool.hatch.build.targets.wheel]
-packages = ["invoice_pipeline"]
+packages = ["invoice_pipeline", "server"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
