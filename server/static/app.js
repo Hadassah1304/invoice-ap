@@ -929,10 +929,43 @@ function renderSideBySide(result, targetPoId, poDetail) {
   // 1. Vendor Alignment
   const poVendor = poDetail?.vendor?.name || poDetail?.po?.vendor_id || (targetPoId ? 'Catalog Master' : '—');
   const poGstin = poDetail?.vendor?.gstin || '—';
+  const invBank = ext.vendor?.bank_account || '—';
+  const poBank = poDetail?.vendor?.bank_account || '—';
+
   setText('diff-inv-vendor', invVendor);
   setText('diff-inv-gstin', invGstin !== 'Not Provided' ? `GSTIN: ${invGstin}` : 'GSTIN: Not Available');
   setText('diff-po-vendor', poVendor);
   setText('diff-po-gstin', poGstin !== '—' ? `GSTIN: ${poGstin}` : 'GSTIN: Not Recorded');
+
+  const cleanInvBank = invBank !== '—' ? invBank.replace(/[^a-zA-Z0-9]/g, '').toUpperCase() : '';
+  const cleanPoBank = poBank !== '—' ? poBank.replace(/[^a-zA-Z0-9]/g, '').toUpperCase() : '';
+  const isBankMismatch = Boolean(targetPoId && cleanInvBank && cleanPoBank && cleanInvBank !== cleanPoBank);
+
+  const invBankEl = $('diff-inv-bank');
+  if (invBankEl) {
+    if (invBank !== '—') {
+      invBankEl.textContent = `Bank A/C: ${invBank}`;
+      invBankEl.className = isBankMismatch 
+        ? 'text-[11px] text-amber-400 font-mono mt-0.5' 
+        : 'text-[11px] text-[#94a3b8] font-mono mt-0.5';
+    } else {
+      invBankEl.textContent = 'Bank A/C: Not On Document';
+      invBankEl.className = 'text-[11px] text-[#64748b] font-mono mt-0.5';
+    }
+  }
+
+  const poBankEl = $('diff-po-bank');
+  if (poBankEl) {
+    if (poBank !== '—') {
+      poBankEl.textContent = `Bank A/C: ${poBank}`;
+      poBankEl.className = isBankMismatch 
+        ? 'text-[11px] text-red-400 font-mono mt-0.5' 
+        : 'text-[11px] text-[#94a3b8] font-mono mt-0.5';
+    } else {
+      poBankEl.textContent = targetPoId ? 'Bank A/C: Not Recorded In Master' : 'Bank A/C: —';
+      poBankEl.className = 'text-[11px] text-[#64748b] font-mono mt-0.5';
+    }
+  }
 
   const vStatus = $('diff-vendor-status');
   const vSub = $('diff-vendor-sub');
@@ -941,10 +974,16 @@ function renderSideBySide(result, targetPoId, poDetail) {
       vStatus.className = 'diff-status-pill status-neutral';
       vStatus.textContent = 'NO PO LINKED';
       if (vSub) vSub.textContent = 'Select a purchase order to verify vendor';
+    } else if (isBankMismatch) {
+      vStatus.className = 'diff-status-pill status-mismatch';
+      vStatus.textContent = 'BANK ACCOUNT MISMATCH';
+      if (vSub) vSub.textContent = `Invoice bank A/C (${invBank}) differs from ERP master record (${poBank})`;
     } else if (poGstin !== '—' && invGstin !== 'Not Provided' && invGstin.toUpperCase() === poGstin.toUpperCase()) {
       vStatus.className = 'diff-status-pill status-match';
-      vStatus.textContent = 'EXACT GSTIN MATCH';
-      if (vSub) vSub.textContent = 'Tax ID and vendor entity verified with master record';
+      vStatus.textContent = cleanInvBank && cleanPoBank ? 'EXACT GSTIN & BANK MATCH' : 'EXACT GSTIN MATCH';
+      if (vSub) vSub.textContent = cleanInvBank && cleanPoBank
+        ? 'Tax ID, vendor entity, and bank account verified with master record'
+        : 'Tax ID and vendor entity verified with master record';
     } else if (poVendor.toLowerCase().includes(invVendor.toLowerCase()) || invVendor.toLowerCase().includes(poVendor.toLowerCase())) {
       vStatus.className = 'diff-status-pill status-match';
       vStatus.textContent = 'VENDOR RECOGNIZED';
@@ -1530,6 +1569,7 @@ function renderExtractedFields(ext) {
 
   addRow('Vendor Name', ext.vendor?.name, ext.vendor?.confidence, false);
   addRow('GSTIN', ext.vendor?.gstin, ext.vendor?.confidence, false);
+  addRow('Bank Account', ext.vendor?.bank_account, ext.vendor?.confidence, false);
   addRow('Invoice #', ext.invoice_number?.value, ext.invoice_number?.confidence, false);
   addRow('Invoice Date', ext.invoice_date?.value, ext.invoice_date?.confidence, false);
   addRow('PO Reference', ext.po_reference?.value, ext.po_reference?.confidence, false);
