@@ -229,6 +229,71 @@ class InvoiceRepo:
         cur = self.conn.execute(query, params)
         return [dict(r) for r in cur.fetchall()]
 
+    def list_paged(
+        self,
+        status: Optional[str] = None,
+        vendor_id: Optional[str] = None,
+        po_id: Optional[str] = None,
+        search: Optional[str] = None,
+        limit: int = 30,
+        offset: int = 0,
+    ) -> dict:
+        base_where = " WHERE 1=1"
+        params: List[Any] = []
+        if status:
+            if status in ("NEEDS_REVIEW", "PENDING_REVIEW"):
+                base_where += " AND status IN ('NEEDS_REVIEW', 'PENDING_REVIEW')"
+            else:
+                base_where += " AND status = ?"
+                params.append(status)
+        if vendor_id:
+            base_where += " AND vendor_id = ?"
+            params.append(vendor_id)
+        if po_id:
+            base_where += " AND po_id = ?"
+            params.append(po_id)
+        if search and search.strip():
+            s = f"%{search.strip()}%"
+            base_where += " AND (invoice_no_raw LIKE ? OR invoice_no_norm LIKE ? OR vendor_id LIKE ?)"
+            params.extend([s, s, s])
+
+        # Get filtered total
+        count_cur = self.conn.execute(f"SELECT COUNT(*) as cnt FROM invoices{base_where}", params)
+        count_row = count_cur.fetchone()
+        total_filtered = count_row["cnt"] if count_row else 0
+
+        # Get global counts across all statuses for sidebar chips
+        counts_cur = self.conn.execute(
+            """SELECT 
+                 COUNT(*) as all_cnt,
+                 SUM(CASE WHEN status IN ('NEEDS_REVIEW', 'PENDING_REVIEW') THEN 1 ELSE 0 END) as review_cnt,
+                 SUM(CASE WHEN status = 'REJECTED' THEN 1 ELSE 0 END) as rejected_cnt,
+                 SUM(CASE WHEN status = 'APPROVED' THEN 1 ELSE 0 END) as approved_cnt
+               FROM invoices"""
+        )
+        counts_row = counts_cur.fetchone()
+        counts = {
+            "all": counts_row["all_cnt"] if counts_row else 0,
+            "review": counts_row["review_cnt"] if counts_row else 0,
+            "rejected": counts_row["rejected_cnt"] if counts_row else 0,
+            "approved": counts_row["approved_cnt"] if counts_row else 0,
+        }
+
+        # Query paged items
+        paged_params = list(params) + [limit, offset]
+        query = f"SELECT * FROM invoices{base_where} ORDER BY invoice_id DESC LIMIT ? OFFSET ?"
+        cur = self.conn.execute(query, paged_params)
+        items = [dict(r) for r in cur.fetchall()]
+
+        return {
+            "items": items,
+            "total": total_filtered,
+            "limit": limit,
+            "offset": offset,
+            "has_more": (offset + len(items)) < total_filtered,
+            "counts": counts,
+        }
+
     def create(
         self,
         vendor_id: Optional[str],

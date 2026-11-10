@@ -7,7 +7,7 @@ from pathlib import Path
 import shutil
 import uuid
 from typing import List, Optional
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse, StreamingResponse
 
@@ -212,18 +212,32 @@ def list_invoices(
     status: Optional[str] = None,
     vendor_id: Optional[str] = None,
     po_id: Optional[str] = None,
+    search: Optional[str] = None,
+    limit: Optional[int] = None,
+    offset: int = 0,
+    paged: bool = False,
     db=Depends(get_db),
 ):
     repo = InvoiceRepo(db)
+    if paged or limit is not None or search is not None:
+        return repo.list_paged(
+            status=status,
+            vendor_id=vendor_id,
+            po_id=po_id,
+            search=search,
+            limit=min(limit or 30, 100),
+            offset=offset,
+        )
     return repo.list_all(status=status, vendor_id=vendor_id, po_id=po_id)
 
 
 @router.get("/{invoice_id}")
-def get_invoice(invoice_id: int, db=Depends(get_db)):
+def get_invoice(invoice_id: int, response: Response, db=Depends(get_db)):
     repo = InvoiceRepo(db)
     row = repo.get_by_id(invoice_id)
     if not row:
         raise HTTPException(status_code=404, detail="Invoice not found")
+    response.headers["Cache-Control"] = "private, max-age=60, stale-while-revalidate=120"
     if row.get("decision_json"):
         data = json.loads(row["decision_json"])
         if row.get("file_name"):

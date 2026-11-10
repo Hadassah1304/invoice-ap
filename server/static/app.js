@@ -31,9 +31,165 @@ function setDisplay(id, show) {
   return el;
 }
 
+function debounce(fn, delayMs = 250) {
+  let timer = null;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delayMs);
+  };
+}
+
+/* ==========================================================================
+   PRODUCTION DATA CACHE LAYER (Memory + SessionStorage + SWR)
+   ========================================================================== */
+class ClientDataCache {
+  constructor() {
+    this.memory = new Map();
+    this.sessionPrefix = 'ap_cache_v1:';
+  }
+
+  get(key) {
+    const entry = this.memory.get(key);
+    const now = Date.now();
+    if (entry && entry.expiresAt > now) {
+      return entry.data;
+    }
+    try {
+      const raw = sessionStorage.getItem(this.sessionPrefix + key);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed.expiresAt > now) {
+          this.memory.set(key, parsed);
+          return parsed.data;
+        } else {
+          sessionStorage.removeItem(this.sessionPrefix + key);
+        }
+      }
+    } catch (_) {}
+    return null;
+  }
+
+  set(key, data, ttlSeconds = 60) {
+    const entry = {
+      data,
+      expiresAt: Date.now() + (ttlSeconds * 1000)
+    };
+    this.memory.set(key, entry);
+    try {
+      sessionStorage.setItem(this.sessionPrefix + key, JSON.stringify(entry));
+    } catch (_) {}
+  }
+
+  invalidate(pattern) {
+    for (const k of Array.from(this.memory.keys())) {
+      if (!pattern || k.includes(pattern)) {
+        this.memory.delete(k);
+      }
+    }
+    try {
+      for (let i = sessionStorage.length - 1; i >= 0; i--) {
+        const k = sessionStorage.key(i);
+        if (k && k.startsWith(this.sessionPrefix)) {
+          const stripped = k.slice(this.sessionPrefix.length);
+          if (!pattern || stripped.includes(pattern)) {
+            sessionStorage.removeItem(k);
+          }
+        }
+      }
+    } catch (_) {}
+  }
+
+  async fetchWithCache(url, { ttl = 60, swr = true } = {}) {
+    const cached = this.get(url);
+    if (cached) {
+      if (swr) {
+        fetch(url)
+          .then(r => r.ok ? r.json() : null)
+          .then(fresh => {
+            if (fresh) this.set(url, fresh, ttl);
+          })
+          .catch(() => {});
+      }
+      return cached;
+    }
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    this.set(url, data, ttl);
+    return data;
+  }
+}
+const DataCache = new ClientDataCache();
+
+/* ==========================================================================
+   CLIENT-SIDE HASH ROUTER
+   ========================================================================== */
+class ClientRouter {
+  constructor() {
+    this.routes = [];
+    this.currentPath = null;
+    window.addEventListener('hashchange', () => this.resolve());
+  }
+
+  add(pattern, handler) {
+    const paramNames = [];
+    const regexPath = pattern.replace(/:([a-zA-Z0-9_]+)/g, (_, name) => {
+      paramNames.push(name);
+      return '([^/?#]+)';
+    });
+    const regex = new RegExp(`^${regexPath}$`);
+    this.routes.push({ pattern, regex, paramNames, handler });
+    return this;
+  }
+
+  navigate(path, { replace = false } = {}) {
+    if (replace) {
+      const base = window.location.href.split('#')[0];
+      window.location.replace(`${base}#${path}`);
+    } else {
+      window.location.hash = path;
+    }
+  }
+
+  resolve() {
+    const fullHash = window.location.hash.slice(1) || '/cockpit';
+    const [pathPart, queryPart] = fullHash.split('?');
+    const cleanPath = pathPart || '/cockpit';
+    this.currentPath = cleanPath;
+
+    const query = {};
+    if (queryPart) {
+      const searchParams = new URLSearchParams(queryPart);
+      for (const [k, v] of searchParams.entries()) {
+        query[k] = v;
+      }
+    }
+
+    for (const route of this.routes) {
+      const match = cleanPath.match(route.regex);
+      if (match) {
+        const params = {};
+        route.paramNames.forEach((name, i) => {
+          params[name] = decodeURIComponent(match[i + 1] || '');
+        });
+        route.handler({ params, query, path: cleanPath, fullHash });
+        return;
+      }
+    }
+
+    // Fallback to /cockpit
+    this.navigate('/cockpit', { replace: true });
+  }
+}
+const AppRouter = new ClientRouter();
+
 let allHistoryInvoices = [];
 let activeSidebarFilter = 'all';
 let sidebarSearchQuery = '';
+let sidebarQueueOffset = 0;
+const SIDEBAR_QUEUE_LIMIT = 30;
+let sidebarQueueHasMore = true;
+let sidebarQueueLoading = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   initWorkspaceNav();
@@ -46,9 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBatchWorkspace();
   initPOHub();
   initDocumentViewerModal();
-  loadHistory();
-  loadPOs();
-  loadPOHub();
 
   const btnProcess = $('btn-process');
   if (btnProcess) btnProcess.addEventListener('click', handleProcess);
@@ -61,6 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnReject = $('btn-review-reject');
   if (btnReject) btnReject.addEventListener('click', () => handleResolve('reject'));
+
+  // Initialize Route Handlers
+  initAppRoutes();
+
+  // Resolve active route on startup
+  AppRouter.resolve();
 });
 
 function initSidebarToggle() {
@@ -134,17 +293,33 @@ function initSidebarTabs() {
     }
   };
 
-  if (btnQueue) btnQueue.addEventListener('click', () => window.switchSidebarTab('queue'));
-  if (btnIngest) btnIngest.addEventListener('click', () => window.switchSidebarTab('ingest'));
-  if (btnSwitchToQueue) btnSwitchToQueue.addEventListener('click', () => window.switchSidebarTab('queue'));
+  if (btnQueue) {
+    btnQueue.addEventListener('click', () => {
+      window.switchSidebarTab('queue');
+    });
+  }
+  if (btnIngest) {
+    btnIngest.addEventListener('click', () => {
+      window.switchSidebarTab('ingest');
+    });
+  }
+  if (btnSwitchToQueue) {
+    btnSwitchToQueue.addEventListener('click', () => {
+      window.switchSidebarTab('queue');
+    });
+  }
 }
 
 function initSidebarFilters() {
   const searchInput = $('sidebar-search-input');
   if (searchInput) {
+    const debouncedQueueSearch = debounce((val) => {
+      sidebarSearchQuery = val;
+      loadCockpitQueue({ reset: true });
+    }, 250);
+
     searchInput.addEventListener('input', (e) => {
-      sidebarSearchQuery = e.target.value.trim().toLowerCase();
-      renderFilteredHistory();
+      debouncedQueueSearch(e.target.value.trim().toLowerCase());
     });
   }
 
@@ -157,9 +332,19 @@ function initSidebarFilters() {
       });
       chip.className = 'sidebar-chip px-2 py-0.5 bg-amber-500 text-slate-950 font-bold whitespace-nowrap active cursor-pointer';
       activeSidebarFilter = chip.dataset.filter || 'all';
-      renderFilteredHistory();
+      loadCockpitQueue({ reset: true });
     });
   });
+
+  const panelQueue = $('panel-queue');
+  if (panelQueue) {
+    panelQueue.addEventListener('scroll', () => {
+      if (sidebarQueueLoading || !sidebarQueueHasMore) return;
+      if (panelQueue.scrollTop + panelQueue.clientHeight >= panelQueue.scrollHeight - 120) {
+        loadCockpitQueue({ reset: false });
+      }
+    });
+  }
 }
 
 function initDropZone() {
@@ -369,9 +554,14 @@ async function handleProcess() {
     await pacer.finish();
 
     if (finalResult) {
+      DataCache.invalidate('invoices');
+      DataCache.invalidate('pos');
       await renderDecisionResult(finalResult);
-      await loadHistory();
       if (window.switchSidebarTab) window.switchSidebarTab('queue');
+      await loadCockpitQueue({ reset: true });
+      if (finalResult.invoice_id) {
+        AppRouter.navigate(`/cockpit/invoices/${finalResult.invoice_id}`, { replace: true });
+      }
     } else {
       throw new Error('No decision result returned from pipeline.');
     }
@@ -1462,8 +1652,10 @@ async function handleResolve(action) {
     });
     if (!res.ok) throw new Error('Failed to resolve');
     const updated = await res.json();
+    DataCache.invalidate('invoices');
+    DataCache.invalidate('pos');
     await renderDecisionResult(updated);
-    loadHistory();
+    loadCockpitQueue({ reset: true });
     if (typeof batchResults !== 'undefined' && batchResults && batchResults.length) {
       const bItem = batchResults.find(it => it.invoice_id === currentInvoiceId);
       if (bItem) {
@@ -1474,7 +1666,6 @@ async function handleResolve(action) {
         renderBatchTable();
       }
     }
-    loadPOs();
   } catch (err) {
     alert(`Resolution error: ${err.message}`);
   }
@@ -1516,195 +1707,256 @@ function formatTimestamp(dateStr) {
   }
 }
 
-async function loadHistory() {
-  const list = $('history-list');
-  if (!list) return;
-  try {
-    const res = await fetch('/api/invoices');
-    allHistoryInvoices = await res.json();
-    
-    // Update count badges
-    const total = allHistoryInvoices.length;
-    const reviewCnt = allHistoryInvoices.filter(i => i.status === 'NEEDS_REVIEW' || i.status === 'PENDING_REVIEW').length;
-    const rejCnt = allHistoryInvoices.filter(i => i.status === 'REJECTED').length;
-    const appCnt = allHistoryInvoices.filter(i => i.status === 'APPROVED').length;
-
-    setText('sidebar-ledger-count-badge', total);
-    setText('chip-cnt-all', total);
-    setText('chip-cnt-review', reviewCnt);
-    setText('chip-cnt-rejected', rejCnt);
-    setText('chip-cnt-approved', appCnt);
-
-    renderFilteredHistory();
-  } catch (err) {
-    if (list) list.innerHTML = '<div class="p-4 text-center text-[12px] text-red-400">Failed to load history</div>';
-  }
-}
-
-function renderFilteredHistory() {
+async function loadCockpitQueue({ reset = false } = {}) {
   const list = $('history-list');
   if (!list) return;
 
-  const filtered = allHistoryInvoices.filter(inv => {
-    // Status filter
-    if (activeSidebarFilter === 'review') {
-      if (inv.status !== 'NEEDS_REVIEW' && inv.status !== 'PENDING_REVIEW') return false;
-    } else if (activeSidebarFilter === 'rejected') {
-      if (inv.status !== 'REJECTED') return false;
-    } else if (activeSidebarFilter === 'approved') {
-      if (inv.status !== 'APPROVED') return false;
-    }
-
-    // Search query
-    if (sidebarSearchQuery) {
-      const matchNo = String(inv.invoice_no_raw || '').toLowerCase().includes(sidebarSearchQuery);
-      const matchNorm = String(inv.invoice_no_norm || '').toLowerCase().includes(sidebarSearchQuery);
-      const matchVendor = String(inv.vendor_id || '').toLowerCase().includes(sidebarSearchQuery);
-      const matchPO = String(inv.po_id || '').toLowerCase().includes(sidebarSearchQuery);
-      if (!matchNo && !matchNorm && !matchVendor && !matchPO) return false;
-    }
-
-    return true;
-  });
-
-  list.innerHTML = '';
-  if (!filtered.length) {
-    list.innerHTML = '<div class="p-4 text-center text-[12px] text-[#64748b]">No invoices matching filter</div>';
-    return;
-  }
-
-  filtered.forEach(inv => {
-    const isCurrent = currentInvoiceId === inv.invoice_id;
-    const isRej = inv.status === 'REJECTED';
-    const isApp = inv.status === 'APPROVED';
-
-    let rowClass = 'p-2.5 hover:bg-[#1a2434]/70 transition flex items-center justify-between group cursor-pointer';
-    if (isCurrent) {
-      rowClass = isRej
-        ? 'p-2.5 bg-red-950/30 border-l-2 border-red-500 transition flex items-center justify-between group cursor-pointer'
-        : 'p-2.5 bg-amber-500/10 border-l-2 border-amber-500 transition flex items-center justify-between group cursor-pointer';
-    } else if (isRej) {
-      rowClass = 'p-2.5 hover:bg-red-950/20 transition flex items-center justify-between group cursor-pointer';
-    }
-
-    let statusBadge = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
-    if (isApp) {
-      statusBadge = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
-    } else if (isRej) {
-      statusBadge = 'bg-red-500/10 text-red-400 border border-red-500/30';
-    }
-
-    const ts = formatTimestamp(inv.created_at);
-    const div = document.createElement('div');
-    div.className = rowClass;
-    div.innerHTML = `
-      <div class="space-y-0.5 min-w-0 pr-2">
-        <div class="flex items-center gap-1.5">
-          <span class="font-mono text-[12px] font-bold text-[#dee2ee]">#${escapeHtml(inv.invoice_no_raw || 'N/A')}</span>
-          ${isRej ? '<span class="h-1.5 w-1.5 bg-red-400"></span>' : ''}
-          ${isCurrent ? '<span class="text-[9px] font-mono text-amber-400 uppercase font-bold">[CURRENT]</span>' : ''}
-        </div>
-        <p class="text-[11px] text-[#94a3b8] truncate font-sans">
-          ${escapeHtml(inv.vendor_id || 'Unknown')} · Total: <span class="font-mono text-amber-400/90 font-semibold">${inv.currency || 'INR'} ${inv.total != null ? Number(inv.total).toLocaleString('en-IN') : '—'}</span>
-        </p>
-        <div class="flex items-center gap-2 text-[10px] text-[#64748b] font-mono">
-          <span>${escapeHtml(ts.relative || ts.exact)}</span>
-          ${inv.po_id ? `<span>·</span><span>${escapeHtml(inv.po_id)}</span>` : ''}
-        </div>
-      </div>
-      <div class="flex flex-col items-end gap-1 flex-shrink-0">
-        <span class="inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold tracking-wide ${statusBadge} font-mono uppercase">
-          ${escapeHtml(inv.status)}
-        </span>
-        <button class="h-5 px-1.5 flex items-center gap-1 bg-[#1a2434] hover:bg-[#232f42] text-[#dee2ee] text-[10px] font-medium transition border border-[#232f42] btn-view-hist-doc cursor-pointer">
-          <span class="material-symbols-outlined text-[12px]">visibility</span>
-          <span>View</span>
-        </button>
+  if (reset) {
+    sidebarQueueOffset = 0;
+    sidebarQueueHasMore = true;
+    allHistoryInvoices = [];
+    list.innerHTML = `
+      <div class="p-4 flex items-center justify-center gap-2 text-[12px] text-[#94a3b8]">
+        <div class="spinner"></div>
+        <span>Loading ledger queue...</span>
       </div>
     `;
+  }
 
-    const btnViewHist = div.querySelector('.btn-view-hist-doc');
-    if (btnViewHist) {
-      btnViewHist.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openDocumentViewer({
-          invoiceId: inv.invoice_id,
-          invoiceNo: inv.invoice_no_raw,
-          vendorName: inv.vendor_id,
-          fileName: inv.file_name,
-          filePath: inv.file_path,
-        });
-      });
+  if (sidebarQueueLoading || !sidebarQueueHasMore) return;
+  sidebarQueueLoading = true;
+
+  try {
+    const queryParams = new URLSearchParams({
+      paged: 'true',
+      limit: String(SIDEBAR_QUEUE_LIMIT),
+      offset: String(sidebarQueueOffset),
+    });
+    if (activeSidebarFilter && activeSidebarFilter !== 'all') {
+      queryParams.set('status', activeSidebarFilter);
+    }
+    if (sidebarSearchQuery && sidebarSearchQuery.trim()) {
+      queryParams.set('search', sidebarSearchQuery.trim());
     }
 
-    div.addEventListener('click', async () => {
-      try {
-        currentInvoiceId = inv.invoice_id;
-        showBreadcrumb('ws-single', inv.invoice_no_raw || `#${inv.invoice_id}`);
-        switchWorkspace('ws-single');
-        renderFilteredHistory();
-        const detailRes = await fetch(`/api/invoices/${inv.invoice_id}`);
-        if (!detailRes.ok) {
-          const err = await detailRes.json().catch(() => ({}));
-          alert(err.detail || `Server error (${detailRes.status}) while loading invoice`);
-          return;
-        }
-        const fullData = await detailRes.json();
-        await renderDecisionResult(fullData);
-      } catch (e) {
-        console.error('Failed to load invoice details:', e);
-        alert('Could not connect to server to fetch invoice details.');
-      }
+    const url = `/api/invoices?${queryParams.toString()}`;
+    const data = await DataCache.fetchWithCache(url, { ttl: 45, swr: true });
+
+    if (reset) {
+      list.innerHTML = '';
+    } else {
+      const loadingIndicator = $('sidebar-queue-loading-more');
+      if (loadingIndicator) loadingIndicator.remove();
+    }
+
+    if (data.counts) {
+      setText('sidebar-ledger-count-badge', data.counts.all || 0);
+      setText('chip-cnt-all', data.counts.all || 0);
+      setText('chip-cnt-review', data.counts.review || 0);
+      setText('chip-cnt-rejected', data.counts.rejected || 0);
+      setText('chip-cnt-approved', data.counts.approved || 0);
+    }
+
+    const items = data.items || [];
+    if (reset && !items.length) {
+      list.innerHTML = '<div class="p-4 text-center text-[12px] text-[#64748b]">No invoices found</div>';
+      sidebarQueueHasMore = false;
+      return;
+    }
+
+    items.forEach(inv => {
+      allHistoryInvoices.push(inv);
+      appendHistoryItem(inv, list);
     });
 
-    list.appendChild(div);
+    sidebarQueueOffset += items.length;
+    sidebarQueueHasMore = Boolean(data.has_more);
+
+    if (sidebarQueueHasMore) {
+      const moreDiv = document.createElement('div');
+      moreDiv.id = 'sidebar-queue-loading-more';
+      moreDiv.className = 'py-2.5 text-center text-[10px] text-[#64748b] font-mono border-t border-[#1c2738]';
+      moreDiv.textContent = 'Scroll for more records...';
+      list.appendChild(moreDiv);
+    }
+  } catch (err) {
+    if (reset) {
+      list.innerHTML = `<div class="p-4 text-center text-[12px] text-red-400">Failed to load history (${escapeHtml(err.message)})</div>`;
+    }
+  } finally {
+    sidebarQueueLoading = false;
+  }
+}
+
+function appendHistoryItem(inv, list) {
+  const isCurrent = currentInvoiceId === inv.invoice_id;
+  const isRej = inv.status === 'REJECTED';
+  const isApp = inv.status === 'APPROVED';
+
+  let rowClass = 'p-2.5 hover:bg-[#1a2434]/70 transition flex items-center justify-between group cursor-pointer history-queue-item';
+  if (isCurrent) {
+    rowClass += isRej
+      ? ' bg-red-950/30 border-l-2 border-red-500 active-queue-item'
+      : ' bg-amber-500/10 border-l-2 border-amber-500 active-queue-item';
+  } else if (isRej) {
+    rowClass += ' hover:bg-red-950/20';
+  }
+
+  let statusBadge = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+  if (isApp) {
+    statusBadge = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+  } else if (isRej) {
+    statusBadge = 'bg-red-500/10 text-red-400 border border-red-500/30';
+  }
+
+  const ts = formatTimestamp(inv.created_at);
+  const div = document.createElement('div');
+  div.className = rowClass;
+  div.dataset.invoiceId = String(inv.invoice_id);
+  div.innerHTML = `
+    <div class="space-y-0.5 min-w-0 pr-2">
+      <div class="flex items-center gap-1.5">
+        <span class="font-mono text-[12px] font-bold text-[#dee2ee]">#${escapeHtml(inv.invoice_no_raw || 'N/A')}</span>
+        ${isRej ? '<span class="h-1.5 w-1.5 bg-red-400"></span>' : ''}
+        <span class="current-badge ${isCurrent ? '' : 'hidden'} text-[9px] font-mono text-amber-400 uppercase font-bold">[CURRENT]</span>
+      </div>
+      <p class="text-[11px] text-[#94a3b8] truncate font-sans">
+        ${escapeHtml(inv.vendor_id || 'Unknown')} · Total: <span class="font-mono text-amber-400/90 font-semibold">${inv.currency || 'INR'} ${inv.total != null ? Number(inv.total).toLocaleString('en-IN') : '—'}</span>
+      </p>
+      <div class="flex items-center gap-2 text-[10px] text-[#64748b] font-mono">
+        <span>${escapeHtml(ts.relative || ts.exact)}</span>
+        ${inv.po_id ? `<span>·</span><span>${escapeHtml(inv.po_id)}</span>` : ''}
+      </div>
+    </div>
+    <div class="flex flex-col items-end gap-1 flex-shrink-0">
+      <span class="inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold tracking-wide ${statusBadge} font-mono uppercase">
+        ${escapeHtml(inv.status)}
+      </span>
+      <button class="h-5 px-1.5 flex items-center gap-1 bg-[#1a2434] hover:bg-[#232f42] text-[#dee2ee] text-[10px] font-medium transition border border-[#232f42] btn-view-hist-doc cursor-pointer">
+        <span class="material-symbols-outlined text-[12px]">visibility</span>
+        <span>View</span>
+      </button>
+    </div>
+  `;
+
+  const btnViewHist = div.querySelector('.btn-view-hist-doc');
+  if (btnViewHist) {
+    btnViewHist.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openDocumentViewer({
+        invoiceId: inv.invoice_id,
+        invoiceNo: inv.invoice_no_raw,
+        vendorName: inv.vendor_id,
+        fileName: inv.file_name,
+        filePath: inv.file_path,
+      });
+    });
+  }
+
+  div.addEventListener('click', () => {
+    AppRouter.navigate(`/cockpit/invoices/${inv.invoice_id}`);
+  });
+
+  list.appendChild(div);
+}
+
+function updateQueueItemActiveHighlight(activeInvoiceId) {
+  const items = document.querySelectorAll('.history-queue-item');
+  items.forEach(item => {
+    const isAct = Number(item.dataset.invoiceId) === Number(activeInvoiceId);
+    const badge = item.querySelector('.current-badge');
+    if (isAct) {
+      item.classList.add('bg-amber-500/10', 'border-l-2', 'border-amber-500');
+      if (badge) badge.classList.remove('hidden');
+    } else {
+      item.classList.remove('bg-amber-500/10', 'border-l-2', 'border-amber-500', 'bg-red-950/30', 'border-red-500');
+      if (badge) badge.classList.add('hidden');
+    }
   });
 }
 
-async function loadPOs() {
-  const list = $('po-list');
-  if (!list) return;
-  try {
-    const res = await fetch('/api/pos');
-    const pos = await res.json();
-    list.innerHTML = '';
-    if (!pos.length) {
-      list.innerHTML = '<div class="p-4 text-center text-[12px] text-[#64748b]">No purchase orders found</div>';
-      return;
-    }
-    pos.forEach(po => {
-      const div = document.createElement('div');
-      div.className = 'p-3 hover:bg-[#1a2434]/70 transition flex items-center justify-between group cursor-pointer';
-      const isOpen = po.status === 'OPEN';
-      const statusBadge = isOpen
-        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
-        : 'bg-slate-800 text-slate-300 border border-slate-700';
+async function loadCockpitInvoice(invoiceId, openDoc = false) {
+  if (!invoiceId) return;
+  currentInvoiceId = Number(invoiceId);
+  updateQueueItemActiveHighlight(currentInvoiceId);
 
-      div.innerHTML = `
-        <div class="space-y-0.5">
-          <span class="font-mono text-[13px] font-medium text-[#dee2ee]">${escapeHtml(po.po_id)}</span>
-          <p class="text-[12px] text-[#94a3b8]">${escapeHtml(po.vendor_name || po.vendor_id)} · Budget: <span class="font-mono text-amber-400/90 font-medium">${po.currency || 'INR'} ${Number(po.total || 0).toLocaleString('en-IN')}</span></p>
-        </div>
-        <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold tracking-wide ${statusBadge} font-mono">${escapeHtml(po.status)}</span>
-      `;
-      div.addEventListener('click', () => {
-        switchWorkspace('ws-pos');
-        selectPODetail(po.po_id);
+  try {
+    const fullData = await DataCache.fetchWithCache(`/api/invoices/${encodeURIComponent(invoiceId)}`, { ttl: 300, swr: true });
+    await renderDecisionResult(fullData);
+
+    if (openDoc) {
+      openDocumentViewer({
+        invoiceId: fullData.invoice_id || invoiceId,
+        invoiceNo: (fullData.extracted && fullData.extracted.invoice_number && fullData.extracted.invoice_number.value) || fullData.invoice_no_raw,
+        vendorName: (fullData.extracted && fullData.extracted.vendor && fullData.extracted.vendor.name) || fullData.vendor_name || fullData.vendor_id,
+        fileName: fullData.file_name,
+        filePath: fullData.file_path,
       });
-      list.appendChild(div);
-    });
+    }
   } catch (err) {
-    list.innerHTML = '<div class="p-4 text-center text-[12px] text-red-400">Failed to load POs</div>';
+    console.error('Failed to load invoice details:', err);
   }
+}
+
+// Global aliases for backward compatibility
+const loadHistory = () => loadCockpitQueue({ reset: true });
+const renderFilteredHistory = () => loadCockpitQueue({ reset: true });
+const loadPOs = () => {};
+
+function initAppRoutes() {
+  AppRouter
+    .add('/cockpit', ({ query }) => {
+      switchWorkspace('ws-single');
+      if (query.tab) {
+        window.switchSidebarTab(query.tab);
+      }
+      if (query.filter && query.filter !== activeSidebarFilter) {
+        activeSidebarFilter = query.filter;
+        syncSidebarChipUI();
+      }
+      loadCockpitQueue({ reset: true });
+    })
+    .add('/cockpit/invoices/:id', ({ params, query }) => {
+      switchWorkspace('ws-single');
+      if (query.tab) {
+        window.switchSidebarTab(query.tab);
+      }
+      loadCockpitInvoice(params.id, query.doc === '1');
+      if (!allHistoryInvoices.length) {
+        loadCockpitQueue({ reset: false });
+      }
+    })
+    .add('/pos', ({ query }) => {
+      switchWorkspace('ws-pos');
+      loadPOHubController({ search: query.search || '' });
+    })
+    .add('/pos/:po_id', ({ params }) => {
+      switchWorkspace('ws-pos');
+      loadPOHubController({ poId: params.po_id });
+    })
+    .add('/batch', () => {
+      switchWorkspace('ws-batch');
+    });
+}
+
+function syncSidebarChipUI() {
+  const chips = document.querySelectorAll('.sidebar-chip');
+  chips.forEach(c => {
+    if ((c.dataset.filter || 'all') === activeSidebarFilter) {
+      c.className = 'sidebar-chip px-2 py-0.5 bg-amber-500 text-slate-950 font-bold whitespace-nowrap active cursor-pointer';
+    } else {
+      c.className = 'sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-[#232f42] text-[#94a3b8] hover:text-[#dee2ee] transition whitespace-nowrap cursor-pointer';
+    }
+  });
 }
 
 async function handleSeedDemo() {
   try {
     const res = await fetch('/api/health');
     alert('Demo database is ready and loaded from samples/seed.json.');
-    loadPOs();
-    loadHistory();
-    loadPOHub();
+    DataCache.invalidate();
+    loadCockpitQueue({ reset: true });
+    loadPOHubController();
   } catch (err) {
     alert('Error connecting to API');
   }
@@ -1729,14 +1981,24 @@ function initWorkspaceNav() {
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const wsId = tab.dataset.workspace;
-      switchWorkspace(wsId);
+      if (wsId === 'ws-single') {
+        if (currentInvoiceId) AppRouter.navigate(`/cockpit/invoices/${currentInvoiceId}`);
+        else AppRouter.navigate('/cockpit');
+      } else if (wsId === 'ws-batch') {
+        AppRouter.navigate('/batch');
+      } else if (wsId === 'ws-pos') {
+        if (selectedPOId) AppRouter.navigate(`/pos/${encodeURIComponent(selectedPOId)}`);
+        else AppRouter.navigate('/pos');
+      }
     });
   });
 
   const btnBack = $('btn-back-to-origin');
   if (btnBack) {
     btnBack.addEventListener('click', () => {
-      switchWorkspace(currentOriginWorkspace);
+      if (currentOriginWorkspace === 'ws-batch') AppRouter.navigate('/batch');
+      else if (currentOriginWorkspace === 'ws-pos') AppRouter.navigate('/pos');
+      else AppRouter.navigate('/cockpit');
       hideBreadcrumb();
     });
   }
@@ -1757,10 +2019,6 @@ function switchWorkspace(targetId) {
     if (v.id === targetId) v.classList.remove('hidden');
     else v.classList.add('hidden');
   });
-
-  if (targetId === 'ws-pos') {
-    loadPOHub();
-  }
 }
 
 function showBreadcrumb(originWs, invoiceNo) {
@@ -2285,9 +2543,13 @@ let currentPOSearch = '';
 function initPOHub() {
   const searchInput = $('po-search-input');
   if (searchInput) {
+    const debouncedPOSearch = debounce((val) => {
+      currentPOSearch = val;
+      loadPOHubController({ search: val });
+    }, 250);
+
     searchInput.addEventListener('input', (e) => {
-      currentPOSearch = e.target.value.toLowerCase().trim();
-      renderPOMasterTable();
+      debouncedPOSearch(e.target.value.toLowerCase().trim());
     });
   }
 
@@ -2310,24 +2572,30 @@ function initPOHub() {
       document.querySelectorAll('#pos-master-tbody tr').forEach(r => {
         r.classList.remove('bg-amber-500/10', 'border-l-2', 'border-amber-500');
       });
+      AppRouter.navigate('/pos');
     });
   }
 }
 
-async function loadPOHub() {
+async function loadPOHubController({ search = '', poId = null } = {}) {
   try {
-    const res = await fetch('/api/pos');
-    poListData = await res.json();
+    const queryParams = new URLSearchParams({ paged: 'true', limit: '50', offset: '0' });
+    if (search && search.trim()) queryParams.set('search', search.trim());
 
-    // Update global nav counter
+    const url = `/api/pos?${queryParams.toString()}`;
+    const data = await DataCache.fetchWithCache(url, { ttl: 60, swr: true });
+
+    poListData = data.items || [];
+
     const navBadge = $('po-nav-count');
-    if (navBadge) navBadge.textContent = poListData.length;
+    if (navBadge) navBadge.textContent = data.total || poListData.length;
 
-    renderPOSummaryKPIs();
+    renderPOSummaryKPIs(data.total || poListData.length);
     renderPOMasterTable();
 
-    // Select the first PO if none selected
-    if (!selectedPOId && poListData.length) {
+    if (poId) {
+      selectPODetail(poId);
+    } else if (!selectedPOId && poListData.length) {
       selectPODetail(poListData[0].po_id);
     } else if (!poListData.length) {
       const detailCard = $('po-detail-card');
@@ -2340,8 +2608,10 @@ async function loadPOHub() {
   }
 }
 
-function renderPOSummaryKPIs() {
-  const totalCount = poListData.length;
+const loadPOHub = () => loadPOHubController();
+
+function renderPOSummaryKPIs(totalCountOverride) {
+  const totalCount = totalCountOverride != null ? totalCountOverride : poListData.length;
   const totalBudget = poListData.reduce((sum, p) => sum + (Number(p.total_budget || p.total) || 0), 0);
   const totalBilled = poListData.reduce((sum, p) => sum + (Number(p.billed_total) || 0), 0);
   const remainingHeadroom = Math.max(0, totalBudget - totalBilled);
@@ -2426,7 +2696,7 @@ function renderPOMasterTable() {
         r.classList.remove('bg-amber-500/10', 'border-l-2', 'border-amber-500');
       });
       tr.classList.add('bg-amber-500/10', 'border-l-2', 'border-amber-500');
-      selectPODetail(po.po_id);
+      AppRouter.navigate('/pos/' + encodeURIComponent(po.po_id));
     });
 
     tbody.appendChild(tr);
@@ -2441,8 +2711,7 @@ async function selectPODetail(poId) {
   if (detailCard) detailCard.classList.remove('hidden');
 
   try {
-    const res = await fetch(`/api/pos/${encodeURIComponent(poId)}`);
-    const data = await res.json();
+    const data = await DataCache.fetchWithCache(`/api/pos/${encodeURIComponent(poId)}`, { ttl: 120, swr: true });
     if (data.error) {
       console.error('PO error:', data.error);
       return;
@@ -2635,11 +2904,22 @@ function closeDocumentViewer() {
   if (body) {
     body.innerHTML = '';
   }
+  if (window.location.hash.includes('doc=1')) {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (currentInvoiceId) {
+      AppRouter.navigate(`/cockpit/invoices/${currentInvoiceId}`, { replace: true });
+    }
+  }
 }
 
 async function openDocumentViewer({ invoiceId, invoiceNo, vendorName, fileName, filePath }) {
   const modal = $('doc-viewer-modal');
   if (!modal) return;
+
+  if (invoiceId && !window.location.hash.includes('doc=1')) {
+    AppRouter.navigate(`/cockpit/invoices/${invoiceId}?doc=1`);
+  }
 
   const invDisplay = invoiceNo ? `#${invoiceNo}` : (invoiceId ? `#${invoiceId}` : 'Document');
   setText('modal-doc-title', `Invoice ${invDisplay}`);

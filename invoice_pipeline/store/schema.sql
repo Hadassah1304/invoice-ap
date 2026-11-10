@@ -58,6 +58,8 @@ CREATE UNIQUE INDEX IF NOT EXISTS uq_vendor_invno
 
 CREATE INDEX IF NOT EXISTS idx_invoices_po ON invoices(po_id);
 CREATE INDEX IF NOT EXISTS idx_invoices_vendor_date ON invoices(vendor_id, invoice_date);
+CREATE INDEX IF NOT EXISTS idx_invoices_status_id ON invoices(status, invoice_id DESC);
+CREATE INDEX IF NOT EXISTS idx_po_date_desc ON purchase_orders(po_date DESC);
 
 CREATE TABLE IF NOT EXISTS invoice_lines (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
