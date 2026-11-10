@@ -55,7 +55,7 @@
   </script>
 
   <!-- Custom Industrial Dark Theme Styles -->
-  <link rel="stylesheet" href="style.css?v=5.0"/>
+  <link rel="stylesheet" href="style.css?v=5.1"/>
 </head>
 
 <body class="bg-[#0f141c] text-[#dee2ee] antialiased h-screen overflow-hidden flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
@@ -514,9 +514,21 @@
               </div>
 
               <!-- Paired Line-by-Line Item Verification -->
-              <div class="px-4 py-3 border-t border-[#232f42] bg-[#131a24]">
-                <h4 class="text-[13px] font-semibold text-[#dee2ee] font-headline">Line-by-Line Item Verification</h4>
-                <p class="text-[11px] text-[#94a3b8]">Invoice line claim on top; matched PO specification directly underneath</p>
+              <div class="px-4 py-3 border-t border-[#232f42] bg-[#131a24] flex items-center justify-between gap-4">
+                <div>
+                  <h4 class="text-[13px] font-semibold text-[#dee2ee] font-headline">Line-by-Line Item Verification</h4>
+                  <p class="text-[11px] text-[#94a3b8]">Invoice line claim on top; matched PO specification directly underneath</p>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0" id="items-accordion-controls">
+                  <button type="button" id="btn-expand-all-items" class="text-[11px] font-mono px-2.5 py-1 rounded bg-[#1a2434] hover:bg-[#232f42] text-[#94a3b8] hover:text-[#f8fafc] border border-[#232f42] transition-colors cursor-pointer flex items-center gap-1.5" title="Expand all line items to compare against PO">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <span>Expand All</span>
+                  </button>
+                  <button type="button" id="btn-collapse-all-items" class="text-[11px] font-mono px-2.5 py-1 rounded bg-[#1a2434] hover:bg-[#232f42] text-[#94a3b8] hover:text-[#f8fafc] border border-[#232f42] transition-colors cursor-pointer flex items-center gap-1.5" title="Collapse all line items to compact summary list">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+                    <span>Collapse All</span>
+                  </button>
+                </div>
               </div>
 
               <div id="line-items-widgets-container" class="p-4 space-y-3 bg-[#0f141c]/50">
@@ -1243,6 +1255,6 @@
   </div>
 
   <!-- Main JavaScript Controller -->
-  <script src="app.js?v=5.0"></script>
+  <script src="app.js?v=5.1"></script>
 </body>
 </html>

@@ -1104,7 +1104,7 @@ function renderSideBySide(result, targetPoId, poDetail) {
     if (tSub) tSub.textContent = targetPoId ? 'PO total not found in database records' : 'Select a purchase order to verify commitment amount';
   }
 
-  // 4. Line Items Comparison Widgets (Paired Two-Row Layout per Item)
+  // 4. Line Items Comparison Widgets (Paired Two-Row Layout per Item with Accordion)
   const widgetsContainer = $('line-items-widgets-container');
   if (!widgetsContainer) return;
   widgetsContainer.innerHTML = '';
@@ -1112,6 +1112,12 @@ function renderSideBySide(result, targetPoId, poDetail) {
   const invLines = ext.line_items || [];
   const poItems = poDetail?.items || [];
   const lineMatches = candidate?.line_matches || [];
+
+  const controlsEl = $('items-accordion-controls');
+  if (controlsEl) {
+    controlsEl.style.display = invLines.length > 0 ? 'flex' : 'none';
+  }
+  setupItemAccordionControls();
 
   if (invLines.length === 0) {
     widgetsContainer.innerHTML = '<div class="empty-state">No line items extracted from document</div>';
@@ -1211,68 +1217,122 @@ function renderSideBySide(result, targetPoId, poDetail) {
     const widget = document.createElement('div');
     widget.className = 'item-widget';
     widget.innerHTML = `
-      <div class="item-widget-header">
-        <div class="item-widget-title">
+      <div class="item-widget-header" role="button" tabindex="0" aria-expanded="false" title="Click to view PO comparison details">
+        <div class="item-widget-header-left">
           <span class="item-line-no">Item #${invLine.line_no ?? (idx + 1)}</span>
-          <span class="item-main-desc">${escapeHtml(invLine.description)}</span>
+          <span class="item-main-desc" title="${escapeHtml(invLine.description)}">${escapeHtml(invLine.description)}</span>
         </div>
-        ${overallBadgeHtml}
-      </div>
-
-      <div class="item-widget-grid">
-        <!-- Row 1: Invoice Claim -->
-        <div class="item-row item-row-invoice">
-          <div><span class="badge-source badge-inv">INVOICE (${invCurr})</span></div>
-          <div class="item-cell-desc">
-            ${escapeHtml(invLine.description)}
+        <div class="item-widget-header-right">
+          <div class="item-header-meta">
+            <span class="meta-qty">${invLine.quantity != null ? `${invLine.quantity} ${escapeHtml(invLine.uom || '')}` : '—'}</span>
+            <span class="meta-dot">·</span>
+            <span class="meta-rate">${invCurr} ${(invLine.unit_price ?? 0).toFixed(2)}</span>
+            <span class="meta-dot">·</span>
+            <span class="meta-total">${invCurr} ${iTot.toFixed(2)}</span>
           </div>
-          <div class="item-cell-stat">
-            <span class="stat-lbl">Billed Qty</span>
-            <span class="stat-val">${invLine.quantity ?? '—'} ${escapeHtml(invLine.uom || '')}</span>
-          </div>
-          <div class="item-cell-stat">
-            <span class="stat-lbl">Invoice Rate</span>
-            <span class="stat-val">${invCurr} ${(invLine.unit_price ?? 0).toFixed(2)}</span>
-          </div>
-          <div class="item-cell-stat stat-total">
-            <span class="stat-lbl">Invoice Total</span>
-            <span class="stat-val">${invCurr} ${iTot.toFixed(2)}</span>
-          </div>
-        </div>
-
-        <!-- Row 2: Matched PO Specification -->
-        <div class="item-row item-row-po">
-          <div><span class="badge-source badge-po">PO MASTER (${poCurr})</span></div>
-          <div class="item-cell-desc">
-            ${poItem ? `
-              <div>${escapeHtml(poItem.item_name)}</div>
-              ${poItem.description ? `<div class="subtext">${escapeHtml(poItem.description)}</div>` : ''}
-            ` : (matchDetail?.po_item_name ? `<div>${escapeHtml(matchDetail.po_item_name)}</div>` : '<span class="hint">No corresponding PO item</span>')}
-          </div>
-          <div class="item-cell-stat">
-            <span class="stat-lbl">PO Ordered</span>
-            <span class="stat-val">${poItem ? `${poItem.qty_ordered} ${escapeHtml(poItem.uom || '')}` : '—'} ${poItem ? `<span class="rem-note">(${poItem.qty_remaining} rem)</span>` : ''}</span>
-          </div>
-          <div class="item-cell-stat">
-            <span class="stat-lbl">PO Rate</span>
-            <span class="stat-val">${poItem ? `${poCurr} ${Number(poItem.unit_price).toFixed(2)}` : '—'}</span>
-          </div>
-          <div class="item-cell-stat stat-total">
-            <span class="stat-lbl">PO Line Total</span>
-            <span class="stat-val">${pTot != null ? `${poCurr} ${pTot.toFixed(2)}` : '—'}</span>
-          </div>
+          ${overallBadgeHtml}
+          <svg class="item-widget-chevron w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
         </div>
       </div>
 
-      ${deltaChips.length > 0 ? `
-        <div class="item-delta-strip">
-          ${deltaChips.join('')}
+      <div class="item-widget-body">
+        <div class="item-widget-grid">
+          <!-- Row 1: Invoice Claim -->
+          <div class="item-row item-row-invoice">
+            <div><span class="badge-source badge-inv">INVOICE (${invCurr})</span></div>
+            <div class="item-cell-desc">
+              ${escapeHtml(invLine.description)}
+            </div>
+            <div class="item-cell-stat">
+              <span class="stat-lbl">Billed Qty</span>
+              <span class="stat-val">${invLine.quantity ?? '—'} ${escapeHtml(invLine.uom || '')}</span>
+            </div>
+            <div class="item-cell-stat">
+              <span class="stat-lbl">Invoice Rate</span>
+              <span class="stat-val">${invCurr} ${(invLine.unit_price ?? 0).toFixed(2)}</span>
+            </div>
+            <div class="item-cell-stat stat-total">
+              <span class="stat-lbl">Invoice Total</span>
+              <span class="stat-val">${invCurr} ${iTot.toFixed(2)}</span>
+            </div>
+          </div>
+
+          <!-- Row 2: Matched PO Specification -->
+          <div class="item-row item-row-po">
+            <div><span class="badge-source badge-po">PO MASTER (${poCurr})</span></div>
+            <div class="item-cell-desc">
+              ${poItem ? `
+                <div>${escapeHtml(poItem.item_name)}</div>
+                ${poItem.description ? `<div class="subtext">${escapeHtml(poItem.description)}</div>` : ''}
+              ` : (matchDetail?.po_item_name ? `<div>${escapeHtml(matchDetail.po_item_name)}</div>` : '<span class="hint">No corresponding PO item</span>')}
+            </div>
+            <div class="item-cell-stat">
+              <span class="stat-lbl">PO Ordered</span>
+              <span class="stat-val">${poItem ? `${poItem.qty_ordered} ${escapeHtml(poItem.uom || '')}` : '—'} ${poItem ? `<span class="rem-note">(${poItem.qty_remaining} rem)</span>` : ''}</span>
+            </div>
+            <div class="item-cell-stat">
+              <span class="stat-lbl">PO Rate</span>
+              <span class="stat-val">${poItem ? `${poCurr} ${Number(poItem.unit_price).toFixed(2)}` : '—'}</span>
+            </div>
+            <div class="item-cell-stat stat-total">
+              <span class="stat-lbl">PO Line Total</span>
+              <span class="stat-val">${pTot != null ? `${poCurr} ${pTot.toFixed(2)}` : '—'}</span>
+            </div>
+          </div>
         </div>
-      ` : ''}
+
+        ${deltaChips.length > 0 ? `
+          <div class="item-delta-strip">
+            ${deltaChips.join('')}
+          </div>
+        ` : ''}
+      </div>
     `;
+
+    const header = widget.querySelector('.item-widget-header');
+    if (header) {
+      const toggle = () => {
+        const isOpen = widget.classList.toggle('is-open');
+        header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      };
+      header.addEventListener('click', toggle);
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    }
 
     widgetsContainer.appendChild(widget);
   });
+}
+
+function setupItemAccordionControls() {
+  const btnExpand = $('btn-expand-all-items');
+  const btnCollapse = $('btn-collapse-all-items');
+
+  if (btnExpand && !btnExpand._bound) {
+    btnExpand._bound = true;
+    btnExpand.addEventListener('click', () => {
+      document.querySelectorAll('#line-items-widgets-container .item-widget').forEach(w => {
+        w.classList.add('is-open');
+        w.querySelector('.item-widget-header')?.setAttribute('aria-expanded', 'true');
+      });
+    });
+  }
+
+  if (btnCollapse && !btnCollapse._bound) {
+    btnCollapse._bound = true;
+    btnCollapse.addEventListener('click', () => {
+      document.querySelectorAll('#line-items-widgets-container .item-widget').forEach(w => {
+        w.classList.remove('is-open');
+        w.querySelector('.item-widget-header')?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 }
 
 function renderBalanceCard(bal, poCurr = 'INR', invCurr = null) {
