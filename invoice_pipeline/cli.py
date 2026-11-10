@@ -273,6 +273,31 @@ def batch(
         console.print(f"[green]Saved report to {report}[/green]")
 
 
+@app.command("reset-db")
+def reset_db_cmd(
+    config: Optional[str] = typer.Option(None, "--config", "-c", help="Path to config.yaml"),
+    seed: Optional[str] = typer.Option("samples/seed.json", "--seed", "-s", help="Seed JSON data file"),
+):
+    """Cleanly delete SQLite database, re-initialize schema, and seed freshly."""
+    cfg = load_config(config)
+    db_file = Path(cfg.app.db_path)
+    for p in [db_file, Path(f"{db_file}-wal"), Path(f"{db_file}-shm")]:
+        if p.exists():
+            try:
+                p.unlink()
+            except Exception:
+                pass
+    init_db(cfg.app.db_path)
+    console.print(f"[green]Cleanly re-initialized database at {cfg.app.db_path}[/green]")
+    if seed:
+        s_path = Path(seed)
+        if s_path.exists():
+            _seed_from_file(cfg.app.db_path, s_path)
+            console.print(f"[green]Freshly seeded database from {seed}[/green]")
+        else:
+            console.print(f"[yellow]Seed file {seed} not found, initialized empty schema.[/yellow]")
+
+
 @app.command()
 def seed_demo(
     config: Optional[str] = typer.Option(None, "--config", "-c"),
