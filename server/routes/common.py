@@ -164,6 +164,7 @@ def get_po_detail(po_id: str, response: Response, db=Depends(get_db)):
         linked_invoices.append(inv)
 
     balance = {
+        "currency": po_dict.get("currency") or "INR",
         "total_budget": total_budget,
         "billed_approved": billed_approved,
         "billed_pending": billed_pending,

@@ -742,10 +742,12 @@ async function renderDecisionResult(result) {
   if (activePOId) {
     poDetail = await fetchPODetail(activePOId);
   }
+  const invCurr = result.extracted?.currency?.value || 'INR';
+  const poCurr = poDetail?.po?.currency || result.po_balance?.currency || 'INR';
   renderSideBySide(result, activePOId, poDetail);
 
   // PO Balance Consumption Card
-  renderBalanceCard(result.po_balance, result.extracted?.currency?.value || 'INR');
+  renderBalanceCard(result.po_balance, poCurr, invCurr);
 
   // Candidate POs Ranking
   renderCandidateTable(result.match?.candidates || [], activePOId);
@@ -912,7 +914,10 @@ function renderSideBySide(result, targetPoId, poDetail) {
   setText('active-po-label', targetPoId || 'None Selected');
   setText('reconcile-po-id', targetPoId ? `PO: ${targetPoId}` : 'No Active PO');
 
-  const curr = ext.currency?.value || 'INR';
+  const invCurr = ext.currency?.value || 'INR';
+  const poCurr = poDetail?.po?.currency || result.po_balance?.currency || 'INR';
+  const isCurrencyMismatch = Boolean(targetPoId && invCurr && poCurr && invCurr.toUpperCase() !== poCurr.toUpperCase());
+
   const invVendor = ext.vendor?.name || '—';
   const invGstin = ext.vendor?.gstin || 'Not Provided';
   const invTotal = ext.grand_total?.value != null ? Number(ext.grand_total.value) : 0;
@@ -976,10 +981,10 @@ function renderSideBySide(result, targetPoId, poDetail) {
     }
   }
 
-  // 3. Order Value & Coverage Alignment (Clear Partial Billing Context)
+  // 3. Order Value & Coverage Alignment (With Currency Separation)
   const poTotal = poDetail?.po?.total != null ? Number(poDetail.po.total) : null;
-  setText('diff-inv-total', `${curr} ${invTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
-  setText('diff-po-total', poTotal != null ? `${curr} ${poTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '—');
+  setText('diff-inv-total', `${invCurr} ${invTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
+  setText('diff-po-total', poTotal != null ? `${poCurr} ${poTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '—');
 
   const invTotalSub = $('diff-inv-total-sub');
   const poTotalSub = $('diff-po-total-sub');
@@ -989,49 +994,65 @@ function renderSideBySide(result, targetPoId, poDetail) {
   const barFill = $('diff-coverage-bar-fill');
 
   if (poTotal != null && poTotal > 0) {
-    const diff = invTotal - poTotal;
-    const billedPct = (invTotal / poTotal) * 100;
-    const remainingAfter = poTotal - invTotal;
-
     if (barContainer) barContainer.classList.remove('hidden');
 
-    if (Math.abs(diff) < 0.01) {
-      if (invTotalSub) invTotalSub.textContent = 'Current Claim (Full Settlement)';
-      if (poTotalSub) poTotalSub.textContent = 'Total PO Commitment (100% matched)';
+    if (isCurrencyMismatch) {
+      if (invTotalSub) invTotalSub.textContent = `Current Invoice Claim (${invCurr})`;
+      if (poTotalSub) poTotalSub.textContent = `Total PO Commitment (${poCurr} ${poTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })})`;
       if (tStatus) {
-        tStatus.className = 'diff-status-pill status-match';
-        tStatus.textContent = 'FULL PO FULFILLMENT · 100%';
-      }
-      if (barFill) {
-        barFill.style.width = '100%';
-        barFill.className = 'recon-progress-fill fill-green';
-      }
-      if (tSub) tSub.textContent = `Invoice completes 100% of the total PO commitment (${curr} ${poTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}).`;
-    } else if (diff < 0) {
-      if (invTotalSub) invTotalSub.textContent = `Current Invoice Claim (Partial · ${billedPct.toFixed(0)}%)`;
-      if (poTotalSub) poTotalSub.textContent = `Total PO Lifetime Commitment (${curr} ${remainingAfter.toLocaleString(undefined, { minimumFractionDigits: 2 })} remaining)`;
-      if (tStatus) {
-        tStatus.className = 'diff-status-pill status-partial';
-        tStatus.textContent = `PARTIAL BILLING · ${billedPct.toFixed(0)}% COVERAGE`;
-      }
-      if (barFill) {
-        barFill.style.width = `${Math.min(100, Math.max(0, billedPct))}%`;
-        barFill.className = 'recon-progress-fill';
-      }
-      if (tSub) tSub.textContent = `Covers ${billedPct.toFixed(0)}% of PO allocation. Normal partial milestone with ${curr} ${remainingAfter.toLocaleString(undefined, { minimumFractionDigits: 2 })} remaining headroom.`;
-    } else {
-      const overrunPct = ((diff / poTotal) * 100).toFixed(1);
-      if (invTotalSub) invTotalSub.textContent = 'Current Claim (Exceeds PO Allocation)';
-      if (poTotalSub) poTotalSub.textContent = `Total PO Commitment (Deficit: -${curr} ${diff.toFixed(2)})`;
-      if (tStatus) {
-        tStatus.className = 'diff-status-pill status-drift';
-        tStatus.textContent = `BUDGET OVERRUN · +${overrunPct}%`;
+        tStatus.className = 'diff-status-pill status-mismatch';
+        tStatus.textContent = `CURRENCY MISMATCH · ${invCurr} vs ${poCurr}`;
       }
       if (barFill) {
         barFill.style.width = '100%';
         barFill.className = 'recon-progress-fill fill-red';
       }
-      if (tSub) tSub.textContent = `Exceeds total PO allocation by +${curr} ${diff.toLocaleString(undefined, { minimumFractionDigits: 2 })} (${overrunPct}% overrun).`;
+      if (tSub) {
+        tSub.textContent = `Invoice currency (${invCurr}) does not match Purchase Order currency (${poCurr}). Direct numerical reconciliation is blocked without foreign exchange conversion.`;
+      }
+    } else {
+      const diff = invTotal - poTotal;
+      const billedPct = (invTotal / poTotal) * 100;
+      const remainingAfter = poTotal - invTotal;
+
+      if (Math.abs(diff) < 0.01) {
+        if (invTotalSub) invTotalSub.textContent = 'Current Claim (Full Settlement)';
+        if (poTotalSub) poTotalSub.textContent = 'Total PO Commitment (100% matched)';
+        if (tStatus) {
+          tStatus.className = 'diff-status-pill status-match';
+          tStatus.textContent = 'FULL PO FULFILLMENT · 100%';
+        }
+        if (barFill) {
+          barFill.style.width = '100%';
+          barFill.className = 'recon-progress-fill fill-green';
+        }
+        if (tSub) tSub.textContent = `Invoice completes 100% of the total PO commitment (${invCurr} ${poTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}).`;
+      } else if (diff < 0) {
+        if (invTotalSub) invTotalSub.textContent = `Current Invoice Claim (Partial · ${billedPct.toFixed(0)}%)`;
+        if (poTotalSub) poTotalSub.textContent = `Total PO Lifetime Commitment (${invCurr} ${remainingAfter.toLocaleString(undefined, { minimumFractionDigits: 2 })} remaining)`;
+        if (tStatus) {
+          tStatus.className = 'diff-status-pill status-partial';
+          tStatus.textContent = `PARTIAL BILLING · ${billedPct.toFixed(0)}% COVERAGE`;
+        }
+        if (barFill) {
+          barFill.style.width = `${Math.min(100, Math.max(0, billedPct))}%`;
+          barFill.className = 'recon-progress-fill';
+        }
+        if (tSub) tSub.textContent = `Covers ${billedPct.toFixed(0)}% of PO allocation. Normal partial milestone with ${invCurr} ${remainingAfter.toLocaleString(undefined, { minimumFractionDigits: 2 })} remaining headroom.`;
+      } else {
+        const overrunPct = ((diff / poTotal) * 100).toFixed(1);
+        if (invTotalSub) invTotalSub.textContent = 'Current Claim (Exceeds PO Allocation)';
+        if (poTotalSub) poTotalSub.textContent = `Total PO Commitment (Deficit: -${invCurr} ${diff.toFixed(2)})`;
+        if (tStatus) {
+          tStatus.className = 'diff-status-pill status-drift';
+          tStatus.textContent = `BUDGET OVERRUN · +${overrunPct}%`;
+        }
+        if (barFill) {
+          barFill.style.width = '100%';
+          barFill.className = 'recon-progress-fill fill-red';
+        }
+        if (tSub) tSub.textContent = `Exceeds total PO allocation by +${invCurr} ${diff.toLocaleString(undefined, { minimumFractionDigits: 2 })} (${overrunPct}% overrun).`;
+      }
     }
   } else {
     if (barContainer) barContainer.classList.add('hidden');
@@ -1044,7 +1065,7 @@ function renderSideBySide(result, targetPoId, poDetail) {
     if (tSub) tSub.textContent = targetPoId ? 'PO total not found in database records' : 'Select a purchase order to verify commitment amount';
   }
 
-  // 4. Line Items Comparison Widgets (Paired Two-Row Layout per Item, No Emojis)
+  // 4. Line Items Comparison Widgets (Paired Two-Row Layout per Item)
   const widgetsContainer = $('line-items-widgets-container');
   if (!widgetsContainer) return;
   widgetsContainer.innerHTML = '';
@@ -1086,52 +1107,64 @@ function renderSideBySide(result, targetPoId, poDetail) {
       overallBadgeHtml = '<span class="item-match-badge diff-unmatched">UNMATCHED LINE</span>';
       deltaChips.push('<span class="delta-chip delta-drift">Item not present in purchase order</span>');
     } else {
-      // Analyze price diff
-      let isPriceMatch = true;
-      let priceDiff = 0;
-      if (pUnit != null && iUnit != null) {
-        priceDiff = iUnit - pUnit;
-        isPriceMatch = Math.abs(priceDiff) <= 0.01;
-      }
-
-      // Analyze qty diff
-      let isQtyMatch = true;
-      let qtyDiff = 0;
-      if (pQty != null && iQty != null) {
-        qtyDiff = iQty - pQty;
-        isQtyMatch = Math.abs(qtyDiff) <= 0.01;
-      }
-
-      if (isPriceMatch && isQtyMatch) {
-        overallBadgeHtml = '<span class="item-match-badge diff-exact">MATCH: EXACT PRICE & QTY</span>';
-        deltaChips.push('<span class="delta-chip delta-ok">RATE: EXACT MATCH</span>');
-        deltaChips.push('<span class="delta-chip delta-ok">QTY: ALLOCATED HEADROOM VALID</span>');
-      } else if (!isPriceMatch && !isQtyMatch) {
-        overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: RATE & QUANTITY</span>';
-      } else if (!isPriceMatch) {
-        overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: UNIT RATE</span>';
+      if (isCurrencyMismatch) {
+        overallBadgeHtml = `<span class="item-match-badge diff-drift">CURRENCY MISMATCH (${invCurr} vs ${poCurr})</span>`;
+        deltaChips.push(`<span class="delta-chip delta-warn">DENOMINATION: ${invCurr} (Invoice) vs ${poCurr} (PO)</span>`);
+        if (pUnit != null && iUnit != null) {
+          if (Math.abs(iUnit - pUnit) <= 0.01) {
+            deltaChips.push(`<span class="delta-chip delta-info">NUMERICAL VALUE: ${iUnit.toFixed(2)} (Identical number under different currencies)</span>`);
+          } else {
+            deltaChips.push(`<span class="delta-chip delta-drift">NUMERICAL VALUE: ${invCurr} ${iUnit.toFixed(2)} vs ${poCurr} ${pUnit.toFixed(2)}</span>`);
+          }
+        }
       } else {
-        overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: QUANTITY</span>';
-      }
+        // Analyze price diff
+        let isPriceMatch = true;
+        let priceDiff = 0;
+        if (pUnit != null && iUnit != null) {
+          priceDiff = iUnit - pUnit;
+          isPriceMatch = Math.abs(priceDiff) <= 0.01;
+        }
 
-      if (!isPriceMatch && pUnit != null && iUnit != null) {
-        const driftPct = ((priceDiff / pUnit) * 100).toFixed(1);
-        const sign = priceDiff > 0 ? '+' : '';
-        const chipClass = priceDiff > 0 ? 'delta-drift' : 'delta-info';
-        deltaChips.push(`<span class="delta-chip ${chipClass}">RATE VARIANCE: ${sign}${curr} ${priceDiff.toFixed(2)} (${sign}${driftPct}%)</span>`);
-      }
+        // Analyze qty diff
+        let isQtyMatch = true;
+        let qtyDiff = 0;
+        if (pQty != null && iQty != null) {
+          qtyDiff = iQty - pQty;
+          isQtyMatch = Math.abs(qtyDiff) <= 0.01;
+        }
 
-      if (!isQtyMatch && pQty != null && iQty != null) {
-        const sign = qtyDiff > 0 ? '+' : '';
-        const chipClass = qtyDiff > 0 ? 'delta-warn' : 'delta-ok';
-        deltaChips.push(`<span class="delta-chip ${chipClass}">QTY VARIANCE: ${sign}${qtyDiff} ${invLine.uom || 'units'} vs PO</span>`);
-      }
+        if (isPriceMatch && isQtyMatch) {
+          overallBadgeHtml = '<span class="item-match-badge diff-exact">MATCH: EXACT PRICE & QTY</span>';
+          deltaChips.push('<span class="delta-chip delta-ok">RATE: EXACT MATCH</span>');
+          deltaChips.push('<span class="delta-chip delta-ok">QTY: ALLOCATED HEADROOM VALID</span>');
+        } else if (!isPriceMatch && !isQtyMatch) {
+          overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: RATE & QUANTITY</span>';
+        } else if (!isPriceMatch) {
+          overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: UNIT RATE</span>';
+        } else {
+          overallBadgeHtml = '<span class="item-match-badge diff-drift">VARIANCE: QUANTITY</span>';
+        }
 
-      if (pTot != null) {
-        const totDiff = iTot - pTot;
-        if (Math.abs(totDiff) > 0.01) {
-          const sign = totDiff > 0 ? '+' : '';
-          deltaChips.push(`<span class="delta-chip delta-warn">LINE TOTAL DELTA: ${sign}${curr} ${totDiff.toFixed(2)}</span>`);
+        if (!isPriceMatch && pUnit != null && iUnit != null) {
+          const driftPct = ((priceDiff / pUnit) * 100).toFixed(1);
+          const sign = priceDiff > 0 ? '+' : '';
+          const chipClass = priceDiff > 0 ? 'delta-drift' : 'delta-info';
+          deltaChips.push(`<span class="delta-chip ${chipClass}">RATE VARIANCE: ${sign}${invCurr} ${priceDiff.toFixed(2)} (${sign}${driftPct}%)</span>`);
+        }
+
+        if (!isQtyMatch && pQty != null && iQty != null) {
+          const sign = qtyDiff > 0 ? '+' : '';
+          const chipClass = qtyDiff > 0 ? 'delta-warn' : 'delta-ok';
+          deltaChips.push(`<span class="delta-chip ${chipClass}">QTY VARIANCE: ${sign}${qtyDiff} ${invLine.uom || 'units'} vs PO</span>`);
+        }
+
+        if (pTot != null) {
+          const totDiff = iTot - pTot;
+          if (Math.abs(totDiff) > 0.01) {
+            const sign = totDiff > 0 ? '+' : '';
+            deltaChips.push(`<span class="delta-chip delta-warn">LINE TOTAL DELTA: ${sign}${invCurr} ${totDiff.toFixed(2)}</span>`);
+          }
         }
       }
     }
@@ -1150,7 +1183,7 @@ function renderSideBySide(result, targetPoId, poDetail) {
       <div class="item-widget-grid">
         <!-- Row 1: Invoice Claim -->
         <div class="item-row item-row-invoice">
-          <div><span class="badge-source badge-inv">INVOICE</span></div>
+          <div><span class="badge-source badge-inv">INVOICE (${invCurr})</span></div>
           <div class="item-cell-desc">
             ${escapeHtml(invLine.description)}
           </div>
@@ -1160,17 +1193,17 @@ function renderSideBySide(result, targetPoId, poDetail) {
           </div>
           <div class="item-cell-stat">
             <span class="stat-lbl">Invoice Rate</span>
-            <span class="stat-val">${curr} ${(invLine.unit_price ?? 0).toFixed(2)}</span>
+            <span class="stat-val">${invCurr} ${(invLine.unit_price ?? 0).toFixed(2)}</span>
           </div>
           <div class="item-cell-stat stat-total">
             <span class="stat-lbl">Invoice Total</span>
-            <span class="stat-val">${curr} ${iTot.toFixed(2)}</span>
+            <span class="stat-val">${invCurr} ${iTot.toFixed(2)}</span>
           </div>
         </div>
 
         <!-- Row 2: Matched PO Specification -->
         <div class="item-row item-row-po">
-          <div><span class="badge-source badge-po">PO MASTER</span></div>
+          <div><span class="badge-source badge-po">PO MASTER (${poCurr})</span></div>
           <div class="item-cell-desc">
             ${poItem ? `
               <div>${escapeHtml(poItem.item_name)}</div>
@@ -1183,11 +1216,11 @@ function renderSideBySide(result, targetPoId, poDetail) {
           </div>
           <div class="item-cell-stat">
             <span class="stat-lbl">PO Rate</span>
-            <span class="stat-val">${poItem ? `${curr} ${Number(poItem.unit_price).toFixed(2)}` : '—'}</span>
+            <span class="stat-val">${poItem ? `${poCurr} ${Number(poItem.unit_price).toFixed(2)}` : '—'}</span>
           </div>
           <div class="item-cell-stat stat-total">
             <span class="stat-lbl">PO Line Total</span>
-            <span class="stat-val">${pTot != null ? `${curr} ${pTot.toFixed(2)}` : '—'}</span>
+            <span class="stat-val">${pTot != null ? `${poCurr} ${pTot.toFixed(2)}` : '—'}</span>
           </div>
         </div>
       </div>
@@ -1203,7 +1236,7 @@ function renderSideBySide(result, targetPoId, poDetail) {
   });
 }
 
-function renderBalanceCard(bal, curr) {
+function renderBalanceCard(bal, poCurr = 'INR', invCurr = null) {
   const card = $('po-balance-card');
   if (!card) return;
   if (!bal) {
@@ -1212,10 +1245,13 @@ function renderBalanceCard(bal, curr) {
   }
   card.classList.remove('hidden');
 
+  const curr = poCurr || bal.currency || 'INR';
   const total = Number(bal.po_total) || 0;
   const billed = Number(bal.previously_billed) || 0;
   const thisInv = Number(bal.this_invoice) || 0;
   const remaining = Number(bal.remaining_after) || 0;
+
+  const isCurrencyMismatch = Boolean(invCurr && curr && invCurr.toUpperCase() !== curr.toUpperCase());
 
   const billedPct = total > 0 ? (billed / total) * 100 : 0;
   const thisPct = total > 0 ? (thisInv / total) * 100 : 0;
@@ -1224,8 +1260,15 @@ function renderBalanceCard(bal, curr) {
   setText('kpi-po-total', `${curr} ${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
   setText('kpi-po-billed', `${curr} ${billed.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
   setText('kpi-po-billed-pct', `${billedPct.toFixed(1)}% drawn previously`);
-  setText('kpi-po-this', `${curr} ${thisInv.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
-  setText('kpi-po-this-pct', `${thisPct.toFixed(1)}% of total commitment`);
+
+  if (isCurrencyMismatch) {
+    setText('kpi-po-this', `${invCurr} ${thisInv.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
+    setText('kpi-po-this-pct', `* Denominated in ${invCurr} (PO is in ${curr})`);
+  } else {
+    setText('kpi-po-this', `${curr} ${thisInv.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
+    setText('kpi-po-this-pct', `${thisPct.toFixed(1)}% of total commitment`);
+  }
+
   setText('kpi-po-rem', `${curr} ${remaining.toLocaleString(undefined, { minimumFractionDigits: 2 })}`);
 
   const remCard = $('kpi-remaining-card');
@@ -1234,7 +1277,17 @@ function renderBalanceCard(bal, curr) {
 
   if (remCard) {
     remCard.className = 'balance-kpi-card highlight-remaining';
-    if (remaining < 0) {
+    if (isCurrencyMismatch) {
+      remCard.classList.add('over');
+      if (remStatusEl) remStatusEl.textContent = `Currency Mismatch: Invoice ${invCurr} vs PO ${curr}`;
+      if (healthPill) {
+        healthPill.className = 'badge-po-target';
+        healthPill.style.background = '#fee2e2';
+        healthPill.style.color = '#b91c1c';
+        healthPill.style.borderColor = '#fca5a5';
+        healthPill.textContent = 'CURRENCY MISMATCH';
+      }
+    } else if (remaining < 0) {
       remCard.classList.add('over');
       if (remStatusEl) remStatusEl.textContent = `Deficit: ${curr} ${Math.abs(remaining).toFixed(2)} over commitment`;
       if (healthPill) {

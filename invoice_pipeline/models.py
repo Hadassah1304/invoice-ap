@@ -187,6 +187,7 @@ class POBalanceSummary(BaseModel):
     this_invoice: float
     remaining_after: float
     variance_pct: float = 0.0
+    currency: str = "INR"
 
 
 # --- Review & Decision Models ---

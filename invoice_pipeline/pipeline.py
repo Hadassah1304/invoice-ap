@@ -491,6 +491,7 @@ def process_invoice(
             this_invoice=this_inv_total,
             remaining_after=round(rem_after, 2),
             variance_pct=round(var_pct, 2),
+            currency=po_data.get("currency") or "INR",
         )
 
     chosen_candidate = next((c for c in match_res.candidates if c.po_id == match_res.selected_po), None)
