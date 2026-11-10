@@ -45,7 +45,7 @@ function debounce(fn, delayMs = 250) {
 class ClientDataCache {
   constructor() {
     this.memory = new Map();
-    this.sessionPrefix = 'ap_cache_v1:';
+    this.sessionPrefix = 'ap_cache_v2:';
   }
 
   get(key) {
@@ -326,15 +326,21 @@ function initSidebarFilters() {
   const chips = document.querySelectorAll('.sidebar-chip');
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
-      chips.forEach(c => {
-        c.className = 'sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-[#232f42] text-[#94a3b8] hover:text-[#dee2ee] transition whitespace-nowrap cursor-pointer';
-        c.classList.remove('active');
-      });
-      chip.className = 'sidebar-chip px-2 py-0.5 bg-amber-500 text-slate-950 font-bold whitespace-nowrap active cursor-pointer';
       activeSidebarFilter = chip.dataset.filter || 'all';
+      syncSidebarChipUI();
       loadCockpitQueue({ reset: true });
     });
   });
+
+  const historyList = $('history-list');
+  if (historyList) {
+    historyList.addEventListener('scroll', () => {
+      if (sidebarQueueLoading || !sidebarQueueHasMore) return;
+      if (historyList.scrollTop + historyList.clientHeight >= historyList.scrollHeight - 120) {
+        loadCockpitQueue({ reset: false });
+      }
+    });
+  }
 
   const panelQueue = $('panel-queue');
   if (panelQueue) {
@@ -2095,8 +2101,15 @@ function initAppRoutes() {
 function syncSidebarChipUI() {
   const chips = document.querySelectorAll('.sidebar-chip');
   chips.forEach(c => {
-    if ((c.dataset.filter || 'all') === activeSidebarFilter) {
+    const f = c.dataset.filter || 'all';
+    if (f === activeSidebarFilter) {
       c.className = 'sidebar-chip px-2 py-0.5 bg-amber-500 text-slate-950 font-bold whitespace-nowrap active cursor-pointer';
+    } else if (f === 'review') {
+      c.className = 'sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-amber-500/30 text-amber-400/90 hover:bg-[#1a2434] transition whitespace-nowrap cursor-pointer';
+    } else if (f === 'rejected') {
+      c.className = 'sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-red-500/30 text-red-400 hover:bg-[#1a2434] transition whitespace-nowrap cursor-pointer';
+    } else if (f === 'approved') {
+      c.className = 'sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-emerald-500/30 text-emerald-400 hover:bg-[#1a2434] transition whitespace-nowrap cursor-pointer';
     } else {
       c.className = 'sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-[#232f42] text-[#94a3b8] hover:text-[#dee2ee] transition whitespace-nowrap cursor-pointer';
     }

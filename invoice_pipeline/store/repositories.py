@@ -217,8 +217,16 @@ class InvoiceRepo:
         query = "SELECT * FROM invoices WHERE 1=1"
         params: List[Any] = []
         if status:
-            query += " AND status = ?"
-            params.append(status)
+            st = status.strip().upper()
+            if st in ("REVIEW", "NEEDS_REVIEW", "PENDING_REVIEW", "PENDING"):
+                query += " AND status IN ('NEEDS_REVIEW', 'PENDING_REVIEW')"
+            elif st in ("REJECTED", "REJECT"):
+                query += " AND status = 'REJECTED'"
+            elif st in ("APPROVED", "APPROVE"):
+                query += " AND status = 'APPROVED'"
+            elif st != "ALL":
+                query += " AND UPPER(status) = ?"
+                params.append(st)
         if vendor_id:
             query += " AND vendor_id = ?"
             params.append(vendor_id)
@@ -241,11 +249,16 @@ class InvoiceRepo:
         base_where = " WHERE 1=1"
         params: List[Any] = []
         if status:
-            if status in ("NEEDS_REVIEW", "PENDING_REVIEW"):
+            st = status.strip().upper()
+            if st in ("REVIEW", "NEEDS_REVIEW", "PENDING_REVIEW", "PENDING"):
                 base_where += " AND status IN ('NEEDS_REVIEW', 'PENDING_REVIEW')"
-            else:
-                base_where += " AND status = ?"
-                params.append(status)
+            elif st in ("REJECTED", "REJECT"):
+                base_where += " AND status = 'REJECTED'"
+            elif st in ("APPROVED", "APPROVE"):
+                base_where += " AND status = 'APPROVED'"
+            elif st != "ALL":
+                base_where += " AND UPPER(status) = ?"
+                params.append(st)
         if vendor_id:
             base_where += " AND vendor_id = ?"
             params.append(vendor_id)
@@ -254,8 +267,8 @@ class InvoiceRepo:
             params.append(po_id)
         if search and search.strip():
             s = f"%{search.strip()}%"
-            base_where += " AND (invoice_no_raw LIKE ? OR invoice_no_norm LIKE ? OR vendor_id LIKE ?)"
-            params.extend([s, s, s])
+            base_where += " AND (invoice_no_raw LIKE ? OR invoice_no_norm LIKE ? OR vendor_id LIKE ? OR po_id LIKE ? OR decision_json LIKE ?)"
+            params.extend([s, s, s, s, s])
 
         # Get filtered total
         count_cur = self.conn.execute(f"SELECT COUNT(*) as cnt FROM invoices{base_where}", params)
@@ -273,10 +286,10 @@ class InvoiceRepo:
         )
         counts_row = counts_cur.fetchone()
         counts = {
-            "all": counts_row["all_cnt"] if counts_row else 0,
-            "review": counts_row["review_cnt"] if counts_row else 0,
-            "rejected": counts_row["rejected_cnt"] if counts_row else 0,
-            "approved": counts_row["approved_cnt"] if counts_row else 0,
+            "all": int(counts_row["all_cnt"] or 0) if counts_row else 0,
+            "review": int(counts_row["review_cnt"] or 0) if counts_row else 0,
+            "rejected": int(counts_row["rejected_cnt"] or 0) if counts_row else 0,
+            "approved": int(counts_row["approved_cnt"] or 0) if counts_row else 0,
         }
 
         # Query paged items
