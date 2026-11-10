@@ -2887,7 +2887,7 @@ function initPOHub() {
   if (filterSelect) {
     filterSelect.addEventListener('change', (e) => {
       currentPOFilter = e.target.value.toUpperCase();
-      renderPOMasterTable();
+      loadPOHubController({ search: currentPOSearch, status: currentPOFilter });
     });
   }
 
@@ -2907,10 +2907,11 @@ function initPOHub() {
   }
 }
 
-async function loadPOHubController({ search = '', poId = null } = {}) {
+async function loadPOHubController({ search = currentPOSearch, status = currentPOFilter, poId = null } = {}) {
   try {
-    const queryParams = new URLSearchParams({ paged: 'true', limit: '50', offset: '0' });
+    const queryParams = new URLSearchParams({ paged: 'true', limit: '250', offset: '0' });
     if (search && search.trim()) queryParams.set('search', search.trim());
+    if (status && status !== 'ALL') queryParams.set('status', status);
 
     const url = `/api/pos?${queryParams.toString()}`;
     const data = await DataCache.fetchWithCache(url, { ttl: 60, swr: true });
@@ -2918,9 +2919,9 @@ async function loadPOHubController({ search = '', poId = null } = {}) {
     poListData = data.items || [];
 
     const navBadge = $('po-nav-count');
-    if (navBadge) navBadge.textContent = data.total || poListData.length;
+    if (navBadge) navBadge.textContent = data.total != null ? data.total : poListData.length;
 
-    renderPOSummaryKPIs(data.total || poListData.length);
+    renderPOSummaryKPIs(data.total != null ? data.total : poListData.length);
     renderPOMasterTable();
 
     if (poId) {
@@ -2992,6 +2993,8 @@ function renderPOMasterTable() {
     let statusPill = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
     if (po.status === 'OPEN') statusPill = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
     else if (po.status === 'CLOSED') statusPill = 'bg-slate-800 text-slate-300 border border-slate-700';
+    else if (po.status === 'PARTIAL') statusPill = 'bg-blue-500/10 text-blue-400 border border-blue-500/30';
+    else if (po.status === 'CANCELLED') statusPill = 'bg-red-500/10 text-red-400 border border-red-500/30';
 
     tr.innerHTML = `
       <td class="py-2.5 px-3">
@@ -3063,7 +3066,12 @@ function renderPODetail(data) {
   const statusBadge = $('pod-status-badge');
   if (statusBadge) {
     statusBadge.textContent = po.status || 'OPEN';
-    statusBadge.className = `px-2 py-0.5 text-[10px] font-mono font-bold ${po.status === 'OPEN' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : (po.status === 'CLOSED' ? 'bg-slate-800 text-slate-300 border border-slate-700' : 'bg-amber-500/10 text-amber-400 border border-amber-500/30')}`;
+    let badgeClass = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+    if (po.status === 'OPEN') badgeClass = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+    else if (po.status === 'CLOSED') badgeClass = 'bg-slate-800 text-slate-300 border border-slate-700';
+    else if (po.status === 'PARTIAL') badgeClass = 'bg-blue-500/10 text-blue-400 border border-blue-500/30';
+    else if (po.status === 'CANCELLED') badgeClass = 'bg-red-500/10 text-red-400 border border-red-500/30';
+    statusBadge.className = `px-2 py-0.5 text-[10px] font-mono font-bold ${badgeClass}`;
   }
 
   setText('pod-vendor-name', vendor.name || po.vendor_name || po.vendor_id || 'Unknown Vendor');

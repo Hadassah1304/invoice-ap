@@ -118,8 +118,8 @@ class ItemRepo:
                   AND inv.status IN {status_filter}"""
         params = [po_id]
         if exclude_invoice_id:
-            q += " AND inv.invoice_id != ?"
-            params.append(exclude_invoice_id)
+            q += " AND inv.invoice_id < ?"
+            params.append(int(exclude_invoice_id))
         q += " GROUP BY il.po_item_row_id"
 
         cur_lines = self.conn.execute(q, params)
@@ -451,8 +451,8 @@ class InvoiceRepo:
                        WHERE po_id = ? AND status = 'APPROVED'"""
         params = [po_id]
         if exclude_invoice_id:
-            query += " AND invoice_id != ?"
-            params.append(exclude_invoice_id)
+            query += " AND invoice_id < ?"
+            params.append(int(exclude_invoice_id))
         cur = self.conn.execute(query, params)
         row = cur.fetchone()
         return float(row["billed"]) if row else 0.0

@@ -17,6 +17,7 @@ router = APIRouter(tags=["common"])
 @router.get("/api/pos")
 def list_pos(
     search: Optional[str] = None,
+    status: Optional[str] = None,
     limit: Optional[int] = None,
     offset: int = 0,
     paged: bool = False,
@@ -24,6 +25,9 @@ def list_pos(
 ):
     where_clauses = ["1=1"]
     params = []
+    if status and status.strip() and status.upper() != "ALL":
+        where_clauses.append("UPPER(p.status) = ?")
+        params.append(status.strip().upper())
     if search and search.strip():
         s = f"%{search.strip()}%"
         where_clauses.append("(p.po_id LIKE ? OR v.name LIKE ? OR p.vendor_id LIKE ?)")
@@ -64,8 +68,8 @@ def list_pos(
         ORDER BY p.po_date DESC
     """
 
-    if paged or limit is not None or search is not None:
-        paged_params = list(params) + [min(limit or 25, 100), offset]
+    if paged or limit is not None or search is not None or status is not None:
+        paged_params = list(params) + [min(limit or 100, 250), offset]
         query += " LIMIT ? OFFSET ?"
         cur = db.execute(query, paged_params)
     else:
@@ -91,11 +95,11 @@ def list_pos(
         po_dict["linked_invoices_count"] = int(po.get("linked_invoices_count") or 0)
         results.append(po_dict)
 
-    if paged or limit is not None or search is not None:
+    if paged or limit is not None or search is not None or status is not None:
         return {
             "items": results,
             "total": total_count,
-            "limit": limit or 25,
+            "limit": limit or 100,
             "offset": offset,
             "has_more": (offset + len(results)) < total_count,
         }
@@ -118,7 +122,7 @@ def get_po_detail(
     if not po:
         return {"error": "PO not found"}
 
-    response.headers["Cache-Control"] = "private, max-age=60, stale-while-revalidate=120"
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
 
     po_dict = dict(po)
     total_budget = float(po_dict.get("total") or 0.0)

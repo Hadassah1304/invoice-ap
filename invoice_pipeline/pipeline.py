@@ -659,7 +659,10 @@ def process_invoice(
                             f"[CONCURRENCY CHECK] Exceeded remaining balance ({rem_bal:.2f})"
                         )
 
-                    fresh_items = {it["row_id"]: it for it in item_repo.list_by_po(match_res.selected_po)}
+                    fresh_items = {
+                        it["row_id"]: it
+                        for it in item_repo.list_by_po(match_res.selected_po, exclude_invoice_id=target_invoice_id)
+                    }
                     for l in extracted.line_items:
                         lm = next((m for m in line_matches if m.invoice_line_no == l.line_no), None)
                         if lm and lm.po_item_row_id and l.quantity is not None:

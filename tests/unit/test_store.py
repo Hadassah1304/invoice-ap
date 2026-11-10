@@ -68,3 +68,40 @@ def test_embedder_and_index(test_db):
     assert len(results) > 0
     assert results[0][0]["item_name"] == "Veg Burger"
     assert results[0][1] > 0.5
+
+
+def test_chronological_prior_billed_quantities(test_db):
+    v_repo = VendorRepo(test_db)
+    po_repo = PORepo(test_db)
+    item_repo = ItemRepo(test_db)
+    inv_repo = InvoiceRepo(test_db)
+
+    v_repo.create("V-QTY", "Zenith Micro Systems", approved=1)
+    po_repo.create("PO-QTY", "V-QTY", "2026-09-01", 10000.0, "INR", "OPEN")
+    row_id = item_repo.create("PO-QTY", "USB-C Cable 1m", "Cable", 100.0, 100.0, 100.0)
+
+    # First invoice: 80 pcs
+    inv_id_1 = inv_repo.create(
+        "V-QTY", "ZNT-1", "ZNT1", "2026-09-27", 8000.0, "INR", "PO-QTY", "EXPLICIT", "APPROVED", "{}"
+    )
+    inv_repo.add_line(inv_id_1, row_id, "USB-C Cable 1m", 80.0, 100.0, 8000.0)
+
+    # Second invoice: 30 pcs
+    inv_id_2 = inv_repo.create(
+        "V-QTY", "ZNT-2", "ZNT2", "2026-10-12", 3000.0, "INR", "PO-QTY", "EXPLICIT", "PENDING_REVIEW", "{}"
+    )
+    inv_repo.add_line(inv_id_2, row_id, "USB-C Cable 1m", 30.0, 100.0, 3000.0)
+
+    # For Invoice 1: prior billed must be 0, available must be 100
+    items_for_inv1 = item_repo.list_by_po("PO-QTY", exclude_invoice_id=inv_id_1)
+    assert items_for_inv1[0]["prior_billed_qty"] == 0.0
+    assert items_for_inv1[0]["qty_remaining"] == 100.0
+    consumed_for_inv1 = inv_repo.get_po_consumed_amount("PO-QTY", exclude_invoice_id=inv_id_1)
+    assert consumed_for_inv1 == 0.0
+
+    # For Invoice 2: prior billed must be 80, available must be 20
+    items_for_inv2 = item_repo.list_by_po("PO-QTY", exclude_invoice_id=inv_id_2)
+    assert items_for_inv2[0]["prior_billed_qty"] == 80.0
+    assert items_for_inv2[0]["qty_remaining"] == 20.0
+    consumed_for_inv2 = inv_repo.get_po_consumed_amount("PO-QTY", exclude_invoice_id=inv_id_2)
+    assert consumed_for_inv2 == 8000.0

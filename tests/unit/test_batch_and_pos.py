@@ -83,6 +83,15 @@ def test_pos_endpoints_enriched(test_setup):
     assert detail_data["invoices"][0]["invoice_no_raw"] == "INV-001"
     assert detail_data["invoices"][0]["confidence"] == 0.95
 
+    # Test status filtering on /api/pos
+    r_open = client.get("/api/pos?status=OPEN&paged=true")
+    assert r_open.status_code == 200
+    assert r_open.json()["total"] >= 1
+
+    r_closed = client.get("/api/pos?status=CLOSED&paged=true")
+    assert r_closed.status_code == 200
+    assert r_closed.json()["total"] == 0
+
 
 def test_process_invoice_batch_fault_isolation(test_setup, monkeypatch):
     client, cfg, tmp_path = test_setup

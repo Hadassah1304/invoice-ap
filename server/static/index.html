@@ -1099,10 +1099,12 @@
             <h3 class="text-[13px] font-semibold text-[#dee2ee] font-headline uppercase font-mono">PO Master Directory</h3>
             <div class="flex items-center gap-2">
               <input type="text" id="po-search-input" placeholder="Search PO or Vendor..." class="bg-[#0f141c] border border-[#232f42] text-[11px] px-2 py-1 text-[#dee2ee] focus:border-amber-500 focus:outline-none"/>
-              <select id="po-filter-status" class="bg-[#0f141c] border border-[#232f42] text-[11px] px-2 py-1 text-[#dee2ee]">
+              <select id="po-filter-status" class="bg-[#0f141c] border border-[#232f42] text-[11px] px-2 py-1 text-[#dee2ee] focus:border-amber-500 focus:outline-none">
                 <option value="all">All Statuses</option>
-                <option value="OPEN">OPEN</option>
-                <option value="CLOSED">CLOSED</option>
+                <option value="OPEN">Open</option>
+                <option value="PARTIAL">Partial</option>
+                <option value="CLOSED">Closed</option>
+                <option value="CANCELLED">Cancelled</option>
               </select>
             </div>
           </div>
