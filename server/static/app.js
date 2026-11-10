@@ -31,9 +31,15 @@ function setDisplay(id, show) {
   return el;
 }
 
+let allHistoryInvoices = [];
+let activeSidebarFilter = 'all';
+let sidebarSearchQuery = '';
+
 document.addEventListener('DOMContentLoaded', () => {
   initWorkspaceNav();
   initSidebarToggle();
+  initSidebarTabs();
+  initSidebarFilters();
   initDropZone();
   initTabs();
   initRuleFilters();
@@ -83,22 +89,77 @@ function initSidebarToggle() {
   if (btnUpload) {
     btnUpload.addEventListener('click', () => {
       expandRail();
-      const fi = $('file-input');
-      if (fi) fi.click();
+      if (window.switchSidebarTab) window.switchSidebarTab('ingest');
     });
   }
 
   if (btnHistory) {
     btnHistory.addEventListener('click', () => {
       expandRail();
-      const tabHist = document.querySelector('[data-tab="tab-history"]');
-      if (tabHist) tabHist.click();
+      if (window.switchSidebarTab) window.switchSidebarTab('queue');
     });
   }
 
   if (btnExpand) {
     btnExpand.addEventListener('click', expandRail);
   }
+}
+
+function initSidebarTabs() {
+  const btnQueue = $('tab-btn-queue');
+  const btnIngest = $('tab-btn-ingest');
+  const panelQueue = $('panel-queue');
+  const panelIngest = $('panel-ingest');
+  const btnSwitchToQueue = $('btn-switch-to-queue');
+
+  window.switchSidebarTab = function(mode) {
+    if (mode === 'ingest') {
+      if (panelQueue) { panelQueue.classList.add('hidden'); panelQueue.classList.remove('flex'); }
+      if (panelIngest) { panelIngest.classList.remove('hidden'); panelIngest.classList.add('flex'); }
+      if (btnIngest) {
+        btnIngest.className = 'py-2 px-1 font-semibold text-amber-400 border-b-2 border-amber-500 bg-[#161f2c] flex items-center justify-center gap-1.5 transition-colors uppercase cursor-pointer';
+      }
+      if (btnQueue) {
+        btnQueue.className = 'py-2 px-1 text-[#94a3b8] hover:text-[#dee2ee] hover:bg-[#131a24] flex items-center justify-center gap-1.5 transition-colors uppercase border-b-2 border-transparent cursor-pointer';
+      }
+    } else {
+      if (panelIngest) { panelIngest.classList.add('hidden'); panelIngest.classList.remove('flex'); }
+      if (panelQueue) { panelQueue.classList.remove('hidden'); panelQueue.classList.add('flex'); }
+      if (btnQueue) {
+        btnQueue.className = 'py-2 px-1 font-semibold text-amber-400 border-b-2 border-amber-500 bg-[#161f2c] flex items-center justify-center gap-1.5 transition-colors uppercase cursor-pointer';
+      }
+      if (btnIngest) {
+        btnIngest.className = 'py-2 px-1 text-[#94a3b8] hover:text-[#dee2ee] hover:bg-[#131a24] flex items-center justify-center gap-1.5 transition-colors uppercase border-b-2 border-transparent cursor-pointer';
+      }
+    }
+  };
+
+  if (btnQueue) btnQueue.addEventListener('click', () => window.switchSidebarTab('queue'));
+  if (btnIngest) btnIngest.addEventListener('click', () => window.switchSidebarTab('ingest'));
+  if (btnSwitchToQueue) btnSwitchToQueue.addEventListener('click', () => window.switchSidebarTab('queue'));
+}
+
+function initSidebarFilters() {
+  const searchInput = $('sidebar-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      sidebarSearchQuery = e.target.value.trim().toLowerCase();
+      renderFilteredHistory();
+    });
+  }
+
+  const chips = document.querySelectorAll('.sidebar-chip');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => {
+        c.className = 'sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-[#232f42] text-[#94a3b8] hover:text-[#dee2ee] transition whitespace-nowrap cursor-pointer';
+        c.classList.remove('active');
+      });
+      chip.className = 'sidebar-chip px-2 py-0.5 bg-amber-500 text-slate-950 font-bold whitespace-nowrap active cursor-pointer';
+      activeSidebarFilter = chip.dataset.filter || 'all';
+      renderFilteredHistory();
+    });
+  });
 }
 
 function initDropZone() {
@@ -176,32 +237,150 @@ function initRuleFilters() {
   });
 }
 
+class PacedProgressManager {
+  constructor(onUpdate, minDwellMs = 900) {
+    this.onUpdate = onUpdate;
+    this.minDwellMs = minDwellMs;
+    this.queue = [];
+    this.isProcessing = false;
+    this.currentStep = null;
+    this.lastChangeTime = 0;
+  }
+
+  enqueue(step) {
+    this.queue.push(step);
+    if (!this.isProcessing) {
+      this._drain();
+    }
+  }
+
+  async _drain() {
+    this.isProcessing = true;
+    while (this.queue.length > 0) {
+      const step = this.queue.shift();
+      const now = Date.now();
+      const elapsedSinceLast = now - this.lastChangeTime;
+      if (this.currentStep && elapsedSinceLast < this.minDwellMs) {
+        await new Promise(r => setTimeout(r, this.minDwellMs - elapsedSinceLast));
+      }
+      this.currentStep = step;
+      this.lastChangeTime = Date.now();
+      this.onUpdate(step);
+    }
+    this.isProcessing = false;
+  }
+
+  async finish() {
+    while (this.isProcessing || this.queue.length > 0) {
+      await new Promise(r => setTimeout(r, 40));
+    }
+    const elapsed = Date.now() - this.lastChangeTime;
+    if (elapsed < 600) {
+      await new Promise(r => setTimeout(r, 600 - elapsed));
+    }
+  }
+}
+
 async function handleProcess() {
   const fileInput = $('file-input');
   if (!fileInput || !fileInput.files.length) return;
 
   const ocrEngine = $('ocr-select') ? $('ocr-select').value : '';
   const isDryRun = $('dryrun-toggle') ? $('dryrun-toggle').checked : false;
+  const btnProcess = $('btn-process');
 
   const formData = new FormData();
   formData.append('file', fileInput.files[0]);
 
-  const spinner = $('processing-spinner');
-  if (spinner) spinner.classList.remove('hidden');
+  const progressCard = $('processing-spinner');
+  const stageBadge = $('spinner-stage-badge');
+  const spinnerText = $('spinner-text');
+  const barFill = $('spinner-bar-fill');
+  const timerLabel = $('spinner-timer');
 
-  let url = `/api/invoices/process?dry_run=${isDryRun}`;
-  if (ocrEngine) url += `&ocr_engine=${ocrEngine}`;
+  if (btnProcess) btnProcess.disabled = true;
+  if (progressCard) progressCard.classList.remove('hidden');
+
+  const startTime = Date.now();
+  const timerInterval = setInterval(() => {
+    if (timerLabel) {
+      const sec = ((Date.now() - startTime) / 1000).toFixed(1);
+      timerLabel.textContent = `${sec}s`;
+    }
+  }, 100);
+
+  // Crisp stage mapper
+  const stageMap = {
+    ingest: { badge: 'Step 1 of 4', text: 'Extracting text...', pct: 25 },
+    extraction: { badge: 'Step 2 of 4', text: 'Extracting invoice fields and items...', pct: 50 },
+    matching: { badge: 'Step 3 of 4', text: 'Matching purchase orders...', pct: 75 },
+    explanation: { badge: 'Step 4 of 4', text: 'Validating rules & generating AP reasoning...', pct: 95 },
+    complete: { badge: 'Complete', text: 'Finalizing decision...', pct: 100 },
+    cache: { badge: 'Cached', text: 'Retrieved from cache...', pct: 100 },
+  };
+
+  const pacer = new PacedProgressManager((step) => {
+    if (stageBadge) stageBadge.textContent = step.badge;
+    if (spinnerText) spinnerText.textContent = step.text;
+    if (barFill) barFill.style.width = `${step.pct}%`;
+  }, 900);
+
+  // Initial stage
+  pacer.enqueue(stageMap.ingest);
+
+  let streamUrl = `/api/invoices/process/stream?dry_run=${isDryRun}`;
+  if (ocrEngine) streamUrl += `&ocr_engine=${ocrEngine}`;
 
   try {
-    const res = await fetch(url, { method: 'POST', body: formData });
+    const res = await fetch(streamUrl, { method: 'POST', body: formData });
     if (!res.ok) throw new Error(`Server returned ${res.status}`);
-    const data = await res.json();
-    await renderDecisionResult(data);
-    loadHistory();
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let finalResult = null;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const blocks = buffer.split('\n\n');
+      buffer = blocks.pop() || '';
+
+      for (const block of blocks) {
+        if (!block.trim()) continue;
+        const line = block.split('\n').find(l => l.startsWith('data: '));
+        if (!line) continue;
+        try {
+          const payload = JSON.parse(line.replace(/^data:\s*/, ''));
+          if (payload.type === 'progress' && stageMap[payload.stage]) {
+            pacer.enqueue(stageMap[payload.stage]);
+          } else if (payload.type === 'complete' && payload.result) {
+            finalResult = payload.result;
+          } else if (payload.type === 'error') {
+            throw new Error(payload.error || 'Pipeline error');
+          }
+        } catch (e) {
+          console.warn('SSE parse error:', e);
+        }
+      }
+    }
+
+    await pacer.finish();
+
+    if (finalResult) {
+      await renderDecisionResult(finalResult);
+      await loadHistory();
+      if (window.switchSidebarTab) window.switchSidebarTab('queue');
+    } else {
+      throw new Error('No decision result returned from pipeline.');
+    }
   } catch (err) {
     alert(`Error processing invoice: ${err.message}`);
   } finally {
-    if (spinner) spinner.classList.add('hidden');
+    clearInterval(timerInterval);
+    if (btnProcess) btnProcess.disabled = false;
+    if (progressCard) progressCard.classList.add('hidden');
   }
 }
 
@@ -1126,24 +1305,30 @@ function renderReasoning(reasons) {
   }
 
   reasons.forEach(r => {
-    const lower = String(r).toLowerCase();
-    let badgeLabel = 'INFO';
+    let status = 'INFO';
+    let text = '';
+
+    if (typeof r === 'object' && r !== null) {
+      status = (r.status || 'INFO').toUpperCase();
+      text = r.text || '';
+    } else {
+      text = String(r);
+      status = 'INFO';
+    }
+
     let boxClass = 'p-2.5 border border-[#232f42] bg-[#0f141c]/80 flex items-start gap-2.5';
     let pillClass = 'inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold font-mono bg-slate-800 text-slate-300 border border-slate-700 uppercase mt-0.5';
     let textClass = 'text-[12px] text-[#cbd5e1] leading-snug';
 
-    if (lower.includes('approved') || lower.includes('pass') || lower.includes('exact') || lower.includes('valid') || lower.includes('healthy')) {
-      badgeLabel = 'PASSED';
+    if (status === 'PASSED') {
       boxClass = 'p-2.5 border border-emerald-500/30 bg-emerald-500/10 flex items-start gap-2.5';
       pillClass = 'inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 uppercase mt-0.5';
       textClass = 'text-[12px] text-emerald-300 leading-snug';
-    } else if (lower.includes('review') || lower.includes('drift') || lower.includes('ambiguous') || lower.includes('warn') || lower.includes('caution')) {
-      badgeLabel = 'FLAGGED';
+    } else if (status === 'FLAGGED') {
       boxClass = 'p-2.5 border border-amber-500/30 bg-amber-500/10 flex items-start gap-2.5';
       pillClass = 'inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold font-mono bg-amber-500/20 text-amber-400 border border-amber-500/40 uppercase mt-0.5';
       textClass = 'text-[12px] text-amber-200/90 leading-snug';
-    } else if (lower.includes('reject') || lower.includes('fail') || lower.includes('duplicate') || lower.includes('closed') || lower.includes('over')) {
-      badgeLabel = 'REJECTED';
+    } else if (status === 'REJECTED') {
       boxClass = 'p-2.5 border border-red-500/30 bg-red-500/10 flex items-start gap-2.5';
       pillClass = 'inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold font-mono bg-red-500/20 text-red-400 border border-red-500/40 uppercase mt-0.5';
       textClass = 'text-[12px] text-red-300 leading-snug';
@@ -1152,8 +1337,8 @@ function renderReasoning(reasons) {
     const li = document.createElement('li');
     li.className = boxClass;
     li.innerHTML = `
-      <span class="${pillClass}">${badgeLabel}</span>
-      <p class="${textClass}">${escapeHtml(r)}</p>
+      <span class="${pillClass}">${escapeHtml(status)}</span>
+      <p class="${textClass}">${escapeHtml(text)}</p>
     `;
     reasoningList.appendChild(li);
   });
@@ -1336,85 +1521,144 @@ async function loadHistory() {
   if (!list) return;
   try {
     const res = await fetch('/api/invoices');
-    const items = await res.json();
-    list.innerHTML = '';
-    if (!items.length) {
-      list.innerHTML = '<div class="p-4 text-center text-[12px] text-[#64748b]">No processed invoices yet</div>';
-      return;
-    }
-    items.forEach(inv => {
-      const div = document.createElement('div');
-      const isRej = inv.status === 'REJECTED';
-      const isApp = inv.status === 'APPROVED';
-      const rowClass = isRej
-        ? 'p-3 bg-red-950/20 border-l-2 border-red-500 hover:bg-red-950/30 transition flex items-center justify-between group cursor-pointer'
-        : 'p-3 hover:bg-[#1a2434]/70 transition flex items-center justify-between group cursor-pointer';
+    allHistoryInvoices = await res.json();
+    
+    // Update count badges
+    const total = allHistoryInvoices.length;
+    const reviewCnt = allHistoryInvoices.filter(i => i.status === 'NEEDS_REVIEW' || i.status === 'PENDING_REVIEW').length;
+    const rejCnt = allHistoryInvoices.filter(i => i.status === 'REJECTED').length;
+    const appCnt = allHistoryInvoices.filter(i => i.status === 'APPROVED').length;
 
-      const statusBadge = isApp
-        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
-        : (isRej ? 'bg-red-500/10 text-red-400 border border-red-500/30' : 'bg-amber-500/10 text-amber-400 border border-amber-500/30');
+    setText('sidebar-ledger-count-badge', total);
+    setText('chip-cnt-all', total);
+    setText('chip-cnt-review', reviewCnt);
+    setText('chip-cnt-rejected', rejCnt);
+    setText('chip-cnt-approved', appCnt);
 
-      div.className = rowClass;
-      const ts = formatTimestamp(inv.created_at);
-
-      div.innerHTML = `
-        <div class="space-y-0.5">
-          <div class="flex items-center gap-1.5">
-            <span class="font-mono text-[13px] font-medium text-[#dee2ee]">#${escapeHtml(inv.invoice_no_raw || 'N/A')}</span>
-            ${isRej ? '<span class="h-1.5 w-1.5 bg-red-400"></span>' : ''}
-          </div>
-          <p class="text-[12px] text-[#94a3b8]">
-            ${escapeHtml(inv.vendor_id || 'Unknown')} · Total: <span class="font-mono text-amber-400/90 font-medium">${inv.currency || 'INR'} ${inv.total != null ? Number(inv.total).toLocaleString('en-IN') : '—'}</span>
-          </p>
-          <span class="text-[11px] text-[#64748b]">${escapeHtml(ts.relative || ts.exact)}</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <button class="h-6 px-2 flex items-center gap-1 bg-[#1a2434] hover:bg-[#232f42] text-[#dee2ee] text-[11px] font-medium transition border border-[#232f42] btn-view-hist-doc cursor-pointer">
-            <span class="material-symbols-outlined text-[13px]">visibility</span>
-            <span>View</span>
-          </button>
-          <span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold tracking-wide ${statusBadge} font-mono">
-            ${escapeHtml(inv.status)}
-          </span>
-        </div>
-      `;
-
-      const btnViewHist = div.querySelector('.btn-view-hist-doc');
-      if (btnViewHist) {
-        btnViewHist.addEventListener('click', (e) => {
-          e.stopPropagation();
-          openDocumentViewer({
-            invoiceId: inv.invoice_id,
-            invoiceNo: inv.invoice_no_raw,
-            vendorName: inv.vendor_id,
-            fileName: inv.file_name,
-            filePath: inv.file_path,
-          });
-        });
-      }
-      div.addEventListener('click', async () => {
-        try {
-          currentInvoiceId = inv.invoice_id;
-          showBreadcrumb('ws-single', inv.invoice_no_raw || `#${inv.invoice_id}`);
-          switchWorkspace('ws-single');
-          const detailRes = await fetch(`/api/invoices/${inv.invoice_id}`);
-          if (!detailRes.ok) {
-            const err = await detailRes.json().catch(() => ({}));
-            alert(err.detail || `Server error (${detailRes.status}) while loading invoice`);
-            return;
-          }
-          const fullData = await detailRes.json();
-          await renderDecisionResult(fullData);
-        } catch (e) {
-          console.error('Failed to load invoice details:', e);
-          alert('Could not connect to server to fetch invoice details.');
-        }
-      });
-      list.appendChild(div);
-    });
+    renderFilteredHistory();
   } catch (err) {
-    list.innerHTML = '<div class="p-4 text-center text-[12px] text-red-400">Failed to load history</div>';
+    if (list) list.innerHTML = '<div class="p-4 text-center text-[12px] text-red-400">Failed to load history</div>';
   }
+}
+
+function renderFilteredHistory() {
+  const list = $('history-list');
+  if (!list) return;
+
+  const filtered = allHistoryInvoices.filter(inv => {
+    // Status filter
+    if (activeSidebarFilter === 'review') {
+      if (inv.status !== 'NEEDS_REVIEW' && inv.status !== 'PENDING_REVIEW') return false;
+    } else if (activeSidebarFilter === 'rejected') {
+      if (inv.status !== 'REJECTED') return false;
+    } else if (activeSidebarFilter === 'approved') {
+      if (inv.status !== 'APPROVED') return false;
+    }
+
+    // Search query
+    if (sidebarSearchQuery) {
+      const matchNo = String(inv.invoice_no_raw || '').toLowerCase().includes(sidebarSearchQuery);
+      const matchNorm = String(inv.invoice_no_norm || '').toLowerCase().includes(sidebarSearchQuery);
+      const matchVendor = String(inv.vendor_id || '').toLowerCase().includes(sidebarSearchQuery);
+      const matchPO = String(inv.po_id || '').toLowerCase().includes(sidebarSearchQuery);
+      if (!matchNo && !matchNorm && !matchVendor && !matchPO) return false;
+    }
+
+    return true;
+  });
+
+  list.innerHTML = '';
+  if (!filtered.length) {
+    list.innerHTML = '<div class="p-4 text-center text-[12px] text-[#64748b]">No invoices matching filter</div>';
+    return;
+  }
+
+  filtered.forEach(inv => {
+    const isCurrent = currentInvoiceId === inv.invoice_id;
+    const isRej = inv.status === 'REJECTED';
+    const isApp = inv.status === 'APPROVED';
+
+    let rowClass = 'p-2.5 hover:bg-[#1a2434]/70 transition flex items-center justify-between group cursor-pointer';
+    if (isCurrent) {
+      rowClass = isRej
+        ? 'p-2.5 bg-red-950/30 border-l-2 border-red-500 transition flex items-center justify-between group cursor-pointer'
+        : 'p-2.5 bg-amber-500/10 border-l-2 border-amber-500 transition flex items-center justify-between group cursor-pointer';
+    } else if (isRej) {
+      rowClass = 'p-2.5 hover:bg-red-950/20 transition flex items-center justify-between group cursor-pointer';
+    }
+
+    let statusBadge = 'bg-amber-500/10 text-amber-400 border border-amber-500/30';
+    if (isApp) {
+      statusBadge = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+    } else if (isRej) {
+      statusBadge = 'bg-red-500/10 text-red-400 border border-red-500/30';
+    }
+
+    const ts = formatTimestamp(inv.created_at);
+    const div = document.createElement('div');
+    div.className = rowClass;
+    div.innerHTML = `
+      <div class="space-y-0.5 min-w-0 pr-2">
+        <div class="flex items-center gap-1.5">
+          <span class="font-mono text-[12px] font-bold text-[#dee2ee]">#${escapeHtml(inv.invoice_no_raw || 'N/A')}</span>
+          ${isRej ? '<span class="h-1.5 w-1.5 bg-red-400"></span>' : ''}
+          ${isCurrent ? '<span class="text-[9px] font-mono text-amber-400 uppercase font-bold">[CURRENT]</span>' : ''}
+        </div>
+        <p class="text-[11px] text-[#94a3b8] truncate font-sans">
+          ${escapeHtml(inv.vendor_id || 'Unknown')} · Total: <span class="font-mono text-amber-400/90 font-semibold">${inv.currency || 'INR'} ${inv.total != null ? Number(inv.total).toLocaleString('en-IN') : '—'}</span>
+        </p>
+        <div class="flex items-center gap-2 text-[10px] text-[#64748b] font-mono">
+          <span>${escapeHtml(ts.relative || ts.exact)}</span>
+          ${inv.po_id ? `<span>·</span><span>${escapeHtml(inv.po_id)}</span>` : ''}
+        </div>
+      </div>
+      <div class="flex flex-col items-end gap-1 flex-shrink-0">
+        <span class="inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold tracking-wide ${statusBadge} font-mono uppercase">
+          ${escapeHtml(inv.status)}
+        </span>
+        <button class="h-5 px-1.5 flex items-center gap-1 bg-[#1a2434] hover:bg-[#232f42] text-[#dee2ee] text-[10px] font-medium transition border border-[#232f42] btn-view-hist-doc cursor-pointer">
+          <span class="material-symbols-outlined text-[12px]">visibility</span>
+          <span>View</span>
+        </button>
+      </div>
+    `;
+
+    const btnViewHist = div.querySelector('.btn-view-hist-doc');
+    if (btnViewHist) {
+      btnViewHist.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openDocumentViewer({
+          invoiceId: inv.invoice_id,
+          invoiceNo: inv.invoice_no_raw,
+          vendorName: inv.vendor_id,
+          fileName: inv.file_name,
+          filePath: inv.file_path,
+        });
+      });
+    }
+
+    div.addEventListener('click', async () => {
+      try {
+        currentInvoiceId = inv.invoice_id;
+        showBreadcrumb('ws-single', inv.invoice_no_raw || `#${inv.invoice_id}`);
+        switchWorkspace('ws-single');
+        renderFilteredHistory();
+        const detailRes = await fetch(`/api/invoices/${inv.invoice_id}`);
+        if (!detailRes.ok) {
+          const err = await detailRes.json().catch(() => ({}));
+          alert(err.detail || `Server error (${detailRes.status}) while loading invoice`);
+          return;
+        }
+        const fullData = await detailRes.json();
+        await renderDecisionResult(fullData);
+      } catch (e) {
+        console.error('Failed to load invoice details:', e);
+        alert('Could not connect to server to fetch invoice details.');
+      }
+    });
+
+    list.appendChild(div);
+  });
 }
 
 async function loadPOs() {
@@ -1663,53 +1907,147 @@ async function handleBatchProcess() {
   const progressStatus = $('batch-progress-status');
   const progressPct = $('batch-progress-pct');
   const progressBarFill = $('batch-progress-bar-fill');
+  const substatusText = $('batch-substatus-text');
+  const timerLabel = $('batch-progress-timer');
   const ocrEngine = $('batch-ocr-select') ? $('batch-ocr-select').value : '';
   const isDryRun = $('batch-dryrun-toggle') ? $('batch-dryrun-toggle').checked : false;
 
   if (btnProcess) btnProcess.disabled = true;
   if (progressContainer) progressContainer.classList.remove('hidden');
-  if (progressStatus) progressStatus.textContent = `Uploading & processing ${stagedBatchFiles.length} files sequentially...`;
-  if (progressPct) progressPct.textContent = '10%';
-  if (progressBarFill) progressBarFill.style.width = '10%';
+
+  // Reset results and render empty/current table
+  batchResults = [];
+  renderBatchTable();
+
+  const totalFiles = stagedBatchFiles.length;
+  if (progressStatus) progressStatus.textContent = `Processing file 1 of ${totalFiles}...`;
+  if (progressPct) progressPct.textContent = '0%';
+  if (progressBarFill) {
+    progressBarFill.style.width = '0%';
+    progressBarFill.style.backgroundColor = '#f59e0b';
+  }
+  if (substatusText) substatusText.textContent = 'Uploading files & preparing batch pipeline...';
+
+  const startTime = Date.now();
+  const timerInterval = setInterval(() => {
+    if (timerLabel) {
+      const elapsedSec = Math.round((Date.now() - startTime) / 1000);
+      const completed = batchResults.length;
+      if (completed > 0 && completed < totalFiles) {
+        const avgPerFile = (Date.now() - startTime) / completed;
+        const estRemSec = Math.max(1, Math.round(((totalFiles - completed) * avgPerFile) / 1000));
+        timerLabel.textContent = `Elapsed: ${elapsedSec}s • Est. rem: ~${estRemSec}s`;
+      } else {
+        timerLabel.textContent = `Elapsed: ${elapsedSec}s`;
+      }
+    }
+  }, 400);
 
   const formData = new FormData();
   stagedBatchFiles.forEach(file => {
     formData.append('files', file);
   });
 
-  let url = `/api/invoices/batch?dry_run=${isDryRun}`;
+  let url = `/api/invoices/batch/stream?dry_run=${isDryRun}`;
   if (ocrEngine) url += `&ocr_engine=${ocrEngine}`;
 
   try {
-    if (progressBarFill) progressBarFill.style.width = '45%';
-    if (progressPct) progressPct.textContent = '45%';
-    if (progressStatus) progressStatus.textContent = 'Extracting and matching line items...';
-
     const res = await fetch(url, { method: 'POST', body: formData });
     if (!res.ok) throw new Error(`Batch processing returned status ${res.status}`);
 
-    const batchData = await res.json();
-    batchResults = batchData.items || [];
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let batchCompleteData = null;
 
-    if (progressBarFill) progressBarFill.style.width = '100%';
-    if (progressPct) progressPct.textContent = '100%';
-    if (progressStatus) progressStatus.textContent = `Completed batch of ${batchData.processed_count} files in ${batchData.total_duration_ms} ms.`;
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const blocks = buffer.split('\n\n');
+      buffer = blocks.pop() || '';
 
-    // Update batch counter badge
-    const badge = $('batch-nav-count');
-    if (badge) {
-      badge.textContent = batchResults.length;
-      badge.classList.remove('hidden');
+      for (const block of blocks) {
+        if (!block.trim()) continue;
+        const line = block.split('\n').find(l => l.startsWith('data: '));
+        if (!line) continue;
+
+        try {
+          const payload = JSON.parse(line.replace(/^data:\s*/, ''));
+
+          if (payload.type === 'file_start') {
+            const currentFileNum = payload.file_index + 1;
+            if (progressStatus) {
+              progressStatus.textContent = `Processing file ${currentFileNum} of ${payload.total_files}: ${payload.file_name}`;
+            }
+            if (substatusText) {
+              substatusText.textContent = `[${payload.file_name}] Extracting text...`;
+            }
+          } else if (payload.type === 'file_progress') {
+            if (substatusText) {
+              substatusText.textContent = `[${payload.file_name}] ${payload.message}`;
+            }
+            if (payload.overall_pct != null) {
+              const opct = Math.min(99, Math.round(payload.overall_pct));
+              if (progressPct) progressPct.textContent = `${opct}%`;
+              if (progressBarFill) progressBarFill.style.width = `${opct}%`;
+            }
+          } else if (payload.type === 'file_done') {
+            if (payload.item) {
+              batchResults.unshift(payload.item);
+              renderBatchHUD(payload.stats);
+              renderBatchTable();
+            }
+
+            const badge = $('batch-nav-count');
+            if (badge) {
+              badge.textContent = batchResults.length;
+              badge.classList.remove('hidden');
+            }
+
+            const currentFileNum = payload.file_index + 1;
+            const pct = Math.round((currentFileNum / payload.total_files) * 100);
+            if (progressBarFill) progressBarFill.style.width = `${pct}%`;
+            if (progressPct) progressPct.textContent = `${pct}%`;
+            if (progressStatus) {
+              progressStatus.textContent = `Completed ${currentFileNum} of ${payload.total_files} files...`;
+            }
+          } else if (payload.type === 'batch_done') {
+            batchCompleteData = payload.batch;
+          } else if (payload.type === 'error') {
+            throw new Error(payload.error || 'Batch processing failure');
+          }
+        } catch (e) {
+          console.warn('Batch SSE parse warning:', e);
+        }
+      }
     }
 
-    renderBatchHUD(batchData);
+    if (progressBarFill) {
+      progressBarFill.style.width = '100%';
+      progressBarFill.style.backgroundColor = '#16a34a';
+    }
+    if (progressPct) progressPct.textContent = '100%';
+    const duration = Math.round((Date.now() - startTime) / 1000);
+    if (progressStatus) {
+      progressStatus.textContent = `Completed batch of ${batchResults.length} files in ${duration}s.`;
+    }
+    if (substatusText) {
+      substatusText.textContent = `All files processed successfully.`;
+    }
+
+    if (batchCompleteData) {
+      renderBatchHUD(batchCompleteData);
+    }
     renderBatchTable();
     loadHistory();
     loadPOs();
   } catch (err) {
     alert(`Batch error: ${err.message}`);
     if (progressStatus) progressStatus.textContent = `Failed: ${err.message}`;
+    if (substatusText) substatusText.textContent = err.message;
   } finally {
+    clearInterval(timerInterval);
     if (btnProcess) btnProcess.disabled = false;
   }
 }
@@ -2383,11 +2721,11 @@ async function openDocumentViewer({ invoiceId, invoiceNo, vendorName, fileName, 
     const contentType = checkRes.headers.get('content-type') || '';
     if (contentType.includes('pdf') || displayFileName.toLowerCase().endsWith('.pdf')) {
       modalBody.innerHTML = `
-        <iframe src="${fileUrl}#toolbar=1&navpanes=0" class="doc-iframe" title="Invoice PDF Preview"></iframe>
+        <iframe src="${fileUrl}#toolbar=1&navpanes=0" class="doc-iframe w-full h-full" style="width: 100%; height: 100%; min-height: 100%; border: none;" title="Invoice PDF Preview"></iframe>
       `;
     } else {
       modalBody.innerHTML = `
-        <div class="doc-image-container">
+        <div class="doc-image-container w-full h-full" style="width: 100%; height: 100%;">
           <img src="${fileUrl}" alt="Invoice Scan" class="doc-image">
         </div>
       `;

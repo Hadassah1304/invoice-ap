@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 from pydantic import BaseModel, Field
 
 
@@ -215,6 +215,17 @@ class CostSummary(BaseModel):
     llm_output_tokens: int = 0
 
 
+class ReasoningFactor(BaseModel):
+    status: str = "INFO"  # PASSED | FLAGGED | REJECTED | INFO
+    text: str
+
+    def __contains__(self, item: str) -> bool:
+        return item in self.text
+
+    def __str__(self) -> str:
+        return self.text
+
+
 class DecisionResult(BaseModel):
     invoice_id: Optional[int] = None
     vendor_id: Optional[str] = None
@@ -226,7 +237,7 @@ class DecisionResult(BaseModel):
     reason_code: ReasonCodeEnum
     confidence: float
     summary: str
-    reasoning: List[str] = Field(default_factory=list)
+    reasoning: List[Union[ReasoningFactor, str]] = Field(default_factory=list)
     extracted: Optional[ExtractedInvoice] = None
     match: MatchResult = Field(default_factory=MatchResult)
     po_balance: Optional[POBalanceSummary] = None

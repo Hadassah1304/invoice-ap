@@ -55,13 +55,13 @@
   </script>
 
   <!-- Custom Industrial Dark Theme Styles -->
-  <link rel="stylesheet" href="style.css?v=4.2"/>
+  <link rel="stylesheet" href="style.css?v=4.7"/>
 </head>
 
-<body class="bg-[#0f141c] text-[#dee2ee] antialiased min-h-screen flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
+<body class="bg-[#0f141c] text-[#dee2ee] antialiased h-screen overflow-hidden flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
 
   <!-- ================= TOP APP BAR matching Stitch Screen ================= -->
-  <header class="bg-[#131a24]/95 border-b border-[#232f42] w-full px-6 flex flex-col justify-start sticky top-0 z-40 backdrop-blur-md">
+  <header class="bg-[#131a24]/95 border-b border-[#232f42] w-full px-6 flex flex-col justify-start flex-shrink-0 sticky top-0 z-40 backdrop-blur-md">
     <div class="flex items-center justify-between h-14 border-b border-[#1c2738]">
       
       <!-- Brand & Product Title -->
@@ -131,26 +131,15 @@
     </div>
   </header>
 
-  <!-- Inspection Return Breadcrumb -->
-  <div id="inspector-breadcrumb" class="breadcrumb-bar hidden">
-    <div class="breadcrumb-container">
-      <button id="btn-back-to-origin" class="flex items-center gap-1 text-[12px] font-medium text-amber-400 hover:underline">
-        <span class="material-symbols-outlined text-[14px]">arrow_back</span> Return to <span id="breadcrumb-origin-label">Batch Processing</span>
-      </button>
-      <span class="text-[#64748b]">•</span>
-      <span class="text-[12px] text-[#94a3b8]">Inspecting Invoice: <strong id="breadcrumb-inv-no" class="text-[#dee2ee] font-mono">#</strong></span>
-    </div>
-  </div>
-
   <!-- ================= WORKSPACE 1: SINGLE DOCUMENT MODE ================= -->
-  <div id="ws-single" class="workspace-view active">
-    <main class="flex-1 w-full mx-auto flex flex-col lg:flex-row transition-all duration-150 items-stretch min-h-[calc(100vh-100px)]" id="main-workspace">
+  <div id="ws-single" class="workspace-view active flex-1 min-h-0 w-full overflow-hidden flex flex-col">
+    <main class="flex-1 min-h-0 w-full mx-auto flex flex-col lg:flex-row transition-all duration-150 items-stretch overflow-hidden" id="main-workspace">
       
       <!-- ================= LEFT RAIL: RETRACTABLE DRAWER ================= -->
-      <aside class="w-full lg:w-[340px] xl:w-[380px] flex-shrink-0 transition-all duration-150 relative bg-[#131a24] border-r border-b lg:border-b-0 border-[#232f42] flex flex-col shadow-sm self-stretch" id="left-rail">
+      <aside class="w-full lg:w-[340px] xl:w-[380px] h-full flex-shrink-0 transition-all duration-150 relative bg-[#131a24] border-r border-b lg:border-b-0 border-[#232f42] flex flex-col shadow-sm self-stretch overflow-hidden" id="left-rail">
         
         <!-- Drawer Header with Toggle Button -->
-        <div class="flex items-center justify-between px-3 py-2.5 bg-[#0f141c] border-b border-[#232f42] text-[#dee2ee]">
+        <div class="flex items-center justify-between px-3 py-2.5 bg-[#0f141c] border-b border-[#232f42] text-[#dee2ee] flex-shrink-0">
           <div class="sidebar-content flex items-center gap-2">
             <span class="material-symbols-outlined text-[16px] text-amber-400">tune</span>
             <span class="text-[11px] font-mono uppercase tracking-wider text-[#cbd5e1] font-semibold">Workflow Panel</span>
@@ -162,7 +151,7 @@
         </div>
 
         <!-- Collapsed Indicator Column (Shown when #left-rail has .sidebar-collapsed) -->
-        <div class="sidebar-collapsed-indicator hidden flex-col items-center py-6 gap-6 bg-[#131a24] text-[#94a3b8]">
+        <div class="sidebar-collapsed-indicator hidden flex-col items-center py-6 gap-6 bg-[#131a24] text-[#94a3b8] flex-1 overflow-y-auto custom-scroll">
           <button id="btn-rail-upload" class="p-1.5 hover:text-amber-400 hover:bg-[#1a2434] text-amber-400 cursor-pointer" title="Upload Invoice">
             <span class="material-symbols-outlined text-[20px]">upload_file</span>
           </button>
@@ -176,31 +165,44 @@
         </div>
 
         <!-- Expanded Sidebar Content -->
-        <div class="sidebar-content flex-1 flex flex-col divide-y divide-[#232f42]">
+        <div class="sidebar-content flex-1 min-h-0 flex flex-col overflow-hidden">
           
-          <!-- Process Invoice Ingestion Box -->
-          <div class="p-4 bg-[#131a24]">
-            <div class="flex items-center justify-between mb-3">
-              <h2 class="text-[13px] font-semibold text-[#dee2ee] tracking-tight uppercase font-mono">Process Invoice</h2>
+          <!-- Top-Level Sidebar Segmented Mode Switcher Tabs -->
+          <div class="grid grid-cols-2 border-b border-[#232f42] bg-[#0f141c] text-center select-none text-[11px] font-mono tracking-tight flex-shrink-0">
+            <button id="tab-btn-ingest" class="py-2 px-1 font-semibold text-amber-400 border-b-2 border-amber-500 bg-[#161f2c] flex items-center justify-center gap-1.5 transition-colors uppercase cursor-pointer" type="button">
+              <span class="material-symbols-outlined text-[14px]">upload_file</span>
+              <span>Ingest</span>
+            </button>
+            <button id="tab-btn-queue" class="py-2 px-1 text-[#94a3b8] hover:text-[#dee2ee] hover:bg-[#131a24] flex items-center justify-center gap-1.5 transition-colors uppercase border-b-2 border-transparent cursor-pointer" type="button">
+              <span class="material-symbols-outlined text-[14px]">format_list_bulleted</span>
+              <span>Ledger</span>
+              <span id="sidebar-ledger-count-badge" class="px-1.5 py-0.2 rounded-none text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30">0</span>
+            </button>
+          </div>
+
+          <!-- TAB 1: INGEST & OCR UPLOAD (First Tab) -->
+          <div id="panel-ingest" class="flex flex-col flex-1 min-h-0 overflow-y-auto custom-scroll p-4 bg-[#131a24] space-y-4">
+            <div class="flex items-center justify-between mb-1">
+              <h2 class="text-[13px] font-semibold text-[#dee2ee] tracking-tight uppercase font-mono">Upload &amp; Ingest Invoice</h2>
               <span class="material-symbols-outlined text-[#94a3b8] cursor-pointer hover:text-amber-400 transition-colors text-[16px]">help</span>
             </div>
 
             <!-- Drag & Drop Zone -->
-            <div id="drop-zone" class="border border-dashed border-[#232f42] p-4 text-center bg-[#0f141c]/90 hover:bg-[#1a2434]/60 hover:border-amber-500/50 transition-all cursor-pointer group relative">
+            <div id="drop-zone" class="border border-dashed border-[#232f42] p-5 text-center bg-[#0f141c]/90 hover:bg-[#1a2434]/60 hover:border-amber-500/50 transition-all cursor-pointer group relative">
               <input type="file" id="file-input" accept=".pdf,.png,.jpg,.jpeg" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"/>
-              <div class="w-9 h-9 mx-auto mb-2 bg-[#1a2434] border border-[#232f42] flex items-center justify-center text-[#94a3b8] group-hover:text-amber-400 group-hover:border-amber-500/50 transition-colors shadow-xs">
-                <span class="material-symbols-outlined text-[19px]">upload_file</span>
+              <div class="w-10 h-10 mx-auto mb-2 bg-[#1a2434] border border-[#232f42] flex items-center justify-center text-[#94a3b8] group-hover:text-amber-400 group-hover:border-amber-500/50 transition-colors shadow-xs">
+                <span class="material-symbols-outlined text-[20px]">upload_file</span>
               </div>
               <p class="text-[12px] font-medium text-[#dee2ee]">
                 Drag &amp; drop invoice PDF / scan or <span class="text-amber-400 font-semibold hover:underline">browse</span>
               </p>
-              <p class="text-[10px] text-[#94a3b8] mt-0.5 font-mono hint">PDF, PNG, JPG up to 15MB</p>
+              <p class="text-[10px] text-[#94a3b8] mt-1 font-mono hint">PDF, PNG, JPG up to 15MB</p>
             </div>
 
             <!-- Form Controls: OCR Engine & Dry Run -->
-            <div class="mt-3.5 space-y-3">
+            <div class="space-y-3.5">
               <div>
-                <label class="block text-[10px] font-medium uppercase tracking-wider text-[#94a3b8] mb-1 font-mono">OCR Engine:</label>
+                <label class="block text-[10px] font-medium uppercase tracking-wider text-[#94a3b8] mb-1 font-mono">OCR Engine Pipeline:</label>
                 <div class="relative">
                   <select id="ocr-select" class="w-full bg-[#0f141c] border border-[#232f42] px-3 py-1.5 text-[12px] text-[#dee2ee] focus:outline-none focus:ring-1 focus:ring-amber-500 focus:border-amber-500 appearance-none cursor-pointer">
                     <option value="">Auto (Config default)</option>
@@ -213,7 +215,7 @@
 
               <label class="flex items-center gap-2 cursor-pointer select-none py-0.5">
                 <input type="checkbox" id="dryrun-toggle" class="border-[#232f42] bg-[#0f141c] text-amber-500 focus:ring-amber-500 focus:ring-offset-0 h-3.5 w-3.5 rounded-none"/>
-                <span class="text-[11px] text-[#94a3b8]">Dry Run (skip DB ledger)</span>
+                <span class="text-[11px] text-[#94a3b8]">Dry Run (skip DB ledger write)</span>
               </label>
 
               <!-- Process Button -->
@@ -222,53 +224,69 @@
                 <span>Process Invoice</span>
               </button>
 
-              <!-- Ingestion Spinner -->
-              <div id="processing-spinner" class="spinner-container hidden">
-                <div class="spinner"></div>
-                <span id="spinner-text">Ingesting document...</span>
+              <!-- Real-time Processing Card -->
+              <div id="processing-spinner" class="pipeline-progress-card hidden">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-2">
+                    <span class="stage-pulse-dot"></span>
+                    <span id="spinner-stage-badge" class="stage-badge">Step 1 of 4</span>
+                  </div>
+                  <span id="spinner-timer" class="font-mono text-[11px] text-[#94a3b8]">0.0s</span>
+                </div>
+                <div class="mb-2">
+                  <div id="spinner-text" class="text-[12px] font-medium text-[#dee2ee] flex items-center gap-1.5">Extracting text...</div>
+                </div>
+                <div class="w-full bg-[#1a2434] h-1.5 overflow-hidden border border-[#232f42] rounded-none">
+                  <div id="spinner-bar-fill" class="bg-amber-500 h-full transition-all duration-300" style="width: 20%;"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- History & Active PO Tabs -->
-          <div class="flex-1 flex flex-col min-h-0 bg-[#131a24]">
-            <div class="grid grid-cols-2 border-b border-[#232f42] bg-[#0f141c] text-center">
-              <button class="tab-btn py-2 text-[11px] font-semibold text-amber-400 border-b-2 border-amber-500 bg-[#161f2c] font-mono uppercase active" data-tab="tab-history">
-                Ledger History
-              </button>
-              <button class="tab-btn py-2 text-[11px] text-[#94a3b8] hover:text-[#dee2ee] transition font-mono uppercase" data-tab="tab-pos">
-                Active POs
-              </button>
-            </div>
-
-            <!-- Tab 1: Ledger History -->
-            <div id="tab-history" class="tab-content active flex-1 overflow-y-auto custom-scroll">
-              <div id="history-list" class="divide-y divide-[#232f42]/60">
-                <div class="p-4 text-center text-[12px] text-[#64748b]">No processed invoices yet</div>
+          <!-- TAB 2: QUEUE & LEDGER (Second Tab) -->
+          <div id="panel-queue" class="hidden flex-col flex-1 min-h-0 divide-y divide-[#232f42] overflow-hidden">
+            <!-- Search & Filter Controls -->
+            <div class="p-3 bg-[#131a24] space-y-2 flex-shrink-0">
+              <div class="relative">
+                <input id="sidebar-search-input" class="w-full bg-[#0f141c] border border-[#232f42] px-2.5 py-1 text-[11px] text-[#dee2ee] placeholder-[#64748b] focus:outline-none focus:border-amber-500 font-mono tracking-tight pr-7" placeholder="Filter invoice #, vendor, PO..." type="text"/>
+                <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[#64748b] text-[14px] pointer-events-none">search</span>
+              </div>
+              <!-- Status Filter Chips -->
+              <div class="flex items-center gap-1 overflow-x-auto custom-scroll pb-0.5 pt-0.5 text-[10px] font-mono tracking-wider uppercase" id="sidebar-filter-chips">
+                <button class="sidebar-chip px-2 py-0.5 bg-amber-500 text-slate-950 font-bold whitespace-nowrap active cursor-pointer" data-filter="all">
+                  All (<span id="chip-cnt-all">0</span>)
+                </button>
+                <button class="sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-amber-500/30 text-amber-400/90 hover:bg-[#1a2434] transition whitespace-nowrap cursor-pointer" data-filter="review">
+                  Review (<span id="chip-cnt-review">0</span>)
+                </button>
+                <button class="sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-red-500/30 text-red-400 hover:bg-[#1a2434] transition whitespace-nowrap cursor-pointer" data-filter="rejected">
+                  Rejected (<span id="chip-cnt-rejected">0</span>)
+                </button>
+                <button class="sidebar-chip px-2 py-0.5 bg-[#161f2c] border border-emerald-500/30 text-emerald-400 hover:bg-[#1a2434] transition whitespace-nowrap cursor-pointer" data-filter="approved">
+                  Approved (<span id="chip-cnt-approved">0</span>)
+                </button>
               </div>
             </div>
 
-            <!-- Tab 2: Active POs -->
-            <div id="tab-pos" class="tab-content hidden flex-1 overflow-y-auto custom-scroll">
-              <div id="po-list" class="divide-y divide-[#232f42]/60">
-                <div class="p-4 text-center text-[12px] text-[#64748b]">Loading purchase orders...</div>
-              </div>
+            <!-- Ledger History List -->
+            <div id="history-list" class="divide-y divide-[#232f42]/60 overflow-y-auto custom-scroll flex-1 min-h-0 bg-[#0f141c]/60">
+              <div class="p-4 text-center text-[12px] text-[#64748b]">No processed invoices yet</div>
             </div>
+          </div>
 
-            <!-- Live Sync Footer matching Stitch Screen -->
-            <div class="p-3 bg-[#0f141c] border-t border-[#232f42] flex items-center justify-between text-[11px] text-[#94a3b8] font-mono">
-              <div class="flex items-center gap-1.5">
-                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                <span>Live Sync: Enabled</span>
-              </div>
-              <span class="text-[10px] text-[#64748b]">v2.4.1-rc</span>
+          <!-- Live Sync Footer matching Stitch Screen -->
+          <div class="p-2.5 bg-[#0f141c] border-t border-[#232f42] flex items-center justify-between text-[11px] text-[#94a3b8] font-mono flex-shrink-0">
+            <div class="flex items-center gap-1.5">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <span>Live Sync: Enabled</span>
             </div>
+            <span class="text-[10px] text-[#64748b]">v2.4.1-rc</span>
           </div>
         </div>
       </aside>
 
       <!-- ================= RIGHT MAIN WORKSPACE ================= -->
-      <div class="flex-1 min-w-0 px-4 sm:px-6 py-5 flex flex-col items-center">
+      <div id="main-content-scroll" class="flex-1 min-w-0 h-full overflow-y-auto custom-scroll px-4 sm:px-6 py-5 flex flex-col items-center">
         
         <!-- Empty Dashboard Placeholder -->
         <div id="empty-dashboard" class="w-full max-w-[1300px] bg-[#161f2c] border border-dashed border-[#232f42] p-12 text-center my-auto">
@@ -809,7 +827,7 @@
   </div>
 
   <!-- ================= WORKSPACE 2: BATCH PROCESSING MODE ================= -->
-  <div id="ws-batch" class="workspace-view hidden">
+  <div id="ws-batch" class="workspace-view hidden flex-1 min-h-0 w-full overflow-y-auto custom-scroll">
     <div class="workspace-container">
       
       <!-- Top Batch Upload & Staging Card -->
@@ -873,12 +891,19 @@
 
         <!-- Live Progress Bar -->
         <div id="batch-progress-container" class="p-4 border-t border-[#232f42] bg-[#0f141c] hidden">
-          <div class="flex items-center justify-between text-[11px] font-mono text-[#94a3b8] mb-1">
-            <span id="batch-progress-status">Processing file 1 of 5...</span>
+          <div class="flex items-center justify-between text-[11px] font-mono text-[#94a3b8] mb-1.5">
+            <span id="batch-progress-status" class="font-semibold text-[#dee2ee]">Processing file 1 of 5...</span>
             <span id="batch-progress-pct" class="text-amber-400 font-bold">20%</span>
           </div>
           <div class="w-full bg-[#1a2434] h-2 overflow-hidden border border-[#232f42]">
             <div id="batch-progress-bar-fill" class="bg-amber-500 h-full transition-all duration-300" style="width: 0%;"></div>
+          </div>
+          <div class="flex items-center justify-between mt-2 text-[11px]">
+            <div id="batch-progress-substatus" class="text-amber-300 font-mono flex items-center gap-2">
+              <span class="stage-pulse-dot"></span>
+              <span id="batch-substatus-text">Extracting text...</span>
+            </div>
+            <span id="batch-progress-timer" class="font-mono text-[10px] text-[#94a3b8]">0.0s</span>
           </div>
         </div>
       </section>
@@ -1001,7 +1026,7 @@
   </div>
 
   <!-- ================= WORKSPACE 3: PURCHASE ORDERS HUB ================= -->
-  <div id="ws-pos" class="workspace-view hidden">
+  <div id="ws-pos" class="workspace-view hidden flex-1 min-h-0 w-full overflow-y-auto custom-scroll">
     <div class="workspace-container">
       
       <!-- Top Summary Strip -->
@@ -1216,6 +1241,6 @@
   </div>
 
   <!-- Main JavaScript Controller -->
-  <script src="app.js?v=4.2"></script>
+  <script src="app.js?v=4.7"></script>
 </body>
 </html>

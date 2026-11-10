@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import mimetypes
 from pathlib import Path
@@ -8,7 +9,7 @@ import uuid
 from typing import List, Optional
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, UploadFile
 from fastapi.concurrency import run_in_threadpool
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 
 from invoice_pipeline.config import PipelineConfig
 from invoice_pipeline.models import BatchProcessResult, DecisionResult
@@ -74,6 +75,136 @@ async def process_batch_endpoint(
         force_ocr_engine=ocr_engine,
     )
     return result
+
+
+@router.post("/process/stream")
+async def process_invoice_stream_endpoint(
+    file: UploadFile = File(...),
+    dry_run: bool = Query(False),
+    ocr_engine: Optional[str] = Query(None),
+    config: PipelineConfig = Depends(get_config),
+):
+    upload_dir = Path(config.app.upload_dir)
+    upload_dir.mkdir(parents=True, exist_ok=True)
+
+    dest_file = upload_dir / f"{uuid.uuid4()}_{file.filename}"
+    try:
+        with open(dest_file, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+    finally:
+        file.file.close()
+
+    loop = asyncio.get_running_loop()
+    queue = asyncio.Queue()
+
+    def progress_cb(stage: str, msg: str, pct: float):
+        loop.call_soon_threadsafe(
+            queue.put_nowait,
+            {"type": "progress", "stage": stage, "message": msg, "pct": pct},
+        )
+
+    def worker():
+        try:
+            res = process_invoice(
+                dest_file,
+                config=config,
+                dry_run=dry_run,
+                force_ocr_engine=ocr_engine,
+                progress_callback=progress_cb,
+            )
+            loop.call_soon_threadsafe(
+                queue.put_nowait,
+                {"type": "complete", "result": res.model_dump(mode="json")},
+            )
+        except Exception as e:
+            loop.call_soon_threadsafe(
+                queue.put_nowait,
+                {"type": "error", "error": str(e)},
+            )
+        finally:
+            loop.call_soon_threadsafe(queue.put_nowait, None)
+
+    async def event_generator():
+        fut = loop.run_in_executor(None, worker)
+        while True:
+            item = await queue.get()
+            if item is None:
+                break
+            yield f"data: {json.dumps(item)}\n\n"
+        await fut
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
+@router.post("/batch/stream")
+async def process_batch_stream_endpoint(
+    files: List[UploadFile] = File(...),
+    dry_run: bool = Query(False),
+    ocr_engine: Optional[str] = Query(None),
+    config: PipelineConfig = Depends(get_config),
+):
+    upload_dir = Path(config.app.upload_dir)
+    upload_dir.mkdir(parents=True, exist_ok=True)
+
+    dest_paths = []
+    for f in files:
+        dest_file = upload_dir / f"{uuid.uuid4()}_{f.filename}"
+        try:
+            with open(dest_file, "wb") as buffer:
+                shutil.copyfileobj(f.file, buffer)
+            dest_paths.append(dest_file)
+        finally:
+            f.file.close()
+
+    loop = asyncio.get_running_loop()
+    queue = asyncio.Queue()
+
+    def batch_cb(event: dict):
+        loop.call_soon_threadsafe(queue.put_nowait, event)
+
+    def worker():
+        try:
+            process_invoice_batch(
+                dest_paths,
+                config=config,
+                dry_run=dry_run,
+                force_ocr_engine=ocr_engine,
+                batch_callback=batch_cb,
+            )
+        except Exception as e:
+            loop.call_soon_threadsafe(
+                queue.put_nowait,
+                {"type": "error", "error": str(e)},
+            )
+        finally:
+            loop.call_soon_threadsafe(queue.put_nowait, None)
+
+    async def event_generator():
+        fut = loop.run_in_executor(None, worker)
+        while True:
+            item = await queue.get()
+            if item is None:
+                break
+            yield f"data: {json.dumps(item)}\n\n"
+        await fut
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
 
 
 @router.get("")

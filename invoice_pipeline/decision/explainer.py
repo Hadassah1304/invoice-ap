@@ -7,6 +7,7 @@ from invoice_pipeline.models import (
     MatchResult,
     POBalanceSummary,
     ReasonCodeEnum,
+    ReasoningFactor,
     RuleResult,
     RuleStatusEnum,
 )
@@ -32,9 +33,9 @@ CRITICAL TONE & AUDIENCE RULES:
 4. STRUCTURE:
    - summary: A crisp 1-2 sentence executive overview explaining why this decision was taken.
    - reasoning: 3 to 5 concise, high-value bullet points:
-     * Bullet 1: Vendor verification (vendor matched, trading alias used, or entity mismatch).
+     * Bullet 1: Vendor verification (state clearly if vendor matches the purchase order, including GSTIN verification). If vendor_matched is true, confirm vendor alignment; do NOT report a mismatch based on internal vendor codes like 'V-STAT'.
      * Bullet 2: Line items and prices (items match/mismatch, price alignment or price drift).
-     * Bullet 3: Quantities and PO balance (within remaining quantities, partial milestone draw, or budget overrun).
+     * Bullet 3: Quantities and PO balance (within remaining quantities, partial milestone draw, or budget overrun). If is_partial_draw is true, recognize this as a valid partial milestone claim within budget headroom; do NOT report that the invoice total mismatches the PO total.
      * Bullet 4: Timeline and policy checks (dates, tax rates, arithmetic, or duplicate status).
 5. STRICT INTEGRITY:
    - NEVER contradict or change the provided decision (APPROVED, NEEDS_REVIEW, REJECTED).
@@ -44,12 +45,18 @@ Format your output strictly as a JSON object:
 {
   "summary": "1-2 sentence plain-language summary of why this decision was taken.",
   "reasoning": [
-    "Plain-language bullet on vendor status",
-    "Plain-language bullet on item and unit price matching",
-    "Plain-language bullet on quantity headroom and PO budget",
-    "Plain-language bullet on any dates, policies, or warnings"
+    {
+      "status": "PASSED | FLAGGED | REJECTED | INFO",
+      "text": "Plain-language bullet explaining this specific audit factor."
+    }
   ]
 }
+
+CRITICAL RULES FOR "status":
+- "PASSED": The factor was verified successfully and aligns with procurement rules (e.g. vendor entity matched, prices match PO, balance is fully covered without overspend).
+- "FLAGGED": The factor requires human review, has a soft discrepancy, or is missing a required date/field (e.g. missing invoice date, ambiguous PO match, price drift).
+- "REJECTED": The factor violates a strict rule and directly justifies rejecting the invoice (e.g. unapproved vendor, duplicate invoice, exceeded remaining quantity/headroom, closed PO).
+- "INFO": Neutral informational context.
 """
 
 
@@ -65,6 +72,7 @@ def generate_llm_reasoning(
     po_items: Optional[List[dict]] = None,
     early_messages: Optional[List[str]] = None,
     llm_client: Optional[Any] = None,
+    vendor_dict: Optional[dict] = None,
 ) -> Optional[Tuple[str, List[str], int, int]]:
     """
     Invokes the LLM with structured pipeline audit findings to produce
@@ -74,14 +82,40 @@ def generate_llm_reasoning(
     if not llm_client:
         return None
 
+    # Resolve PO vendor name and GSTIN
+    po_vendor_id = po_dict.get("vendor_id") if po_dict else None
+    po_vendor_name = None
+    po_vendor_gstin = None
+    if vendor_dict and po_dict:
+        if vendor_dict.get("vendor_id") == po_vendor_id or not po_vendor_id:
+            po_vendor_name = vendor_dict.get("name")
+            po_vendor_gstin = vendor_dict.get("gstin")
+    if not po_vendor_name and po_dict:
+        po_vendor_name = po_dict.get("vendor_name") or po_dict.get("vendor_id")
+
+    invoice_v_name = vendor_name or (extracted_invoice.vendor.name if extracted_invoice and extracted_invoice.vendor else "Unknown")
+    invoice_v_gstin = extracted_invoice.vendor.gstin if extracted_invoice and extracted_invoice.vendor else None
+
+    # Determine vendor match status
+    is_vendor_matched = False
+    if po_dict:
+        if vendor_dict and vendor_dict.get("vendor_id") == po_vendor_id:
+            is_vendor_matched = True
+        elif po_vendor_name and invoice_v_name and (po_vendor_name.lower().strip() == invoice_v_name.lower().strip()):
+            is_vendor_matched = True
+
     # Build structured factual context for LLM
     context: dict[str, Any] = {
         "decision": decision.value,
         "reason_code": reason_code.value,
         "vendor": {
-            "invoice_vendor": vendor_name or (extracted_invoice.vendor.name if extracted_invoice and extracted_invoice.vendor else "Unknown"),
-            "invoice_gstin": extracted_invoice.vendor.gstin if extracted_invoice and extracted_invoice.vendor else None,
-            "po_vendor": po_dict.get("vendor_id") if po_dict else None,
+            "invoice_vendor_name": invoice_v_name,
+            "invoice_gstin": invoice_v_gstin,
+            "po_vendor_name": po_vendor_name,
+            "po_vendor_gstin": po_vendor_gstin,
+            "po_vendor_id": po_vendor_id,
+            "vendor_matched": is_vendor_matched,
+            "vendor_match_status": "EXACT_MATCH" if is_vendor_matched else ("MISMATCH" if po_dict else "NO_PO"),
         },
     }
 
@@ -130,12 +164,27 @@ def generate_llm_reasoning(
         ]
 
     if po_balance:
+        po_tot = max(0.01, po_balance.po_total)
+        cov_pct = round((po_balance.this_invoice / po_tot) * 100.0, 1)
+        is_partial = po_balance.this_invoice < (po_balance.po_total - 0.01)
+        is_full = abs(po_balance.this_invoice - po_balance.po_total) <= 0.01
+
         context["po_balance"] = {
             "po_total": po_balance.po_total,
             "previously_billed": po_balance.previously_billed,
             "this_invoice": po_balance.this_invoice,
             "remaining_after": po_balance.remaining_after,
             "is_overspent": po_balance.remaining_after < 0,
+            "fulfillment": {
+                "is_partial_draw": is_partial,
+                "is_full_fulfillment": is_full,
+                "coverage_pct": f"{cov_pct}%",
+                "notes": (
+                    f"Valid partial/milestone claim drawing {cov_pct}% of the total PO commitment"
+                    if is_partial
+                    else "Full fulfillment claim covering 100% of PO commitment"
+                ),
+            },
         }
 
     notable_checks = [
@@ -159,11 +208,21 @@ def generate_llm_reasoning(
     try:
         data, in_tok, out_tok = llm_client.generate_json(REASONING_SYSTEM_PROMPT, user_prompt)
         summary = data.get("summary")
-        reasoning = data.get("reasoning")
-        if summary and isinstance(reasoning, list) and len(reasoning) > 0:
-            cleaned_bullets = [str(b).strip() for b in reasoning if str(b).strip()]
-            if cleaned_bullets:
-                return str(summary).strip(), cleaned_bullets, in_tok, out_tok
+        reasoning_raw = data.get("reasoning")
+        if summary and isinstance(reasoning_raw, list) and len(reasoning_raw) > 0:
+            cleaned_factors: List[ReasoningFactor] = []
+            for item in reasoning_raw:
+                if isinstance(item, dict):
+                    st = str(item.get("status", "INFO")).upper().strip()
+                    if st not in ("PASSED", "FLAGGED", "REJECTED", "INFO"):
+                        st = "INFO"
+                    tx = str(item.get("text", "")).strip()
+                    if tx:
+                        cleaned_factors.append(ReasoningFactor(status=st, text=tx))
+                elif isinstance(item, str) and item.strip():
+                    cleaned_factors.append(ReasoningFactor(status="INFO", text=item.strip()))
+            if cleaned_factors:
+                return str(summary).strip(), cleaned_factors, in_tok, out_tok
     except Exception:
         # LLM failure must NEVER crash the pipeline; fallback to template reasoning
         pass
@@ -185,6 +244,7 @@ def build_explanation(
     po_items: Optional[List[dict]] = None,
     llm_client: Optional[Any] = None,
     use_llm_polish: bool = False,
+    vendor_dict: Optional[dict] = None,
 ) -> tuple[str, List[str], int, int]:
     """Generates structured human-readable summary and bulleted reasoning points with full provenance."""
     # 1. Attempt LLM plain-language reasoning if enabled
@@ -201,47 +261,54 @@ def build_explanation(
             po_items=po_items,
             early_messages=early_messages,
             llm_client=llm_client,
+            vendor_dict=vendor_dict,
         )
         if llm_res:
             return llm_res
 
     # 2. Deterministic Template Fallback
-    reasoning: List[str] = []
+    reasoning: List[ReasoningFactor] = []
 
     # Inject early messages (e.g. PO typo suggestions, duplicate ledger citation, unapproved vendor notice)
     if early_messages:
         for msg in early_messages:
             if msg:
-                reasoning.append(f"[NOTICE] {msg}")
+                st = "REJECTED" if decision == DecisionEnum.REJECTED else "FLAGGED"
+                reasoning.append(ReasoningFactor(status=st, text=f"[NOTICE] {msg}"))
 
     # Vendor statement
     if vendor_name:
-        reasoning.append(f"Vendor identified as '{vendor_name}'.")
+        reasoning.append(ReasoningFactor(status="PASSED", text=f"Vendor identified as '{vendor_name}'."))
 
     # Match statement
     if match_result.method:
         if match_result.selected_po:
             reasoning.append(
-                f"Matched against purchase order {match_result.selected_po} via {match_result.method.value} matching."
+                ReasoningFactor(status="PASSED", text=f"Matched against purchase order {match_result.selected_po} via {match_result.method.value} matching.")
             )
         else:
-            reasoning.append(f"PO matching attempted via {match_result.method.value}; no definitive PO selected.")
+            reasoning.append(ReasoningFactor(status="FLAGGED", text=f"PO matching attempted via {match_result.method.value}; no definitive PO selected."))
 
     # Balance statement
     if po_balance:
+        st = "REJECTED" if po_balance.remaining_after < 0 else "PASSED"
         reasoning.append(
-            f"PO Total: {po_balance.po_total:.2f}, Previously Billed: {po_balance.previously_billed:.2f}, "
-            f"This Invoice: {po_balance.this_invoice:.2f}, Remaining After: {po_balance.remaining_after:.2f}."
+            ReasoningFactor(
+                status=st,
+                text=f"PO Total: {po_balance.po_total:.2f}, Previously Billed: {po_balance.previously_billed:.2f}, "
+                     f"This Invoice: {po_balance.this_invoice:.2f}, Remaining After: {po_balance.remaining_after:.2f}."
+            )
         )
 
     # Check results statements
     for r in rule_results:
         if r.status in (RuleStatusEnum.FAIL, RuleStatusEnum.FLAG, RuleStatusEnum.WARN):
-            reasoning.append(f"[{r.status.value}] {r.rule}: {r.message}")
+            st = "REJECTED" if r.status == RuleStatusEnum.FAIL else "FLAGGED"
+            reasoning.append(ReasoningFactor(status=st, text=f"[{r.status.value}] {r.rule}: {r.message}"))
 
     # Confidence transparency statement
     if confidence_formula:
-        reasoning.append(f"[CONFIDENCE FORMULA] Heuristic score calculation: {confidence_formula}")
+        reasoning.append(ReasoningFactor(status="INFO", text=f"[CONFIDENCE FORMULA] Heuristic score calculation: {confidence_formula}"))
 
     # Summary generator
     if decision == DecisionEnum.APPROVED:

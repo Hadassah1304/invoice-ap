@@ -87,6 +87,40 @@ def test_explainer_llm_reasoning_success():
     assert "SafePack Containers & Boxes" in user_prompt
 
 
+def test_explainer_llm_structured_status():
+    mock_llm = MagicMock()
+    mock_llm.generate_json.return_value = (
+        {
+            "summary": "Vendors match, but invoice date is missing.",
+            "reasoning": [
+                {"status": "PASSED", "text": "Vendor identified as Apex Stationery via exact GSTIN match."},
+                {"status": "PASSED", "text": "Line items match the purchase order exactly."},
+                {"status": "PASSED", "text": "Invoice total is fully covered by remaining balance."},
+                {"status": "FLAGGED", "text": "Invoice date could not be extracted and requires review."},
+            ],
+        },
+        100,
+        50,
+    )
+
+    match_res = MatchResult(tier=1, method="EXPLICIT", selected_po="PO-1")
+    summary, reasoning, in_tok, out_tok = build_explanation(
+        decision=DecisionEnum.NEEDS_REVIEW,
+        reason_code=ReasonCodeEnum.MISSING_FIELDS,
+        match_result=match_res,
+        rule_results=[],
+        vendor_name="Apex Stationery",
+        llm_client=mock_llm,
+        use_llm_polish=True,
+    )
+
+    assert len(reasoning) == 4
+    assert reasoning[0].status == "PASSED"
+    assert "Apex Stationery" in reasoning[0].text
+    assert reasoning[3].status == "FLAGGED"
+    assert "Invoice date" in reasoning[3].text
+
+
 def test_explainer_llm_fallback_on_error():
     mock_llm = MagicMock()
     mock_llm.generate_json.side_effect = RuntimeError("LLM rate limit / timeout")

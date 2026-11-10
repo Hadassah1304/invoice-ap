@@ -129,3 +129,52 @@ def test_api_batch_upload(test_setup):
     assert "batch_id" in data
     assert data["total_files"] == 2
     assert len(data["items"]) == 2
+
+
+def test_process_invoice_stream_endpoint(test_setup):
+    client, cfg, tmp_path = test_setup
+    files = {"file": ("stream_inv.pdf", b"%PDF-1.4 dummy single stream", "application/pdf")}
+
+    res = client.post("/api/invoices/process/stream?dry_run=true", files=files)
+    assert res.status_code == 200
+    assert "text/event-stream" in res.headers["content-type"]
+
+    events = []
+    for line in res.iter_lines():
+        if line.startswith("data: "):
+            payload = json.loads(line[len("data: "):])
+            events.append(payload)
+
+    # Must contain progress events and complete event
+    progress_stages = [e["stage"] for e in events if e.get("type") == "progress"]
+    assert "ingest" in progress_stages
+    complete_events = [e for e in events if e.get("type") == "complete"]
+    assert len(complete_events) == 1
+    assert "result" in complete_events[0]
+
+
+def test_process_batch_stream_endpoint(test_setup):
+    client, cfg, tmp_path = test_setup
+    files = [
+        ("files", ("stream_b1.pdf", b"%PDF-1.4 dummy batch 1", "application/pdf")),
+        ("files", ("stream_b2.pdf", b"%PDF-1.4 dummy batch 2", "application/pdf")),
+    ]
+
+    res = client.post("/api/invoices/batch/stream?dry_run=true", files=files)
+    assert res.status_code == 200
+    assert "text/event-stream" in res.headers["content-type"]
+
+    events = []
+    for line in res.iter_lines():
+        if line.startswith("data: "):
+            payload = json.loads(line[len("data: "):])
+            events.append(payload)
+
+    types = [e.get("type") for e in events]
+    assert "file_start" in types
+    assert "file_done" in types
+    assert "batch_done" in types
+
+    file_done_events = [e for e in events if e.get("type") == "file_done"]
+    assert len(file_done_events) == 2
+    assert file_done_events[0]["stats"]["total_files"] == 2

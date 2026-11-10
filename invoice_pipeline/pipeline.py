@@ -5,7 +5,7 @@ import datetime
 import json
 from pathlib import Path
 import time
-from typing import Any, Dict, Optional
+from typing import Any, Callable, Dict, Optional
 import uuid
 
 from invoice_pipeline.config import PipelineConfig, load_config
@@ -65,6 +65,7 @@ def process_invoice(
     force_ocr_engine: Optional[str] = None,
     target_invoice_id: Optional[int] = None,
     as_of_date: Optional[datetime.date] = None,
+    progress_callback: Optional[Callable[[str, str, float], None]] = None,
 ) -> DecisionResult:
     """
     Main pipeline entry point.
@@ -102,6 +103,11 @@ def process_invoice(
                     data["file_name"] = cached_row["file_name"]
                 if cached_row.get("file_path"):
                     data["file_path"] = cached_row["file_path"]
+                if progress_callback:
+                    try:
+                        progress_callback("cache", "Retrieved from cache...", 1.0)
+                    except Exception:
+                        pass
                 conn.close()
                 return DecisionResult(**data)
             except Exception:
@@ -109,6 +115,11 @@ def process_invoice(
         recorder.end_stage("cache_check", status="ok", summary="No cache hit")
 
     # 2. Ingest and Text Extraction
+    if progress_callback:
+        try:
+            progress_callback("ingest", "Extracting text...", 0.20)
+        except Exception:
+            pass
     recorder.start_stage("ingest", inputs_summary=f"file: {path.name}, force_ocr: {force_ocr_engine}")
     start_ocr_ns = time.perf_counter_ns()
 
@@ -149,6 +160,11 @@ def process_invoice(
     )
 
     # 3. LLM Extraction
+    if progress_callback:
+        try:
+            progress_callback("extraction", "Extracting invoice fields and items...", 0.45)
+        except Exception:
+            pass
     recorder.start_stage("extraction", inputs_summary=f"mode: {cfg.llm.extraction.input_mode}")
     start_llm_ns = time.perf_counter_ns()
     extractor = Extractor(cfg.llm)
@@ -384,6 +400,11 @@ def process_invoice(
         recorder.end_stage("duplicate_check", status="ok", summary="No duplicate found in ledger")
 
     # 11. PO Matching
+    if progress_callback:
+        try:
+            progress_callback("matching", "Matching purchase orders...", 0.70)
+        except Exception:
+            pass
     recorder.start_stage("po_matching")
     start_match_ns = time.perf_counter_ns()
     embedder = get_embedder(cfg.embeddings.backend, cfg.embeddings.model_name)
@@ -520,6 +541,11 @@ def process_invoice(
     recorder.end_stage("decision", status="ok", summary=f"{decision.value} ({reason_code.value}), conf {confidence_score:.2f}")
 
     # 14. Explanation
+    if progress_callback:
+        try:
+            progress_callback("explanation", "Validating rules & generating AP reasoning...", 0.90)
+        except Exception:
+            pass
     recorder.start_stage("explanation")
     v_display_name = resolved_vendor.get("name") if resolved_vendor else (extracted.vendor.name or None)
     summary_text, reasoning_list, exp_in, exp_out = build_explanation(
@@ -536,6 +562,7 @@ def process_invoice(
         po_items=po_items,
         llm_client=extractor.llm_client if extractor else None,
         use_llm_polish=cfg.llm.explanation.use_llm_polish,
+        vendor_dict=resolved_vendor,
     )
     in_tokens += exp_in
     out_tokens += exp_out
@@ -727,6 +754,12 @@ def process_invoice(
     else:
         conn.close()
 
+    if progress_callback:
+        try:
+            progress_callback("complete", "Finalizing decision...", 1.0)
+        except Exception:
+            pass
+
     return decision_result
 
 
@@ -793,6 +826,7 @@ def process_invoice_batch(
     dry_run: bool = False,
     force_ocr_engine: Optional[str] = None,
     as_of_date: Optional[datetime.date] = None,
+    batch_callback: Optional[Callable[[dict], None]] = None,
 ) -> BatchProcessResult:
     """
     Processes a list of invoice files sequentially one-by-one.
@@ -810,12 +844,41 @@ def process_invoice_batch(
     failed_count = 0
     confidence_sum = 0.0
 
-    for fp in file_paths:
+    for idx, fp in enumerate(file_paths):
         path = Path(fp)
         file_name = path.name
         file_size = path.stat().st_size if path.exists() and path.is_file() else 0
         item_start_ns = time.perf_counter_ns()
         processed_ts = datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+        if batch_callback:
+            try:
+                batch_callback({
+                    "type": "file_start",
+                    "file_index": idx,
+                    "total_files": len(file_paths),
+                    "file_name": file_name,
+                    "file_size_bytes": file_size,
+                })
+            except Exception:
+                pass
+
+        def _item_stage_cb(stage: str, msg: str, pct: float):
+            if batch_callback:
+                try:
+                    overall = round(((idx + pct) / len(file_paths)) * 100, 1)
+                    batch_callback({
+                        "type": "file_progress",
+                        "file_index": idx,
+                        "total_files": len(file_paths),
+                        "file_name": file_name,
+                        "stage": stage,
+                        "message": msg,
+                        "file_pct": pct,
+                        "overall_pct": overall,
+                    })
+                except Exception:
+                    pass
 
         try:
             res = process_invoice(
@@ -824,6 +887,7 @@ def process_invoice_batch(
                 dry_run=dry_run,
                 force_ocr_engine=force_ocr_engine,
                 as_of_date=as_of_date,
+                progress_callback=_item_stage_cb,
             )
             item_duration_ms = (time.perf_counter_ns() - item_start_ns) // 1_000_000
 
@@ -867,6 +931,29 @@ def process_invoice_batch(
             )
             items.append(item_result)
 
+            if batch_callback:
+                try:
+                    valid_cnt = approved_count + needs_review_count + rejected_count
+                    cur_avg_conf = round(confidence_sum / valid_cnt, 4) if valid_cnt > 0 else 0.0
+                    batch_callback({
+                        "type": "file_done",
+                        "file_index": idx,
+                        "total_files": len(file_paths),
+                        "file_name": file_name,
+                        "item": item_result.model_dump(mode="json"),
+                        "stats": {
+                            "total_files": len(file_paths),
+                            "processed_count": len(items),
+                            "approved_count": approved_count,
+                            "needs_review_count": needs_review_count,
+                            "rejected_count": rejected_count,
+                            "failed_count": failed_count,
+                            "avg_confidence": cur_avg_conf,
+                        },
+                    })
+                except Exception:
+                    pass
+
         except Exception as e:
             item_duration_ms = (time.perf_counter_ns() - item_start_ns) // 1_000_000
             failed_count += 1
@@ -881,11 +968,34 @@ def process_invoice_batch(
             )
             items.append(item_result)
 
+            if batch_callback:
+                try:
+                    valid_cnt = approved_count + needs_review_count + rejected_count
+                    cur_avg_conf = round(confidence_sum / valid_cnt, 4) if valid_cnt > 0 else 0.0
+                    batch_callback({
+                        "type": "file_done",
+                        "file_index": idx,
+                        "total_files": len(file_paths),
+                        "file_name": file_name,
+                        "item": item_result.model_dump(mode="json"),
+                        "stats": {
+                            "total_files": len(file_paths),
+                            "processed_count": len(items),
+                            "approved_count": approved_count,
+                            "needs_review_count": needs_review_count,
+                            "rejected_count": rejected_count,
+                            "failed_count": failed_count,
+                            "avg_confidence": cur_avg_conf,
+                        },
+                    })
+                except Exception:
+                    pass
+
     total_duration_ms = (time.perf_counter_ns() - start_total_ns) // 1_000_000
     valid_decisions_count = approved_count + needs_review_count + rejected_count
     avg_conf = round(confidence_sum / valid_decisions_count, 4) if valid_decisions_count > 0 else 0.0
 
-    return BatchProcessResult(
+    batch_res = BatchProcessResult(
         batch_id=batch_id,
         total_files=len(file_paths),
         processed_count=len(items),
@@ -897,4 +1007,15 @@ def process_invoice_batch(
         total_duration_ms=total_duration_ms,
         items=items,
     )
+
+    if batch_callback:
+        try:
+            batch_callback({
+                "type": "batch_done",
+                "batch": batch_res.model_dump(mode="json"),
+            })
+        except Exception:
+            pass
+
+    return batch_res
 

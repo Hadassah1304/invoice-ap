@@ -2,9 +2,13 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 from pathlib import Path
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+
+# Load environment overrides from .env for the API server
+load_dotenv(override=True)
 
 from invoice_pipeline.config import load_config
 from invoice_pipeline.store.db import checkpoint_db, init_db
