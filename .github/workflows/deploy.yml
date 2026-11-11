@@ -13,7 +13,7 @@ env:
 jobs:
   test:
     name: Run Unit Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -26,8 +26,15 @@ jobs:
 
       - name: Install system dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y tesseract-ocr libgl1 libglib2.0-0 sqlite3
+          for i in 1 2 3; do
+            echo "Attempt $i: Updating apt and installing dependencies..."
+            if sudo apt-get update && sudo apt-get install -y --no-install-recommends tesseract-ocr libgl1 libglib2.0-0 sqlite3; then
+              echo "Dependencies installed successfully."
+              break
+            fi
+            echo "Attempt $i failed. Retrying in 10s..."
+            sleep 10
+          done
 
       - name: Install Python package & test dependencies
         run: |
@@ -42,7 +49,7 @@ jobs:
   build-and-deploy:
     name: Build, Push to Docker Hub & Deploy to ACA
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
