@@ -26,15 +26,10 @@ jobs:
 
       - name: Install system dependencies
         run: |
-          for i in 1 2 3; do
-            echo "Attempt $i: Updating apt and installing dependencies..."
-            if sudo apt-get update && sudo apt-get install -y --no-install-recommends tesseract-ocr libgl1 libglib2.0-0 sqlite3; then
-              echo "Dependencies installed successfully."
-              break
-            fi
-            echo "Attempt $i failed. Retrying in 10s..."
-            sleep 10
-          done
+          # Replace failing Azure regional mirror with primary Ubuntu mirror & enforce 5s timeout
+          sudo sed -i 's/azure\.archive\.ubuntu\.com/archive\.ubuntu\.com/g' /etc/apt/sources.list /etc/apt/sources.list.d/* /etc/apt/apt-mirrors.txt 2>/dev/null || true
+          sudo apt-get update -o Acquire::Retries=1 -o Acquire::http::Timeout=5 || true
+          sudo apt-get install -y --no-install-recommends tesseract-ocr libgl1 libglib2.0-0 sqlite3 || true
 
       - name: Install Python package & test dependencies
         run: |
