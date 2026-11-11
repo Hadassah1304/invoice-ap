@@ -87,3 +87,41 @@ def test_tier2_inferred_clear_winner(db_with_three_burgers):
     res, reason, msg = router.route_match(None, vendor, lines, 200.0, "2026-10-15")
     assert res.selected_po == "PO-B"
     assert res.method.value == "INFERRED_VENDOR"
+
+
+def test_tier1_typo_fuzzy_match_needs_review(db_with_three_burgers):
+    conn, embedder, index = db_with_three_burgers
+    cfg = MatchingConfig()
+    cfg.tier1.fuzzy_threshold = 75.0
+    router = MatchingRouter(conn, cfg, embedder, index)
+
+    lines = [ExtractedLineItem(line_no=1, description="Veg Burger", quantity=2, unit_price=100, line_total=200)]
+    vendor = {"vendor_id": "V1", "name": "Burger Town"}
+
+    # Typo on PO-A: "PO-AA" (fuzz.ratio("PO-AA", "PO-A") is 80% >= 75%)
+    res, reason, msg = router.route_match("PO-AA", vendor, lines, 200.0, "2026-10-15")
+    assert reason == ReasonCodeEnum.INVALID_PO_REF
+    assert len(res.candidates) > 0
+    candidate_ids = [c.po_id for c in res.candidates]
+    assert "PO-A" in candidate_ids
+    # Line items should be scored
+    po_a_cand = next(c for c in res.candidates if c.po_id == "PO-A")
+    assert po_a_cand.score > 0.5
+    assert len(po_a_cand.line_matches) == 1
+    assert "PO-A" in msg
+
+
+def test_tier1_nonexistent_po_directly_rejected(db_with_three_burgers):
+    conn, embedder, index = db_with_three_burgers
+    cfg = MatchingConfig()
+    cfg.tier1.fuzzy_threshold = 75.0
+    router = MatchingRouter(conn, cfg, embedder, index)
+
+    lines = [ExtractedLineItem(line_no=1, description="Veg Burger", quantity=2, unit_price=100, line_total=200)]
+    vendor = {"vendor_id": "V1", "name": "Burger Town"}
+
+    # Completely non-existent PO
+    res, reason, msg = router.route_match("PO-XYZ-99999", vendor, lines, 200.0, "2026-10-15")
+    assert reason == ReasonCodeEnum.NO_MATCHING_PO
+    assert len(res.candidates) == 0
+    assert "not found" in msg.lower()

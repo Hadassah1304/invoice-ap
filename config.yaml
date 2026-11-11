@@ -63,6 +63,8 @@ duplicates:
   invoice_no_similarity_threshold: 0.92
 
 matching:
+  tier1:
+    fuzzy_threshold: 75.0              # rapidfuzz ratio threshold for explicit PO typo matching
   tier2:
     min_score: 0.80
     min_margin: 0.15

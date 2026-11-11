@@ -104,6 +104,10 @@ class DuplicatesConfig(BaseModel):
     invoice_no_similarity_threshold: float = 0.92
 
 
+class Tier1Config(BaseModel):
+    fuzzy_threshold: float = 75.0
+
+
 class Tier2Config(BaseModel):
     min_score: float = 0.80
     min_margin: float = 0.15
@@ -142,6 +146,7 @@ class WeightsConfig(BaseModel):
 
 
 class MatchingConfig(BaseModel):
+    tier1: Tier1Config = Field(default_factory=Tier1Config)
     tier2: Tier2Config = Field(default_factory=Tier2Config)
     tier3: Tier3Config = Field(default_factory=Tier3Config)
     line_match: LineMatchConfig = Field(default_factory=LineMatchConfig)

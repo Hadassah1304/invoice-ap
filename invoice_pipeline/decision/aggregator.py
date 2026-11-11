@@ -100,11 +100,9 @@ def aggregate_decision(
     # 3. Early review
     if early_review_code:
         review.required = True
-        if early_review_code == ReasonCodeEnum.AMBIGUOUS_PO:
+        if early_review_code in (ReasonCodeEnum.AMBIGUOUS_PO, ReasonCodeEnum.INVALID_PO_REF):
             opts = [c.po_id for c in match_result.candidates]
             review.actions.append(ReviewAction(type="select_po", options=opts))
-        elif early_review_code == ReasonCodeEnum.INVALID_PO_REF:
-            review.actions.append(ReviewAction(type="select_po"))
         elif early_review_code == ReasonCodeEnum.VENDOR_UNCLEAR:
             review.actions.append(ReviewAction(type="confirm_vendor"))
         elif early_review_code == ReasonCodeEnum.DUPLICATE_POSSIBLE:

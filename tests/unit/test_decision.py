@@ -51,3 +51,23 @@ def test_decision_precedence():
     dec4, code4, rev4 = aggregate_decision(None, None, None, None, match, [], cfg)
     assert dec4 == DecisionEnum.APPROVED
     assert code4 == ReasonCodeEnum.OK
+
+    # 5. Non-existent Cited PO -> Direct Reject (NO_MATCHING_PO)
+    dec5, code5, rev5 = aggregate_decision(
+        ReasonCodeEnum.NO_MATCHING_PO, "Referenced PO 'PO-BOGUS' not found in procurement system.", None, None, MatchResult(tier=1, method=MatchMethodEnum.EXPLICIT), [], cfg
+    )
+    assert dec5 == DecisionEnum.REJECTED
+    assert code5 == ReasonCodeEnum.NO_MATCHING_PO
+
+    # 6. PO Typo with Candidates -> Review with select_po action options (INVALID_PO_REF)
+    cand = POCandidate(po_id="PO-CLOSE", score=0.92, signals={}, line_matches=[])
+    match_typo = MatchResult(tier=1, method=MatchMethodEnum.EXPLICIT, candidates=[cand])
+    dec6, code6, rev6 = aggregate_decision(
+        None, None, ReasonCodeEnum.INVALID_PO_REF, "Close match found", match_typo, [], cfg
+    )
+    assert dec6 == DecisionEnum.NEEDS_REVIEW
+    assert code6 == ReasonCodeEnum.INVALID_PO_REF
+    assert rev6.required is True
+    assert len(rev6.actions) == 1
+    assert rev6.actions[0].type == "select_po"
+    assert rev6.actions[0].options == ["PO-CLOSE"]

@@ -58,18 +58,84 @@ class MatchingRouter:
             clean_po_id = po_reference.strip().upper()
             po = self.po_repo.get_by_id(clean_po_id)
             if not po:
-                all_pos = self.po_repo.list_by_vendor(resolved_vendor["vendor_id"]) if resolved_vendor else []
-                if not all_pos:
-                    cur = self.conn.execute("SELECT po_id FROM purchase_orders LIMIT 50")
-                    all_pos = [dict(r) for r in cur.fetchall()]
-                suggestions = [
-                    p["po_id"] for p in all_pos
-                    if fuzz.ratio(clean_po_id, p["po_id"]) > 70
-                ]
-                msg = f"Referenced PO '{po_reference}' not found in procurement system."
-                if suggestions:
-                    msg += f" Did you mean: {', '.join(suggestions)}?"
-                return MatchResult(tier=1, method=MatchMethodEnum.EXPLICIT), ReasonCodeEnum.INVALID_PO_REF, msg
+                fuzzy_thresh = getattr(getattr(self.config, "tier1", None), "fuzzy_threshold", 75.0)
+
+                # Waterfall Step 1: Candidate retrieval and fuzzy match
+                # Check resolved vendor's open/partial POs first if vendor is known
+                vendor_matching_pos = []
+                if resolved_vendor:
+                    v_pos = self.po_repo.list_by_vendor(resolved_vendor["vendor_id"], statuses=["OPEN", "PARTIAL"])
+                    vendor_matching_pos = [
+                        p for p in v_pos
+                        if fuzz.ratio(clean_po_id, p["po_id"].upper()) >= fuzzy_thresh
+                    ]
+
+                # If vendor POs match, prioritize them; otherwise search open/partial POs system-wide
+                if vendor_matching_pos:
+                    candidate_pos = vendor_matching_pos
+                else:
+                    open_pos = self.po_repo.list_all(statuses=["OPEN", "PARTIAL"])
+                    candidate_pos = [
+                        p for p in open_pos
+                        if fuzz.ratio(clean_po_id, p["po_id"].upper()) >= fuzzy_thresh
+                    ]
+
+                # If still no candidates found among open/partial POs, check all POs (e.g. CLOSED) to give clear diagnostics
+                if not candidate_pos:
+                    all_pos = self.po_repo.list_all()
+                    candidate_pos = [
+                        p for p in all_pos
+                        if fuzz.ratio(clean_po_id, p["po_id"].upper()) >= fuzzy_thresh
+                    ]
+
+                # If no candidate in the procurement system meets the fuzzy threshold:
+                # Directly reject! (NO_MATCHING_PO triggers terminal rejection)
+                if not candidate_pos:
+                    msg = f"Referenced PO '{po_reference}' not found in procurement system."
+                    return MatchResult(tier=1, method=MatchMethodEnum.EXPLICIT, candidates=[]), ReasonCodeEnum.NO_MATCHING_PO, msg
+
+                # Waterfall Step 2: If we have multiple candidates and vendor is known, filter down by vendor if possible
+                if resolved_vendor and len(candidate_pos) > 1:
+                    same_vendor_pos = [p for p in candidate_pos if p.get("vendor_id") == resolved_vendor["vendor_id"]]
+                    if same_vendor_pos:
+                        candidate_pos = same_vendor_pos
+
+                # Waterfall Step 3: Match line items and score candidates
+                scored_candidates: List[POCandidate] = []
+                for p in candidate_pos:
+                    p_items = self.item_repo.list_by_po(
+                        p["po_id"],
+                        exclude_invoice_id=self.exclude_invoice_id,
+                    )
+                    consumed = self.inv_repo.get_po_consumed_amount(
+                        p["po_id"],
+                        include_pending=True,
+                        exclude_invoice_id=self.exclude_invoice_id,
+                    )
+                    l_matches = [
+                        self.item_matcher.match_line_to_po_items(l.line_no or idx + 1, l.description, p_items)
+                        for idx, l in enumerate(invoice_lines)
+                    ]
+                    cand = score_candidate_po(
+                        p, p_items, invoice_lines, l_matches, invoice_total, consumed, invoice_date, self.config
+                    )
+                    scored_candidates.append(cand)
+
+                # Sort candidates by composite match score descending
+                scored_candidates.sort(key=lambda c: c.score, reverse=True)
+
+                suggestions = [c.po_id for c in scored_candidates]
+                msg = f"Referenced PO '{po_reference}' not found. Close matches found: {', '.join(suggestions)}."
+                return (
+                    MatchResult(
+                        tier=1,
+                        method=MatchMethodEnum.EXPLICIT,
+                        selected_po=None,
+                        candidates=scored_candidates,
+                    ),
+                    ReasonCodeEnum.INVALID_PO_REF,
+                    msg,
+                )
 
             # Vendor check
             if resolved_vendor and po["vendor_id"] != resolved_vendor["vendor_id"]:

@@ -74,6 +74,15 @@ class PORepo:
             cur = self.conn.execute("SELECT * FROM purchase_orders WHERE vendor_id = ?", (vendor_id,))
         return [dict(r) for r in cur.fetchall()]
 
+    def list_all(self, statuses: Optional[List[str]] = None) -> List[dict]:
+        if statuses:
+            placeholders = ",".join("?" for _ in statuses)
+            query = f"SELECT * FROM purchase_orders WHERE status IN ({placeholders})"
+            cur = self.conn.execute(query, statuses)
+        else:
+            cur = self.conn.execute("SELECT * FROM purchase_orders")
+        return [dict(r) for r in cur.fetchall()]
+
     def update_status(self, po_id: str, status: str) -> None:
         self.conn.execute("UPDATE purchase_orders SET status = ? WHERE po_id = ?", (status, po_id))
 

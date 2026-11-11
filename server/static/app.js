@@ -954,6 +954,30 @@ function renderReviewPanel(review, isManualOverride = false) {
   }
 }
 
+function getCitedPoReference(item) {
+  if (!item) return null;
+  if (item.extracted?.po_reference?.value) {
+    const v = String(item.extracted.po_reference.value).trim();
+    return v || null;
+  }
+  if (item.po_reference) {
+    const v = String(item.po_reference).trim();
+    return v || null;
+  }
+  if (item.decision_json) {
+    try {
+      const parsed = typeof item.decision_json === 'string' ? JSON.parse(item.decision_json) : item.decision_json;
+      if (parsed?.extracted?.po_reference?.value) {
+        const v = String(parsed.extracted.po_reference.value).trim();
+        return v || null;
+      }
+    } catch (e) {
+      // ignore
+    }
+  }
+  return null;
+}
+
 function renderSnapshotBar(result, currentPoId) {
   const ext = result.extracted || {};
   const curr = ext.currency?.value || 'INR';
@@ -964,6 +988,21 @@ function renderSnapshotBar(result, currentPoId) {
 
   const totalVal = ext.grand_total?.value != null ? Number(ext.grand_total.value).toFixed(2) : '0.00';
   setText('snap-total', `${curr} ${Number(totalVal).toLocaleString()}`);
+
+  // Document PO Citation status
+  const poRefEl = $('snap-po-ref');
+  if (poRefEl) {
+    const citedPo = getCitedPoReference(result);
+    if (citedPo) {
+      poRefEl.textContent = `✓ #${citedPo}`;
+      poRefEl.className = 'inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+      poRefEl.title = `Referenced PO on invoice document: #${citedPo}`;
+    } else {
+      poRefEl.textContent = '✕ NOT REFERENCED';
+      poRefEl.className = 'inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold font-mono bg-slate-800 text-[#94a3b8] border border-slate-700';
+      poRefEl.title = 'No purchase order cited on this invoice document';
+    }
+  }
 
   const poEl = $('snap-po');
   if (poEl) {
@@ -1018,6 +1057,35 @@ function renderSideBySide(result, targetPoId, poDetail) {
 
   // Find candidate matching info for active PO
   const candidate = (result.match?.candidates || []).find(c => c.po_id === targetPoId);
+
+  // 0. PO Reference Citation Alignment
+  const citedPo = getCitedPoReference(result);
+  setText('diff-inv-poref', citedPo ? `#${citedPo}` : 'None Cited');
+  setText('diff-inv-poref-sub', citedPo ? 'Explicitly cited on document' : 'No PO cited on document');
+  setText('diff-po-poref', targetPoId ? `#${targetPoId}` : 'No Active PO');
+  setText('diff-po-poref-sub', targetPoId ? 'Procurement Master Record' : '—');
+
+  const poRefStatus = $('diff-poref-status');
+  const poRefSub = $('diff-poref-sub');
+  if (poRefStatus) {
+    if (!citedPo) {
+      poRefStatus.className = 'diff-status-pill status-neutral';
+      poRefStatus.textContent = 'NO PO CITED';
+      if (poRefSub) poRefSub.textContent = targetPoId ? 'PO inferred via vendor and item catalog verification' : 'No PO cited or matched';
+    } else if (targetPoId && citedPo.toUpperCase() === targetPoId.toUpperCase()) {
+      poRefStatus.className = 'diff-status-pill status-match';
+      poRefStatus.textContent = 'EXACT PO CITATION MATCH';
+      if (poRefSub) poRefSub.textContent = `Document cites #${citedPo}, exactly matching procurement order #${targetPoId}`;
+    } else if (targetPoId) {
+      poRefStatus.className = 'diff-status-pill status-drift';
+      poRefStatus.textContent = 'PO NUMBER VARIANCE / CANDIDATE';
+      if (poRefSub) poRefSub.textContent = `Document cites #${citedPo}; evaluating candidate PO #${targetPoId}`;
+    } else {
+      poRefStatus.className = 'diff-status-pill status-mismatch';
+      poRefStatus.textContent = 'PO NOT FOUND IN SYSTEM';
+      if (poRefSub) poRefSub.textContent = `Document cites #${citedPo}, which was not found in procurement records`;
+    }
+  }
 
   // 1. Vendor Alignment
   const poVendor = poDetail?.vendor?.name || poDetail?.po?.vendor_id || (targetPoId ? 'Catalog Master' : '—');
@@ -2132,6 +2200,7 @@ function appendHistoryItem(inv, list) {
   }
 
   const ts = formatTimestamp(inv.created_at);
+  const citedPo = getCitedPoReference(inv);
   const div = document.createElement('div');
   div.className = rowClass;
   div.dataset.invoiceId = String(inv.invoice_id);
@@ -2146,9 +2215,11 @@ function appendHistoryItem(inv, list) {
       <p class="text-[11px] text-[#94a3b8] truncate font-sans">
         ${escapeHtml(inv.vendor_id || 'Unknown')} · Total: <span class="font-mono text-amber-400/90 font-semibold">${inv.currency || 'INR'} ${inv.total != null ? Number(inv.total).toLocaleString('en-IN') : '—'}</span>
       </p>
-      <div class="flex items-center gap-2 text-[10px] text-[#64748b] font-mono">
+      <div class="flex items-center gap-1.5 text-[10px] text-[#64748b] font-mono flex-wrap">
         <span>${escapeHtml(ts.relative || ts.exact)}</span>
-        ${inv.po_id ? `<span>·</span><span>${escapeHtml(inv.po_id)}</span>` : ''}
+        <span>·</span>
+        ${citedPo ? `<span class="text-emerald-400 font-semibold" title="Explicitly cited on invoice">✓ PO: #${escapeHtml(citedPo)}</span>` : '<span class="text-[#64748b]">✕ No PO Cited</span>'}
+        ${inv.po_id ? `<span class="text-[#94a3b8]">→ ${escapeHtml(inv.po_id)}</span>` : ''}
       </div>
     </div>
     <div class="flex flex-col items-end gap-1 flex-shrink-0">
@@ -2791,12 +2862,17 @@ function renderBatchTable() {
     const invoiceNoDisplay = item.invoice_no ? `#${escapeHtml(item.invoice_no)}` : '—';
     const amountDisplay = item.total != null ? `${item.currency || '₹'} ${Number(item.total).toLocaleString('en-IN')}` : '—';
     const reasonDisplay = item.reason_code ? `<span class="reason-code-badge" style="font-size:0.7rem; padding:2px 6px;">${escapeHtml(item.reason_code)}</span>` : (item.error_message ? `<span class="hint text-red">${escapeHtml(item.error_message)}</span>` : '—');
+    const citedPo = getCitedPoReference(item);
+    const poCitationBadge = citedPo
+      ? `<div class="mt-1"><span class="inline-flex items-center gap-1 px-1.5 py-0.2 text-[9px] font-bold font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">✓ PO: #${escapeHtml(citedPo)}</span></div>`
+      : `<div class="mt-1"><span class="inline-flex items-center gap-1 px-1.5 py-0.2 text-[9px] font-mono text-slate-500 bg-slate-800/60 border border-slate-700/60">✕ No PO Cited</span></div>`;
 
     tr.innerHTML = `
       <td>${rankBadge}</td>
       <td>
         <strong>${invoiceNoDisplay}</strong>
         <div class="hint" title="${escapeHtml(item.file_name)}">${escapeHtml(item.file_name)}</div>
+        ${poCitationBadge}
       </td>
       <td>
         <div><strong>${escapeHtml(item.vendor_name || item.vendor_id || 'Unknown')}</strong></div>
